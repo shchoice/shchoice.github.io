@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-31T15:09:44.000Z" title="2022. 11. 1. 오전 12:09:44">2022-11-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-11-02T14:54:36.534Z" title="2022. 11. 2. 오후 11:54:36">2022-11-02</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">클린코드</a></span><span class="level-item">12 minutes read (About 1839 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Clean%20Code/Clean-Code/">Clean Code</a></h1><div class="content"><p>Chap01 깨끗한 코드 &amp; Chap02 의미있는 이름</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-31T15:09:44.000Z" title="2022. 11. 1. 오전 12:09:44">2022-11-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-11-03T14:51:29.162Z" title="2022. 11. 3. 오후 11:51:29">2022-11-03</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">클린코드</a></span><span class="level-item">14 minutes read (About 2154 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Clean%20Code/Clean-Code/">Clean Code</a></h1><div class="content"><p>Chap01 깨끗한 코드 &amp; Chap02 의미있는 이름</p>
 <p>클린코드와 그 첫걸음 네이밍</p>
 <ol>
 <li><p>나쁜 코드 란 무엇인가</p>
@@ -208,6 +208,48 @@
 </ul>
 </li>
 </ol>
+<h3 id="2-간결한-함수-작성하기"><a href="#2-간결한-함수-작성하기" class="headerlink" title="2. 간결한 함수 작성하기"></a>2. 간결한 함수 작성하기</h3><ul>
+<li><p>작게 쪼갠다.</p>
+<ul>
+<li>함수 내 추상화 수준을 동일하게 맞춘다.</li>
+<li>계산과 타입관리를 분리</li>
+<li>타입에 대한처리는 최대한 Factory에서만</li>
+</ul>
+</li>
+<li><p>함수 인수</p>
+<ul>
+<li>인수의 갯수는 0-2개가 적당하다.</li>
+<li>3개 이상인 경우에는?</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">//객체를</span> <span class="string">인자로</span> <span class="string">넘기기</span> <span class="string">(굳)</span></span><br><span class="line"><span class="string">Circle</span> <span class="string">makeCirlce(double</span> <span class="string">x,</span> <span class="string">double</span> <span class="string">y,</span> <span class="string">double</span> <span class="string">radius);</span> <span class="string">배드</span></span><br><span class="line"><span class="string">Circle</span> <span class="string">makeCircle(Point</span> <span class="string">center,</span> <span class="string">double</span> <span class="string">radius);</span> <span class="string">굳</span></span><br><span class="line"></span><br><span class="line"><span class="string">//</span> <span class="string">가변</span> <span class="string">인자를</span> <span class="string">넘기기</span> <span class="number">0</span><span class="string">&gt;</span> <span class="string">특별한</span> <span class="string">경우가</span> <span class="string">아니면</span> <span class="string">잘..</span></span><br><span class="line"><span class="string">String.format(String</span> <span class="string">format,</span> <span class="string">Object...</span> <span class="string">args);</span></span><br><span class="line"><span class="string">//객체를</span> <span class="string">통해</span> <span class="string">인자를</span> <span class="string">넘기는</span> <span class="string">것이</span> <span class="string">가장</span> <span class="string">많이</span> <span class="string">사용됨</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-안전한-함수-작성하기"><a href="#3-안전한-함수-작성하기" class="headerlink" title="3. 안전한 함수 작성하기"></a>3. 안전한 함수 작성하기</h3><ul>
+<li>부수효과(Side Effect) 없는 함수<ul>
+<li>부수효과?<ul>
+<li>값을 반환하는 함수가 외부 상태를 변경하는 경우</li>
+<li>함수와 관계없는 외부 상태를 변경시킴</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-함수-리팩터링"><a href="#4-함수-리팩터링" class="headerlink" title="4. 함수 리팩터링"></a>4. 함수 리팩터링</h3><ul>
+<li>3단계<ul>
+<li>기능을 구현하는 서투른 함수를 작성한다.<ul>
+<li>길고, 복잡하고, 중복도 있다</li>
+</ul>
+</li>
+<li>테스트 코드를 작성한다<ul>
+<li>함수 내부의 분기와 엣지값마다 빠짐없이 테스트하는 코드를 짠다</li>
+</ul>
+</li>
+<li>리팩터링을 한다<ul>
+<li>코드를 다듬고, 함수를 쪼개고 이름을 바꾸고, 중복을 제거한다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-27T06:46:02.000Z" title="2022. 10. 27. 오후 3:46:02">2022-10-27</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-10-31T00:23:32.917Z" title="2022. 10. 31. 오전 9:23:32">2022-10-31</time></span><span class="level-item"><a class="link-muted" href="/categories/REST/">REST</a></span><span class="level-item">2 minutes read (About 293 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/REST/RESTful-API%EB%A5%BC-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%9C-%EC%9B%90%EC%B9%99/">RESTful API를 구현하기 위한 원칙</a></h1><div class="content"><h2 id="REST-란"><a href="#REST-란" class="headerlink" title="REST 란"></a>REST 란</h2><ul>
 <li>REST는 Representational state transfer 의 약자로 WWW과 같은 분산 하이퍼미디어 시스템에서 운영되는 소프트웨어 아키텍처 스타일</li>
 <li>REST는 HTTP&#x2F;1.1 스펙과 동시에 만들어졌는데, HTTP 프로토콜을 정확히 의도에 맞게 활용하여 디자인하게 유도<ul>
