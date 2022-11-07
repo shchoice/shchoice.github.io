@@ -59,7 +59,7 @@
 <blockquote>
 <p><strong>레퍼런스</strong><br><a target="_blank" rel="noopener" href="https://www.jopenbusiness.com/mediawiki/ElasticSearch_-_REST_API">https://www.jopenbusiness.com/mediawiki/ElasticSearch_-_REST_API</a> <a target="_blank" rel="noopener" href="https://pcloud.tistory.com/16">https://pcloud.tistory.com/16</a></p>
 </blockquote>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-31T15:09:44.000Z" title="2022. 11. 1. 오전 12:09:44">2022-11-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-11-06T14:51:12.216Z" title="2022. 11. 6. 오후 11:51:12">2022-11-06</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">클린코드</a></span><span class="level-item">16 minutes read (About 2428 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Clean%20Code/Clean-Code/">Clean Code</a></h1><div class="content"><p>Chap01 깨끗한 코드 &amp; Chap02 의미있는 이름</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-31T15:09:44.000Z" title="2022. 11. 1. 오전 12:09:44">2022-11-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-11-07T14:57:25.748Z" title="2022. 11. 7. 오후 11:57:25">2022-11-07</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">클린코드</a></span><span class="level-item">17 minutes read (About 2595 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Clean%20Code/Clean-Code/">Clean Code</a></h1><div class="content"><p>Chap01 깨끗한 코드 &amp; Chap02 의미있는 이름</p>
 <p>클린코드와 그 첫걸음 네이밍</p>
 <ol>
 <li><p>나쁜 코드 란 무엇인가</p>
@@ -295,6 +295,20 @@
 <li>코드는 컴파일되어 호출되지만, 주석은 그저 주석이기 때문에 그 자리에 방치되고 결국 의미없는 텍스트가 되어버림</li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<h3 id="3-좋은-주석"><a href="#3-좋은-주석" class="headerlink" title="3. 좋은 주석"></a>3. 좋은 주석</h3><ul>
+<li><p>구현에 대한 정보를 제공</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Pattern</span> <span class="variable">timeFormat</span> <span class="operator">=</span> Patern.compile(<span class="string">&quot;\\\\d*:\\\\d:\\\\d* \\\\w*, \\\\w* \\\\d* \\\\d*&quot;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>의도와 중요성을 설명</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 스레드를 많이 생성하여 시스템에 영향을 끼쳐 테스트를 만들도록 함</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">25000</span>; i++) &#123;</span><br><span class="line">		<span class="type">SomeThread</span> <span class="variable">someThread</span> <span class="operator">=</span> ThreadBuilder.builder().build();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 유저로부터 입력받을 값을 지정할 때 trim으로 공백제거 필요</span></span><br><span class="line"><span class="type">String</span> <span class="variable">userName</span> <span class="operator">=</span> userNameInput.trim();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>TODO, FIXME 주석</p>
+<ul>
+<li>TODO : 앞으로 할 일, 지금은 해결하지 않지만 나중에 해야할 일을 미리 적어둘 때</li>
+<li>FIXME : 문제가 있지만, 당장 수정할 필요는 없을 때, 가능하면 빨리 수정하는게 좋음</li>
 </ul>
 </li>
 </ul>
