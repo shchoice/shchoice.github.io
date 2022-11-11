@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/Java/">Java</a></li><li class="is-active"><a href="#" aria-current="page">클린코드</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-31T15:09:44.000Z" title="2022. 11. 1. 오전 12:09:44">2022-11-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-11-10T14:45:16.850Z" title="2022. 11. 10. 오후 11:45:16">2022-11-10</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">클린코드</a></span><span class="level-item">21 minutes read (About 3076 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Clean%20Code/Clean-Code/">Clean Code</a></h1><div class="content"><p>Chap01 깨끗한 코드 &amp; Chap02 의미있는 이름</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/Java/">Java</a></li><li class="is-active"><a href="#" aria-current="page">클린코드</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-31T15:09:44.000Z" title="2022. 11. 1. 오전 12:09:44">2022-11-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-11-11T14:53:09.147Z" title="2022. 11. 11. 오후 11:53:09">2022-11-11</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">클린코드</a></span><span class="level-item">22 minutes read (About 3261 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Clean%20Code/Clean-Code/">Clean Code</a></h1><div class="content"><p>Chap01 깨끗한 코드 &amp; Chap02 의미있는 이름</p>
 <p>클린코드와 그 첫걸음 네이밍</p>
 <ol>
 <li><p>나쁜 코드 란 무엇인가</p>
@@ -320,6 +320,19 @@
 </ul>
 </li>
 <li>포맷팅으로 인해 코드를 잘못해석해 버그를 발생할 수 있는 위험을 줄임</li>
+</ul>
+</li>
+</ul>
+<h3 id="포맷팅-규칙"><a href="#포맷팅-규칙" class="headerlink" title="포맷팅 규칙"></a>포맷팅 규칙</h3><ul>
+<li>적절한 행 길이를 유지하라<ul>
+<li>작은 파일이 큰 파일보다 읽기가 편하다.</li>
+<li>500줄을 넘기지 않고 200줄 정도의 파일을 작성해도 충분히 대규모 시스템을 구축할 수 있음</li>
+<li>코드 길이를 200줄 정도로 제한하는 것은 반드시 지킬 엄격한 규칙은 아니지만, 일반적으로 큰 파일보다는 작은 파일이 이해하기 쉽다.</li>
+<li>코드 길이가 200라인을 넘긴다면 SRP 원칙을 위배하고 있을 가능성이 있다<ul>
+<li>클래스가 여러 개의 일을 하고 있을 수 있기 때문</li>
+</ul>
+</li>
+<li>현업에서도 대부분의 코드들은 200라인 내로 유지함</li>
 </ul>
 </li>
 </ul>
