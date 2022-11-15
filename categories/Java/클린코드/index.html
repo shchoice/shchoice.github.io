@@ -31,7 +31,41 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/Java/">Java</a></li><li class="is-active"><a href="#" aria-current="page">클린코드</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-31T15:09:44.000Z" title="2022. 11. 1. 오전 12:09:44">2022-11-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-11-11T14:53:09.147Z" title="2022. 11. 11. 오후 11:53:09">2022-11-11</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">클린코드</a></span><span class="level-item">22 minutes read (About 3261 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Clean%20Code/Clean-Code/">Clean Code</a></h1><div class="content"><p>Chap01 깨끗한 코드 &amp; Chap02 의미있는 이름</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/Java/">Java</a></li><li class="is-active"><a href="#" aria-current="page">클린코드</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-31T15:09:44.000Z" title="2022. 11. 1. 오전 12:09:44">2022-11-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-11-15T14:54:18.579Z" title="2022. 11. 15. 오후 11:54:18">2022-11-15</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">클린코드</a></span><span class="level-item">25 minutes read (About 3692 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Clean%20Code/Clean-Code/">Clean Code</a></h1><div class="content"><h1 id="Chap01-깨끗한-코드"><a href="#Chap01-깨끗한-코드" class="headerlink" title="Chap01 깨끗한 코드"></a>Chap01 깨끗한 코드</h1><h2 id="코드는-앞으로도-여전히-중요하다"><a href="#코드는-앞으로도-여전히-중요하다" class="headerlink" title="코드는 앞으로도 여전히 중요하다"></a>코드는 앞으로도 여전히 중요하다</h2><p>인공지능 등의 기술의 발전으로 인해 코드를 자동으로 생성하는 시대가 오기 때문에, 프로그래머는 필요가 없어질까??</p>
+<p>이 책에서는 그것이 불가능하다고 한다.</p>
+<p>Why⁉️</p>
+<ol>
+<li><p>코드는 요구사항을 상세히 표현하는 수단</p>
+<p>이기 때문!</p>
+<ul>
+<li>어느정도 수준에 도달하면 코드의 도움 없이는 요구사항을 상세히 표현하기란 불가능</li>
+</ul>
+</li>
+<li><p>추상화가 불가능하기 때문</p>
+</li>
+</ol>
+<h2 id="나쁜-코드"><a href="#나쁜-코드" class="headerlink" title="나쁜 코드"></a>나쁜 코드</h2><h3 id="나쁜-코드란-무엇인가"><a href="#나쁜-코드란-무엇인가" class="headerlink" title="나쁜 코드란 무엇인가"></a>나쁜 코드란 무엇인가</h3><ol>
+<li>WTF가 분당 빈도수가 많을수록 나쁜 코드(&#x3D;법규형을 얼마나 많이 찾느냐)<ul>
+<li>알아보기 힘든 코드는 어쩔 수 없이 나올 수 밖에 없다. 하지만 나쁜 코드란 “WTF”이라고 나오는 빈도가 얼마나 많이 나오느냐이다</li>
+</ul>
+</li>
+</ol>
+<p><img src="/img/java/Clean_Code/bad_code.png" alt="Bad Code"></p>
+<h3 id="나쁜-코드를-짜는-이유"><a href="#나쁜-코드를-짜는-이유" class="headerlink" title="나쁜 코드를 짜는 이유"></a>나쁜 코드를 짜는 이유</h3><ol>
+<li>일정이 촉박<ul>
+<li>일정 안에 새로운 기능을 완성시켜야 함<ul>
+<li>하지만 나쁜 코드는 **<code>팀 생산성을 저하시키기 때문에 오히려 일정을 지연</code>**시키게 만든다.</li>
+</ul>
+</li>
+<li>우리 모두는 자신이 처음에 나이브하게 짠 코드를 보면서 나중에 손보겠다고 생각하지만 **<code>나중은 결코 오지 않는다**.</code>(르블랑의 법칙)</li>
+</ul>
+</li>
+<li>영향 범위가 넓어서<ul>
+<li>생각보다 영향 범위가 넓어서 건드렸다가 다른 부분에 버그가 발생할까봐. 하지만 기술 부채는 부메랑처럼 우리에게로 돌아옴</li>
+</ul>
+</li>
+</ol>
+<p>Chap01 깨끗한 코드 &amp; Chap02 의미있는 이름</p>
 <p>클린코드와 그 첫걸음 네이밍</p>
 <ol>
 <li><p>나쁜 코드 란 무엇인가</p>
