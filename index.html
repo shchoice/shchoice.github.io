@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-11-29T08:37:38.000Z" title="2022. 11. 29. 오후 5:37:38">2022-11-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-11-29T08:39:47.478Z" title="2022. 11. 29. 오후 5:39:47">2022-11-29</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">함수형 프로그래밍</a></span><span class="level-item">a minute read (About 130 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java-FP/">Java FP</a></h1><div class="content"><h1 id="자바인액션"><a href="#자바인액션" class="headerlink" title="자바인액션"></a>자바인액션</h1><h1 id="1장-자바-8-9-10-11-무슨-일이-일어나고-있는가"><a href="#1장-자바-8-9-10-11-무슨-일이-일어나고-있는가" class="headerlink" title="1장 자바 8,9,10,11 무슨 일이 일어나고 있는가?"></a>1장 자바 8,9,10,11 무슨 일이 일어나고 있는가?</h1><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-11-29T08:37:38.000Z" title="2022. 11. 29. 오후 5:37:38">2022-11-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-01T14:41:44.681Z" title="2022. 12. 1. 오후 11:41:44">2022-12-01</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">함수형 프로그래밍</a></span><span class="level-item">3 minutes read (About 450 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java-FP/">Java FP</a></h1><div class="content"><h1 id="자바인액션"><a href="#자바인액션" class="headerlink" title="자바인액션"></a>자바인액션</h1><h1 id="1장-자바-8-9-10-11-무슨-일이-일어나고-있는가"><a href="#1장-자바-8-9-10-11-무슨-일이-일어나고-있는가" class="headerlink" title="1장 자바 8,9,10,11 무슨 일이 일어나고 있는가?"></a>1장 자바 8,9,10,11 무슨 일이 일어나고 있는가?</h1><ul>
 <li>JDK(1.0) : 1996년</li>
 <li>Java7 : 2011년</li>
 <li>Java8 : 2014년 3월</li>
@@ -47,6 +47,29 @@
 </ul>
 <p>Java에 부여되는 시대적 변화 요구</p>
 <p>Java 8, Java 9의 새로운 핵심 기능 소개</p>
+<h2 id="프로그래밍-언어-생태계에서-자바의-위치"><a href="#프로그래밍-언어-생태계에서-자바의-위치" class="headerlink" title="프로그래밍 언어 생태계에서 자바의 위치"></a>프로그래밍 언어 생태계에서 자바의 위치</h2><ul>
+<li>초창기<ul>
+<li>많은 유용한 라이브러리를 포함하는 잘 설계된 객체지향 언어로 출발</li>
+<li>스레드와 락을 이용한 동시성 지원</li>
+<li>인터넷 애플릿 프로그램의 주요 언어가 됨<ul>
+<li>코드를 JVM 바이트 코드로 컴파일하는  특징 때문( 모든 브라우저에서 가상 머신 코드를 지원)</li>
+</ul>
+</li>
+<li>캡슐화 덕분에 C에 비해 소프트웨어 엔지니어링적인 문제가 훨씬 적었음</li>
+</ul>
+</li>
+<li>하지만 프로그래밍 언어 생태계에 변화의 바람<ul>
+<li>빅데이터(테라바이트 이상의 데이터셋) 라는 도전에 직면하면서 멀티코어 컴퓨터나 컴퓨팅 클러스터를 이용해서 빅데이터를 효과적으로 처리할 필요성이 커짐<ul>
+<li>병렬 프로세싱을 활용해야 하는데7까지의 자바로는  충분히 대응하기 어려웠음</li>
+</ul>
+</li>
+<li>하지만 Java8을 통해 효과적으로 대응<ul>
+<li>병렬성을 활용하는 코드, 간결한 코드를 구현할 수 있도록 Java 8 에서 제공하는 기능인 3 가지 프로그래밍 개념을 제시</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-11-24T12:42:36.000Z" title="2022. 11. 24. 오후 9:42:36">2022-11-24</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-11-24T12:53:32.040Z" title="2022. 11. 24. 오후 9:53:32">2022-11-24</time></span><span class="level-item"><a class="link-muted" href="/categories/TDD/">TDD</a></span><span class="level-item">a minute read (About 214 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/TDD/">TDD</a></h1><div class="content"><p>회사에서 개발하는 솔루션이 어느새 브런치 여러개로 쪼개지게 되었다. 신규 기능이 추가되거나 유지보수를 수행할 때 하나의 부분을 고치면 3개를 수정해야하며 모두 테스트를 해야한다. 다른 회사라면 이미 여러가지 방법으로 테스트 코드로 검증을 하겠지만… 이런 저런 내부 사정으로 인해 테스트 코드가 없다. 따라서 junit&#x2F;Unittest 로 코드 테스트를 하고 Jenkins로 빌드 테스트를 하고 관리도구 웹페이지는 Selenium 등으로 테스트를 수행을 하려고한다. 깊은 지식이 없기에 해당내용에 대해 공부하면서 안정적으로 솔루션을 관리하는 역량을 키워보자!</p>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-11-22T14:43:45.000Z" title="2022. 11. 22. 오후 11:43:45">2022-11-22</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-11-22T14:47:21.247Z" title="2022. 11. 22. 오후 11:47:21">2022-11-22</time></span><span class="level-item"><a class="link-muted" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/">인공지능</a><span> / </span><a class="link-muted" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90/">개념</a></span><span class="level-item">a minute read (About 149 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Efficient-Classification-of-Long-Documents-Using-Transformers/">Efficient Classification of Long Documents Using Transformers</a></h1><div class="content"><p>업무로 KoBERT Model을 통해 Text Classification을 수행하면서 2가지의 궁금증이 있었다.</p>
 <ul>
