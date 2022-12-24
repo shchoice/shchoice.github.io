@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-23T14:56:49.537Z" title="2022. 12. 23. 오후 11:56:49">2022-12-23</time></span><span class="level-item">7 minutes read (About 1113 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-24T14:52:20.705Z" title="2022. 12. 24. 오후 11:52:20">2022-12-24</time></span><span class="level-item">11 minutes read (About 1632 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
 <ul>
 <li>의존 관계 주입(Dependency injection)이라고도 불림</li>
 <li>객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김<ul>
@@ -157,6 +157,71 @@
 </ul>
 </li>
 </ul>
+<h3 id="Autowire"><a href="#Autowire" class="headerlink" title="@Autowire"></a>@Autowire</h3><p>필요한 의존 객체의 “타입”에 해당하는 빈을 찾아서 주입</p>
+<p>@Autowired</p>
+<ul>
+<li>required: 기본값은 true(따라서 못찾으면 애플리케이션 구동 실패)</li>
+</ul>
+<p>사용할 수 있는 위치</p>
+<ul>
+<li>생성자 ( 스프링 4.3 부터는 생략 가능)</li>
+<li>Setter</li>
+<li>Feild</li>
+</ul>
+<p>경우의 수</p>
+<ul>
+<li>해당 타입의 빈이 없는 경우</li>
+<li>해당 타입의 빈이 한 개인 경우</li>
+<li>해당 타입의 빈이 여러 개인 경우<ul>
+<li>빈 이름으로 시도<ul>
+<li>같은 이름의 빈 찾으면 해당 빈 사용</li>
+<li>같은 이름 못 찾으면 실패</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>같은 타입의 빈이 여러개 일 때</p>
+<ul>
+<li>@Primary</li>
+<li>해당 타입의 빈 모두 주입 받기</li>
+<li>@Qualifier(빈 이름으로 주입)<ul>
+<li>primary가 더 type safe 하기에 primary를 사용하는 것이 더 나음</li>
+</ul>
+</li>
+</ul>
+<p>동작원리</p>
+<ul>
+<li>첫 시간에 잠깐 언급했던 빈 라이프 사이클을 기억하세요?</li>
+<li>BeanPostProcessor<ul>
+<li>새로 만든 빈 인스턴스를 수정할 수 있는 라이프 사이클 인터페이스</li>
+</ul>
+</li>
+<li>AutowiredAnnotationBeanPostProcessor extends BeanPostProcessor<ul>
+<li>스프링이 제공하는 @Autowired와 @Value 어노테이션 그리고 JSR-330의 @Inject 애노테이션을 지원하는 애노테이션 처리기</li>
+</ul>
+</li>
+</ul>
+<p>어떻게 Sptring Container 안에 빈을 생성할 수 있을까?</p>
+<ol>
+<li>Component Scan<ul>
+<li>@Component<ul>
+<li>@Repository</li>
+<li>@Service</li>
+<li>@Controller</li>
+<li>@Configuration</li>
+</ul>
+</li>
+<li>@SpringBootApplication 을 들어가서 보면 @ComponentScan 을 확인할 수 있음, 그래서 특별히 작성 안해도 다 빈을 찾고 등록함. 만약 다른 패키지에서 의존성을 주입하는 코드가 있다면 스캔이 되지 않음, 스캔의 범위가 있다. 만약에 코드 작성중 의존성 주입이 잘 되지 않는다면 ComponentScan 범위를 확인해보자</li>
+<li>주요기능<ul>
+<li>스캔 위치 설정</li>
+<li>필터 : 어떤 어노테이션을 스캔할지 또는 하지 않을지</li>
+</ul>
+</li>
+<li>굳이 단점이라면 싱글톤 타입일 경우 초기 구동 시간이 느려질 수 있다. 만약에 이를 대처하려면 펑션을 사용한 빈 등록 방법이 있다.(리플렉션과 프록시를 사용하지 않기 때문)</li>
+</ul>
+</li>
+</ol>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-01T15:02:02.000Z" title="2022. 12. 2. 오전 12:02:02">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-02T00:26:52.716Z" title="2022. 12. 2. 오전 9:26:52">2022-12-02</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-Basic/">Spring Basic</a></span><span class="level-item">a few seconds read (About 0 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java-Spring/">Java Spring</a></h1><div class="content"></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-11-29T08:37:38.000Z" title="2022. 11. 29. 오후 5:37:38">2022-11-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-06T14:48:47.586Z" title="2022. 12. 6. 오후 11:48:47">2022-12-06</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">함수형 프로그래밍</a></span><span class="level-item">7 minutes read (About 1029 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java-FP/">Java FP</a></h1><div class="content"><h1 id="자바인액션"><a href="#자바인액션" class="headerlink" title="자바인액션"></a>자바인액션</h1><h1 id="1장-자바-8-9-10-11-무슨-일이-일어나고-있는가"><a href="#1장-자바-8-9-10-11-무슨-일이-일어나고-있는가" class="headerlink" title="1장 자바 8,9,10,11 무슨 일이 일어나고 있는가?"></a>1장 자바 8,9,10,11 무슨 일이 일어나고 있는가?</h1><h2 id="자바의-역사"><a href="#자바의-역사" class="headerlink" title="자바의 역사"></a>자바의 역사</h2><ul>
 <li>JDK(1.0) : 1996년</li>
 <li>Java7 : 2011년</li>

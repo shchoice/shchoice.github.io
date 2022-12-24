@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Shawn&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Shawn&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon_sh.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Shawn&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="스프링 IoC와 빈IoC(Inversion of Control, 제어권의 역전)란 무엇인가  의존 관계 주입(Dependency injection)이라고도 불림 객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김 객체의 생성을 책임지고 의존성을 관리 POJO 의 생성, 초기화, 서비스 , 소멸에 대한 권한을 갖음 개발자들이"><meta property="og:type" content="blog"><meta property="og:title" content="Shawn&#039;s Blog"><meta property="og:url" content="http://example.com/Spring-Framework/"><meta property="og:site_name" content="Shawn&#039;s Blog"><meta property="og:description" content="스프링 IoC와 빈IoC(Inversion of Control, 제어권의 역전)란 무엇인가  의존 관계 주입(Dependency injection)이라고도 불림 객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김 객체의 생성을 책임지고 의존성을 관리 POJO 의 생성, 초기화, 서비스 , 소멸에 대한 권한을 갖음 개발자들이"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/og_image.png"><meta property="article:published_time" content="2022-12-08T14:45:12.428Z"><meta property="article:modified_time" content="2022-12-23T14:56:49.537Z"><meta property="article:author" content="Shawn Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/Spring-Framework/"},"headline":"Shawn's Blog","image":["http://example.com/img/og_image.png"],"datePublished":"2022-12-08T14:45:12.428Z","dateModified":"2022-12-23T14:56:49.537Z","author":{"@type":"Person","name":"Shawn Choi"},"publisher":{"@type":"Organization","name":"Shawn's Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.svg"}},"description":"스프링 IoC와 빈IoC(Inversion of Control, 제어권의 역전)란 무엇인가  의존 관계 주입(Dependency injection)이라고도 불림 객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김 객체의 생성을 책임지고 의존성을 관리 POJO 의 생성, 초기화, 서비스 , 소멸에 대한 권한을 갖음 개발자들이"}</script><link rel="canonical" href="http://example.com/Spring-Framework/"><link rel="icon" href="/img/favicon_sh.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-D7QRVGYDET" async></script><script>window.dataLayer = window.dataLayer || [];
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Shawn&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Shawn&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon_sh.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Shawn&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="스프링 IoC와 빈IoC(Inversion of Control, 제어권의 역전)란 무엇인가  의존 관계 주입(Dependency injection)이라고도 불림 객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김 객체의 생성을 책임지고 의존성을 관리 POJO 의 생성, 초기화, 서비스 , 소멸에 대한 권한을 갖음 개발자들이"><meta property="og:type" content="blog"><meta property="og:title" content="Shawn&#039;s Blog"><meta property="og:url" content="http://example.com/Spring-Framework/"><meta property="og:site_name" content="Shawn&#039;s Blog"><meta property="og:description" content="스프링 IoC와 빈IoC(Inversion of Control, 제어권의 역전)란 무엇인가  의존 관계 주입(Dependency injection)이라고도 불림 객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김 객체의 생성을 책임지고 의존성을 관리 POJO 의 생성, 초기화, 서비스 , 소멸에 대한 권한을 갖음 개발자들이"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/og_image.png"><meta property="article:published_time" content="2022-12-08T14:45:12.428Z"><meta property="article:modified_time" content="2022-12-24T14:52:20.705Z"><meta property="article:author" content="Shawn Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/Spring-Framework/"},"headline":"Shawn's Blog","image":["http://example.com/img/og_image.png"],"datePublished":"2022-12-08T14:45:12.428Z","dateModified":"2022-12-24T14:52:20.705Z","author":{"@type":"Person","name":"Shawn Choi"},"publisher":{"@type":"Organization","name":"Shawn's Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.svg"}},"description":"스프링 IoC와 빈IoC(Inversion of Control, 제어권의 역전)란 무엇인가  의존 관계 주입(Dependency injection)이라고도 불림 객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김 객체의 생성을 책임지고 의존성을 관리 POJO 의 생성, 초기화, 서비스 , 소멸에 대한 권한을 갖음 개발자들이"}</script><link rel="canonical" href="http://example.com/Spring-Framework/"><link rel="icon" href="/img/favicon_sh.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-D7QRVGYDET" async></script><script>window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
     
@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-23T14:56:49.537Z" title="2022. 12. 23. 오후 11:56:49">2022-12-23</time></span><span class="level-item">7 minutes read (About 1113 words)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-24T14:52:20.705Z" title="2022. 12. 24. 오후 11:52:20">2022-12-24</time></span><span class="level-item">11 minutes read (About 1632 words)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
 <ul>
 <li>의존 관계 주입(Dependency injection)이라고도 불림</li>
 <li>객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김<ul>
@@ -157,7 +157,72 @@
 </ul>
 </li>
 </ul>
-</div><div class="article-licensing box"><div class="licensing-title"><p><a href="http://example.com/Spring-Framework/">http://example.com/Spring-Framework/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Shawn Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-12-08</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-12-23</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creativFe-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Java-Spring/"><span class="level-item">Java Spring</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+<h3 id="Autowire"><a href="#Autowire" class="headerlink" title="@Autowire"></a>@Autowire</h3><p>필요한 의존 객체의 “타입”에 해당하는 빈을 찾아서 주입</p>
+<p>@Autowired</p>
+<ul>
+<li>required: 기본값은 true(따라서 못찾으면 애플리케이션 구동 실패)</li>
+</ul>
+<p>사용할 수 있는 위치</p>
+<ul>
+<li>생성자 ( 스프링 4.3 부터는 생략 가능)</li>
+<li>Setter</li>
+<li>Feild</li>
+</ul>
+<p>경우의 수</p>
+<ul>
+<li>해당 타입의 빈이 없는 경우</li>
+<li>해당 타입의 빈이 한 개인 경우</li>
+<li>해당 타입의 빈이 여러 개인 경우<ul>
+<li>빈 이름으로 시도<ul>
+<li>같은 이름의 빈 찾으면 해당 빈 사용</li>
+<li>같은 이름 못 찾으면 실패</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>같은 타입의 빈이 여러개 일 때</p>
+<ul>
+<li>@Primary</li>
+<li>해당 타입의 빈 모두 주입 받기</li>
+<li>@Qualifier(빈 이름으로 주입)<ul>
+<li>primary가 더 type safe 하기에 primary를 사용하는 것이 더 나음</li>
+</ul>
+</li>
+</ul>
+<p>동작원리</p>
+<ul>
+<li>첫 시간에 잠깐 언급했던 빈 라이프 사이클을 기억하세요?</li>
+<li>BeanPostProcessor<ul>
+<li>새로 만든 빈 인스턴스를 수정할 수 있는 라이프 사이클 인터페이스</li>
+</ul>
+</li>
+<li>AutowiredAnnotationBeanPostProcessor extends BeanPostProcessor<ul>
+<li>스프링이 제공하는 @Autowired와 @Value 어노테이션 그리고 JSR-330의 @Inject 애노테이션을 지원하는 애노테이션 처리기</li>
+</ul>
+</li>
+</ul>
+<p>어떻게 Sptring Container 안에 빈을 생성할 수 있을까?</p>
+<ol>
+<li>Component Scan<ul>
+<li>@Component<ul>
+<li>@Repository</li>
+<li>@Service</li>
+<li>@Controller</li>
+<li>@Configuration</li>
+</ul>
+</li>
+<li>@SpringBootApplication 을 들어가서 보면 @ComponentScan 을 확인할 수 있음, 그래서 특별히 작성 안해도 다 빈을 찾고 등록함. 만약 다른 패키지에서 의존성을 주입하는 코드가 있다면 스캔이 되지 않음, 스캔의 범위가 있다. 만약에 코드 작성중 의존성 주입이 잘 되지 않는다면 ComponentScan 범위를 확인해보자</li>
+<li>주요기능<ul>
+<li>스캔 위치 설정</li>
+<li>필터 : 어떤 어노테이션을 스캔할지 또는 하지 않을지</li>
+</ul>
+</li>
+<li>굳이 단점이라면 싱글톤 타입일 경우 초기 구동 시간이 느려질 수 있다. 만약에 이를 대처하려면 펑션을 사용한 빈 등록 방법이 있다.(리플렉션과 프록시를 사용하지 않기 때문)</li>
+</ul>
+</li>
+</ol>
+</div><div class="article-licensing box"><div class="licensing-title"><p><a href="http://example.com/Spring-Framework/">http://example.com/Spring-Framework/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Shawn Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-12-08</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-12-24</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creativFe-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Java-Spring/"><span class="level-item">Java Spring</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
             this.page.url = 'http://example.com/Spring-Framework/';
             this.page.identifier = 'Spring-Framework/';
         };
