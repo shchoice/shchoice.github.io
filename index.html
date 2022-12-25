@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-24T14:52:20.705Z" title="2022. 12. 24. 오후 11:52:20">2022-12-24</time></span><span class="level-item">11 minutes read (About 1632 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-25T14:46:12.230Z" title="2022. 12. 25. 오후 11:46:12">2022-12-25</time></span><span class="level-item">13 minutes read (About 2011 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
 <ul>
 <li>의존 관계 주입(Dependency injection)이라고도 불림</li>
 <li>객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김<ul>
@@ -204,7 +204,8 @@
 </ul>
 <p>어떻게 Sptring Container 안에 빈을 생성할 수 있을까?</p>
 <ol>
-<li>Component Scan<ul>
+<li><p>Component Scan</p>
+<ul>
 <li>@Component<ul>
 <li>@Repository</li>
 <li>@Service</li>
@@ -219,6 +220,43 @@
 </ul>
 </li>
 <li>굳이 단점이라면 싱글톤 타입일 경우 초기 구동 시간이 느려질 수 있다. 만약에 이를 대처하려면 펑션을 사용한 빈 등록 방법이 있다.(리플렉션과 프록시를 사용하지 않기 때문)</li>
+</ul>
+</li>
+<li><p>Component Scan</p>
+<ul>
+<li>@Component<ul>
+<li>@Repository</li>
+<li>@Service</li>
+<li>@Controller</li>
+<li>@Configuration</li>
+</ul>
+</li>
+<li>@SpringBootApplication 을 들어가서 보면 @ComponentScan 을 확인할 수 있음, 그래서 특별히 작성 안해도 다 빈을 찾고 등록함. 만약 다른 패키지에서 의존성을 주입하는 코드가 있다면 스캔이 되지 않음, 스캔의 범위가 있다. 만약에 코드 작성중 의존성 주입이 잘 되지 않는다면 ComponentScan 범위를 확인해보자</li>
+<li>주요기능<ul>
+<li>스캔 위치 설정</li>
+<li>필터 : 어떤 어노테이션을 스캔할지 또는 하지 않을지</li>
+</ul>
+</li>
+<li>굳이 단점이라면 싱글톤 타입일 경우 초기 구동 시간이 느려질 수 있다. 만약에 이를 대처하려면 펑션을 사용한 빈 등록 방법이 있다.(리플렉션과 프록시를 사용하지 않기 때문)</li>
+</ul>
+</li>
+<li><p>직접 등록</p>
+<ul>
+<li><p>XML 이나 자바 설정 파일에 등록</p>
+<ul>
+<li><p>근래에는 Java 설정 파일에 등록을 하여 더 사용</p>
+</li>
+<li><p>Configuration 예제</p>
+<ul>
+<li><p>PaymentConfig</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentConfig</span> &#123;</span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="keyword">public</span> PaymentController <span class="title function_">paymentController</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PaymentController</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>PaymentController - @Controller는 이제 빼주어야함 → @Configuartion 으로 관리</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentController</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> PaymentRepository paymentRepository;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">PaymentController</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">PaymentController</span><span class="params">(PaymentRepository paymentRepository)</span> &#123; <span class="comment">//Spring IoC 컨테이너 즉, ApplicationContext가 bean을 찾아서 넣어줌) 의존성 주입은 bean끼리만 가능함, 즉 Spring IoC 컨테이너 안에 들어있는 것 끼리만 의존성 주입이 가능함</span></span><br><span class="line">		<span class="built_in">this</span>.paymentRepository = paymentRepository;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">cardPayment</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.paymentRepository.save(); <span class="comment">// 스프링이 아니었다면 new를 하지 않았기 때문에 NullPointException 이어야함</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
