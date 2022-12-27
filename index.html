@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-27T14:56:40.922Z" title="2022. 12. 27. 오후 11:56:40">2022-12-27</time></span><span class="level-item">24 minutes read (About 3602 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-27T14:58:41.614Z" title="2022. 12. 27. 오후 11:58:41">2022-12-27</time></span><span class="level-item">25 minutes read (About 3712 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
 <ul>
 <li>의존 관계 주입(Dependency injection)이라고도 불림</li>
 <li>객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김<ul>
@@ -451,6 +451,22 @@
 <ul>
 <li>프로퍼티가 공유</li>
 <li>ApplicationContext 초기 구동 시 인스턴스 생성</li>
+</ul>
+<h2 id="Environment-프로퍼티"><a href="#Environment-프로퍼티" class="headerlink" title="Environment - 프로퍼티"></a>Environment - 프로퍼티</h2><p>프로퍼티</p>
+<ul>
+<li>다양한 방법으로 정의할 ㅅ ㅜ있는 설정값</li>
+<li>Environment의 역할은 프로퍼티 소스 설정 및 프로퍼티 값 가져오기</li>
+</ul>
+<p>프로퍼티에는 우선 순위가 있다.</p>
+<ul>
+<li>StandardServiceEnvironment의 우선순위<ul>
+<li>ServletConfig 매개변수</li>
+<li>ServletContext 매개변수</li>
+<li>JNDI (java:comp&#x2F;env&#x2F;)</li>
+<li>JVM 시스템 프로퍼티(-DKey&#x3D;”value”)</li>
+<li>JVM 시스템 환경 변수(운영 체제 환경 변수)</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
