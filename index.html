@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-25T14:52:51.649Z" title="2022. 12. 25. 오후 11:52:51">2022-12-25</time></span><span class="level-item">23 minutes read (About 3429 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-27T14:56:40.922Z" title="2022. 12. 27. 오후 11:56:40">2022-12-27</time></span><span class="level-item">24 minutes read (About 3602 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
 <ul>
 <li>의존 관계 주입(Dependency injection)이라고도 불림</li>
 <li>객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김<ul>
@@ -400,14 +400,16 @@
 <p>→ 프로토타입 빈이 업데이트가 안됨</p>
 <p>업데이트 하려면</p>
 <ul>
-<li>scoped-proxy<ul>
+<li><p>scoped-proxy</p>
+<ul>
 <li>빈을 선언하는 부분에서만 사용하는 것이기에 가장 나은 판단일듯</li>
 </ul>
 </li>
-<li>Object-Provider</li>
-<li>Provider (표준)</li>
-</ul>
-<h2 id="Environment-프로파일"><a href="#Environment-프로파일" class="headerlink" title="Environment - 프로파일"></a>Environment - 프로파일</h2><p>프로파일과 프로퍼티를 다루는 인터패이스</p>
+<li><p>Object-Provider</p>
+</li>
+<li><p>Provider (표준)</p>
+</li>
+<li><h2 id="Environment-프로파일"><a href="#Environment-프로파일" class="headerlink" title="Environment - 프로파일"></a>Environment - 프로파일</h2><p>프로파일과 프로퍼티를 다루는 인터패이스</p>
 <p>ApplicationContext extends EnvironmentCapable</p>
 <ul>
 <li>getEnvironment()</li>
@@ -416,6 +418,41 @@
 <ul>
 <li>빈들의 그룹</li>
 <li>Environment의 역할은 활성화할 프로파일 확인 및 설정</li>
+</ul>
+<p>프로파일 유즈케이스</p>
+<ul>
+<li>테스트 환경에서는 A라는 빈을 사용하고, 배포 환경에서는 B라는 빈을 쓰고 싶음</li>
+<li>이 빈은 모니터링 용도니까 테스트 때는 필요가없고 배포할 때만 등록이 되면 좋겠다</li>
+</ul>
+<p>프로파일 정의하기</p>
+<ul>
+<li>클래스에 정의<ul>
+<li>@Configuration @Profile(”test”P</li>
+</ul>
+</li>
+<li>메소드에 정의<ul>
+<li>@Bean @Profile(”test”)</li>
+</ul>
+</li>
+</ul>
+<p>프로파일 설정하기</p>
+<ul>
+<li>Dspring.profiles.active&#x3D;”test,A,B,…”</li>
+<li>@ActiveProfiles(테스트용)</li>
+</ul>
+<p>프로파일 표현식</p>
+<ul>
+<li>! (not)</li>
+<li>&amp; (and)</li>
+<li>| (or)</li>
+</ul>
+<p>프록시</p>
+<p>싱글톤 객체 사용시 주의할점</p>
+<ul>
+<li>프로퍼티가 공유</li>
+<li>ApplicationContext 초기 구동 시 인스턴스 생성</li>
+</ul>
+</li>
 </ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-01T15:02:02.000Z" title="2022. 12. 2. 오전 12:02:02">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-02T00:26:52.716Z" title="2022. 12. 2. 오전 9:26:52">2022-12-02</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-Basic/">Spring Basic</a></span><span class="level-item">a few seconds read (About 0 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java-Spring/">Java Spring</a></h1><div class="content"></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-11-29T08:37:38.000Z" title="2022. 11. 29. 오후 5:37:38">2022-11-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-06T14:48:47.586Z" title="2022. 12. 6. 오후 11:48:47">2022-12-06</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">함수형 프로그래밍</a></span><span class="level-item">7 minutes read (About 1029 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java-FP/">Java FP</a></h1><div class="content"><h1 id="자바인액션"><a href="#자바인액션" class="headerlink" title="자바인액션"></a>자바인액션</h1><h1 id="1장-자바-8-9-10-11-무슨-일이-일어나고-있는가"><a href="#1장-자바-8-9-10-11-무슨-일이-일어나고-있는가" class="headerlink" title="1장 자바 8,9,10,11 무슨 일이 일어나고 있는가?"></a>1장 자바 8,9,10,11 무슨 일이 일어나고 있는가?</h1><h2 id="자바의-역사"><a href="#자바의-역사" class="headerlink" title="자바의 역사"></a>자바의 역사</h2><ul>
 <li>JDK(1.0) : 1996년</li>
