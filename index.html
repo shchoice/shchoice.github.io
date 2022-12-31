@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-27T14:58:41.614Z" title="2022. 12. 27. 오후 11:58:41">2022-12-27</time></span><span class="level-item">25 minutes read (About 3712 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-31T14:45:40.696Z" title="2022. 12. 31. 오후 11:45:40">2022-12-31</time></span><span class="level-item">25 minutes read (About 3773 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
 <ul>
 <li>의존 관계 주입(Dependency injection)이라고도 불림</li>
 <li>객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김<ul>
@@ -467,6 +467,15 @@
 <li>JVM 시스템 환경 변수(운영 체제 환경 변수)</li>
 </ul>
 </li>
+</ul>
+<p>@PropertySource</p>
+<ul>
+<li>Environment를 통해 프로퍼티 추가하는 방법</li>
+</ul>
+<p>스프링부트의 외부 설정 참고</p>
+<ul>
+<li>기본 프로퍼티 소스 지원(application.properties)</li>
+<li>프로파일까지 고려한 계층형 프로퍼티 우선 순위 제공</li>
 </ul>
 </li>
 </ul>
