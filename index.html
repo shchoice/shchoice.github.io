@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-01-08T14:55:56.528Z" title="2023. 1. 8. 오후 11:55:56">2023-01-08</time></span><span class="level-item">33 minutes read (About 4891 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-01-09T14:57:50.120Z" title="2023. 1. 9. 오후 11:57:50">2023-01-09</time></span><span class="level-item">34 minutes read (About 5054 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
 <ul>
 <li>의존 관계 주입(Dependency injection)이라고도 불림</li>
 <li>객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김<ul>
@@ -608,6 +608,22 @@
 <li>ApplicationContext의 타입에 상관없이 리소스 타입을 강제하려면 java.net.URL 접두어(+ classpath:)중 하나를 사용할 수 있다.<ul>
 <li>classpath:me&#x2F;whiteship&#x2F;config.xml -&gt; ClassPathResource</li>
 <li>file:&#x2F;&#x2F;&#x2F;some&#x2F;resource&#x2F;path&#x2F;config.xml -&gt; FileSystemResource</li>
+</ul>
+</li>
+</ul>
+<h2 id="Validation-추상화"><a href="#Validation-추상화" class="headerlink" title="Validation 추상화"></a>Validation 추상화</h2><p>org.springframework.validation.Validator</p>
+<p>애플리케이션에서 사용하는 객체 검증용 인터페이스.</p>
+<p>특징</p>
+<ul>
+<li>어떤한 계층과도 관계가 없다. &#x3D;&gt; 모든 계층(웹, 서비스, 데이터)에서 사용해도 좋다.</li>
+<li>구현체 중 하나로, JSR-303(Bean Validation 1.0)과 JSR-349(Bean Validation 1.1)을 지원한다. (LocalValidatorFactoryBean)</li>
+<li>DataBinder에 들어가 바인딩 할 때 같이 사용되기도 한다.</li>
+</ul>
+<p>인터페이스</p>
+<ul>
+<li>boolean supports(Class clazz): 어떤 타입의 객체를 검증할 때 사용할 것인지 결정함</li>
+<li>void validate(Object obj, Errors e): 실제 검증 로직을 이 안에서 구현<ul>
+<li>구현할 때 ValidationUtils 사용하며 편리 함.</li>
 </ul>
 </li>
 </ul>
