@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-01-10T09:18:50.971Z" title="2023. 1. 10. 오후 6:18:50">2023-01-10</time></span><span class="level-item">34 minutes read (About 5124 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-08T14:45:12.428Z" title="2022. 12. 8. 오후 11:45:12">2022-12-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-01-13T14:58:04.884Z" title="2023. 1. 13. 오후 11:58:04">2023-01-13</time></span><span class="level-item">34 minutes read (About 5124 words)</span></div></div><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
 <ul>
 <li>의존 관계 주입(Dependency injection)이라고도 불림</li>
 <li>객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김<ul>
@@ -62,9 +62,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentRepository</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">()</span> &#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>하지만 Test 코드에서는 다음과 같이 직접 객체의 생성 및 의존성을 주입해야 한다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PaymentControllerTest</span> &#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testCardPayment</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">PaymentRepository</span> <span class="variable">paymentRepository</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PaymentRepository</span>();</span><br><span class="line">		<span class="type">PaymentController</span> <span class="variable">paymentController</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PaymentController</span>(paymentRepository);</span><br><span class="line"></span><br><span class="line">		paymentController.cardPayment();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PaymentControllerTest</span> &#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testCardPayment</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">PaymentRepository</span> <span class="variable">paymentRepository</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PaymentRepository</span>();</span><br><span class="line">		<span class="type">PaymentController</span> <span class="variable">paymentController</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PaymentController</span>(paymentRepository);</span><br><span class="line"></span><br><span class="line">		paymentController.cardPayment();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>Spring IoC 컨테이너</p>
 <ul>
@@ -400,16 +398,14 @@
 <p>→ 프로토타입 빈이 업데이트가 안됨</p>
 <p>업데이트 하려면</p>
 <ul>
-<li><p>scoped-proxy</p>
-<ul>
+<li>scoped-proxy<ul>
 <li>빈을 선언하는 부분에서만 사용하는 것이기에 가장 나은 판단일듯</li>
 </ul>
 </li>
-<li><p>Object-Provider</p>
-</li>
-<li><p>Provider (표준)</p>
-</li>
-<li><h2 id="Environment-프로파일"><a href="#Environment-프로파일" class="headerlink" title="Environment - 프로파일"></a>Environment - 프로파일</h2><p>프로파일과 프로퍼티를 다루는 인터패이스</p>
+<li>Object-Provider</li>
+<li>Provider (표준)</li>
+</ul>
+<h2 id="Environment-프로파일"><a href="#Environment-프로파일" class="headerlink" title="Environment - 프로파일"></a>Environment - 프로파일</h2><p>프로파일과 프로퍼티를 다루는 인터패이스</p>
 <p>ApplicationContext extends EnvironmentCapable</p>
 <ul>
 <li>getEnvironment()</li>
@@ -516,8 +512,6 @@
 </li>
 </ul>
 <p>릴로딩 기능이 있는 메시지 소스 사용하기</p>
-</li>
-</ul>
 </li>
 </ul>
 <h2 id="ApplicationEventPublisher"><a href="#ApplicationEventPublisher" class="headerlink" title="ApplicationEventPublisher"></a>ApplicationEventPublisher</h2><p>이벤트 프로그래밍에 필요한 인터페이스 제공, 옵저버 패턴 구현체</p>
