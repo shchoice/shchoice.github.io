@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-01-16T14:47:16.000Z" title="2023. 1. 16. 오후 11:47:16">2023-01-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-01-18T14:40:18.863Z" title="2023. 1. 18. 오후 11:40:18">2023-01-18</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-MVC/">Spring MVC</a></span><span class="level-item">5 minutes read (About 678 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-MVC/">Spring MVC</a></h1><div class="content"><ol>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-01-16T14:47:16.000Z" title="2023. 1. 16. 오후 11:47:16">2023-01-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-01-18T14:43:23.594Z" title="2023. 1. 18. 오후 11:43:23">2023-01-18</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-MVC/">Spring MVC</a></span><span class="level-item">6 minutes read (About 935 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-MVC/">Spring MVC</a></h1><div class="content"><ol>
 <li>어떻게 GetMapping으로 요청을 처리하고 Model model이 받는 파라미터는 어떤것들이 있고 어떻게 확장할 수있는지 return은 어떻게하는지 등을 파악</li>
 <li>Spring MVC 원리, 설정, 사용법을 배우게 됨</li>
 </ol>
@@ -69,7 +69,8 @@
 </ul>
 <h2 id="서블릿-리스너와-필터"><a href="#서블릿-리스너와-필터" class="headerlink" title="서블릿 리스너와 필터"></a>서블릿 리스너와 필터</h2><p>서블릿 리스너</p>
 <ul>
-<li>웹 어플리케이션에서 발생하는 주요 이벤트를 감지하고 각 이벤트에 특별한 작업이 필요한 경우에 사용할 수 있음<ul>
+<li><p>웹 어플리케이션에서 발생하는 주요 이벤트를 감지하고 각 이벤트에 특별한 작업이 필요한 경우에 사용할 수 있음</p>
+<ul>
 <li>서블릿 컨텍스트 수준의 이벤트<ul>
 <li>컨텍스트 라이프사이클 이벤트</li>
 <li>컨텍스트 에트리뷰트 변경 이벤트</li>
@@ -82,6 +83,28 @@
 </li>
 </ul>
 </li>
+</ul>
+<p>서블릿 필터</p>
+<ul>
+<li><p>들어온 요청을 서블릿으로 보내고, 또 서블릿이 작성한 응답을 클라이언트로 보내기 전에 특별한 처리가 필요한 경우 사용할 수 있음</p>
+</li>
+<li><p>체인 형태의 구조</p>
+</li>
+<li><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ee6ebc6d-0815-49bc-9e73-086c4cc384ff/Untitled.png" alt="Untitled"></p>
+</li>
+</ul>
+<h2 id="DispatcherServlet"><a href="#DispatcherServlet" class="headerlink" title="DispatcherServlet"></a>DispatcherServlet</h2><p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e61c232c-3d80-4c7d-91c5-69c6e9580515/Untitled.png" alt="Untitled"></p>
+<ul>
+<li>Root WebApplicationConetext 에서는 다른 Dispathcer Servlet들도 공용으로 사용할 수 있는 자원</li>
+<li>웹과 관련된 빈들은 Servelt WebApplicationContext는 해당 Dispatcher Servlet에 한정됨..</li>
+</ul>
+<p>서블릿 애플리케이션에 스프링 연동하기</p>
+<ul>
+<li>서블릿에서 스프링이 제공하는 IoC컨테이너 활용하는 방법<ul>
+<li>ContextLoaderListener :  Spring Ioc Container 즉, ApplicationContext를 서블릿 애플리케이션의 생명 주기에 맞추어 바인딩 해줌, 서블릿이 종료될때는 ApplicationContext를 종료시켜줌</li>
+</ul>
+</li>
+<li>스프링이 제공하는 서블릿 구현체 DispatrcherServlet 사용하기</li>
 </ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-01T15:02:02.000Z" title="2022. 12. 2. 오전 12:02:02">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-02T00:26:52.716Z" title="2022. 12. 2. 오전 9:26:52">2022-12-02</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-Basic/">Spring Basic</a></span><span class="level-item">a few seconds read (About 0 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java-Spring/">Java Spring</a></h1><div class="content"></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-01T15:02:02.000Z" title="2022. 12. 2. 오전 12:02:02">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-01-16T14:48:41.737Z" title="2023. 1. 16. 오후 11:48:41">2023-01-16</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-Framework/">Spring Framework</a></span><span class="level-item">34 minutes read (About 5124 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-Framework/">Java Spring</a></h1><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
 <ul>
