@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-01-16T14:47:16.000Z" title="2023. 1. 16. 오후 11:47:16">2023-01-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-01-19T14:33:49.918Z" title="2023. 1. 19. 오후 11:33:49">2023-01-19</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-MVC/">Spring MVC</a></span><span class="level-item">8 minutes read (About 1221 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-MVC/">Spring MVC</a></h1><div class="content"><ol>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-01-16T14:47:16.000Z" title="2023. 1. 16. 오후 11:47:16">2023-01-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-01-20T14:47:32.459Z" title="2023. 1. 20. 오후 11:47:32">2023-01-20</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-MVC/">Spring MVC</a></span><span class="level-item">11 minutes read (About 1663 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-MVC/">Spring MVC</a></h1><div class="content"><ol>
 <li>어떻게 GetMapping으로 요청을 처리하고 Model model이 받는 파라미터는 어떤것들이 있고 어떻게 확장할 수있는지 return은 어떻게하는지 등을 파악</li>
 <li>Spring MVC 원리, 설정, 사용법을 배우게 됨</li>
 </ol>
@@ -136,6 +136,73 @@
 <li>(부가적으로) 예외가 발생했다면, 예외 처리 핸들러에 요청 처리를 위임</li>
 <li>최종적으로 응답을 보냄</li>
 </ol>
+<p>HandlerMapping</p>
+<ul>
+<li>RequestMappingHanelerMapping : Controller에서의 GetMapping, PostMapping 등의 Handler를 찾아주는 역할을 함</li>
+</ul>
+<p>HandlerAdapter</p>
+<ul>
+<li>RequestMappingHandlerAdapter</li>
+<li></li>
+</ul>
+<h3 id="ViewResolver"><a href="#ViewResolver" class="headerlink" title="ViewResolver"></a>ViewResolver</h3><p>ViewResolver</p>
+<ul>
+<li><p>InternalResourceViewResolver</p>
+<ul>
+<li>Prefix</li>
+<li>Suffix</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span> </span><br><span class="line"><span class="meta">@ComponentScan</span> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebConfig</span> &#123; </span><br><span class="line">	<span class="meta">@Bean</span> </span><br><span class="line">	<span class="keyword">public</span> InternalResourceViewResolver <span class="title function_">viewResolver</span><span class="params">()</span> &#123; </span><br><span class="line">		<span class="type">InternalResourceViewResolver</span> <span class="variable">viewResolver</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">InternalResourceViewResolver</span>();</span><br><span class="line">		viewResolver.setPrefix(<span class="string">&quot;/WEB-INF/&quot;</span>); </span><br><span class="line">		viewResolver.setSuffix(<span class="string">&quot;.jsp&quot;</span>); </span><br><span class="line">		<span class="keyword">return</span> viewResolver; </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@org</span>.springframework.stereotype.Controller(<span class="string">&quot;/simple&quot;</span>) </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SimpleController</span> <span class="keyword">implements</span> <span class="title class_">Controller</span> &#123; </span><br><span class="line">	<span class="meta">@Override</span> </span><br><span class="line">	<span class="keyword">public</span> ModelAndView <span class="title function_">handleRequest</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> Exception &#123; </span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ModelAndView</span>(<span class="string">&quot;simple&quot;</span>); </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="스프링-MVC-구성-요소"><a href="#스프링-MVC-구성-요소" class="headerlink" title="스프링 MVC 구성 요소"></a><strong>스프링 MVC 구성 요소</strong></h2><p><a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/HBnBgU7p_hQVPspumg9wLYpOktj-mUjxt_uuvLsYlVPn7YsupUNHy1AtI_LBrLLvY3Cjl6Hy5pf6Fs5VcNjqaHkybCTnk9t3D9SsZx3piOpCIFW0McfR_50vA-InPIyfPD0RjetqLQj4yiN0r8FZcLlJuV3SiOii2xTcWuyNHhjKek5ZuKMP0ZKlDwJr">https://lh4.googleusercontent.com/HBnBgU7p_hQVPspumg9wLYpOktj-mUjxt_uuvLsYlVPn7YsupUNHy1AtI_LBrLLvY3Cjl6Hy5pf6Fs5VcNjqaHkybCTnk9t3D9SsZx3piOpCIFW0McfR_50vA-InPIyfPD0RjetqLQj4yiN0r8FZcLlJuV3SiOii2xTcWuyNHhjKek5ZuKMP0ZKlDwJr</a></p>
+<p>DispatcherSerlvet의 기본 전략</p>
+<ul>
+<li>DispatcherServlet.properties</li>
+</ul>
+<p>MultipartResolver</p>
+<ul>
+<li>파일 업로드 요청 처리에 필요한 인터페이스</li>
+<li>HttpServletRequest를 multipartHttpServletRequest로 변환해주어 요청이 담고 있는 File을 꺼낼 수 있는 API 제공</li>
+</ul>
+<p>LocaleResolver</p>
+<ul>
+<li>클라이언트의 위치(Locale) 정보를 파악하는 인터페이스</li>
+<li>기본 전략은 요청의 accept-language를 보고 판단</li>
+</ul>
+<p>ThemeResolver</p>
+<ul>
+<li>애플리케이션에 설정된 테마를 파악하고 변경할 수 있는 인터페이스</li>
+<li>참고: <a target="_blank" rel="noopener" href="https://memorynotfound.com/spring-mvc-theme-switcher-example/">https://memorynotfound.com/spring-mvc-theme-switcher-example/</a></li>
+</ul>
+<p>HandlerMapping</p>
+<ul>
+<li>요청을 처리할 핸들러를 찾는 인터페이스</li>
+</ul>
+<p>HandlerAdapter</p>
+<ul>
+<li>HandlerMapping이 찾아낸 핸들러를 처리하는 인터페이스</li>
+<li>스프링 MVC 확장력으 ㅣ핵심</li>
+</ul>
+<p>HandlerExceptionResolver</p>
+<ul>
+<li>요청 처리 중에 발생한 에러 처리하는 인터페이스</li>
+</ul>
+<p>RequestToViewNameTraslator</p>
+<ul>
+<li>핸들러에서 뷰 이름을 명시적으로 리턴하지 않은 경우, 요청을 기반으로 뷰 이름을 판단하는 인터페이스</li>
+</ul>
+<p>ViewResolver</p>
+<ul>
+<li>뷰 이름(string)에 해당하는 뷰를 찾아내는 인터페이스</li>
+</ul>
+<p>FlashMapManager</p>
+<ul>
+<li>FlashMap 인터페이스를 가져오고 저장하는 인터페이스</li>
+<li>FlashMap은 주로 리다이렉션을 사용할 때 요청 매개변수를 사용하지 않고 데이터를 전달하고 정리할 때 사용</li>
+<li>redirect:&#x2F;events</li>
+</ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-01T15:02:02.000Z" title="2022. 12. 2. 오전 12:02:02">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-02T00:26:52.716Z" title="2022. 12. 2. 오전 9:26:52">2022-12-02</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-Basic/">Spring Basic</a></span><span class="level-item">a few seconds read (About 0 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java-Spring/">Java Spring</a></h1><div class="content"></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-01T15:02:02.000Z" title="2022. 12. 2. 오전 12:02:02">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-01-16T14:48:41.737Z" title="2023. 1. 16. 오후 11:48:41">2023-01-16</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-Framework/">Spring Framework</a></span><span class="level-item">34 minutes read (About 5124 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-Framework/">Java Spring</a></h1><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
 <ul>
 <li>의존 관계 주입(Dependency injection)이라고도 불림</li>
