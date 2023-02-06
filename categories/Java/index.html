@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">Java</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-01-16T14:47:16.000Z" title="2023. 1. 16. 오후 11:47:16">2023-01-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-06T14:26:56.481Z" title="2023. 2. 6. 오후 11:26:56">2023-02-06</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-MVC/">Spring MVC</a></span><span class="level-item">21 minutes read (About 3131 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-MVC/">Spring MVC</a></h1><div class="content"><ol>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">Java</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-01-16T14:47:16.000Z" title="2023. 1. 16. 오후 11:47:16">2023-01-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-06T14:28:04.857Z" title="2023. 2. 6. 오후 11:28:04">2023-02-06</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-MVC/">Spring MVC</a></span><span class="level-item">22 minutes read (About 3337 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-MVC/">Spring MVC</a></h1><div class="content"><ol>
 <li>어떻게 GetMapping으로 요청을 처리하고 Model model이 받는 파라미터는 어떤것들이 있고 어떻게 확장할 수있는지 return은 어떻게하는지 등을 파악</li>
 <li>Spring MVC 원리, 설정, 사용법을 배우게 됨</li>
 </ol>
@@ -334,8 +334,10 @@
 </li>
 </ul>
 <h2 id="핸들러-인터셉터"><a href="#핸들러-인터셉터" class="headerlink" title="핸들러 인터셉터"></a>핸들러 인터셉터</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servl">https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servl</a> et&#x2F;config&#x2F;annotation&#x2F;WebMvcConfigurer.html#addInterceptors-org.springframework.web.servlet. config.annotation.InterceptorRegistry</li>
-<li>HandlerInterceptor<ul>
+<li><p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servl">https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servl</a> et&#x2F;config&#x2F;annotation&#x2F;WebMvcConfigurer.html#addInterceptors-org.springframework.web.servlet. config.annotation.InterceptorRegistry</p>
+</li>
+<li><p>HandlerInterceptor</p>
+<ul>
 <li>핸들러 맵핑에 설정할 수 있는 인터셉터</li>
 <li>핸들러를 실행하기 전,후(아직 렌더링 전) 그리고 완료(렌더링까지 끝난 이후) 시점에 부가 작업을 하고싶은 경우에 사용할 수 있음</li>
 <li>여러 핸들러에서 반복적으로 사용하는 코드를 줄이고 싶을 때 사용할 수 있음<ul>
@@ -344,17 +346,40 @@
 </li>
 </ul>
 </li>
-<li>boolean preHandle(request, response, handler)<ul>
+<li><p>boolean preHandle(request, response, handler)</p>
+<ul>
 <li>핸들러 실행하기 전에 호출됨</li>
 <li>핸들러에 대한 정보를 사용할 수 있기 때문에 서블릿 필터에 비해 보다 세밀한 로직을 구현할 수 있음</li>
 <li>리턴갑으로 계속 다음 인터셉터 또는 핸들러로 요청, 응답을 전달할지(true) 응답 처리가 이곳에서 끝났는지(false) 알린다.</li>
 </ul>
 </li>
-<li>void postHandle(request, response, modelAndView)<ul>
+<li><p>void postHandle(request, response, modelAndView)</p>
+<ul>
 <li>핸들러 실행이 끝나고 아직 뷰를 렌더링 하기 이전에 호출됨</li>
 <li>뷰에 전달할 추가적이거나 여러 핸들러에 공통적인 모델 정보를 담는데 사용할 수 있음</li>
 <li>이 메소드는 인터셉터 역순으로 호출됨</li>
 <li>비동기적인 요청 처리 시에는 호출되지 않음</li>
+</ul>
+</li>
+<li><p>void afterCompletion(request, response, handle, ex)</p>
+<ul>
+<li>요청 처리가 완전히 끝난 뒤(뷰 렌더링 끝난 뒤)에 호출됨</li>
+<li>preHandler에서 true가 리턴한 경우에만 호출 됨</li>
+<li>이 메소드는 인터셉터 역순으로 호출됨</li>
+<li>비동기적인 요청 처리 시에는 호출되지 않음</li>
+</ul>
+</li>
+<li><p>vs 서블릿 필터</p>
+<ul>
+<li>서블릿 보다 구체적인 처리가 가능</li>
+<li>서블릿은 보다 일반적인 용도의 기능을 구현하는데 사용하는게 좋다.</li>
+</ul>
+</li>
+<li><p>참고</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/w">https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/w</a> eb&#x2F;servlet&#x2F;HandlerInterceptor.html</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/w">https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/w</a> eb&#x2F;servlet&#x2F;AsyncHandlerInterceptor.html</li>
+<li><a target="_blank" rel="noopener" href="http://forum.spring.io/forum/spring-projects/web/20146-what-is-the-difference-between-u">http://forum.spring.io/forum/spring-projects/web/20146-what-is-the-difference-between-u</a> sing-a-filter-and-interceptor (스프링 개발자 Mark Fisher의 서블릿 필터와의 차이점에 대한 답변 참고)</li>
 </ul>
 </li>
 </ul>
