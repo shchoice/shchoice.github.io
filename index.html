@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-01-16T14:47:16.000Z" title="2023. 1. 16. 오후 11:47:16">2023-01-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-04T08:37:37.959Z" title="2023. 2. 4. 오후 5:37:37">2023-02-04</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-MVC/">Spring MVC</a></span><span class="level-item">16 minutes read (About 2370 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-MVC/">Spring MVC</a></h1><div class="content"><ol>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-01-16T14:47:16.000Z" title="2023. 1. 16. 오후 11:47:16">2023-01-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-06T14:26:56.481Z" title="2023. 2. 6. 오후 11:26:56">2023-02-06</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-MVC/">Spring MVC</a></span><span class="level-item">21 minutes read (About 3131 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-MVC/">Spring MVC</a></h1><div class="content"><ol>
 <li>어떻게 GetMapping으로 요청을 처리하고 Model model이 받는 파라미터는 어떤것들이 있고 어떻게 확장할 수있는지 return은 어떻게하는지 등을 파악</li>
 <li>Spring MVC 원리, 설정, 사용법을 배우게 됨</li>
 </ol>
@@ -277,7 +277,88 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;&lt;http://java.sun.com/jsp/jstl/core&gt;&quot;%&gt;</span><br></pre></td></tr></table></figure>
 
 <p>application.properties</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.mvc.view.prefix=/WEB-INF/jsp/</span><br><span class="line">spring.mvc.view.suffix=.jsp</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-01T15:02:02.000Z" title="2022. 12. 2. 오전 12:02:02">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-02T00:26:52.716Z" title="2022. 12. 2. 오전 9:26:52">2022-12-02</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-Basic/">Spring Basic</a></span><span class="level-item">a few seconds read (About 0 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java-Spring/">Java Spring</a></h1><div class="content"></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-01T15:02:02.000Z" title="2022. 12. 2. 오전 12:02:02">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-01-16T14:48:41.737Z" title="2023. 1. 16. 오후 11:48:41">2023-01-16</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-Framework/">Spring Framework</a></span><span class="level-item">34 minutes read (About 5124 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-Framework/">Java Spring</a></h1><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.mvc.view.prefix=/WEB-INF/jsp/</span><br><span class="line">spring.mvc.view.suffix=.jsp</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="WAR-파일-배포하기"><a href="#WAR-파일-배포하기" class="headerlink" title="WAR 파일 배포하기"></a>WAR 파일 배포하기</h2><p>java -jar를 사용해서 실행하기</p>
+<p><a target="_blank" rel="noopener" href="https://lh3.googleusercontent.com/CcYem9DNu8vSWWn7Rd9AXY2DeFLkci44FewsmGuNmlyrZqR7kdHc4znCeRHcFu2wCECGfl8ElRk3qDUHMJjPE6aJts-Q0FSk_uykjoUnjIvVMbNc5v8PrDi4X_KhtgMMCwEb5vMKtBMzAJ03bOhGRbkmxgXhNviQ5PO4eKbgcoPIrnZuAa4D-gQSbwmF">https://lh3.googleusercontent.com/CcYem9DNu8vSWWn7Rd9AXY2DeFLkci44FewsmGuNmlyrZqR7kdHc4znCeRHcFu2wCECGfl8ElRk3qDUHMJjPE6aJts-Q0FSk_uykjoUnjIvVMbNc5v8PrDi4X_KhtgMMCwEb5vMKtBMzAJ03bOhGRbkmxgXhNviQ5PO4eKbgcoPIrnZuAa4D-gQSbwmF</a></p>
+<ul>
+<li>SpringApplication.run 사용하기</li>
+</ul>
+<p>서블릿 컨테이너에 배포하기</p>
+<p><a target="_blank" rel="noopener" href="https://lh3.googleusercontent.com/QRYt58b7-JGHWUv2-LwTTdxN7jGr2q3qxqMHcdjsoJqxSs6C_KcnBGGtwGNe0mNIev5hpF2VVbLTbWo2mCvVFWAlB1tRJ1SSR4tCqRNOQ1R4uF6FDj0QVvta5u5sAO8f7ADX45RZEnsBQnTah6FDOiS-5X_mGaXhBHLyxYJJZT1bofGsW6XH93gDANPS">https://lh3.googleusercontent.com/QRYt58b7-JGHWUv2-LwTTdxN7jGr2q3qxqMHcdjsoJqxSs6C_KcnBGGtwGNe0mNIev5hpF2VVbLTbWo2mCvVFWAlB1tRJ1SSR4tCqRNOQ1R4uF6FDj0QVvta5u5sAO8f7ADX45RZEnsBQnTah6FDOiS-5X_mGaXhBHLyxYJJZT1bofGsW6XH93gDANPS</a></p>
+<ul>
+<li>SpringBootServletInitializer (WebApplicationInitializer) 사용하기</li>
+</ul>
+<h2 id="포매터-추가하기"><a href="#포매터-추가하기" class="headerlink" title="포매터 추가하기"></a><strong>포매터 추가하기</strong></h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.html#addFormatters-org.springframework.format.FormatterRegistry">https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.html#addFormatters-org.springframework.format.FormatterRegistry</a></li>
+<li>Formatter<ul>
+<li>Printer : 해당 객체를(Locale 정보를 참고하여) 문자열로 어떻게 출력할 것인가</li>
+<li>Parser : 어떤 문자열을(Locale 정보를 참고하여) 객체로 어떻게 변환할 것인가</li>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/format/Fo">https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/format/Fo</a> rmatter.html</li>
+</ul>
+</li>
+</ul>
+<p>포매터 추가하는 방법 1</p>
+<ul>
+<li>WebMvcConfigurer의 addFormatters(FormatterRegistry) 메소드 정의</li>
+</ul>
+<p>포매터 추가하는 방법 2 (스프링 부트 사용시에만 가능 함)</p>
+<ul>
+<li>해당 포매터를 빈으로 등록</li>
+</ul>
+<h2 id="도메인-클래스-컨버터-자동-등록"><a href="#도메인-클래스-컨버터-자동-등록" class="headerlink" title="도메인 클래스 컨버터 자동 등록"></a>도메인 클래스 컨버터 자동 등록</h2><p>스프링 데이터 JPA는 스프링 MVC용 도메인 클래스 컨버터를 제공</p>
+<ul>
+<li><p>도메인 클래스 컨버터</p>
+<ul>
+<li><p>스프링 데이터 JPA가 제공하는 Repository를 사용해서 ID에 해당하는 엔티티를 읽어옴</p>
+</li>
+<li><p>의존성 설정</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.h2database<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>h2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>엔티티 맵핑</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span> </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123; </span><br><span class="line">	<span class="meta">@Id</span> </span><br><span class="line">	<span class="meta">@GeneratedValue</span> </span><br><span class="line">	<span class="keyword">private</span> Integer id; </span><br><span class="line">	...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Repository 추가</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">PersonRepository</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;Person, Integer&gt; &#123; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>테스트코드 수정</p>
+<ul>
+<li>테스트용 이벤트 객체 생성</li>
+<li>이벤트 Repository에 저장</li>
+<li>저장한 이벤트의 ID로 조회 시도</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="핸들러-인터셉터"><a href="#핸들러-인터셉터" class="headerlink" title="핸들러 인터셉터"></a>핸들러 인터셉터</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servl">https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servl</a> et&#x2F;config&#x2F;annotation&#x2F;WebMvcConfigurer.html#addInterceptors-org.springframework.web.servlet. config.annotation.InterceptorRegistry</li>
+<li>HandlerInterceptor<ul>
+<li>핸들러 맵핑에 설정할 수 있는 인터셉터</li>
+<li>핸들러를 실행하기 전,후(아직 렌더링 전) 그리고 완료(렌더링까지 끝난 이후) 시점에 부가 작업을 하고싶은 경우에 사용할 수 있음</li>
+<li>여러 핸들러에서 반복적으로 사용하는 코드를 줄이고 싶을 때 사용할 수 있음<ul>
+<li>로깅, 인증 체크, Locale 변경 등</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>boolean preHandle(request, response, handler)<ul>
+<li>핸들러 실행하기 전에 호출됨</li>
+<li>핸들러에 대한 정보를 사용할 수 있기 때문에 서블릿 필터에 비해 보다 세밀한 로직을 구현할 수 있음</li>
+<li>리턴갑으로 계속 다음 인터셉터 또는 핸들러로 요청, 응답을 전달할지(true) 응답 처리가 이곳에서 끝났는지(false) 알린다.</li>
+</ul>
+</li>
+<li>void postHandle(request, response, modelAndView)<ul>
+<li>핸들러 실행이 끝나고 아직 뷰를 렌더링 하기 이전에 호출됨</li>
+<li>뷰에 전달할 추가적이거나 여러 핸들러에 공통적인 모델 정보를 담는데 사용할 수 있음</li>
+<li>이 메소드는 인터셉터 역순으로 호출됨</li>
+<li>비동기적인 요청 처리 시에는 호출되지 않음</li>
+</ul>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-01T15:02:02.000Z" title="2022. 12. 2. 오전 12:02:02">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-12-02T00:26:52.716Z" title="2022. 12. 2. 오전 9:26:52">2022-12-02</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-Basic/">Spring Basic</a></span><span class="level-item">a few seconds read (About 0 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java-Spring/">Java Spring</a></h1><div class="content"></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-01T15:02:02.000Z" title="2022. 12. 2. 오전 12:02:02">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-01-16T14:48:41.737Z" title="2023. 1. 16. 오후 11:48:41">2023-01-16</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-Framework/">Spring Framework</a></span><span class="level-item">34 minutes read (About 5124 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-Framework/">Java Spring</a></h1><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
 <ul>
 <li>의존 관계 주입(Dependency injection)이라고도 불림</li>
 <li>객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김<ul>
