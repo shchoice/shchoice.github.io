@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-01-16T14:47:16.000Z" title="2023. 1. 16. 오후 11:47:16">2023-01-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-08T14:44:36.156Z" title="2023. 2. 8. 오후 11:44:36">2023-02-08</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-MVC/">Spring MVC</a></span><span class="level-item">24 minutes read (About 3595 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-MVC/">Spring MVC</a></h1><div class="content"><ol>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-01-16T14:47:16.000Z" title="2023. 1. 16. 오후 11:47:16">2023-01-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-10T14:55:56.809Z" title="2023. 2. 10. 오후 11:55:56">2023-02-10</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-MVC/">Spring MVC</a></span><span class="level-item">25 minutes read (About 3778 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-MVC/">Spring MVC</a></h1><div class="content"><ol>
 <li>어떻게 GetMapping으로 요청을 처리하고 Model model이 받는 파라미터는 어떤것들이 있고 어떻게 확장할 수있는지 return은 어떻게하는지 등을 파악</li>
 <li>Spring MVC 원리, 설정, 사용법을 배우게 됨</li>
 </ol>
@@ -394,11 +394,49 @@
 </li>
 </ul>
 <h2 id="리소스-핸들러"><a href="#리소스-핸들러" class="headerlink" title="리소스 핸들러"></a>리소스 핸들러</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servl">https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servl</a> et&#x2F;config&#x2F;annotation&#x2F;WebMvcConfigurer.html#<a target="_blank" rel="noopener" href="http://addresourcehandlers-org.springframework.web/">addResourceHandlers-org.springframework.web</a>. servlet.config.annotation.ResourceHandlerRegistry</li>
-<li>이미지, 자바스크립트, CSS 및 HTML 파일과 같은 정적인 리소스를 처리하는 핸들러를 등록하는 방법</li>
-<li>디폴트(default) 서블릿<ul>
+<li><p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servl">https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servl</a> et&#x2F;config&#x2F;annotation&#x2F;WebMvcConfigurer.html#<a target="_blank" rel="noopener" href="http://addresourcehandlers-org.springframework.web/">addResourceHandlers-org.springframework.web</a>. servlet.config.annotation.ResourceHandlerRegistry</p>
+</li>
+<li><p>이미지, 자바스크립트, CSS 및 HTML 파일과 같은 정적인 리소스를 처리하는 핸들러를 등록하는 방법</p>
+</li>
+<li><p>디폴트(default) 서블릿</p>
+<ul>
 <li>서블릿 컨테이너가 기본으로 제공하는 서블릿으로 정적인 리소스를 처리할때 사용</li>
 <li><a target="_blank" rel="noopener" href="https://tomcat.apache.org/tomcat-9.0-doc/default-servlet.html">https://tomcat.apache.org/tomcat-9.0-doc/default-servlet.html</a></li>
+</ul>
+</li>
+<li><p>스프링 MVC 리소스 핸들러 맵핑 등록</p>
+<ul>
+<li>가장 낮은 우선 순위로 등록<ul>
+<li>다른 핸들러 맵핑이 “&#x2F;” 이하 요청을 처리하도록 허용하고</li>
+<li>최종적으로 리소스 핸들러가 처리하도록</li>
+</ul>
+</li>
+<li>DefaultServletHandlerConfigurer</li>
+</ul>
+</li>
+<li><p>리소스 핸들러 설정</p>
+<ul>
+<li>어떤 요청 패턴을 지원할 것인가</li>
+<li>어디서 리소스를 찾을 것인가</li>
+<li>캐싱</li>
+<li>ResourceResolver: 요청에 해당하는 리소스를 찾는 전략<ul>
+<li>캐싱, 인코딩(gzip, brotli), WebJar, …</li>
+</ul>
+</li>
+<li>ResourceTransformer: 응답으로 보낼 리소스를 수정하는 전략<ul>
+<li>캐싱, CSS 링크 ,HTML5 AppCache, …</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>스프링 부트</p>
+<ul>
+<li>기본 정적 리소스 핸들러와 캐싱 제공</li>
+</ul>
+</li>
+<li><p>참고</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.slideshare.net/rstoya05/resource-handling-spring-framework-41">https://www.slideshare.net/rstoya05/resource-handling-spring-framework-41</a></li>
 </ul>
 </li>
 </ul>
