@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-02-17T14:34:29.000Z" title="2/17/2023, 11:34:29 PM">2023-02-17</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-17T14:43:07.979Z" title="2/17/2023, 11:43:07 PM">2023-02-17</time></span><span class="level-item"><a class="link-muted" href="/categories/JPA/">JPA</a><span> / </span><a class="link-muted" href="/categories/JPA/Basic/">Basic</a></span><span class="level-item">4 minutes read (About 608 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/JPA/03.%20%EC%97%94%ED%8B%B0%ED%8B%B0%20%EB%A7%A4%ED%95%91/">03. 엔티티 매핑</a></h1><div class="content"><h2 id="데이터베이스-스키마-자동-생성"><a href="#데이터베이스-스키마-자동-생성" class="headerlink" title="데이터베이스 스키마 자동 생성"></a>데이터베이스 스키마 자동 생성</h2><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-02-17T14:34:29.000Z" title="2/17/2023, 11:34:29 PM">2023-02-17</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-17T14:43:37.394Z" title="2/17/2023, 11:43:37 PM">2023-02-17</time></span><span class="level-item"><a class="link-muted" href="/categories/JPA/">JPA</a><span> / </span><a class="link-muted" href="/categories/JPA/Basic/">Basic</a></span><span class="level-item">5 minutes read (About 682 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/JPA/03.%20%EC%97%94%ED%8B%B0%ED%8B%B0%20%EB%A7%A4%ED%95%91/">03. 엔티티 매핑</a></h1><div class="content"><h2 id="데이터베이스-스키마-자동-생성"><a href="#데이터베이스-스키마-자동-생성" class="headerlink" title="데이터베이스 스키마 자동 생성"></a>데이터베이스 스키마 자동 생성</h2><ul>
 <li><p>DDL을 애플리케이션 실행 시점에 자동 생성</p>
 </li>
 <li><p>테이블 중심 → 객체 중심</p>
@@ -102,8 +102,10 @@
 </li>
 </ul>
 <h2 id="엔티티-매핑-소개"><a href="#엔티티-매핑-소개" class="headerlink" title="엔티티 매핑 소개"></a>엔티티 매핑 소개</h2><ul>
-<li>객체와 테이블 매핑: @Entity, @Table<ul>
-<li>@Entity<ul>
+<li><p>객체와 테이블 매핑: @Entity, @Table</p>
+<ul>
+<li><p>@Entity</p>
+<ul>
 <li>@Entity가 붙은 클래스는 JPA가 관리, 엔티티라 한다.</li>
 <li>JPA를 사용해서 테이블과 매핑할 클래스는 @Entity 필수</li>
 <li>주의<ul>
@@ -119,6 +121,48 @@
 </ul>
 </li>
 </ul>
+</li>
+<li><p>@Table</p>
+<ul>
+<li><p>@Table은 엔티티와 매핑할 테이블 지정</p>
+<table>
+<thead>
+<tr>
+<th>속성</th>
+<th>기능</th>
+<th>기본값</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>매핑할 테이블 이름</td>
+<td></td>
+</tr>
+<tr>
+<td>catalog</td>
+<td>데이터베이스 catalog 매핑</td>
+<td></td>
+</tr>
+<tr>
+<td>schema</td>
+<td>데이터베이스 schema 매핑</td>
+<td></td>
+</tr>
+<tr>
+<td>uniqueConstraints</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(DDL)</td>
+<td>DDL 생성 시에 유니크 제약 조건 생성</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>필드와 칼럼 매핑</p>
 </li>
 </ul>
 </li>
