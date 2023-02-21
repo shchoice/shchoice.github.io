@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-02-20T14:10:50.535Z" title="2/20/2023, 11:10:50 PM">2023-02-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-21T14:52:27.914Z" title="2/21/2023, 11:52:27 PM">2023-02-21</time></span><span class="level-item">31 minutes read (About 4708 words)</span></div></div><div class="content"><h2 id="프로세스와-쓰레드란-무엇인가요"><a href="#프로세스와-쓰레드란-무엇인가요" class="headerlink" title="프로세스와 쓰레드란 무엇인가요??"></a>프로세스와 쓰레드란 무엇인가요??</h2><p>프로세스와 쓰레드는 컴퓨터에서 실행되는 작업의 실행 단위로 모두 동시성(concurrency)을 다룹니다.</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-02-20T14:10:50.535Z" title="2/20/2023, 11:10:50 PM">2023-02-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-21T14:52:53.444Z" title="2/21/2023, 11:52:53 PM">2023-02-21</time></span><span class="level-item">35 minutes read (About 5238 words)</span></div></div><div class="content"><h2 id="프로세스와-쓰레드란-무엇인가요"><a href="#프로세스와-쓰레드란-무엇인가요" class="headerlink" title="프로세스와 쓰레드란 무엇인가요??"></a>프로세스와 쓰레드란 무엇인가요??</h2><p>프로세스와 쓰레드는 컴퓨터에서 실행되는 작업의 실행 단위로 모두 동시성(concurrency)을 다룹니다.</p>
 <h2 id="프로세스와-쓰레드의-차이는-어떻게-되나요"><a href="#프로세스와-쓰레드의-차이는-어떻게-되나요" class="headerlink" title="프로세스와 쓰레드의 차이는 어떻게 되나요??"></a>프로세스와 쓰레드의 차이는 어떻게 되나요??</h2><ul>
 <li>프로세스<ul>
 <li>운영체제에서 실행 중인 프로그램을 의미</li>
@@ -270,6 +270,44 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">my_coroutine</span>():</span><br><span class="line">    <span class="comment"># 비동기적으로 수행할 작업 구현</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="keyword">await</span> asyncio.gather(my_coroutine())</span><br><span class="line"></span><br><span class="line">asyncio.run(main())</span><br></pre></td></tr></table></figure></li>
 <li><p>queue 모듈을 이용한 Producer-Consumer 패턴 사용: queue 모듈을 사용하여 여러 쓰레드 간에 데이터를 공유하고, Producer-Consumer 패턴을 구현할 수 있습니다. 이 방법은 여러 쓰레드가 동시에 작업을 처리해야 하는 경우에 유용합니다.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> queue</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">producer</span>(<span class="params">q</span>):</span><br><span class="line">    <span class="comment"># 데이터를 생산하여 큐에 추가하는 작업 구현</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">consumer</span>(<span class="params">q</span>):</span><br><span class="line">    <span class="comment"># 큐에서 데이터를 가져와서 처리하는 작업 구현</span></span><br><span class="line"></span><br><span class="line">q = queue.Queue()</span><br><span class="line">p = threading.Thread(target=producer, args=(q,))</span><br><span class="line">c = threading.Thread(target=consumer, args=(q,))</span><br><span class="line">p.start()</span><br><span class="line">c.start()</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="쓰레드를-사용하면서-주의해야할-점은-어떻게-되나요"><a href="#쓰레드를-사용하면서-주의해야할-점은-어떻게-되나요" class="headerlink" title="쓰레드를 사용하면서 주의해야할 점은 어떻게 되나요??"></a>쓰레드를 사용하면서 주의해야할 점은 어떻게 되나요??</h2><ol>
+<li>Race Condition(경쟁 상태)<ul>
+<li>2개 이상의 쓰레드가 공유 데이터에 접근하여 변경하는 경우 경쟁 상태가 발생할 수 있음<ul>
+<li>자료의 일관성을 해치는 결과가 나타날 수 있기 때문</li>
+</ul>
+</li>
+<li>이를 해결하기 위해서는 동기화 기법을 사용</li>
+</ul>
+</li>
+<li>DeadLock(교착 상태)<ul>
+<li>2개 이상의 쓰레드가 서로 대기하며 무한정 기다리는 상황</li>
+<li>교착 상태를 방지하기 위해서는 상호배제, 점유대기, 비선점, 순환 대기 등의 조건 중 하나가 만족되지 않도록 해야함</li>
+</ul>
+</li>
+<li>Thread.stop() 메소드 사용 금지<ul>
+<li>Thread.stop() 메소드는 쓰레드를 강제로 종료시키는 메소드이지만 안정적으로 쓰레드를 종료시키지 못하고 데이터 불일치(Data Inconsistency) 등의 문제를 발생시킬 수 있음</li>
+<li>대신 쓰레드를 종료시키기 위해서는 플래그 변수나 interrupt() 메소드를 사용하는 것이 좋음</li>
+</ul>
+</li>
+<li>Thread 우선순위 지정 주의<ul>
+<li>Thread 우선순위는 시스템마다 다를 수 있음</li>
+<li>우선순위에 따라 쓰레드가 실행되는 것을 보장하지 않음</li>
+</ul>
+</li>
+<li>ThreadLocal 사용 주의<ul>
+<li>쓰레드별로 독립적인 데이터를 저장하는데 사용되는 ThreadLocal을 남발하면 쓰레드 간에 데이터 불일치 문제가 발생할 수 있음</li>
+</ul>
+</li>
+<li>성능 문제<ul>
+<li>쓰레드를 사용하면 Context Switching과 메모리 사용량 등의 부가적인 성능 문제가 발생할 수 있음<ul>
+<li>Context Switching을 할 때는 현재 진행 중인 작업의 상태(ex. 다음에 실행해야할 위치(Program Counter)) 등의 정보를 저장하고 읽어오는 시간이 소요</li>
+</ul>
+</li>
+<li>따라서 필요한 만큼의 Thread만 생성하고 Thread의 생명주기를 관리하여 성능 문제를 최소화해야함</li>
+<li>단순한 작업일 경우에는 Single Thread로 프로그래밍 하는 것이 더 효율적</li>
+</ul>
+</li>
 </ol>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-02-17T14:34:29.000Z" title="2/17/2023, 11:34:29 PM">2023-02-17</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-17T14:43:37.394Z" title="2/17/2023, 11:43:37 PM">2023-02-17</time></span><span class="level-item"><a class="link-muted" href="/categories/JPA/">JPA</a><span> / </span><a class="link-muted" href="/categories/JPA/Basic/">Basic</a></span><span class="level-item">5 minutes read (About 682 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/JPA/03.%20%EC%97%94%ED%8B%B0%ED%8B%B0%20%EB%A7%A4%ED%95%91/">03. 엔티티 매핑</a></h1><div class="content"><h2 id="데이터베이스-스키마-자동-생성"><a href="#데이터베이스-스키마-자동-생성" class="headerlink" title="데이터베이스 스키마 자동 생성"></a>데이터베이스 스키마 자동 생성</h2><ul>
 <li><p>DDL을 애플리케이션 실행 시점에 자동 생성</p>
