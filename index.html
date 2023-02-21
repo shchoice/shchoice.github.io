@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-02-20T14:10:50.535Z" title="2/20/2023, 11:10:50 PM">2023-02-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-21T14:48:20.152Z" title="2/21/2023, 11:48:20 PM">2023-02-21</time></span><span class="level-item">21 minutes read (About 3184 words)</span></div></div><div class="content"><h2 id="프로세스와-쓰레드란-무엇인가요"><a href="#프로세스와-쓰레드란-무엇인가요" class="headerlink" title="프로세스와 쓰레드란 무엇인가요??"></a>프로세스와 쓰레드란 무엇인가요??</h2><p>프로세스와 쓰레드는 컴퓨터에서 실행되는 작업의 실행 단위로 모두 동시성(concurrency)을 다룹니다.</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-02-20T14:10:50.535Z" title="2/20/2023, 11:10:50 PM">2023-02-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-21T14:51:58.413Z" title="2/21/2023, 11:51:58 PM">2023-02-21</time></span><span class="level-item">27 minutes read (About 4065 words)</span></div></div><div class="content"><h2 id="프로세스와-쓰레드란-무엇인가요"><a href="#프로세스와-쓰레드란-무엇인가요" class="headerlink" title="프로세스와 쓰레드란 무엇인가요??"></a>프로세스와 쓰레드란 무엇인가요??</h2><p>프로세스와 쓰레드는 컴퓨터에서 실행되는 작업의 실행 단위로 모두 동시성(concurrency)을 다룹니다.</p>
 <h2 id="프로세스와-쓰레드의-차이는-어떻게-되나요"><a href="#프로세스와-쓰레드의-차이는-어떻게-되나요" class="headerlink" title="프로세스와 쓰레드의 차이는 어떻게 되나요??"></a>프로세스와 쓰레드의 차이는 어떻게 되나요??</h2><ul>
 <li>프로세스<ul>
 <li>운영체제에서 실행 중인 프로그램을 의미</li>
@@ -166,6 +166,93 @@
 </ul>
 </li>
 </ul>
+<h2 id="자바에서-쓰레드를-구현하는-방법은-어떻게-될까요"><a href="#자바에서-쓰레드를-구현하는-방법은-어떻게-될까요" class="headerlink" title="자바에서 쓰레드를 구현하는 방법은 어떻게 될까요??"></a>자바에서 쓰레드를 구현하는 방법은 어떻게 될까요??</h2><ol>
+<li>Thread 클래스 상속 <ul>
+<li>Runnable을 상속하여 만들어진 클래스이며, 클래스 객체를 생성하고 start() 메소드를 호출함으로써 Thread가 독립적으로 실행</li>
+<li>이러한 Thread 클래스를 상속받아서 run() 메서드를 오버라이드하여 구현하는 방법</li>
+<li>어떤 객체도 리턴하지 않음</li>
+<li>가장 기본적인 쓰레드 구현 방법 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 쓰레드에서 수행할 작업 구현</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>Runnable 인터페이스 구현<ul>
+<li>Runnable 인터페이스를 구현하여 run() 메서드를 오버라이드하여 구현하는 방법</li>
+<li>상속을 사용하지 않기 때문에 코드 재사용성이 더 높음</li>
+<li>따라서 다른 클래스를 확장하거나 다른 인터페이스를 구현하고 있는 경우에 사용</li>
+<li>어떤 객체도 리턴하지 않음</li>
+<li>ExecutorService의 submit() 메소드로 작업을 실행하고 결과 값을 받을 수 있음 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyRunnable</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 쓰레드에서 수행할 작업 구현</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>Callable 인터페이스 구현<ul>
+<li>Callable 인터페이스를 구현하여 call() 메서드를 오버라이드하여 구현하는 방법</li>
+<li>Runnable과 비슷하지만, 작업 결과인 특정 타입의 객체를 반환할 수 있음</li>
+<li>ExecutorService의 submit() 메소드로 작업을 전달하고 작업이 완료되면 Future 객체를 반환해 결과값을 받을 수 있음 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyCallable</span> <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;Integer&gt; &#123;</span><br><span class="line">    <span class="keyword">public</span> Integer <span class="title function_">call</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 쓰레드에서 수행할 작업 구현</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>ExecutorService 를 이용한 쓰레드 풀 사용<ul>
+<li><p>ExecutorService 인터페이스를 사용하여 쓰레드 풀을 생성하고, 큐에 작업을 추가하고 실행</p>
+</li>
+<li><p>여러 쓰레드를 동시에 실행할 수 있음</p>
+</li>
+<li><p>주로 비동기적인 작업을 수행할 때 사용</p>
+</li>
+<li><p>submit() 메소드로 작업을 전달하고 작업이 완료되면 Future 객체를 반환해 결과값을 받을 수 있음</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ExecutorService</span> <span class="variable">executorService</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">10</span>);</span><br><span class="line"><span class="type">Runnable</span> <span class="variable">myRunnable</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyRunnable</span>();</span><br><span class="line">executorService.execute(myRunnable);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ExecutorService의 여러 쓰레드 풀 생성 방법</p>
+<ul>
+<li><code>new FixedThreadPool(int)</code><ul>
+<li>인자 개수만큼 고정된 쓰레드풀 생성</li>
+</ul>
+</li>
+<li><code>new CachedThreadPoll()</code><ul>
+<li>필요할 때, 필요한 만큼 쓰레드풀 생성</li>
+<li>이미 생성된 쓰레드를 재활용할 수 있어 성능상 이점이 있을 수 있다.</li>
+</ul>
+</li>
+<li><code>new ScheduledThreadPool(int)</code> <ul>
+<li>일정 시간 뒤 실행되는 작업이나, 주기적으로 수행되는 작업이 있을 때 고려</li>
+</ul>
+</li>
+<li><code>new SingleThreadExecutor()</code><ul>
+<li>쓰레드 한 개인 <code>ExecutorService</code>를 리턴한다.</li>
+<li>싱글 쓰레드에서 동작해야 하는 작업을 처리할 때 사용</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>submit()</code>메서드를 통해 <code>Callable</code>을 실행하고 <code>Future&lt;V&gt;</code>를 반환 받을 수 있음</p>
+</li>
+<li><p>실행된 Callable의 반환값을 받는 Future의 메소드 소개</p>
+<ul>
+<li>get()<ul>
+<li>비동기 작업이 완료될 때까지 대기하고 결과를 가져옴<ul>
+<li>&#x3D; get() 메소드 호출 시 Blocking Call이 발생하여 반환값을 가지고 올 때까지 멈춤</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>isDone()<ul>
+<li>비동기 작업이 완료되었는지 여부를 확인 </li>
+<li>Thread Pool에 submit되어 실행 중인 Callable 작업이 언제 끝난 지를 확인할 수 있음</li>
+</ul>
+</li>
+<li>cancel()<ul>
+<li>비동기 작업을 멈춤</li>
+</ul>
+</li>
+<li>invokeAll()<ul>
+<li>모든 작업이 완료될 때까지 대기하고 모든 작업의 결과를 가져옴</li>
+</ul>
+</li>
+<li>invokeAny()<ul>
+<li>작업 중 하나라도 완료되면 대기를 취소하고 완료된 작업 중 하나의 결과를 가져옴</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-02-17T14:34:29.000Z" title="2/17/2023, 11:34:29 PM">2023-02-17</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-17T14:43:37.394Z" title="2/17/2023, 11:43:37 PM">2023-02-17</time></span><span class="level-item"><a class="link-muted" href="/categories/JPA/">JPA</a><span> / </span><a class="link-muted" href="/categories/JPA/Basic/">Basic</a></span><span class="level-item">5 minutes read (About 682 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/JPA/03.%20%EC%97%94%ED%8B%B0%ED%8B%B0%20%EB%A7%A4%ED%95%91/">03. 엔티티 매핑</a></h1><div class="content"><h2 id="데이터베이스-스키마-자동-생성"><a href="#데이터베이스-스키마-자동-생성" class="headerlink" title="데이터베이스 스키마 자동 생성"></a>데이터베이스 스키마 자동 생성</h2><ul>
 <li><p>DDL을 애플리케이션 실행 시점에 자동 생성</p>
 </li>
