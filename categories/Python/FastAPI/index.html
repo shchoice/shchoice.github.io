@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/Python/">Python</a></li><li class="is-active"><a href="#" aria-current="page">FastAPI</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-03-09T14:18:49.000Z" title="3/9/2023, 11:18:49 PM">2023-03-09</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-03-09T15:49:40.804Z" title="3/10/2023, 12:49:40 AM">2023-03-10</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/FastAPI/">FastAPI</a></span><span class="level-item">9 minutes read (About 1340 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/FastAPI-Deploy/">FastAPI - Deploy</a></h1><div class="content"><p>FastAPI와 ASGI 서버인 uvicorn + WSGI 서버인 gunicorn 을 통한  웹 서비스 구현 및 배포를 하면서 궁금했던 내용들에 대한 정리한 내용입니다.</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/Python/">Python</a></li><li class="is-active"><a href="#" aria-current="page">FastAPI</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-03-09T14:18:49.000Z" title="3/9/2023, 11:18:49 PM">2023-03-09</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-03-09T16:05:16.646Z" title="3/10/2023, 1:05:16 AM">2023-03-10</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/FastAPI/">FastAPI</a></span><span class="level-item">10 minutes read (About 1452 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/FastAPI-Deploy/">FastAPI - Deploy</a></h1><div class="content"><p>FastAPI와 ASGI 서버인 uvicorn + WSGI 서버인 gunicorn 을 통한  웹 서비스 구현 및 배포를 하면서 궁금했던 내용들에 대한 정리한 내용입니다.</p>
 <p>FastAPI 와 uvicorn을 통해 REST API 서버를 구현하고, 현재 상황에 최적화된 Product로 배포하기 위해 자료조사를 하던 중에  gunicorn + uvicorn 을 통한 서비스를 알게 되었습니다. 그래서 각각에 대한 개념과 웹 서비스를 어떻게 최적화하여 배포를 할 수 있는지 정리하였습니다.</p>
 <h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><ol>
 <li>[ASGI 서버와 WSGI 서버란](#ASGI 서버와  WSGI 서버란?)</li>
@@ -59,8 +59,10 @@
 </li>
 </ul>
 </li>
-<li><p>WAS</p>
+<li><p>WAS(Web Application Server)</p>
 <ul>
+<li><p>대규모 웹 어플리케이션을 운영하는데 매우 유용</p>
+</li>
 <li><p>웹 어플리케이션을 실행하기 위한 미들웨어 플랫폼으로, 웹 서버와 데이터베이스 서버 사이의 중간 계층에서 동작</p>
 <blockquote>
 <p><strong>WAS의 기능 참고</strong></p>
@@ -97,33 +99,36 @@
 </li>
 </ul>
 </li>
-<li><p>WSGI</p>
+<li><p>WSGI(Web Server Gateway Interface)</p>
 <ul>
-<li><p>요청을 받고 응답을 주는 역할을 함</p>
+<li><p>Python 웹 어플리케이션 개발의 표준 인터페이스</p>
+</li>
+<li><p>Python 웹 어플리케이션과 웹 서버 간의 데이터를 주고 받기 위한 인터페이스 규격</p>
 </li>
 <li><p>웹 서버와 웹 프레임워크 사이에 존재 → WAS를 대체한다고 보면 됨</p>
-<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/153cf3e5-d053-4b78-ad77-ed8737d6d4b8/Untitled.png" alt="Untitled"></p>
-</li>
-<li><p>웹서버와 Python 애플리케이션 사이에 통신하기 위한 인터페이스</p>
+<p><img src="/img/fastapi/wsgi.png" alt="wsgi"></p>
 </li>
 <li><p>CGI는 프로세스를 생성하여 우리가 작성한 코드를 실행하는 반면 WSGI는 요청에 대해 우리가 작성한 코드를 콜백하여 호출하는 역할</p>
 <ul>
 <li>즉, WSGI는 웹 프레임워크의 코드를 호출해 주는 역할</li>
 </ul>
 </li>
-<li><p>단점으로는 비동기 처리가 힘듦</p>
+<li><p>단점으로는 비동기 처리가 힘들음</p>
 <ul>
-<li>단일 동기 호출 방식으로 처리되어 오랜 시간 연결을 유지하는 Websocket이나 긴 HTTP 요청을 처리하기에 적합하지 않음</li>
+<li>Websocket이나 긴 HTTP 요청을 처리하기에 적합하지 않음(단일 동기 호출 방식으로 처리되어 오랜 시간 연결을 유지)</li>
 <li>WSGI는 요청에 대한 콜백이 동기적인 형태를 가졌기 때문</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>ASGI</p>
+<li><p>ASGI(Asynchronous Server Gateway Interface)</p>
 <ul>
-<li>웹 프레임워크와 웹 서버 사이의 비동기적인 인터페이스를 제공</li>
-<li>단일 비동기 호출이 가능하도록 설계됨</li>
+<li>Python 비동기 웹 어플리케이션과 웹 서버 간의 인터페이스 규격</li>
+<li>WebSocket과 같은 실시간 통신을 지원(단일 비동기 호출이 가능하도록 설계됨)</li>
 <li>클라이언트로부터 여러 이벤트를 주고받을 수 있으며, 백그라운드 코루틴을 실행할 수 있게 됨</li>
+<li>SGI는 WSGI에 비해 더 높은 성능과 안정성, 그리고 기능을 제공</li>
+<li>비동기 방식으로 동작하므로 멀티 스레드 환경에서 발생할 수 있는 문제를 해결</li>
+<li>Python의 asyncio 라이브러리를 기반으로 하여 모듈 관리가 더욱 간편</li>
 </ul>
 </li>
 </ul>
