@@ -31,37 +31,69 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/Python/">Python</a></li><li class="is-active"><a href="#" aria-current="page">FastAPI</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-03-09T14:18:49.000Z" title="3/9/2023, 11:18:49 PM">2023-03-09</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-03-09T14:58:50.921Z" title="3/9/2023, 11:58:50 PM">2023-03-09</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/FastAPI/">FastAPI</a></span><span class="level-item">5 minutes read (About 788 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/FastAPI-Deploy/">FastAPI - Deploy</a></h1><div class="content"><p>FastAPI와 ASGI 서버인 uvicorn WSGI 서버인 gunicorn 을 통한  웹 서비스 구현 및 배포를 하면서 궁금했던 내용들에 대한 정리한 내용입니다. </p>
-<h1 id="ASGI-서버와-WSGI-서버란"><a href="#ASGI-서버와-WSGI-서버란" class="headerlink" title="ASGI 서버와  WSGI 서버란?"></a>ASGI 서버와  WSGI 서버란?</h1><p>ASGI 서버와 WSGI 서버가 무엇인지  CGI 와 WAS와 함께 알아보자</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/Python/">Python</a></li><li class="is-active"><a href="#" aria-current="page">FastAPI</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-03-09T14:18:49.000Z" title="3/9/2023, 11:18:49 PM">2023-03-09</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-03-09T15:49:40.804Z" title="3/10/2023, 12:49:40 AM">2023-03-10</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/FastAPI/">FastAPI</a></span><span class="level-item">9 minutes read (About 1340 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/FastAPI-Deploy/">FastAPI - Deploy</a></h1><div class="content"><p>FastAPI와 ASGI 서버인 uvicorn + WSGI 서버인 gunicorn 을 통한  웹 서비스 구현 및 배포를 하면서 궁금했던 내용들에 대한 정리한 내용입니다.</p>
+<p>FastAPI 와 uvicorn을 통해 REST API 서버를 구현하고, 현재 상황에 최적화된 Product로 배포하기 위해 자료조사를 하던 중에  gunicorn + uvicorn 을 통한 서비스를 알게 되었습니다. 그래서 각각에 대한 개념과 웹 서비스를 어떻게 최적화하여 배포를 할 수 있는지 정리하였습니다.</p>
+<h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><ol>
+<li>[ASGI 서버와 WSGI 서버란](#ASGI 서버와  WSGI 서버란?)</li>
+<li><a href="#uvicorn%EA%B3%BC-gunicorn-%EC%9D%B4%EB%9E%80">Uvicorn 과 Gunicorn 이란</a></li>
+</ol>
+<h1 id="ASGI-서버와-WSGI-서버란"><a href="#ASGI-서버와-WSGI-서버란" class="headerlink" title="ASGI 서버와  WSGI 서버란?"></a>ASGI 서버와  WSGI 서버란?</h1><p>ASGI 서버와 WSGI 서버가 무엇인지 알기 위해서 CGI 및 WAS와 함께 알아보겠습니다.</p>
 <ul>
-<li><p>CGI</p>
+<li><p>CGI(Common Gateway Interface)</p>
 <ul>
-<li>웹서버를 의미</li>
-<li>nginx, apache에서 우리가 작성한 프로그램을 실행하기 위한 인터페이스</li>
+<li>웹 서버와 외부 프로그램 간의 데이터 교환을 위한 인터페이스 규약 (일종의 웹 서버 기술로 볼 수 있음)<ul>
+<li>즉, 웹 서버와 외부 프로그램 간의 상호작용을 위해 표준화된 방식을 제공</li>
+</ul>
+</li>
+<li>nginx, apache 웹 서버에서 우리가 작성한 프로그램을 실행하기 위한 인터페이스</li>
+<li>하지만 현재는 대부분 웹 프레임워크를 통해 동적인 웹 페이지를 생성(CGI는 과거에 주로 사용)</li>
+<li>웹 페이지에 동적인 콘텐츠를 제공하기 위해 웹 서버가 클라이언트 요청에 따라 외부 프로그램을 실행하고 그 결과를 반환하는 방식으로 동작</li>
+<li>요청 → 웹서버(nginx, apache) → CGI → CGI에 작성한 프로그램 실행(프로세스 생성)</li>
 <li>프로세스를 생성하여 실행<ul>
 <li>즉 fork, spawn를 통해 프로세스를 생성</li>
 </ul>
 </li>
-<li>요청에 따라 프로세스를 생성하기 때문에 메모리를 많이 사용</li>
-<li>요청 → 웹서버(nginx, apache) → CGI → CGI에 작성한 프로그램 실행(프로세스 생성)</li>
+<li>요청에 따라 프로세스를 생성<ul>
+<li>많은 요청이 들어오면 서버 부하가 증가하고 성능 저하(메모리 등)를 초래할 수 있음</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>WAS</p>
 <ul>
+<li><p>웹 어플리케이션을 실행하기 위한 미들웨어 플랫폼으로, 웹 서버와 데이터베이스 서버 사이의 중간 계층에서 동작</p>
+<blockquote>
+<p><strong>WAS의 기능 참고</strong></p>
+<ul>
+<li>웹 어플리케이션을 실행하기 위한 런타임 환경 제공</li>
+<li>다양한 프로그래밍 언어와 프레임워크를 지원</li>
+<li>세션 관리, 트랜잭션 관리, 보안 등의 기능 제공</li>
+<li>로드 밸런싱, 클러스터링, 캐싱 등의 기능 제공</li>
+<li>모니터링, 로깅, 성능 측정 등의 기능 제공</li>
+</ul>
+</blockquote>
+</li>
 <li><p>요청 → 웹서버(nginx, apache) → WAS(Tomcat) → WAS에 작성한 프로그램 실행(쓰레드 실행)</p>
+<ul>
+<li>(하지만 요즘에는 최근에는 WAS 자체가 웹 서버 기능을 포함해 단일 서버로 웹 어플리케이션을 구축하는 것이 일반적)</li>
+</ul>
 </li>
-<li><p>CGI는 프로세스를 생성하여 실행하지만 WAS는 쓰레드를 이용</p>
+<li><p>CGI는 프로세스를 생성하여 실행하지만 WAS는 쓰레드를 통해 실행됨</p>
 </li>
-<li><p>Django, Flask은 CGI, WAS와 같은 서버가 존재해야 함</p>
+<li><p>Django, Flask, FastAPI는 CGI, WAS와 같은 서버가 존재해야 함</p>
+<ul>
+<li>FastAPI : ASGI 서버가 필요함</li>
+<li>Flask : WSGI 서버가 필요</li>
+<li>Django : WSGI, ASGI 모두 지원</li>
+</ul>
 <blockquote>
 <p><strong>Deploying to Production</strong></p>
+<p>Django, being a web framework, <strong>needs a web server in order to operate</strong>. And since most web servers don’t natively speak Python, we need an interface to make that communication happen. Django currently supports two interfaces: WSGI and ASGI.</p>
+<p>※ <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.1/howto/deployment/">https://docs.djangoproject.com/en/4.1/howto/deployment/</a> </p>
+<p>Flask is a WSGI <em>application</em>. <strong>A WSGI <em>server</em> is used to run the application</strong></p>
+<p>※ <a target="_blank" rel="noopener" href="https://flask.palletsprojects.com/en/2.2.x/deploying/">https://flask.palletsprojects.com/en/2.2.x/deploying/</a></p>
+<p>The main thing you need to run a <strong>FastAPI</strong> application in a remote server machine is an <strong>ASGI server</strong> program like <strong>Uvicorn</strong>.<br>※ <a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/ko/deployment/manually/">https://fastapi.tiangolo.com/ko/deployment/manually/</a></p>
 </blockquote>
-<p>Django, being a web framework, needs a web server in order to operate. And since most web servers don’t natively speak Python, we need an interface to make that communication happen. <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.1/howto/deployment/">https://docs.djangoproject.com/en/4.1/howto/deployment/</a></p>
-<p>Flask is a WSGI <em>application</em>. A WSGI <em>server</em> is used to run the application <a target="_blank" rel="noopener" href="https://flask.palletsprojects.com/en/2.2.x/deploying/">https://flask.palletsprojects.com/en/2.2.x/deploying/</a></p>
-<blockquote>
-</blockquote>
-</li>
-<li><p>FastAPI는 자체적으로 서버를 띄울 수 없도록 되어져 있음</p>
 </li>
 </ul>
 </li>
@@ -95,7 +127,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="uvicorn과-gunicorn"><a href="#uvicorn과-gunicorn" class="headerlink" title="uvicorn과 gunicorn ??"></a>uvicorn과 gunicorn ??</h2><ul>
+<h2 id="uvicorn과-gunicorn-이란"><a href="#uvicorn과-gunicorn-이란" class="headerlink" title="uvicorn과 gunicorn 이란"></a>uvicorn과 gunicorn 이란</h2><ul>
 <li>FastAPI 웹 프레임워크를 통해 구현한 Web Application을 실행하기 위해서는 ASGI 서버가 필요</li>
 <li>이때 주로 사용되는 ASGI 서버 중에 하나는 uvicorn</li>
 </ul>
