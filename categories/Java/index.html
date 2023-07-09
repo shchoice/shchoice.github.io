@@ -98,7 +98,7 @@
 </ul>
 </li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-07-05T14:52:50.000Z" title="7/5/2023, 11:52:50 PM">2023-07-05</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-08T14:52:27.397Z" title="7/8/2023, 11:52:27 PM">2023-07-08</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Java8/">Java8</a></span><span class="level-item">3 minutes read (About 508 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java8/%ED%95%A8%EC%88%98%ED%98%95-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-%EB%9E%8C%EB%8B%A4-%ED%91%9C%ED%98%84%EC%8B%9D/">함수형 인터페이스와 람다 표현식</a></h1><div class="content"><h1 id="함수형-인터페이스와-람다-표현식"><a href="#함수형-인터페이스와-람다-표현식" class="headerlink" title="함수형 인터페이스와 람다 표현식"></a>함수형 인터페이스와 람다 표현식</h1><h2 id="함수형-인터페이스-Functional-Interface"><a href="#함수형-인터페이스-Functional-Interface" class="headerlink" title="함수형 인터페이스(Functional Interface)"></a>함수형 인터페이스(Functional Interface)</h2><ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-07-05T14:52:50.000Z" title="7/5/2023, 11:52:50 PM">2023-07-05</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-09T14:59:11.462Z" title="7/9/2023, 11:59:11 PM">2023-07-09</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Java8/">Java8</a></span><span class="level-item">7 minutes read (About 1003 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java8/%ED%95%A8%EC%88%98%ED%98%95-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-%EB%9E%8C%EB%8B%A4-%ED%91%9C%ED%98%84%EC%8B%9D/">함수형 인터페이스와 람다 표현식</a></h1><div class="content"><h1 id="함수형-인터페이스와-람다-표현식"><a href="#함수형-인터페이스와-람다-표현식" class="headerlink" title="함수형 인터페이스와 람다 표현식"></a>함수형 인터페이스와 람다 표현식</h1><h2 id="함수형-인터페이스-Functional-Interface"><a href="#함수형-인터페이스-Functional-Interface" class="headerlink" title="함수형 인터페이스(Functional Interface)"></a>함수형 인터페이스(Functional Interface)</h2><ul>
 <li><p>자바 8에서 도입된 개념</p>
 </li>
 <li><p>정확히 하나의 추상 메소드를 가진 인터페이스를 의미</p>
@@ -126,6 +126,41 @@
 <li>함수형 인터페이스와 인스턴스를 만드는 방법으로 사용됨</li>
 <li>코드를 줄일 수 있음</li>
 <li>메소드 매개변수, 리턴 타입, 변수로 만들어 사용할 수 있음</li>
+</ul>
+<h2 id="자바에서-함수형-프로그래밍"><a href="#자바에서-함수형-프로그래밍" class="headerlink" title="자바에서 함수형 프로그래밍"></a>자바에서 함수형 프로그래밍</h2><ul>
+<li>함수를 First class object 로 사용할 수 있음</li>
+<li>일급 함수<ul>
+<li>함수를 값처럼 다룰 수 있는 함수를 의미</li>
+<li>함수를 변수에 할당할 수 있으며, 함수의 인자로 다른 함수를 전달하거나, 함수의 결과로 함수를 반환할 수 있음</li>
+<li>일급 함수를 지원하는 언어에서는 함수를 일급 객체(First-class object) 또는 일급 시민(First-class citizen) 이라고 표현</li>
+</ul>
+</li>
+<li>순수 함수(Pure function)<ul>
+<li>동일한 입력에 대해 항상 동일한 출력을 반환<ul>
+<li>주어진 입력에 따라 결과를 계산하며, 이때 외부 상태를 참조하거나 변경하지 않음</li>
+<li>즉 동일한 인자로 순수 함수를 호출하면 항상 동일한 결과를 반환한다는 말임</li>
+<li>Ex) 두 수를 더하는 함수는 순수 함수</li>
+</ul>
+</li>
+<li>부수 효과(side effect)가 없음<ul>
+<li>부수 효과란 함수가 외부의 상태를 변경하거나, 함수 외부에서 관찰 가능한 다른 방식으로 외부 세계와 상호작용하는 것을 의미</li>
+<li>함수 내에서 전역 변수를 변경하거나 파일에 쓰기를 수행하거나, 화면에 출력하는 등의 작업은 모두 부수 효과를 일으킴</li>
+<li>순수 함수는 이러한 부수효과가 없어 함수의 독립성과 예측 가능성을 높임</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>고차 함수(Higher-Order Function)<ul>
+<li>다른 함수를 인자로 받거나, 함수를 결과로 반환하는 함수</li>
+</ul>
+</li>
+<li>불변성</li>
+<li>함수형 프로그래밍(Functional Programming)<ul>
+<li>함수형 프로그래밍은 프로그래밍 패러다임으로 순수 함수를 이용해 상태 변경이나 가변 데이터를 피하는 것을 강조</li>
+<li>일반적으로 일급 함수와 고차 함수를 지원</li>
+<li>병렬 처리와 같은 멀티코어&#x2F;분산 처리에 강점이 있음</li>
+</ul>
+</li>
 </ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-01-16T14:47:16.000Z" title="1/16/2023, 11:47:16 PM">2023-01-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-10T14:55:56.000Z" title="2/10/2023, 11:55:56 PM">2023-02-10</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-MVC/">Spring MVC</a></span><span class="level-item">25 minutes read (About 3778 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-MVC/">Spring MVC</a></h1><div class="content"><ol>
 <li>어떻게 GetMapping으로 요청을 처리하고 Model model이 받는 파라미터는 어떤것들이 있고 어떻게 확장할 수있는지 return은 어떻게하는지 등을 파악</li>
