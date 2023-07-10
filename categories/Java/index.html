@@ -98,7 +98,7 @@
 </ul>
 </li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-07-05T14:52:50.000Z" title="7/5/2023, 11:52:50 PM">2023-07-05</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-09T14:59:11.462Z" title="7/9/2023, 11:59:11 PM">2023-07-09</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Java8/">Java8</a></span><span class="level-item">7 minutes read (About 1003 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java8/%ED%95%A8%EC%88%98%ED%98%95-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-%EB%9E%8C%EB%8B%A4-%ED%91%9C%ED%98%84%EC%8B%9D/">함수형 인터페이스와 람다 표현식</a></h1><div class="content"><h1 id="함수형-인터페이스와-람다-표현식"><a href="#함수형-인터페이스와-람다-표현식" class="headerlink" title="함수형 인터페이스와 람다 표현식"></a>함수형 인터페이스와 람다 표현식</h1><h2 id="함수형-인터페이스-Functional-Interface"><a href="#함수형-인터페이스-Functional-Interface" class="headerlink" title="함수형 인터페이스(Functional Interface)"></a>함수형 인터페이스(Functional Interface)</h2><ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-07-05T14:52:50.000Z" title="7/5/2023, 11:52:50 PM">2023-07-05</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-10T14:58:26.545Z" title="7/10/2023, 11:58:26 PM">2023-07-10</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Java8/">Java8</a></span><span class="level-item">8 minutes read (About 1212 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java8/%ED%95%A8%EC%88%98%ED%98%95-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%99%80-%EB%9E%8C%EB%8B%A4-%ED%91%9C%ED%98%84%EC%8B%9D/">함수형 인터페이스와 람다 표현식</a></h1><div class="content"><h1 id="함수형-인터페이스와-람다-표현식"><a href="#함수형-인터페이스와-람다-표현식" class="headerlink" title="함수형 인터페이스와 람다 표현식"></a>함수형 인터페이스와 람다 표현식</h1><h2 id="함수형-인터페이스-Functional-Interface"><a href="#함수형-인터페이스-Functional-Interface" class="headerlink" title="함수형 인터페이스(Functional Interface)"></a>함수형 인터페이스(Functional Interface)</h2><ul>
 <li><p>자바 8에서 도입된 개념</p>
 </li>
 <li><p>정확히 하나의 추상 메소드를 가진 인터페이스를 의미</p>
@@ -128,38 +128,56 @@
 <li>메소드 매개변수, 리턴 타입, 변수로 만들어 사용할 수 있음</li>
 </ul>
 <h2 id="자바에서-함수형-프로그래밍"><a href="#자바에서-함수형-프로그래밍" class="headerlink" title="자바에서 함수형 프로그래밍"></a>자바에서 함수형 프로그래밍</h2><ul>
-<li>함수를 First class object 로 사용할 수 있음</li>
-<li>일급 함수<ul>
-<li>함수를 값처럼 다룰 수 있는 함수를 의미</li>
-<li>함수를 변수에 할당할 수 있으며, 함수의 인자로 다른 함수를 전달하거나, 함수의 결과로 함수를 반환할 수 있음</li>
-<li>일급 함수를 지원하는 언어에서는 함수를 일급 객체(First-class object) 또는 일급 시민(First-class citizen) 이라고 표현</li>
+<li><p>함수를 First class object 로 사용할 수 있음</p>
+</li>
+<li><p>일급 함수</p>
+<ul>
+<li><p>함수를 값처럼 다룰 수 있는 함수를 의미</p>
+</li>
+<li><p>함수를 변수에 할당할 수 있으며, 함수의 인자로 다른 함수를 전달하거나, 함수의 결과로 함수를 반환할 수 있음</p>
+</li>
+<li><p>일급 함수를 지원하는 언어에서는 함수를 일급 객체(First-class object) 또는 일급 시민(First-class citizen) 이라고 표현</p>
+</li>
+<li><p>예시</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 함수를 변수에 저장</span></span><br><span class="line">Function&lt;Integer, Integer&gt; square = x -&gt; x * x;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수를 다른 함수의 인자로 전달</span></span><br><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">numbers.stream().map(square).collect(Collectors.toList()); <span class="comment">// 결과: [1, 4, 9, 16]</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li>순수 함수(Pure function)<ul>
-<li>동일한 입력에 대해 항상 동일한 출력을 반환<ul>
+<li><p>순수 함수(Pure function)</p>
+<ul>
+<li><p>동일한 입력에 대해 항상 동일한 출력을 반환</p>
+<ul>
 <li>주어진 입력에 따라 결과를 계산하며, 이때 외부 상태를 참조하거나 변경하지 않음</li>
 <li>즉 동일한 인자로 순수 함수를 호출하면 항상 동일한 결과를 반환한다는 말임</li>
 <li>Ex) 두 수를 더하는 함수는 순수 함수</li>
 </ul>
 </li>
-<li>부수 효과(side effect)가 없음<ul>
+<li><p>부수 효과(side effect)가 없음</p>
+<ul>
 <li>부수 효과란 함수가 외부의 상태를 변경하거나, 함수 외부에서 관찰 가능한 다른 방식으로 외부 세계와 상호작용하는 것을 의미</li>
 <li>함수 내에서 전역 변수를 변경하거나 파일에 쓰기를 수행하거나, 화면에 출력하는 등의 작업은 모두 부수 효과를 일으킴</li>
 <li>순수 함수는 이러한 부수효과가 없어 함수의 독립성과 예측 가능성을 높임</li>
 </ul>
 </li>
+<li><p>예시</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 순수 함수 예시</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 이 함수는 외부 상태에 의존하지 않고, 외부 상태를 변경하지도 않습니다.</span></span><br><span class="line"><span class="comment">// 같은 입력 값 (a, b)에 대해 항상 동일한 결과를 반환합니다.</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li>고차 함수(Higher-Order Function)<ul>
-<li>다른 함수를 인자로 받거나, 함수를 결과로 반환하는 함수</li>
+<li><p>고차 함수(Higher-Order Function)</p>
+<ul>
+<li><p>다른 함수를 인자로 받거나, 함수를 결과로 반환하는 함수</p>
+</li>
+<li><p>예시</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 고차 함수 예시: &#x27;compose&#x27; 함수</span></span><br><span class="line"><span class="comment">// 이 함수는 두 함수 f와 g를 매개변수로 받아, 새로운 함수를 반환합니다.</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;A, B, C&gt; Function&lt;A, C&gt; <span class="title function_">compose</span><span class="params">(Function&lt;B, C&gt; f, Function&lt;A, B&gt; g)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x -&gt; f.apply(g.apply(x));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 사용 예</span></span><br><span class="line">Function&lt;Integer, Integer&gt; square = x -&gt; x * x;</span><br><span class="line">Function&lt;Integer, Integer&gt; increment = x -&gt; x + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// compose 함수를 이용하여 새로운 함수 생성</span></span><br><span class="line">Function&lt;Integer, Integer&gt; squareThenIncrement = compose(increment, square);</span><br><span class="line">System.out.println(squareThenIncrement.apply(<span class="number">4</span>)); <span class="comment">// 출력: 17 (4*4 + 1)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li>불변성</li>
-<li>함수형 프로그래밍(Functional Programming)<ul>
+<li><p>함수형 프로그래밍(Functional Programming)</p>
+<ul>
 <li>함수형 프로그래밍은 프로그래밍 패러다임으로 순수 함수를 이용해 상태 변경이나 가변 데이터를 피하는 것을 강조</li>
 <li>일반적으로 일급 함수와 고차 함수를 지원</li>
 <li>병렬 처리와 같은 멀티코어&#x2F;분산 처리에 강점이 있음</li>
 </ul>
+</li>
+<li><p>불변성</p>
 </li>
 </ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-01-16T14:47:16.000Z" title="1/16/2023, 11:47:16 PM">2023-01-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-02-10T14:55:56.000Z" title="2/10/2023, 11:55:56 PM">2023-02-10</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-MVC/">Spring MVC</a></span><span class="level-item">25 minutes read (About 3778 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-MVC/">Spring MVC</a></h1><div class="content"><ol>
