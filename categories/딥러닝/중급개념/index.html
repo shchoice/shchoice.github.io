@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a></li><li class="is-active"><a href="#" aria-current="page">중급개념</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-07-29T14:59:01.000Z" title="7/29/2023, 11:59:01 PM">2023-07-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-29T14:59:27.000Z" title="7/29/2023, 11:59:27 PM">2023-07-29</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%A4%91%EA%B8%89%EA%B0%9C%EB%85%90/">중급개념</a></span><span class="level-item">an hour read (About 8153 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2%EC%9E%A5-Probabilistic-Perspective-Basic-Statistics/">2장. Probabilistic Perspective - Basic Statistics</a></h1><div class="content"><h2 id="기본-통계학-Basic-Statistics"><a href="#기본-통계학-Basic-Statistics" class="headerlink" title="기본 통계학(Basic Statistics)"></a>기본 통계학(Basic Statistics)</h2><h3 id="Random-Variable-amp-Probability-Distribution"><a href="#Random-Variable-amp-Probability-Distribution" class="headerlink" title="Random Variable &amp; Probability Distribution"></a>Random Variable &amp; Probability Distribution</h3><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a></li><li class="is-active"><a href="#" aria-current="page">중급개념</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-07-29T14:59:01.000Z" title="7/29/2023, 11:59:01 PM">2023-07-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-29T15:10:45.000Z" title="7/30/2023, 12:10:45 AM">2023-07-30</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%A4%91%EA%B8%89%EA%B0%9C%EB%85%90/">중급개념</a></span><span class="level-item">an hour read (About 7872 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2%EC%9E%A5-Probabilistic-Perspective-Basic-Statistics/">2장. Probabilistic Perspective - Basic Statistics</a></h1><div class="content"><h2 id="기본-통계학-Basic-Statistics"><a href="#기본-통계학-Basic-Statistics" class="headerlink" title="기본 통계학(Basic Statistics)"></a>기본 통계학(Basic Statistics)</h2><h3 id="Random-Variable-amp-Probability-Distribution"><a href="#Random-Variable-amp-Probability-Distribution" class="headerlink" title="Random Variable &amp; Probability Distribution"></a>Random Variable &amp; Probability Distribution</h3><ul>
 <li>어떤 변수(Random Variable) x가 𝒙 라는 값을 가질 확률<ul>
 <li>$𝑃(\text{x}&#x3D;𝑥) &#x3D;𝑃(𝑥)$</li>
 </ul>
@@ -42,7 +42,6 @@
 </ul>
 </li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/2aeefb28-c594-4c5c-806e-69d7d571f19f">https://github.com/shchoice/shchoice.github.io/assets/100276387/2aeefb28-c594-4c5c-806e-69d7d571f19f</a></p>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/2aeefb28-c594-4c5c-806e-69d7d571f19f" alt="ProbabiltyDistibution"></p>
 <h3 id="Function-or-Value"><a href="#Function-or-Value" class="headerlink" title="Function? or Value?"></a>Function? or Value?</h3><ul>
 <li>확률값<ul>
@@ -50,13 +49,7 @@
 </ul>
 </li>
 <li>확률 분포 함수<ul>
-<li>$P(\text{x})$</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/47210d6e-73d3-4db3-8d14-817b51030869" alt="ProbabilityDensityFunction"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/47210d6e-73d3-4db3-8d14-817b51030869">https://github.com/shchoice/shchoice.github.io/assets/100276387/47210d6e-73d3-4db3-8d14-817b51030869</a></p>
-<ul>
+<li>$P(\text{x})$<br><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/47210d6e-73d3-4db3-8d14-817b51030869" alt="ProbabilityDensityFunction"></li>
 <li>$P(y|x)$<ul>
 <li>$P(y|x) &#x3D; P(\text{y}&#x3D;y|\text{x}&#x3D;x)$</li>
 <li>Random Variable x가 𝑥 라는 값을 가졌을 때, Random Variable y가 𝑦일 확률 값</li>
@@ -73,6 +66,8 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <h3 id="확률-분포-Probability-Distribution"><a href="#확률-분포-Probability-Distribution" class="headerlink" title="확률 분포(Probability Distribution)"></a>확률 분포(Probability Distribution)</h3><ul>
 <li><p>이산 확률 분포(Discrete Probability Distribution)</p>
 <ul>
@@ -84,7 +79,6 @@
 </li>
 </ul>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/c555ab55-2167-44ae-b5a1-f67a393b9f46" alt="ProbabilityMassFunction"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/c555ab55-2167-44ae-b5a1-f67a393b9f46">https://github.com/shchoice/shchoice.github.io/assets/100276387/c555ab55-2167-44ae-b5a1-f67a393b9f46</a></p>
 </li>
 <li><p>주사위가 예시가 될 수 있음(이산 확률 분포)</p>
 </li>
@@ -104,7 +98,6 @@
 </li>
 <li><p>연속 확률 변수의 경우, 어떤 샘플이 주어졌을 때, <strong>확률값을 알 수 없다</strong>. (높이는 단지 확률 밀도)</p>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/f5c4716d-50e0-4c88-bc30-3b24db0869bc" alt="ProbabilityDensityFunction"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/f5c4716d-50e0-4c88-bc30-3b24db0869bc">https://github.com/shchoice/shchoice.github.io/assets/100276387/f5c4716d-50e0-4c88-bc30-3b24db0869bc</a></p>
 </li>
 </ul>
 </li>
@@ -121,7 +114,6 @@
 <li>P(B) : 사건 B가 발생할 확률</li>
 </ul>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/2e67be1b-9289-44dc-a006-cd221bbec36c" alt="JointProbabilityDistribution"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/2e67be1b-9289-44dc-a006-cd221bbec36c">https://github.com/shchoice/shchoice.github.io/assets/100276387/2e67be1b-9289-44dc-a006-cd221bbec36c</a></p>
 </li>
 </ul>
 </li>
@@ -149,7 +141,6 @@
 </li>
 </ul>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/cf745351-0dc1-492d-a970-9369752d8228" alt="CP"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/cf745351-0dc1-492d-a970-9369752d8228">https://github.com/shchoice/shchoice.github.io/assets/100276387/cf745351-0dc1-492d-a970-9369752d8228</a></p>
 <h3 id="베이즈-정리-Bayes-Theorm"><a href="#베이즈-정리-Bayes-Theorm" class="headerlink" title="베이즈 정리(Bayes Theorm)"></a>베이즈 정리(Bayes Theorm)</h3><ul>
 <li><p>베이즈 정리는 확률 이론과 통계학에서 굉장히 중요한 개념으로, 조건부 확률에 관한 정리</p>
 </li>
@@ -174,21 +165,17 @@
 </li>
 <li><p>$P(h ,|, D) &#x3D; \frac{P(D,|,h)P(h)}{P(D)}$</p>
 <ul>
-<li>$P(h ,|, D)P(D) &#x3D; P(D,|,h)P(h) &#x3D;P(h,D)$</li>
-</ul>
-<p>5</p>
-<ul>
-<li>가설이 있을 때 데이터가 있을 확률을 뒤집어서 알 수 있게 해준다.</li>
+<li><p>$P(h ,|, D)P(D) &#x3D; P(D,|,h)P(h) &#x3D;P(h,D)$</p>
+</li>
+<li><p>가설이 있을 때 데이터가 있을 확률을 뒤집어서 알 수 있게 해준다.</p>
+</li>
 </ul>
 </li>
 </ul>
 <blockquote>
-<p><strong>조건부 확률과 베이즈 정리의 차이를 다음의 예시로 알아보자</strong></p>
-</blockquote>
-<p>예시 : “비가 오는 날에 우산을 들고 나가는 확률”</p>
+<p><strong>조건부 확률과 베이즈 정리의 차이를 다음의 예시로 알아보자</strong>예시 : “비가 오는 날에 우산을 들고 나가는 확률”</p>
 <p><strong>조건부 확률</strong> ‘비가 오는 날’이라는 사건이 이미 일어났을 때, 그 조건 하에서 ‘우산을 들고 나가는’ 사건이 일어날 확률을 계산하는 것이 조건부 확률</p>
 <p><strong>베이즈 정리</strong> ”우산을 들고 나가는 사람 중에서 비가 오는 경우”</p>
-<blockquote>
 </blockquote>
 <h3 id="주변-분포-Marginal-Distribution"><a href="#주변-분포-Marginal-Distribution" class="headerlink" title="주변 분포(Marginal Distribution)"></a>주변 분포(Marginal Distribution)</h3><ul>
 <li><p>여러 변수의 결합 확률 분포에서 한 개 또는 일부 변수의 분포를 나타냄, 이는 ‘주변화(marginalization)’라는 과정을 통해 얻어짐</p>
@@ -205,7 +192,6 @@
 <p>$&#x3D; \int P(x|z)P(z) dz$ (결합 확률분포를 조건부 확률 P(x | z)와 z의 주변 확률 P(z)의 곱으로 분해하고 이를 z에 대해 적분하여 x의 주변확률 분포 P(x)를 얻게됨)</p>
 <p>$&#x3D; \int P(z|x)P(x) dz &#x3D; P(x)\int P(z|x) dz &#x3D; P(x)$   $(∵\int P(z|x) dz&#x3D;1)$ (조건부 확률 $P(z | x)$가 z에 대해 적분하면 1이 됨, 왜냐하면 조건부 확률 P(z|x)는 z의 확률 분포를 나타내기 때문)</p>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/5780265a-73fa-41ca-9c58-f82a57308cff" alt="MarginalDistribution"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/5780265a-73fa-41ca-9c58-f82a57308cff">https://github.com/shchoice/shchoice.github.io/assets/100276387/5780265a-73fa-41ca-9c58-f82a57308cff</a></p>
 </li>
 </ul>
 </li>
@@ -225,7 +211,6 @@
 </ul>
 </li>
 <li><p>f(x)라는 어떤 함수가 있는데, P(x)에서 샘플링한 x를 함수에 넣어봄</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/16640675-e6f2-4514-810a-2ff446075b79">https://github.com/shchoice/shchoice.github.io/assets/100276387/16640675-e6f2-4514-810a-2ff446075b79</a></p>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/16640675-e6f2-4514-810a-2ff446075b79" alt="Expectation"></p>
 </li>
 <li><p>주사위의 기대값은?</p>
@@ -264,14 +249,10 @@
 <ul>
 <li><p>다음과 같이 대한민국 키의 평균을 얻기 위해 아래와 같은 샘플을 얻었다고 가정해보자. 이의 평균과 표준편차를 가장 잘 얻게 하려면 어떻게 해야할까?</p>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/abf815e8-2a1b-4ae7-a69a-ab6bb09ff5d3" alt="Gaussian01"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/abf815e8-2a1b-4ae7-a69a-ab6bb09ff5d3">https://github.com/shchoice/shchoice.github.io/assets/100276387/abf815e8-2a1b-4ae7-a69a-ab6bb09ff5d3</a></p>
 </li>
 <li><p>다음과 같이 3개의 가우시안 분포(Gaussian Distribution)를 살펴보자. 어떤 가우시안 분포가 가장 우리의 샘플을 잘 설명했다고 할 수 있을까? <img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/dbbdb037-d4a8-4c2e-9e51-09c66d36b2c2" alt="Gaussian02"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/dbbdb037-d4a8-4c2e-9e51-09c66d36b2c2">https://github.com/shchoice/shchoice.github.io/assets/100276387/dbbdb037-d4a8-4c2e-9e51-09c66d36b2c2</a></p>
 <ul>
-<li><p>점선의 길이(Line’s length &#x3D; probabilty density)가 가장 긴 것이 제일 잘 표현한 것 같은데!(Approxmation 3) <img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/aeca5859-2868-4efc-a179-ab3e83c008a8" alt="Gaussian03"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/aeca5859-2868-4efc-a179-ab3e83c008a8">https://github.com/shchoice/shchoice.github.io/assets/100276387/aeca5859-2868-4efc-a179-ab3e83c008a8</a></p>
-</li>
+<li>점선의 길이(Line’s length &#x3D; probabilty density)가 가장 긴 것이 제일 잘 표현한 것 같은데!(Approxmation 3) <img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/aeca5859-2868-4efc-a179-ab3e83c008a8" alt="Gaussian03"></li>
 </ul>
 </li>
 <li><p>따라서 우리의 샘플을 가장 잘 표현하는 가우시안 분포를 그리기 위한 𝜇와 𝜎를 찾자</p>
@@ -283,35 +264,37 @@
 </li>
 <li><p>Likelihood Function</p>
 <ul>
-<li><p>입력으로 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">주어진 확률 분포(파라미터(𝜇,𝜎))가 데이터를 얼마나 잘 설명하는지 나타내는 점수(Likelihood)를 출력</span><br></pre></td></tr></table></figure>
-
-<p>하는 함수</p>
+<li><p>입력으로 주어진 확률 분포(파라미터(𝜇,𝜎))가 데이터를 얼마나 잘 설명하는지 나타내는 <code>점수(Likelihood)를 출력</code>하는 함수</p>
 <ul>
 <li>입력 : 확률 분포를 표현하는 파라미터(𝜇,𝜎)</li>
 <li>출력 : 데이터를 설명하는 정도 (Probability Density가 높아야)</li>
 </ul>
 </li>
+</ul>
+</li>
 <li><p>데이터를 잘 설명하는지 알 수 있는 방법</p>
 <ul>
-<li>데이터가 해당 확률 분포에서 <strong>높은 확률 값</strong>을 가질 것</li>
-</ul>
+<li><p>데이터가 해당 확률 분포에서 <strong>높은 확률 값</strong>을 가질 것</p>
 </li>
 <li><p>수식</p>
 <ul>
 <li><p>$L(\theta | x) &#x3D; P(x | \theta)$</p>
 <ul>
 <li>$x$ : 관찰된 데이터</li>
-<li>$\theta$ : 모델의 파라미터</li>
+</ul>
+</li>
+<li><p>$\theta$ : 모델의 파라미터</p>
+<ul>
 <li>$P(x|\theta) : \theta$로 주어진 $x$의 확률</li>
-<li>$L : \theta$ 에 대한 likjelihood function(우도 함수)</li>
+</ul>
+</li>
+<li><p>$L : \theta$ 에 대한 likjelihood function(우도 함수)</p>
+</li>
 </ul>
 </li>
 <li><p>$L(\theta | x_1, x_2, …, x_n) &#x3D; \prod_{i&#x3D;1}^{n} P(x_i | \theta)$ (주어진 데이터셋이 독립적이고 동일하게 분포(i.i.d)한 경우, 전체 데이터의 likelhood function은 각각의 데이터 포인트에 대한 확률의 곱으로 표현될 수 있음)</p>
 <ul>
-<li><p>하지만 실제 계산에서는 이렇게 곱셈 형태의 우도 함수는 계산이 어렵고, underflow 문제를 일으키기 때문에, 대부분의 경우 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">로그 우도 함수(log-likelihood function)</span><br></pre></td></tr></table></figure>
-
+<li><p>하지만 실제 계산에서는 이렇게 곱셈 형태의 우도 함수는 계산이 어렵고, underflow 문제를 일으키기 때문에, 대부분의 경우 <code>로그 우도 함수(log-likelihood function)</code></p>
 <p>을 사용 </p>
 <p>(중요)</p>
 <ul>
@@ -322,12 +305,9 @@
 </li>
 </ul>
 </li>
-</ul>
-</li>
 <li><p>다음의 예제를 통해 MLE를 더 잘 이해해보자</p>
 <ul>
 <li><p>주사위의 확률 분포를 알고 싶다. <img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/a01e5190-5346-4d60-b6f1-7ac23528230f" alt="MLE-EX01"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/a01e5190-5346-4d60-b6f1-7ac23528230f">https://github.com/shchoice/shchoice.github.io/assets/100276387/a01e5190-5346-4d60-b6f1-7ac23528230f</a></p>
 <ul>
 <li>점수(likelihood)가 가장 높은 것은 $\theta_3$이다. 따라서 위 3개 중에서는 데이터를 잘 설명하는 파라미터라고 할 수 있음</li>
 </ul>
@@ -364,7 +344,6 @@
 </li>
 </ul>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/03111cda-c739-44c4-bd54-e217e6367085" alt="MLE-GradientAscent"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/03111cda-c739-44c4-bd54-e217e6367085">https://github.com/shchoice/shchoice.github.io/assets/100276387/03111cda-c739-44c4-bd54-e217e6367085</a></p>
 </li>
 </ul>
 <h3 id="요약"><a href="#요약" class="headerlink" title="요약"></a>요약</h3><ul>
@@ -412,7 +391,6 @@
 <li>딥러닝에서는 파라미터가 W와 b 가 되는 것이다!! 이 W와 b를 통해 확률 분포 함수를 정의할 수 있음</li>
 </ul>
 <h3 id="Parameters-for-Deep-Neural-Networks"><a href="#Parameters-for-Deep-Neural-Networks" class="headerlink" title="Parameters for Deep Neural Networks"></a>Parameters for Deep Neural Networks</h3><p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/5f569c9f-d7f1-4df8-8745-be016e3fd5ff" alt="MLE-DNN"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/5f569c9f-d7f1-4df8-8745-be016e3fd5ff">https://github.com/shchoice/shchoice.github.io/assets/100276387/5f569c9f-d7f1-4df8-8745-be016e3fd5ff</a></p>
 <ul>
 <li>$\theta &#x3D; {W_1, b_1, W_2, b_2, \ldots, W_l, b_l}$</li>
 <li>마찬가지로 Gradient Ascent를 통해 Likelihood를 최대로 하는 파라미터(𝜽)를 찾을 수 있다.<ul>
@@ -463,7 +441,6 @@
 <li>$\theta \leftarrow \theta - \eta \nabla_\theta L(\theta)$</li>
 </ul>
 <h3 id="Connection-to-Deep-Neural-Networks"><a href="#Connection-to-Deep-Neural-Networks" class="headerlink" title="Connection to Deep Neural Networks"></a>Connection to Deep Neural Networks</h3><p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/612b11ed-5423-442c-bb79-2fbd01c9b250" alt="MLE-Softmax"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/612b11ed-5423-442c-bb79-2fbd01c9b250">https://github.com/shchoice/shchoice.github.io/assets/100276387/612b11ed-5423-442c-bb79-2fbd01c9b250</a></p>
 <ul>
 <li>$D&#x3D;{(x_i, y_i)}_{i&#x3D;1}^{N}$</li>
 <li>$\hat{\theta} &#x3D; \text{argmin}<em>{\theta \in \Theta} -\sum</em>{i&#x3D;1}^{N} \log P(y_i | x_i; \theta)$</li>
@@ -491,10 +468,8 @@
 </ul>
 <blockquote>
 <p>Negative Log-Likelihood (NLL)와 Cross-Entropy 손실 함수는 비슷한 개념을 포함하고 있지만, 엄밀히 말해서 동일한 것은 아님</p>
-</blockquote>
 <p>이 둘의 차이점은 NLL이 단일 확률 분포에 대한 측정을 제공하는 반면, Cross-Entropy는 두 확률 분포 사이의 차이를 측정한다는 점입니다. 이 차이 때문에, 이 두 손실 함수는 다른 문맥에서 사용되며, 그 결과도 약간 다를 수 있음</p>
 <p>그러나 분류 문제에서는 두 손실 함수가 동일한 결과를 제공하는 경우가 많습니다. 이는 각 클래스에 대한 실제 레이블 분포가 원-핫 인코딩 형식이기 때문 따라서 NLL과 Cross-Entropy 손실 함수는 종종 상호 교환적으로 사용</p>
-<blockquote>
 </blockquote>
 <h3 id="MAP-Maximum-A-Posterior-Estimation"><a href="#MAP-Maximum-A-Posterior-Estimation" class="headerlink" title="MAP(Maximum A Posterior) Estimation"></a>MAP(Maximum A Posterior) Estimation</h3><ul>
 <li><p>Data가 주어졌을 때 가설 h를 maximize 해야한다. 이를 위해 Posterior을 maximize할 수도 있고 likelihood로 maximize할 수도 있음</p>
@@ -543,12 +518,8 @@
 <li><p>Find $\hat{h}$, which maximizes posterior</p>
 <ul>
 <li><p>$\hat{h} &#x3D; \text{argmax}_{h \in H} P(h|D)$</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$= \\text&#123;argmax&#125;_&#123;h \\in H&#125;</span><br></pre></td></tr></table></figure>
-
-<p>\frac{P(D|h)P(h)}{P(D)}$  # 밑변은 h와 상관 없어 날려버림</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$= \\text&#123;argmax&#125;_&#123;h \\in H&#125;</span><br></pre></td></tr></table></figure>
-
-<p>P(D|h)P(h)$  # 𝑃(𝐷|ℎ) : likelihood, 𝑃(ℎ) : prior</p>
+<p>$&#x3D; \text{argmax}_{h \in H}\frac{P(D|h)P(h)}{P(D)}$  # 밑변은 h와 상관 없어 날려버림</p>
+<p>$&#x3D; \text{argmax}_{h \in H} P(D|h)P(h)$  # 𝑃(𝐷|ℎ) : likelihood, 𝑃(ℎ) : prior</p>
 </li>
 </ul>
 </li>
@@ -615,16 +586,12 @@
 </ul>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/94d5aa17-be42-4625-82ca-30a8ffceddcc" alt="KLDivergence"></p>
 </li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/94d5aa17-be42-4625-82ca-30a8ffceddcc">https://github.com/shchoice/shchoice.github.io/assets/100276387/94d5aa17-be42-4625-82ca-30a8ffceddcc</a></p>
-<ul>
 <li><p>KL-Divergence를 사용한 DNN 최적화(Optimization)</p>
 <ul>
 <li><p>$\mathcal{L}(\theta)&#x3D;-\mathbb{E}<em>{x \sim p(x)} [\mathbb{E}</em>{y \sim p(y|x)} [\log \frac{p_{\theta} (y|x)}{p(y|x)}]]$   # $\mathbb{E}<em>{y \sim p(y|x)} [\log \frac{p</em>{\theta} (y|x)}{p(y|x)}]$ &#x3D; $D_{KL}(p(y|x)||p_\theta(y|x))$, ground truth인 확률분포 $p(y|x)$를 신경망의 확률 분포인 $p_{\theta}(y|x)$로 모사하기 위해 이 둘의 차이가 0이 되면 잘 최적화했음을 알 수 있음</p>
 </li>
 <li><p>$\mathcal{L}(\theta) \approx -\frac{1}{N\cdot k} \sum_{i&#x3D;1}^{N}\sum_{j&#x3D;1}^{k} \log \frac{p_{\theta} (y_{i,j}| x_i)}{p(y_{i,j}| x_i)}$ (Monte-Carlo 방법에 의함)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\\approx -\\frac&#123;1&#125;&#123;N&#125; \\sum_&#123;i=1&#125;^&#123;N&#125; \\log \\frac&#123;p_&#123;\\theta&#125; (y_i| x_i)&#125;&#123;p(y_i| x_i)&#125;$, if k=1 # k=1 : 즉 x는 여러개 뽑는 반면 y는 1개만 뽑음         </span><br></pre></td></tr></table></figure>
-
+<p>$\approx -\frac{1}{N} \sum_{i&#x3D;1}^{N} \log \frac{p_{\theta} (y_i| x_i)}{p(y_i| x_i)}$, if k&#x3D;1 # k&#x3D;1 : 즉 x는 여러개 뽑는 반면 y는 1개만 뽑음         </p>
 <p>$\hat{\theta}&#x3D;\text{argmin}<em>{\theta \in \Theta} \mathcal{L}(\theta)$ $\theta \leftarrow \theta - \alpha \nabla</em>{\theta} L(\theta)$</p>
 </li>
 </ul>
@@ -652,7 +619,6 @@
 </li>
 </ul>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/fa29fa22-1bd0-4cf4-8aae-98df4911ad74" alt="Information"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/fa29fa22-1bd0-4cf4-8aae-98df4911ad74">https://github.com/shchoice/shchoice.github.io/assets/100276387/fa29fa22-1bd0-4cf4-8aae-98df4911ad74</a></p>
 </li>
 <li><p>정보량 예제</p>
 <ul>
@@ -681,13 +647,13 @@
 <ul>
 <li><p>$H(P)&#x3D;-\mathbb{E}_{x \sim P(x)} [\log P(x)]$   # H(P) : P라고 하는 분포의 엔트로피</p>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/5ad8f2bf-6f97-436d-800f-9a903171076f" alt="Entropy"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/5ad8f2bf-6f97-436d-800f-9a903171076f">https://github.com/shchoice/shchoice.github.io/assets/100276387/5ad8f2bf-6f97-436d-800f-9a903171076f</a></p>
 <ul>
 <li>P1: 엔트로피가 클수록 flat한 분포를 갖는다고 예측할 수 있음</li>
-<li>P3: 엔트로피가 낮아질수록 sharp한 분포를 갖는다고 예측할 수 있음</li>
 </ul>
 </li>
 </ul>
+</li>
+<li><p>P3: 엔트로피가 낮아질수록 sharp한 분포를 갖는다고 예측할 수 있음</p>
 </li>
 </ul>
 <h3 id="Cross-Entropy"><a href="#Cross-Entropy" class="headerlink" title="Cross Entropy"></a>Cross Entropy</h3><ul>
@@ -724,7 +690,7 @@
 <li><p>KL-Divergence &amp; Cross Entropy</p>
 <ul>
 <li><p>KL-Divergence와 Corss Entropy를 𝜽로 미분하면 같음</p>
-<p>$KL(p||p_{\theta})&#x3D;-\mathbb{E}<em>{x \sim p(x)} [\log \frac{p</em>{\theta}(x)}{p(x)}]$ $&#x3D;-\int_{1} p(x)\log \frac{p_{\theta}(x)}{p(x)} dx$ $&#x3D;-\int_{1} p(x)\log p_{\theta} (x) dx+ \int_{1} p(x) \log p(x) dx$   # corss enropy + entropy $&#x3D; H(p,p_{\theta})-H(p)$ # croeeEntropy - entropy $\theta$ 로 미분하면 $\nabla_{\theta} KL(p||p_{\theta})&#x3D;\nabla_{\theta} H(p,p_{\theta})-\nabla_{\theta} H(p)$ # H(p)는 𝜽로 미분 시 날아감</p>
+<p>$KL(p||p_{\theta})&#x3D;-\mathbb{E}<em>{x \sim p(x)} [\log \frac{p</em>{\theta}(x)}{p(x)}]$ $&#x3D;-\int_{1} p(x)\log \frac{p_{\theta}(x)}{p(x)} dx$ $&#x3D;-\int_{1} p(x)\log p_{\theta} (x) dx+ \int_{1} p(x) \log p(x) dx$   &#x2F;&#x2F; corss enropy + entropy $&#x3D; H(p,p_{\theta})-H(p)$ # croeeEntropy - entropy $\theta$ 로 미분하면 $\nabla_{\theta} KL(p||p_{\theta})&#x3D;\nabla_{\theta} H(p,p_{\theta})-\nabla_{\theta} H(p)$ # H(p)는 𝜽로 미분 시 날아감</p>
 </li>
 </ul>
 </li>
