@@ -113,7 +113,7 @@
 </ul>
 </li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-20T14:36:24.000Z" title="8/20/2023, 11:36:24 PM">2023-08-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-08-21T14:47:26.000Z" title="8/21/2023, 11:47:26 PM">2023-08-21</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></span><span class="level-item">3 minutes read (About 445 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2%EC%9E%A5-Language-Modeling-%E2%80%93-RNN%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-LM/">2장. Language Modeling – RNN을 활용한 LM</a></h1><div class="content"><h2 id="Language-Modeling"><a href="#Language-Modeling" class="headerlink" title="Language Modeling"></a>Language Modeling</h2><h3 id="Neural-Language-Model"><a href="#Neural-Language-Model" class="headerlink" title="Neural Language Model"></a>Neural Language Model</h3><ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-20T14:36:24.000Z" title="8/20/2023, 11:36:24 PM">2023-08-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-08-22T14:56:51.000Z" title="8/22/2023, 11:56:51 PM">2023-08-22</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></span><span class="level-item">4 minutes read (About 669 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2%EC%9E%A5-Language-Modeling-%E2%80%93-RNN%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-LM/">2장. Language Modeling – RNN을 활용한 LM</a></h1><div class="content"><h2 id="Language-Modeling"><a href="#Language-Modeling" class="headerlink" title="Language Modeling"></a>Language Modeling</h2><h3 id="Neural-Language-Model"><a href="#Neural-Language-Model" class="headerlink" title="Neural Language Model"></a>Neural Language Model</h3><ul>
 <li><p>Resolve Sparsity</p>
 <ul>
 <li>Training Set<ul>
@@ -178,6 +178,47 @@
 </li>
 </ul>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/6eb9dd73-dda7-401c-b574-3c6acbc1a5f3" alt="NeuralLanguageMode"></p>
+<ul>
+<li>softmax는 다음 time-step에 나올 단어에 대한 확률 분포를 나타냄 즉, softmax layer의 각 element는 다음 단어의 확률값(분포)(discrete multinomial distribution)</li>
+</ul>
+<h3 id="Loss-Function-of-NNLM"><a href="#Loss-Function-of-NNLM" class="headerlink" title="Loss Function of NNLM"></a>Loss Function of NNLM</h3><ul>
+<li>Find theta that minimize negative log-likelihood.</li>
+<li>Find theta that minimize cross entropy with ground-truth probability distribution.<ul>
+<li><strong>softmax를 사용하면 loss function으로 CrossEntropy를 사용하고</strong></li>
+<li><strong>log-softmax를 사용하면 NLL을 사용하여라(log-likelihood를 maximzie하면 NLL 사용)</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="요약"><a href="#요약" class="headerlink" title="요약"></a>요약</h3><ul>
+<li>n-gram  (previous method)<ul>
+<li>단어를 discrete symbol로 취급<ul>
+<li>exact matchin에 대해서만 count</li>
+</ul>
+</li>
+<li>따라서 generalization issue 발생<ul>
+<li>Markov Assumption 도입(n-gram)</li>
+<li>Smoothing &amp; Discounting</li>
+<li>Interpolation &amp; Back-off</li>
+<li>Unseen sequence에 대한 대처 미흡</li>
+</ul>
+</li>
+<li>빠른 연산 &amp; 쉽고 직관적<ul>
+<li>단순한 look-up table 방식</li>
+<li>문장 fluency 비교 task에서는 괜찮음</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Neural Network Language Model<ul>
+<li>Word Embedding을 통해, unseen sequence에 대해 대처 가능</li>
+<li>Generation task에서 특히 강점</li>
+<li>연산량 많음(feed forward 연산)<ul>
+<li>해석(XAI) 난이도 증가</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-18T14:56:21.000Z" title="8/18/2023, 11:56:21 PM">2023-08-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-08-18T16:21:34.000Z" title="8/19/2023, 1:21:34 AM">2023-08-19</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></span><span class="level-item">10 minutes read (About 1455 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2%EC%9E%A5-Language-Modeling-How-to-evaluate-LM-Perplexity/">2장. Language Modeling - How to evaluate LM(Perplexity)</a></h1><div class="content"><h2 id="How-to-evaluate-LM-Perplexity"><a href="#How-to-evaluate-LM-Perplexity" class="headerlink" title="How to evaluate LM - Perplexity"></a>How to evaluate LM - Perplexity</h2><h3 id="How-to-Evaluate"><a href="#How-to-Evaluate" class="headerlink" title="How to Evaluate"></a>How to Evaluate</h3><ul>
 <li>Test set<ol>
 <li>나는 학교에 갑니다</li>
