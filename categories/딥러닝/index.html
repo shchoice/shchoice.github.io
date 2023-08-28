@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">딥러닝</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-26T14:51:03.000Z" title="8/26/2023, 11:51:03 PM">2023-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-08-27T14:57:07.795Z" title="8/27/2023, 11:57:07 PM">2023-08-27</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></span><span class="level-item">4 minutes read (About 636 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/4%EC%9E%A5-Sequence2Sequence-Machine-Translation-%EC%86%8C%EA%B0%9C/">4장.  Sequence2Sequence - Machine Translation 소개</a></h1><div class="content"><h2 id="Machine-Translation"><a href="#Machine-Translation" class="headerlink" title="Machine Translation"></a>Machine Translation</h2><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">딥러닝</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-26T14:51:03.000Z" title="8/26/2023, 11:51:03 PM">2023-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-08-28T14:56:17.000Z" title="8/28/2023, 11:56:17 PM">2023-08-28</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></span><span class="level-item">3 minutes read (About 439 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/4%EC%9E%A5-Sequence2Sequence-Machine-Translation-%EC%86%8C%EA%B0%9C/">4장.  Sequence2Sequence - Machine Translation 소개</a></h1><div class="content"><h2 id="Machine-Translation"><a href="#Machine-Translation" class="headerlink" title="Machine Translation"></a>Machine Translation</h2><ul>
 <li><p>Objective</p>
 <ul>
 <li><p>$\hat{y} &#x3D; \text{argmax}</p>
@@ -82,18 +82,15 @@
 <li><p>Find parameter that maximize likelihood,</p>
 <ul>
 <li><p>$\hat{\theta} &#x3D; \text{argmax}<em>{\theta \in \Theta} \sum</em>{i&#x3D;1}^{N} \log P(y^i|x^{i}; \theta)$ &#x2F;&#x2F; 데이터에 대해 log-likelihood를 최대화하는 파라미터를 찾자</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$= \\text&#123;argmax&#125;_&#123;\\theta \\in \\Theta&#125; \\sum_&#123;i=1&#125;^&#123;N&#125;\\sum_&#123;j=1&#125;^&#123;n&#125; \\log P(y_&#123;j&#125;^&#123;i&#125;|x^i, y_&#123;&lt;j&#125;^i; \\theta)$</span><br></pre></td></tr></table></figure>
-
-<p>&#x2F;&#x2F; by chain-rule</p>
+<p>$&#x3D; \text{argmax}<em>{\theta \in \Theta} \sum</em>{i&#x3D;1}^{N}\sum_{j&#x3D;1}^{n} \log P(y_{j}^{i}|x^i, y_{&lt;j}^i; \theta)$ &#x2F;&#x2F; by chain-rule</p>
 </li>
 </ul>
 </li>
 <li><p>Minimize loss function by upgrading parameter with gradient descent.</p>
 <ul>
 <li><p>$L(\theta) &#x3D; -\sum_{i&#x3D;1}^{N}\sum_{j&#x3D;1}^{n} \log P(y_{j}^{i},|x^i,y_{&lt;j}^i; \theta)$</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$\\theta \\leftarrow \\theta - \\eta\\nabla_\\theta L(\\theta)$</span><br><span class="line">    </span><br><span class="line">$\\log P(x_t | x_&#123;&lt;t&#125;; \\theta) = x_t^T \\cdot \\log f_\\theta(x_&#123;t-1&#125;, h_&#123;t-1&#125;)$ // softmax layer를 통과하는 경우, </span><br><span class="line">                                   // $x_t^T$ : GT (One-hot vector, 실제 예측 단어)</span><br><span class="line">                                  // $\\log f_\\theta(x_&#123;t-1&#125;, h_&#123;t-1&#125;)$ : LM(softmax layer에 log 씌운 확률값)</span><br><span class="line">    </span><br><span class="line">$\\text&#123;where &#125;</span><br></pre></td></tr></table></figure>
-
-<p>x_t \text{ is one- hot vector, and }f_θ \text{ is model with parameter θ.}$</p>
+<p>$\theta \leftarrow \theta - \eta\nabla_\theta L(\theta)$</p>
+<p>$\log P(x_t | x_{&lt;t}; \theta) &#x3D; x_t^T \cdot \log f_\theta(x_{t-1}, h_{t-1})$ &#x2F;&#x2F; softmax layer를 통과하는 경우,<br>                                            &#x2F;&#x2F; $x_t^T$ : GT (One-hot vector, 실제 예측 단어)<br>                                           &#x2F;&#x2F; $\log f_\theta(x_{t-1}, h_{t-1})$ : LM(softmax layer에 log 씌운 확률값)<br><br>$\text{where } x_t \text{ is one- hot vector, and }f_θ \text{ is model with parameter θ.}$</p>
 </li>
 </ul>
 </li>
@@ -138,6 +135,57 @@
 <td>변형된 seq2seq를 사용하여 이미지를 입력으로 받아 그림을 설명하는 문장을 출력</td>
 </tr>
 </tbody></table>
+</li>
+</ul>
+<h3 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h3><ul>
+<li>Encoder는 source 문장을 conext vector로 압축하고 decoder에게 넘겨줌</li>
+<li>Encoder는 train&#x2F;test 시에 항상 문장 전체를 받음<ul>
+<li>Encoder 자체만 놓고 보면 non-auto-regressive task</li>
+<li>따라서 bi-directional RNN 사용 가능</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/6f7e2e7b-d18d-4299-9866-775c122e931c" alt="Encoder01"></p>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/36f665ec-5d54-4f30-817f-ad6c1ce2cf67" alt="Encoder02"></p>
+<ul>
+<li><p>수식</p>
+<ul>
+<li><p>Given dataset</p>
+<ul>
+<li><p>$D&#x3D;{x^i, y^i}_{i&#x3D;1}^{N}$</p>
+<ul>
+<li>&#x2F;&#x2F; 𝑥 ~ 𝑃(𝑥) y ~ 𝑃(𝑥) 𝑥에서 y로 즉 한글을 영어로 번역.</li>
+</ul>
+<p>$x^i &#x3D; {x_1^i, \ldots, x_m^i} \text{ } y^i &#x3D; {y_0^i, y_1^i, \ldots, y_n^i}$</p>
+<ul>
+<li>|$x^i$| &#x3D; (bs, m, |$v_{soure}$|)</li>
+<li>|$y^i$|&#x3D;(bs,n,|$v_{target}$|)</li>
+</ul>
+<p>where $y_0&#x3D;$<BOS>, $y_n&#x3D;$<EOS></p>
+</li>
+</ul>
+</li>
+<li><p>Get hidden states of encoder</p>
+<ul>
+<li><p>$h_{t}^{enc} &#x3D; RNN_{enc}(emb_{enc}(x_t), h_{t-1}^{enc}) \text{ where    } h_0^{enc} &#x3D; 0$</p>
+<ul>
+<li>$h_{t}^{enc}$&#x3D;(𝑏𝑠, 1,ℎ𝑠)</li>
+<li>|$x_t$|&#x3D;(𝑏𝑠, 1, |$v_s$|) -&gt; emb layer 통과 후 (bs,1,ws(wordembedding_vector_size))</li>
+</ul>
+<p>$h_{1:m}^{enc} &#x3D; [h_{1}^{i}; \ldots; h_{m}^{enc}]$</p>
+<ul>
+<li>;는 concat을 의미, $h_{1:m}^{enc}$&#x3D;(bs,m,hs)</li>
+</ul>
+<p>$\text{where } h_{t}^{enc} \in \mathbb{R}^{batchsize \times 1 \times hiddensize}$, $h_{1:m}^{enc} \in \mathbb{R}^{batchsize \times m \times hiddensize}$</p>
+</li>
+</ul>
+</li>
+<li><p>if we use bi-directional RNN</p>
+<ul>
+<li>$h_{t}^{enc} \in \mathbb{R}^{batchsize \times 1 \times (2 \times hiddensize)}$, $h_{1:m}^{enc} \in \mathbb{R}^{batchsize \times m \times (2 \times hiddensize)}$</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-25T14:56:56.000Z" title="8/25/2023, 11:56:56 PM">2023-08-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-08-25T14:58:35.000Z" title="8/25/2023, 11:58:35 PM">2023-08-25</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></span><span class="level-item">4 minutes read (About 549 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/3%EC%9E%A5-Data-Preparation/">3장. Data Preparation</a></h1><div class="content"><h3 id="NLP-Project-Workflow"><a href="#NLP-Project-Workflow" class="headerlink" title="NLP Project Workflow"></a>NLP Project Workflow</h3><p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/ab4e691c-23c6-4c4a-bdfa-b1b0fb895eba" alt="NLPProjectWorlflow"></p>
