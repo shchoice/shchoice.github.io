@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">딥러닝</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-26T14:51:03.000Z" title="8/26/2023, 11:51:03 PM">2023-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-09-02T14:54:04.000Z" title="9/2/2023, 11:54:04 PM">2023-09-02</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></span><span class="level-item">10 minutes read (About 1481 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/4%EC%9E%A5-Sequence2Sequence-Machine-Translation-%EC%86%8C%EA%B0%9C/">4장.  Sequence2Sequence - Machine Translation 소개</a></h1><div class="content"><h2 id="Machine-Translation"><a href="#Machine-Translation" class="headerlink" title="Machine Translation"></a>Machine Translation</h2><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">딥러닝</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-26T14:51:03.000Z" title="8/26/2023, 11:51:03 PM">2023-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-09-07T14:57:08.000Z" title="9/7/2023, 11:57:08 PM">2023-09-07</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></span><span class="level-item">14 minutes read (About 2042 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/4%EC%9E%A5-Sequence2Sequence-Machine-Translation-%EC%86%8C%EA%B0%9C/">4장.  Sequence2Sequence - Machine Translation 소개</a></h1><div class="content"><h2 id="Machine-Translation"><a href="#Machine-Translation" class="headerlink" title="Machine Translation"></a>Machine Translation</h2><ul>
 <li><p>Objective</p>
 <ul>
 <li><p>$\hat{y} &#x3D; \text{argmax}</p>
@@ -328,6 +328,66 @@
 <li>이를 다 더하면 Context Vector가 됨</li>
 <li>Query 와 Context Vector를 concat하여 새로운 hidden state를 만들고 softmax로 확률 값을 얻음</li>
 <li>Linear Transformation은 Query와 Key값의 유사도를 구하기 위해 Linear Layer를 통과시켜 적절히 변화하고 유사도를 구함</li>
+</ul>
+<h3 id="Linear-Transformation"><a href="#Linear-Transformation" class="headerlink" title="Linear Transformation"></a>Linear Transformation</h3><ul>
+<li>Attention mechanism에서의 Linear Transformation은 기본적으로, 입력 벡터를 다른 차원의 공간으로 매핑하는 수학적 연산<ul>
+<li>주로 가중치 행렬을 입력 벡터에 곱하여 수행</li>
+</ul>
+</li>
+<li>Attention 메커니즘에서는 주로 세 가지 요소, 즉 Query(Q), Key(K), 그리고 Value(V)의 생성에 사용됨</li>
+<li>Q,K,V는 모두 원본 입력 데이터에 대해 각각 다른 Linear Transformation을 수행함으로써 만들어짐</li>
+</ul>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/bb6d51fb-e7b9-401b-bfd2-cce32b4c4e8f" alt="LinearTransformation01"></p>
+<ul>
+<li>Lineaer Transformation을 통해 아래와 같은 효과를 얻음<ul>
+<li>구글 검색을 할때 어떻게 작성하면 더 좋은 정보를 얻으려면 어떻게 쿼리를 날리면 알듯이 Linear Transformation이 그 역할을 해줌</li>
+<li>결국 Attention은 쿼리를 잘 만들기 위함</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/10919e0c-7e4f-4546-8e05-922cc1ed6e0b" alt="LinearTransformation02"></p>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/84967a95-75be-44bf-9eb6-d3ee7ab24073" alt="Attention"></p>
+<ul>
+<li><p>수식</p>
+<ul>
+<li><p>With entire encoder’s hidden states and current decoder’s hidden state</p>
+<ul>
+<li><p>$w &#x3D; \text{softmax}(h_{t}^{dec} \cdot W_{a} \cdot h_{1:m}^{enc^T}))$</p>
+<ul>
+<li>$|h_{t}^{dec}|$: (bs,1,hs)</li>
+<li>$|h_{1:m}^{enc^T}|$: (bs,m,hs$)^T$&#x3D;(bs,hs,m)</li>
+<li>$|W_\alpha|$: (hs, hs)</li>
+<li>$|w|$ : (bs,1,m), mini-batch 내 각 문장별 해당 time-step의 encoder의 각 time-step의 가중치(유사도)가 들어있음, dot-product이기에  cosine similarity와 유사하기 때문<ul>
+<li>cf ) Dot Product(내적) :$a \cdot b &#x3D; |a| |b| \cos \theta$ &#x2F;&#x2F; 얼마나 같은 방향을 가지고 있는지 정보를 담으며, 벡터의 크기에도 영향을 받음</li>
+<li>cf) Cosine Similarity :  $\text{cosine-similarity}(a, b) &#x3D; \frac{a \cdot b}{|a| |b|}$, 방향성만 고려함, 벡터의 크기 고려x</li>
+</ul>
+</li>
+</ul>
+<p>$c&#x3D;w \cdot h_{1:m}^{enc},$</p>
+<ul>
+<li>$|c| &#x3D; w \times h_{1:m}^{enc} &#x3D; (bs,1,m) * (bs,m,hs) &#x3D;(bs,1,hs)$</li>
+</ul>
+<p>$\text{where } c \in \mathbb{R}^{batchsize \times 1 \times hiddensize}$ is a context vector, and $W_a \in \mathbb{R}^{batchsize \times hiddensize}$</p>
+</li>
+</ul>
+</li>
+<li><p>Redefine  decoder’s hidden state, and feed into generator</p>
+<ul>
+<li><p>$\tilde{h}<em>t^{dec} &#x3D; \tanh([(h_t^{dec}; c)] \cdot W</em>{concat})$</p>
+<ul>
+<li>$[(h_t^{dec}; c)]$ : $ℎ_𝑡^{𝑑𝑒𝑐}$ 과 c를 concat하면 (bs, 1, hs*2)</li>
+<li>$W_{concat}$은 hs*2를 hs로 줄여주는 layer (차원 축소)</li>
+</ul>
+<p>$\hat{y}_t &#x3D; \text{softmax}(\tilde{h}<em>t^{dec} \cdot W</em>{gen})$</p>
+<ul>
+<li>$|\hat{y}_t|$&#x3D;(bs,1,hs)*(hs, |V|) &#x3D; (bs,1,|V|)</li>
+</ul>
+<p>$\text{where } W_{concat} \in \mathbb{R}^{(2 \times hiddensize) \times hiddensize} \text{ and } W_{gen} \in \mathbb{R}^{hiddensize \times |V|}$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-25T14:56:56.000Z" title="8/25/2023, 11:56:56 PM">2023-08-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-08-25T14:58:35.000Z" title="8/25/2023, 11:58:35 PM">2023-08-25</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></span><span class="level-item">4 minutes read (About 549 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/3%EC%9E%A5-Data-Preparation/">3장. Data Preparation</a></h1><div class="content"><h3 id="NLP-Project-Workflow"><a href="#NLP-Project-Workflow" class="headerlink" title="NLP Project Workflow"></a>NLP Project Workflow</h3><p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/ab4e691c-23c6-4c4a-bdfa-b1b0fb895eba" alt="NLPProjectWorlflow"></p>
 <h3 id="Preprocessing-Workflow"><a href="#Preprocessing-Workflow" class="headerlink" title="Preprocessing Workflow"></a>Preprocessing Workflow</h3><p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/93fccf0c-13e9-42ac-81a3-1e877a07bc41" alt="PreprocessingWorkflow"></p>
