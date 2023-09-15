@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">딥러닝</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-26T14:51:03.000Z" title="8/26/2023, 11:51:03 PM">2023-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-09-14T14:28:47.000Z" title="9/14/2023, 11:28:47 PM">2023-09-14</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></span><span class="level-item">19 minutes read (About 2845 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%5BEdit%20conflict_local%5D4%E1%84%8C%E1%85%A1%E1%86%BC-Sequence2Sequence-Machine-Translation-%E1%84%89%E1%85%A9%E1%84%80%E1%85%A2/">4장.  Sequence2Sequence - Machine Translation 소개</a></h1><div class="content"><h2 id="Machine-Translation"><a href="#Machine-Translation" class="headerlink" title="Machine Translation"></a>Machine Translation</h2><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">딥러닝</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-26T14:51:03.000Z" title="8/26/2023, 11:51:03 PM">2023-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-09-15T14:56:40.819Z" title="9/15/2023, 11:56:40 PM">2023-09-15</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></span><span class="level-item">23 minutes read (About 3385 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%5BEdit%20conflict_local%5D4%E1%84%8C%E1%85%A1%E1%86%BC-Sequence2Sequence-Machine-Translation-%E1%84%89%E1%85%A9%E1%84%80%E1%85%A2/">4장.  Sequence2Sequence - Machine Translation 소개</a></h1><div class="content"><h2 id="Machine-Translation"><a href="#Machine-Translation" class="headerlink" title="Machine Translation"></a>Machine Translation</h2><ul>
 <li><p>Objective</p>
 <ul>
 <li><p>$\hat{y} &#x3D; \text{argmax}</p>
@@ -471,11 +471,87 @@
 </li>
 </ul>
 <p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/baf5abd4-0880-49b4-8266-3bfd5e0296ac" alt="InputFeeding"></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/baf5abd4-0880-49b4-8266-3bfd5e0296ac">https://github.com/shchoice/shchoice.github.io/assets/100276387/baf5abd4-0880-49b4-8266-3bfd5e0296ac</a></p>
 <ul>
-<li>By Input Feeding,<ul>
+<li><p>By Input Feeding,</p>
+<ul>
 <li>Sampling 과정에서 (&#x3D;argmax 과정에서) 손실되는 정보를 최소화</li>
 <li>Teacher Forcing으로 인한 학습&#x2F;추론 사이의 괴리를 최소화</li>
+</ul>
+</li>
+<li><p>By Input Feeding,</p>
+<ul>
+<li>Sampling 과정에서 (&#x3D;argmax 과정에서) 손실되는 정보를 최소화</li>
+<li>Teacher Forcing으로 인한 학습&#x2F;추론 사이의 괴리를 최소화</li>
+</ul>
+</li>
+<li><p>수식</p>
+<ul>
+<li><p>$D&#x3D;{x^i, y^i}<em>{i&#x3D;1}^{N}$   &#x2F;&#x2F; $y&#x3D;f(x)$ $|x^i|&#x3D;(bs,m,|v|)$ $|y^i|&#x3D;(bs,n,|v|)&#x3D;y</em>{1:n}^i$</p>
+<p>$x^i &#x3D; {x_1^i, \ldots, x_m^i} \text{ } y^i &#x3D; {y_0^i, y_1^i, \ldots, y_n^i}$  &#x2F;&#x2F; $|y^i|&#x3D;(bs,n,|v_t|)$</p>
+<p>where $y_0&#x3D;$<BOS>, $y_n&#x3D;$<EOS></p>
+</li>
+<li><p>$h_{1:m}^{enc} &#x3D; RNN_{enc}(emb_{enc}(x_{1:m}), h_{0}^{enc}) \text{ where    } h_0^{enc} &#x3D; 0$</p>
+<ul>
+<li>$h_{1:m}^{enc}$&#x3D;(𝑏𝑠, m,ℎ𝑠)</li>
+<li>|$emb_{enc}(x_{1:m}), h_0^{enc}$|&#x3D;(𝑏𝑠, m, ws)</li>
+</ul>
+</li>
+<li><p>$h_{t}^{dec} &#x3D; RNN_{dec}([emb_{dec}(\hat{y}<em>{t-1}); \tilde{h}</em>{t-1}^{dec}], h_{t-1}^{dec})$$h_{t}^{dec} &#x3D; RNN_{dec}([emb_{dec}(\hat{y}<em>{t-1}), \tilde{h}</em>{t-1}^{dec}], h_{t-1}^{dec})$,  $\text{where } h_0^{dec} &#x3D; h_m^{enc}$</p>
+<ul>
+<li>$\tilde{h}_{t-1}^{dec}$: input feeding으로 concat → (bs, 1, ws+hs)</li>
+<li>$h_{t-1}^{dec}$: 이전 time-steop의 decoder의 hidden state 값 &#x3D; (bs,1,hs)</li>
+<li>$|y_{t-1}|&#x3D;(bs,1,|v|)$  : dec</li>
+</ul>
+</li>
+<li><p>$w &#x3D; \text{softmax}(h_{t}^{dec} \cdot W_{a} \cdot h_{1:m}^{enc^T}))$</p>
+<ul>
+<li>$h_{t}^{dec} \cdot W_{a}$ : Q</li>
+<li>$h_{1:m}^{enc^T}$ : $K^T$</li>
+<li>|Q|&#x3D;(bs,1,hs), |K|&#x3D;(bs,hs,m), |Q∙K|&#x3D;(bs,1,m)</li>
+</ul>
+<p>$c&#x3D;w \cdot h_{1:m}^{enc},$</p>
+<p>$\text{where } c \in \mathbb{R}^{batchsize \times 1 \times hiddensize}$ is a context vector, and $W_a \in \mathbb{R}^{batchsize \times hiddensize}$</p>
+</li>
+<li><p>$\tilde{h}<em>t^{dec} &#x3D; \tanh([(h_t^{dec}; c)] \cdot W</em>{concat})$</p>
+<ul>
+<li>$[(h_t^{dec}; c)]$ : $ℎ_𝑡^{𝑑𝑒𝑐}$ 과 c를 concat하면 (bs, 1, hs*2)</li>
+</ul>
+<p>$\hat{y}_t &#x3D; \text{softmax}(\tilde{h}<em>t^{dec} \cdot W</em>{gen})$</p>
+<ul>
+<li>$|\hat{y}_t|$&#x3D;(bs,1,hs)*(hs, |V|) &#x3D; (bs,1,|V|)</li>
+</ul>
+<p>$\text{where } W_{concat} \in \mathbb{R}^{(2 \times hiddensize) \times hiddensize} \text{ and } W_{gen} \in \mathbb{R}^{hiddensize \times |V|}$</p>
+</li>
+<li><p>$L(\theta) &#x3D; -\sum_{i&#x3D;1}^{N}\sum_{t&#x3D;1}^{n} \log P(y_{j}^{i},|x^i,y_{&lt;t}^i; \theta)$<br>$\log P(x_t | x_{&lt;t}; \theta) &#x3D; y_t^{iT} \cdot \log{\hat{y}<em>{t}^i})$ &#x2F;&#x2F; softmax layer를 통과하는 경우,<br>&#x2F;&#x2F; $|y_t^{iT}|$$y_t^{iT}$ : (bs,1,|v|)<br>&#x2F;&#x2F; $|\log{\hat{y}</em>{t}^i}|$$\log{\hat{y}_{t}^i}$ : (bs,|v|,1)<br>$\text{where } x_t \text{ is one- hot vector, and }f_θ \text{ is model with parameter θ.}$<br>$\theta \leftarrow \theta - \eta\nabla_\theta L(\theta)$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Wrap-up"><a href="#Wrap-up" class="headerlink" title="Wrap-up"></a>Wrap-up</h2><ul>
+<li>Encoder<ul>
+<li>문장을 받아 context vector로 압축</li>
+<li>Bi-directional RNN을 통해 구현</li>
+</ul>
+</li>
+<li>Decoder &amp; Generator<ul>
+<li>Conditional Language Model<ul>
+<li>Encoder로부터 정보를 받아 문장을 생성</li>
+</ul>
+</li>
+<li>Cross Entropy(PPL)을 통해 최적화</li>
+</ul>
+</li>
+<li>Attention<ul>
+<li>Key-Value 함수</li>
+<li>디코더의 hidden state를 인코더의 각 hidden state에 유사도 비교</li>
+<li>좋은 query를 만들어내는 과정을 학습<ul>
+<li>decoder의 hidden state가 query가 됨</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Input Feeding<ul>
+<li>Sampling 과정에서 손실된 정보를 word embedding에 concatenate</li>
 </ul>
 </li>
 </ul>
