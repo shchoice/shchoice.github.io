@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a></li><li class="is-active"><a href="#" aria-current="page">자연어생성 개념</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-26T14:51:03.000Z" title="8/26/2023, 11:51:03 PM">2023-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-09-15T14:56:40.819Z" title="9/15/2023, 11:56:40 PM">2023-09-15</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></span><span class="level-item">23 minutes read (About 3385 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%5BEdit%20conflict_local%5D4%E1%84%8C%E1%85%A1%E1%86%BC-Sequence2Sequence-Machine-Translation-%E1%84%89%E1%85%A9%E1%84%80%E1%85%A2/">4장.  Sequence2Sequence - Machine Translation 소개</a></h1><div class="content"><h2 id="Machine-Translation"><a href="#Machine-Translation" class="headerlink" title="Machine Translation"></a>Machine Translation</h2><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a></li><li class="is-active"><a href="#" aria-current="page">자연어생성 개념</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-26T14:51:03.000Z" title="8/26/2023, 11:51:03 PM">2023-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-09-16T15:01:06.000Z" title="9/17/2023, 12:01:06 AM">2023-09-17</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></span><span class="level-item">23 minutes read (About 3375 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%5BEdit%20conflict_local%5D4%E1%84%8C%E1%85%A1%E1%86%BC-Sequence2Sequence-Machine-Translation-%E1%84%89%E1%85%A9%E1%84%80%E1%85%A2/">4장.  Sequence2Sequence - Machine Translation 소개</a></h1><div class="content"><h2 id="Machine-Translation"><a href="#Machine-Translation" class="headerlink" title="Machine Translation"></a>Machine Translation</h2><ul>
 <li><p>Objective</p>
 <ul>
 <li><p>$\hat{y} &#x3D; \text{argmax}</p>
@@ -552,6 +552,39 @@
 </li>
 <li>Input Feeding<ul>
 <li>Sampling 과정에서 손실된 정보를 word embedding에 concatenate</li>
+</ul>
+</li>
+</ul>
+<h2 id="Teacher-Forcing"><a href="#Teacher-Forcing" class="headerlink" title="Teacher Forcing"></a>Teacher Forcing</h2><h3 id="Auto-regressive"><a href="#Auto-regressive" class="headerlink" title="Auto-regressive"></a>Auto-regressive</h3><ul>
+<li><p>Inference</p>
+<ul>
+<li>$\hat{x}<em>t &#x3D; \text{argmax}</em>{x_t \in \chi} \log P(x_t | \hat{x}{&lt;t}; \theta)$</li>
+</ul>
+</li>
+<li><p>Auto-regressive</p>
+<ul>
+<li><p>과거 자신의 상태를 참조하여 현재 자신의 상태를 업데이트</p>
+<ul>
+<li><p>$\hat{x}<em>{t&#x3D;1} &#x3D; \text{argmax}</em>{x_t \in \chi} \log P(x_{t&#x3D;1} | x_0; \theta)$  $\text{ where } x_0 &#x3D;$ <BOS></p>
+<p>$\hat{x}<em>{t&#x3D;2} &#x3D; \text{argmax}</em>{x_t \in \chi} \log P(x_{t&#x3D;2} | x_0,\hat{x}_1; \theta)$</p>
+<p>$\hat{x}<em>{t&#x3D;3} &#x3D; \text{argmax}</em>{x_t \in \chi} \log P(x_{t&#x3D;3} | x_0,\hat{x}_1, \hat{x}_2; \theta)$</p>
+<p>…</p>
+<p>$\hat{x}<em>{t} &#x3D; \text{argmax}</em>{x_t \in \chi} \log P(x_{t} | x_0,\hat{x}_{x&lt;t}; \theta)$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Training-vs-Inference"><a href="#Training-vs-Inference" class="headerlink" title="Training vs Inference"></a>Training vs Inference</h3><p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/d8941761-8ee2-4f5a-91fe-c419bdfd379a" alt="TeacherForcing"></p>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a><strong>Summary</strong></h3><ul>
+<li>Auto-regressive task를 feed-forward할 때는 보통 이전 time-step의 출력이 현재 time-step의 입력이 됨</li>
+<li>Teacher Forcing을 통해 Auto-regressive task에 대한 sequential modeling을 할 수 있음<ul>
+<li>하지만 training mode와 inference mode의 괴리(discrepancy)가 생김</li>
+</ul>
+</li>
+<li>RL을 통해 이러한 괴리를 없애고 성능을 높일 수 있음<ul>
+<li>이외에도 다양한 방법(e.g. professor forcing)들이 제안됨</li>
 </ul>
 </li>
 </ul>
