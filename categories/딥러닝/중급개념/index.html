@@ -571,7 +571,8 @@
 </ul>
 </li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-07-29T14:59:01.000Z" title="7/29/2023, 11:59:01 PM">2023-07-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-08-01T14:57:39.000Z" title="8/1/2023, 11:57:39 PM">2023-08-01</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%A4%91%EA%B8%89%EA%B0%9C%EB%85%90/">중급개념</a></span><span class="level-item">17 minutes read (About 2488 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2%EC%9E%A5-Probabilistic-Perspective-Basic-Statistics/">2장. Probabilistic Perspective - Basic Statistics</a></h1><div class="content"><h2 id="기본-통계학-Basic-Statistics"><a href="#기본-통계학-Basic-Statistics" class="headerlink" title="기본 통계학(Basic Statistics)"></a>기본 통계학(Basic Statistics)</h2><h3 id="Random-Variable-amp-Probability-Distribution"><a href="#Random-Variable-amp-Probability-Distribution" class="headerlink" title="Random Variable &amp; Probability Distribution"></a>Random Variable &amp; Probability Distribution</h3><ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-07-29T14:59:01.000Z" title="7/29/2023, 11:59:01 PM">2023-07-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-09-18T14:59:18.000Z" title="9/18/2023, 11:59:18 PM">2023-09-18</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%A4%91%EA%B8%89%EA%B0%9C%EB%85%90/">중급개념</a></span><span class="level-item">18 minutes read (About 2713 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2%EC%9E%A5-Probabilistic-Perspective-Basic-Statistics/">2장. Probabilistic Perspective - Basic Statistics</a></h1><div class="content"><h2 id="기본-통계학-Basic-Statistics"><a href="#기본-통계학-Basic-Statistics" class="headerlink" title="기본 통계학(Basic Statistics)"></a>기본 통계학(Basic Statistics)</h2><h3 id="Random-Variable-amp-Probability-Distribution"><a href="#Random-Variable-amp-Probability-Distribution" class="headerlink" title="Random Variable &amp; Probability Distribution"></a>Random Variable &amp; Probability Distribution</h3><ul>
+<li>확률 변수(Random Variable)는 사건의 시행의 결과(확률)를 하나의 수치로 대응시킬 때의 확률 값, 일반적으로 대문자 X를 사용</li>
 <li>어떤 변수(Random Variable) x가 𝒙 라는 값을 가질 확률<ul>
 <li>$𝑃(\text{x}&#x3D;𝑥) &#x3D;𝑃(𝑥)$</li>
 </ul>
@@ -579,6 +580,16 @@
 <li>확률 분포 (함수)<ul>
 <li>입력 : 확률 변수 x</li>
 <li>출력 : x가 각 값에 해당될 때에 대한 확률값</li>
+</ul>
+</li>
+<li>이산 확률 변수<ul>
+<li>확률변수가 취할 수 있는 값의 수가 유한한 변수</li>
+<li>ex) 동전 던지기, 주사위 던지기(X&#x3D;{0, 1, 2, 3})</li>
+</ul>
+</li>
+<li>연속 확률 변수<ul>
+<li>확률변수가 취할 수 있는 값의 수가 무한한 변수</li>
+<li>ex) 키, 몸무게(P(50 ≤ X ≤ 60)) 등</li>
 </ul>
 </li>
 </ul>
@@ -608,10 +619,11 @@
 </ul>
 </li>
 </ul>
-<h3 id="확률-분포-Probability-Distribution"><a href="#확률-분포-Probability-Distribution" class="headerlink" title="확률 분포(Probability Distribution)"></a>확률 분포(Probability Distribution)</h3><ul>
-<li><p>이산 확률 분포(Discrete Probability Distribution)</p>
+<h3 id="확률-분포-Probability-Distribution"><a href="#확률-분포-Probability-Distribution" class="headerlink" title="확률 분포(Probability Distribution)"></a>확률 분포(Probability Distribution)</h3><p>확률 분포는 수치로 대응된 확률 변수의 개별 값들이 가지는 확률값의 분포</p>
 <ul>
-<li><p>확률 질량함수(Probability Mass Function)</p>
+<li><p>이산 확률 분포(Discrete Probability Distribution) : 확률 변수가 취할 수 있는 값의 수가 유한한 확률 분포</p>
+<ul>
+<li><p>확률 질량함수(Probability Mass Function) : 확률 변수에서 특정 값에 대한 확률을 나타내는 함수</p>
 <ul>
 <li>확률값의 총 합은 1<ul>
 <li>$\sum_{x} P(\text{x}&#x3D;x) &#x3D; 1, \text{ where } 0 \leq P(\text{x}&#x3D;x) \leq 1, \forall x \in \chi$</li>
@@ -624,9 +636,9 @@
 </li>
 </ul>
 </li>
-<li><p>연속 확률 분포(Continuous Probability Distribution)</p>
+<li><p>연속 확률 분포(Continuous Probability Distribution) : 확률 변수가 취할 수 있는 값의 수가 무한한 확률 분포</p>
 <ul>
-<li><p>확률 밀도 함수(robability Density Function , PDF)</p>
+<li><p>확률 밀도 함수(robability Density Function , PDF)  : 확률 변수의 분포를 나타내는 함수</p>
 <ul>
 <li>면적의 합이 1<ul>
 <li>$\int P(x) , dx &#x3D; 1, \text{ where } P(x) \geq 0, \forall x \in \mathbb{R}$</li>
