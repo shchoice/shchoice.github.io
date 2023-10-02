@@ -31,7 +31,189 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-03-03T14:44:56.000Z" title="3/3/2023, 11:44:56 PM">2023-03-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T18:01:34.000Z" title="7/23/2023, 3:01:34 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Advanced-Concept/">Advanced Concept</a></span><span class="level-item">7 minutes read (About 1022 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Python/%E1%84%80%E1%85%A2%E1%84%82%E1%85%A7%E1%86%B7/Python-Class-Method/">Python Class &amp; Method</a></h1><div class="content"><h1 id="순서"><a href="#순서" class="headerlink" title="순서"></a>순서</h1><ol>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-03-09T14:18:49.000Z" title="3/9/2023, 11:18:49 PM">2023-03-09</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T17:25:07.000Z" title="7/23/2023, 2:25:07 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/FastAPI/">FastAPI</a></span><span class="level-item">15 minutes read (About 2293 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/FastAPI-Deploy/">FastAPI - Deploy</a></h1><div class="content"><p>FastAPI와 ASGI 서버인 uvicorn + WSGI 서버인 gunicorn 을 통한  웹 서비스 구현 및 배포를 하면서 궁금했던 내용들에 대한 정리한 내용입니다.</p>
+<p>FastAPI 와 uvicorn을 통해 REST API 서버를 구현하고, 현재 상황에 최적화된 Product로 배포하기 위해 자료조사를 하던 중에  gunicorn + uvicorn 을 통한 서비스를 알게 되었습니다. 그래서 각각에 대한 개념과 웹 서비스를 어떻게 최적화하여 배포를 할 수 있는지 정리하였습니다.</p>
+<h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><ol>
+<li>[ASGI 서버와 WSGI 서버란](#ASGI 서버와  WSGI 서버란?)</li>
+<li><a href="#uvicorn%EA%B3%BC-gunicorn-%EC%9D%B4%EB%9E%80">Uvicorn 과 Gunicorn 이란</a></li>
+<li><a href="#FastAPI%EC%99%80-uvicorn%EA%B3%BC%EC%9D%98-%EA%B4%80%EA%B3%84">FastAPI와 uvicorn과의 관계</a></li>
+<li><a href="#FastAPI%EC%99%80-uvicorn-+-gunicorn%EA%B3%BC%EC%9D%98-%EA%B4%80%EA%B3%84">FastAPI와 uvicorn + gunicorn과의 관계</a></li>
+<li><a href="#FastAPI-%EB%B0%B0%ED%8F%AC-%EC%A0%84%EB%9E%B5">FastAPI 배포 전략</a></li>
+</ol>
+<h1 id="ASGI-서버와-WSGI-서버란"><a href="#ASGI-서버와-WSGI-서버란" class="headerlink" title="ASGI 서버와  WSGI 서버란?"></a>ASGI 서버와  WSGI 서버란?</h1><p>ASGI 서버와 WSGI 서버가 무엇인지 알기 위해서 CGI 및 WAS와 함께 알아보겠습니다.</p>
+<ul>
+<li><p>CGI(Common Gateway Interface)</p>
+<ul>
+<li>웹 서버와 외부 프로그램 간의 데이터 교환을 위한 인터페이스 규약 (일종의 웹 서버 기술로 볼 수 있음)<ul>
+<li>즉, 웹 서버와 외부 프로그램 간의 상호작용을 위해 표준화된 방식을 제공</li>
+</ul>
+</li>
+<li>nginx, apache 웹 서버에서 우리가 작성한 프로그램을 실행하기 위한 인터페이스</li>
+<li>하지만 현재는 대부분 웹 프레임워크를 통해 동적인 웹 페이지를 생성(CGI는 과거에 주로 사용)</li>
+<li>웹 페이지에 동적인 콘텐츠를 제공하기 위해 웹 서버가 클라이언트 요청에 따라 외부 프로그램을 실행하고 그 결과를 반환하는 방식으로 동작</li>
+<li>요청 → 웹서버(nginx, apache) → CGI → CGI에 작성한 프로그램 실행(프로세스 생성)</li>
+<li>프로세스를 생성하여 실행<ul>
+<li>즉 fork, spawn를 통해 프로세스를 생성</li>
+</ul>
+</li>
+<li>요청에 따라 프로세스를 생성<ul>
+<li>많은 요청이 들어오면 서버 부하가 증가하고 성능 저하(메모리 등)를 초래할 수 있음</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>WAS(Web Application Server)</p>
+<ul>
+<li><p>대규모 웹 어플리케이션을 운영하는데 매우 유용</p>
+</li>
+<li><p>웹 어플리케이션을 실행하기 위한 미들웨어 플랫폼으로, 웹 서버와 데이터베이스 서버 사이의 중간 계층에서 동작</p>
+<blockquote>
+<p><strong>WAS의 기능 참고</strong></p>
+<ul>
+<li>웹 어플리케이션을 실행하기 위한 런타임 환경 제공</li>
+<li>다양한 프로그래밍 언어와 프레임워크를 지원</li>
+<li>세션 관리, 트랜잭션 관리, 보안 등의 기능 제공</li>
+<li>로드 밸런싱, 클러스터링, 캐싱 등의 기능 제공</li>
+<li>모니터링, 로깅, 성능 측정 등의 기능 제공</li>
+</ul>
+</blockquote>
+</li>
+<li><p>요청 → 웹서버(nginx, apache) → WAS(Tomcat) → WAS에 작성한 프로그램 실행(쓰레드 실행)</p>
+<ul>
+<li>(하지만 요즘에는 최근에는 WAS 자체가 웹 서버 기능을 포함해 단일 서버로 웹 어플리케이션을 구축하는 것이 일반적)</li>
+</ul>
+</li>
+<li><p>CGI는 프로세스를 생성하여 실행하지만 WAS는 쓰레드를 통해 실행됨</p>
+</li>
+<li><p>Django, Flask, FastAPI는 CGI, WAS와 같은 서버가 존재해야 함</p>
+<ul>
+<li>FastAPI : ASGI 서버가 필요함</li>
+<li>Flask : WSGI 서버가 필요</li>
+<li>Django : WSGI, ASGI 모두 지원</li>
+</ul>
+<blockquote>
+<p><strong>Deploying to Production</strong></p>
+<p>Django, being a web framework, <strong>needs a web server in order to operate</strong>. And since most web servers don’t natively speak Python, we need an interface to make that communication happen. Django currently supports two interfaces: WSGI and ASGI.</p>
+<p>※ <a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/4.1/howto/deployment/">https://docs.djangoproject.com/en/4.1/howto/deployment/</a> </p>
+<p>Flask is a WSGI <em>application</em>. <strong>A WSGI <em>server</em> is used to run the application</strong></p>
+<p>※ <a target="_blank" rel="noopener" href="https://flask.palletsprojects.com/en/2.2.x/deploying/">https://flask.palletsprojects.com/en/2.2.x/deploying/</a></p>
+<p>The main thing you need to run a <strong>FastAPI</strong> application in a remote server machine is an <strong>ASGI server</strong> program like <strong>Uvicorn</strong>.<br>※ <a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/ko/deployment/manually/">https://fastapi.tiangolo.com/ko/deployment/manually/</a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>WSGI(Web Server Gateway Interface)</p>
+<ul>
+<li><p>Python 웹 어플리케이션 개발의 표준 인터페이스</p>
+</li>
+<li><p>Python 웹 어플리케이션과 웹 서버 간의 데이터를 주고 받기 위한 인터페이스 규격</p>
+</li>
+<li><p>웹 서버와 웹 프레임워크 사이에 존재 → WAS를 대체한다고 보면 됨</p>
+<p><img src="/img/fastapi/wsgi.png" alt="wsgi"></p>
+</li>
+<li><p>CGI는 프로세스를 생성하여 우리가 작성한 코드를 실행하는 반면 WSGI는 요청에 대해 우리가 작성한 코드를 콜백하여 호출하는 역할</p>
+<ul>
+<li>즉, WSGI는 웹 프레임워크의 코드를 호출해 주는 역할</li>
+</ul>
+</li>
+<li><p>단점으로는 비동기 처리가 힘들음</p>
+<ul>
+<li>Websocket이나 긴 HTTP 요청을 처리하기에 적합하지 않음(단일 동기 호출 방식으로 처리되어 오랜 시간 연결을 유지)</li>
+<li>WSGI는 요청에 대한 콜백이 동기적인 형태를 가졌기 때문</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ASGI(Asynchronous Server Gateway Interface)</p>
+<ul>
+<li>Python 비동기 웹 어플리케이션과 웹 서버 간의 인터페이스 규격</li>
+<li>WebSocket과 같은 실시간 통신을 지원(단일 비동기 호출이 가능하도록 설계됨)</li>
+<li>클라이언트로부터 여러 이벤트를 주고받을 수 있으며, 백그라운드 코루틴을 실행할 수 있게 됨</li>
+<li>SGI는 WSGI에 비해 더 높은 성능과 안정성, 그리고 기능을 제공</li>
+<li>비동기 방식으로 동작하므로 멀티 스레드 환경에서 발생할 수 있는 문제를 해결</li>
+<li>Python의 asyncio 라이브러리를 기반으로 하여 모듈 관리가 더욱 간편</li>
+</ul>
+</li>
+</ul>
+<h2 id="uvicorn과-gunicorn-이란"><a href="#uvicorn과-gunicorn-이란" class="headerlink" title="uvicorn과 gunicorn 이란"></a>uvicorn과 gunicorn 이란</h2><ul>
+<li>Uvicorn<ul>
+<li>Python ASGI(Asynchronous Server Gateway Interface) 웹 서버 (Python 비동기 웹 애플리케이션을 처리하는 데 사용)</li>
+<li>기존의 웹 서버와 달리 비동기 방식으로 동작하여 높은 성능을 제공<ul>
+<li>비동기 방식으로 동작하기 때문에, 블로킹 연산 없이도 빠른 응답 속도를 제공할 수 있</li>
+</ul>
+</li>
+<li>asyncio 라이브러리를 사용하여 비동기 방식으로 동작<ul>
+<li>cypthon 으로 구현한 uvloop 를 사용하여 이벤트 루프를 구현(비동기 서버를 구현)</li>
+<li>네트워크 I&#x2F;O 에 대한 콜백 위주로 관리</li>
+</ul>
+</li>
+<li>Uvicorn은 다중 프로세스와 다중 스레드를 지원하여 높은 처리량을 제공하며, HTTPS, HTTP&#x2F;2, WebSocket 등 다양한 프로토콜을 지원</li>
+<li>Python 3.6 이상의 버전에서 사용할 수 있음</li>
+</ul>
+</li>
+<li>Gunicorn<ul>
+<li>Python 웹 어플리케이션을 위한 WSGI(Web Server Gateway Interface) 웹 서버</li>
+<li>Gunicorn은 다중 프로세스를 사용하여 Python 웹 어플리케이션을 처리하며, 다중 코어 시스템에서 높은 성능을 제공</li>
+<li>프로세스 관리자 역할을 수행</li>
+</ul>
+</li>
+</ul>
+<h2 id="FastAPI와-uvicorn과의-관계"><a href="#FastAPI와-uvicorn과의-관계" class="headerlink" title="FastAPI와 uvicorn과의 관계"></a>FastAPI와 uvicorn과의 관계</h2><ul>
+<li><p>FastAPI는 ASGI 인터페이스가 구현된 starlette를 추상화하여 구현된 웹 프레임워크</p>
+<p>[웹 프레임워크]FastAPI - Starlette - [ASGI 웹 서버]Uvicorn - uvloop - libuv</p>
+</li>
+<li><p>FastAPI를 사용하여 Python 웹 어플리케이션을 개발하고, ASGI 서버 중 하나인 Uvicorn을 사용하여 실행</p>
+</li>
+</ul>
+<h2 id="FastAPI와-uvicorn-gunicorn과의-관계"><a href="#FastAPI와-uvicorn-gunicorn과의-관계" class="headerlink" title="FastAPI와 uvicorn + gunicorn과의 관계"></a>FastAPI와 uvicorn + gunicorn과의 관계</h2><ul>
+<li><p>gunicorn + uvicorn 을 조합하여 사용할 수 있으며 ASGI와 WSGI의 특징으로 다음과 같은 효과를 얻을 수 있음</p>
+<ul>
+<li>비동기 처리 <ul>
+<li>Uvicorn에서 비동기 처리가 필요한 부분을 Gunicorn으로 연결하여 비동기 처리를 지원</li>
+</ul>
+</li>
+<li>안정성: <ul>
+<li>Uvicorn은 비동기 처리 방식으로 동작하기 때문에, 처리량이 높아질 때도 안정적으로 동작할 수 있음</li>
+<li>Gunicorn은 다중 프로세스 방식으로 동작하기 때문에, 안정성을 보장할 수 있음</li>
+<li>두 웹 서버를 함께 사용하면, 안정성을 보장하면서도 높은 처리량을 제공할 수 있음</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>gunicorn + uvicorn 를 함께 사용했을 때의 아키텍처</p>
+</li>
+</ul>
+<p>​	<img src="/img/fastapi/architecture.png" alt="architecture"></p>
+<ul>
+<li>사용 방법</li>
+</ul>
+<h2 id="FastAPI-배포-전략"><a href="#FastAPI-배포-전략" class="headerlink" title="FastAPI 배포 전략"></a>FastAPI 배포 전략</h2><ul>
+<li>gunicorn + uvicorn 을 사용할 경우<ul>
+<li>프로세스 수 조정을 크게 신경 쓰지 않아도 되는 간단한 앱.</li>
+<li>클러스터가 아닌 단일 서버에서 실행하는 경우.</li>
+<li>단일 서버에 Docker Compose로 배포하는 경우</li>
+<li>프로메테우스와 같은 모니터링 메트릭을 가져오는 경우, 하나의 컨테이너 + 여러 프로세스 조합으로 한번에 사용하는게 간단할 수 있음.</li>
+<li><code>uvicorn-gunicorn-fastapi-docker</code> 는 <a target="_blank" rel="noopener" href="https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/gunicorn_conf.py#L21-L30">내부적으로 자동으로 process와 worker 수를 자동으로 조절</a><ul>
+<li>CPU 자원 상태를 체크하고 이에 알맞는 값을 계산<ul>
+<li>반복되는 단일 서버나 단일 컨테이너로 띄울 때 좋은 이유</li>
+</ul>
+</li>
+<li>하지만 현실 운영에서는 이 자동 튜닝 부분이 적합하지 않을 수 있음</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>uvicorn 만 사용하는 경우<ul>
+<li>Kubernetes와 같은 컨테이너 오케스트레이션을 이용하여 클러스터에 여러 개의 pod으로 띄우는 경우<ul>
+<li>각각의 컨테이너 내에서 Gunicorn + Uvicorn 으로 여러 워커 + 프로세스 매니저를 사용할 경우, 이 리소스 관리가 아주 복잡</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://fastapi.tiangolo.com/deployment/docker/#replication-number-of-processes">더 자세한 내용은 공식 문서</a></li>
+</ul>
+</li>
+</ul>
+<p>참고 : <a target="_blank" rel="noopener" href="https://jiyeonseo.github.io/2022/10/24/uvicorn-gunicorn-fastapi-docker/">https://jiyeonseo.github.io/2022/10/24/uvicorn-gunicorn-fastapi-docker/</a></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-03-03T14:44:56.000Z" title="3/3/2023, 11:44:56 PM">2023-03-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T18:01:34.000Z" title="7/23/2023, 3:01:34 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/Advanced-Concept/">Advanced Concept</a></span><span class="level-item">7 minutes read (About 1022 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Python/%E1%84%80%E1%85%A2%E1%84%82%E1%85%A7%E1%86%B7/Python-Class-Method/">Python Class &amp; Method</a></h1><div class="content"><h1 id="순서"><a href="#순서" class="headerlink" title="순서"></a>순서</h1><ol>
 <li><p>Class &amp; Method</p>
 </li>
 <li><p>Data Model</p>
@@ -1118,611 +1300,7 @@
 </ul>
 </li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-01T15:02:02.000Z" title="12/2/2022, 12:02:02 AM">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T17:25:02.000Z" title="7/23/2023, 2:25:02 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-Basic/">Spring Basic</a></span><span class="level-item">a few seconds read (About 0 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java-Spring/">Java Spring</a></h1><div class="content"></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-01T15:02:02.000Z" title="12/2/2022, 12:02:02 AM">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T17:25:11.000Z" title="7/23/2023, 2:25:11 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-Framework/">Spring Framework</a></span><span class="level-item">34 minutes read (About 5124 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Spring-Framework/">Java Spring</a></h1><div class="content"><h1 id="스프링-IoC와-빈"><a href="#스프링-IoC와-빈" class="headerlink" title="스프링 IoC와 빈"></a>스프링 IoC와 빈</h1><p>IoC(Inversion of Control, 제어권의 역전)란 무엇인가</p>
-<ul>
-<li>의존 관계 주입(Dependency injection)이라고도 불림</li>
-<li>객체의 생성, 생명주기의 관리까지 모든 객체에 대한 제어권을 스프링 프레임워크에 맡김<ul>
-<li>객체의 생성을 책임지고 의존성을 관리</li>
-<li>POJO 의 생성, 초기화, 서비스 , 소멸에 대한 권한을 갖음</li>
-<li>개발자들이 직접 POJO를 생성할 수 있지만 컨테이너에 맡김</li>
-</ul>
-</li>
-</ul>
-<p>해당 내용의 의미를 코드로 살펴보자</p>
-<ul>
-<li><p>일반적인 Java 프로그래밍 코드</p>
-<ul>
-<li>프로그래머가 직접 인스턴스의 생성을 작성</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PaymentController</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">PaymentRepository</span> <span class="variable">paymentRepository</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PaymentRepository</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Spring Framework에서의 DI를 바탕으로 한 코드</p>
-<ul>
-<li>인스턴스 및 의존성에 대한 관리를 Spring Framework가 직접해주기에 new를 직접적으로 사용하지 않아도 됨</li>
-<li>내가 사용할 의존성의 타입(또는 인터페이스)만 맞으면 어떤거든 상관없다</li>
-<li>그래야 내 코드 테스트 하기도 편함</li>
-</ul>
-<p>PaymentController</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentController</span> &#123;</span><br><span class="line">	PaymentRepository paymentRepository;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">PaymentController</span><span class="params">(PaymentRepository paymentRepository)</span> &#123; <span class="comment">// 해당 객체에 맞는 bean을 가져와 주입을 함(스프링이 빈들의 의존성을 관리)</span></span><br><span class="line">		<span class="built_in">this</span>.paymentRepository = paymentRepository;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">cardPayment</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.paymentRepository.save(); <span class="comment">// 스프링이 아니었다면 new를 하지 않았기 때문에 NullPointException 이어야함</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>PaymentRepository</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentRepository</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">()</span> &#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>하지만 Test 코드에서는 다음과 같이 직접 객체의 생성 및 의존성을 주입해야 한다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PaymentControllerTest</span> &#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testCardPayment</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">PaymentRepository</span> <span class="variable">paymentRepository</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PaymentRepository</span>();</span><br><span class="line">		<span class="type">PaymentController</span> <span class="variable">paymentController</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PaymentController</span>(paymentRepository);</span><br><span class="line"></span><br><span class="line">		paymentController.cardPayment();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>Spring IoC 컨테이너</p>
-<ul>
-<li>BeanFactory</li>
-<li>애플리케이션 컴퍼넌트의 중앙 저장소</li>
-<li>빈 설정 소스로부터 빈 정의를 읽어 드리고 , 빈을 구성하고 제공</li>
-</ul>
-<h2 id="BEAN"><a href="#BEAN" class="headerlink" title="BEAN"></a>BEAN</h2><ul>
-<li>스프링이 관리하는 객체</li>
-<li>스프링 IoC 컨테이너가 관리하는 객체</li>
-<li>최상위 인터페이스는 BeanFactory라는 인터페이스</li>
-<li>applcation context 가 관리하는 객체에서 가져와야 함(일반객체와 차이) → 그래야  의존성 주입이 됨</li>
-<li>초기에는 XML 방식을 사용했지만, 시간이 지나면서 annotation 방식으로 사용</li>
-</ul>
-<p>그렇다면 Bean은 무엇일까?</p>
-<p>아래의 코드들를 보자</p>
-<ol>
-<li><p>Book Class</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Date created;</span><br><span class="line">  <span class="keyword">private</span> BookStatus bookStatus;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setCreated</span><span class="params">(Date date)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.created = created;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> BookStatus <span class="title function_">getBookStatus</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> bookStatus;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setBookStatus</span><span class="params">(BookStatus bookStatus)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.bookStatus = bookStatus;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Spring IoC 컨테이너가 관리하는 Bean이 맞을까?<ul>
-<li>Spring IoC 컨테이너가 관리하는 Bean이 아니다. (그냥 Java Bean 이라고는 할 수 있다. getter, setter 를 준수 하기때문)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>BookRepository</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookRepository</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> Book <span class="title function_">save</span><span class="params">(Book book)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Repository annotation을 사용했기 때문에 Spring IoC 컨테이너가 관리하는 Bean이 맞음</li>
-</ul>
-</li>
-<li><p>BookService</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookService</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> BookRepository bookRepository;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">BookService</span><span class="params">(BookRepository bookRepository)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.bookRepository = bookRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Book <span class="title function_">save</span><span class="params">(Book book)</span> &#123;</span><br><span class="line">      book.setCreated(<span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line">      book.setBookStatus(BookStatus.DRAFT);</span><br><span class="line">      <span class="keyword">return</span> bookRepository.save(book);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Service annotation을 사용했기 때문에 Spring IoC 컨테이너가 관리하는 Bean이 맞음</li>
-</ul>
-</li>
-<li><p>BookStatus</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">BookStatus</span> &#123;</span><br><span class="line">  DRAFT, PUBLISHED;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Spring IoC 컨테이너가 관리하는 Bean이 아님,</li>
-</ul>
-</li>
-</ol>
-<p>그렇다면 왜 @Service, @Repository 등은 왜 bean으로 들어가있을까&#x2F;Spring IoC 컨테이너가 관리하게 했을까?</p>
-<p>즉 Bean의 장점은 무엇일까?</p>
-<ul>
-<li>의존성 관리를 받고 싶기 때문, 의존성 주입을 하려면 반드시 Bean으로 되어있어야 함</li>
-<li>Bean의 Scope 때문 - 오직 하나만 사용하기에 적합하기 때문 - 싱글톤으로 사용하고 싶을 때<ul>
-<li>BookService나 BookRepository는 하나만 사용하면 되기 때문</li>
-<li>Spring IoC에서 관리되는 Bean들은 모두 싱글톤 Scope으로 관리됨<ul>
-<li>싱글톤 : 객체는 하나, 즉 모두 같은 객체로 받기 때문에 효율적, 런타임 시 성능 최적화에도 유리 , Reopository 등은 사이즈가 클텐데 한번만 사용하면 이득</li>
-<li>프로토타입 : 매번 다른 객체를 사용</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>라이프 사이클 인터페이스<ul>
-<li>빈이 만들어졌을 때 추가적인 작업을 하고 싶을경우</li>
-<li>@PostConstruct</li>
-</ul>
-</li>
-</ul>
-<h2 id="ApplicationContext"><a href="#ApplicationContext" class="headerlink" title="ApplicationContext"></a>ApplicationContext</h2><p>스프링 IoC 컨테이너의 역할</p>
-<ul>
-<li>빈 인스턴스 생성</li>
-<li>의존 관계 설정</li>
-<li>빈 제공</li>
-</ul>
-<p>ApplicationContext</p>
-<ul>
-<li>classPathXmlApplicationContext (XML)</li>
-<li>AnnotationConfigApplicationContext (Java)</li>
-</ul>
-<p>빈 설정</p>
-<ul>
-<li>빈 명세서</li>
-<li>빈에 대한 정의를 담고 있음<ul>
-<li>이름</li>
-<li>클래스</li>
-<li>스코프</li>
-<li>생성자 아규먼트(constructor)</li>
-<li>프로퍼티(setter)</li>
-<li>…</li>
-</ul>
-</li>
-</ul>
-<h3 id="Autowire"><a href="#Autowire" class="headerlink" title="@Autowire"></a>@Autowire</h3><p>필요한 의존 객체의 “타입”에 해당하는 빈을 찾아서 주입</p>
-<p>@Autowired</p>
-<ul>
-<li>required: 기본값은 true(따라서 못찾으면 애플리케이션 구동 실패)</li>
-</ul>
-<p>사용할 수 있는 위치</p>
-<ul>
-<li>생성자 ( 스프링 4.3 부터는 생략 가능)</li>
-<li>Setter</li>
-<li>Feild</li>
-</ul>
-<p>경우의 수</p>
-<ul>
-<li>해당 타입의 빈이 없는 경우</li>
-<li>해당 타입의 빈이 한 개인 경우</li>
-<li>해당 타입의 빈이 여러 개인 경우<ul>
-<li>빈 이름으로 시도<ul>
-<li>같은 이름의 빈 찾으면 해당 빈 사용</li>
-<li>같은 이름 못 찾으면 실패</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>같은 타입의 빈이 여러개 일 때</p>
-<ul>
-<li>@Primary</li>
-<li>해당 타입의 빈 모두 주입 받기</li>
-<li>@Qualifier(빈 이름으로 주입)<ul>
-<li>primary가 더 type safe 하기에 primary를 사용하는 것이 더 나음</li>
-</ul>
-</li>
-</ul>
-<p>동작원리</p>
-<ul>
-<li>첫 시간에 잠깐 언급했던 빈 라이프 사이클을 기억하세요?</li>
-<li>BeanPostProcessor<ul>
-<li>새로 만든 빈 인스턴스를 수정할 수 있는 라이프 사이클 인터페이스</li>
-</ul>
-</li>
-<li>AutowiredAnnotationBeanPostProcessor extends BeanPostProcessor<ul>
-<li>스프링이 제공하는 @Autowired와 @Value 어노테이션 그리고 JSR-330의 @Inject 애노테이션을 지원하는 애노테이션 처리기</li>
-</ul>
-</li>
-</ul>
-<p>어떻게 Sptring Container 안에 빈을 생성할 수 있을까?</p>
-<ol>
-<li><p>Component Scan</p>
-<ul>
-<li>@Component<ul>
-<li>@Repository</li>
-<li>@Service</li>
-<li>@Controller</li>
-<li>@Configuration</li>
-</ul>
-</li>
-<li>@SpringBootApplication 을 들어가서 보면 @ComponentScan 을 확인할 수 있음, 그래서 특별히 작성 안해도 다 빈을 찾고 등록함. 만약 다른 패키지에서 의존성을 주입하는 코드가 있다면 스캔이 되지 않음, 스캔의 범위가 있다. 만약에 코드 작성중 의존성 주입이 잘 되지 않는다면 ComponentScan 범위를 확인해보자</li>
-<li>주요기능<ul>
-<li>스캔 위치 설정</li>
-<li>필터 : 어떤 어노테이션을 스캔할지 또는 하지 않을지</li>
-</ul>
-</li>
-<li>굳이 단점이라면 싱글톤 타입일 경우 초기 구동 시간이 느려질 수 있다. 만약에 이를 대처하려면 펑션을 사용한 빈 등록 방법이 있다.(리플렉션과 프록시를 사용하지 않기 때문)</li>
-</ul>
-</li>
-<li><p>Component Scan</p>
-<ul>
-<li>@Component<ul>
-<li>@Repository</li>
-<li>@Service</li>
-<li>@Controller</li>
-<li>@Configuration</li>
-</ul>
-</li>
-<li>@SpringBootApplication 을 들어가서 보면 @ComponentScan 을 확인할 수 있음, 그래서 특별히 작성 안해도 다 빈을 찾고 등록함. 만약 다른 패키지에서 의존성을 주입하는 코드가 있다면 스캔이 되지 않음, 스캔의 범위가 있다. 만약에 코드 작성중 의존성 주입이 잘 되지 않는다면 ComponentScan 범위를 확인해보자</li>
-<li>주요기능<ul>
-<li>스캔 위치 설정</li>
-<li>필터 : 어떤 어노테이션을 스캔할지 또는 하지 않을지</li>
-</ul>
-</li>
-<li>굳이 단점이라면 싱글톤 타입일 경우 초기 구동 시간이 느려질 수 있다. 만약에 이를 대처하려면 펑션을 사용한 빈 등록 방법이 있다.(리플렉션과 프록시를 사용하지 않기 때문)</li>
-</ul>
-</li>
-<li><p>직접 등록</p>
-<ul>
-<li><p>XML 이나 자바 설정 파일에 등록</p>
-<ul>
-<li><p>근래에는 Java 설정 파일에 등록을 하여 더 사용</p>
-</li>
-<li><p>Configuration 예제</p>
-<ul>
-<li><p>PaymentConfig</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentConfig</span> &#123;</span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="keyword">public</span> PaymentController <span class="title function_">paymentController</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PaymentController</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>PaymentController - @Controller는 이제 빼주어야함 → @Configuartion 으로 관리</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentController</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> PaymentRepository paymentRepository;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">PaymentController</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">PaymentController</span><span class="params">(PaymentRepository paymentRepository)</span> &#123; <span class="comment">//Spring IoC 컨테이너 즉, ApplicationContext가 bean을 찾아서 넣어줌) 의존성 주입은 bean끼리만 가능함, 즉 Spring IoC 컨테이너 안에 들어있는 것 끼리만 의존성 주입이 가능함</span></span><br><span class="line">		<span class="built_in">this</span>.paymentRepository = paymentRepository;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">cardPayment</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.paymentRepository.save(); <span class="comment">// 스프링이 아니었다면 new를 하지 않았기 때문에 NullPointException 이어야함</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<p>어떻게 꺼내 쓸까?</p>
-<ul>
-<li><p>@Autowired 또는 @Inject</p>
-<ul>
-<li><p>Autowired</p>
-<ul>
-<li><p>스프링 4.3 부터는 생성자가 1개이며 생성자로 주입받는 레퍼런스 변수들이 bean으로 등록되어져 있을 경우 자동으로 주입하여 사용 가능하여  @Autowired 어노테이션 안적어도됨</p>
-</li>
-<li><p>생성자, 필드, Setter 등에서 사용이 가능하지만</p>
-</li>
-<li><p>생성자에서 Autowired 하는 것을 권장함</p>
-</li>
-<li><p>왜냐하면 필수적으로 사용하는 reference 없이는 instance를 만들지 못하도록 강제할 수 있기 때문이다.</p>
-</li>
-<li><p>순환참조가 일어나는 경우는 field, setter injection을 사용하여 해결, 생성자 injection 으로는 에러가 발생</p>
-<ul>
-<li><p>생성자에 주입</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">OwnerController</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">VIEWS_OWNER_CREATE_OR_UPDATE_FORM</span> <span class="operator">=</span> <span class="string">&quot;owners/createOrUpdateOwnerForm&quot;</span>;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> OwnerRepository owners;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> VetRepository vetRepository;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> ApplicationContext applicationContext;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">OwnerController</span><span class="params">(OwnerRepository clinicService, VetRepository vetService, ApplicationContext applicationContext)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.owners = clinicService;</span><br><span class="line">		<span class="built_in">this</span>.vetRepository = vetService;</span><br><span class="line">		<span class="built_in">this</span>.applicationContext = applicationContext;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@GetMapping(&quot;/bean&quot;)</span></span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">bean</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;bean: &quot;</span> + applicationContext.getBean(OwnerController.class) + <span class="string">&quot;\\n&quot;</span></span><br><span class="line">			<span class="comment">// 싱글톤 스코프 객체 : 객체 하나를 어플리케이션 전반에서 계속해서 재사용해서 사용(아래 2개는 주소값이 같음)</span></span><br><span class="line">			+ applicationContext.getBean(OwnerRepository.class) + <span class="string">&quot;\\n&quot;</span></span><br><span class="line">			+ <span class="string">&quot;owners: &quot;</span> + <span class="built_in">this</span>.owners; <span class="comment">// 싱글톤 스코프 객체 : 객체 하나를 어플리케이션 전반에서 계속해서 재사용해서 사용</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>필드에 주입</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> OwnerRepository owners;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>setter에 주입</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getOwners</span><span class="params">(OwnerRepository owners)</span> &#123;</span><br><span class="line">	<span class="built_in">this</span>.owners = owners;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentRepository</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>bean으로 등록하지 않고 주입을 하게 되면 에러가 발생함</p>
-<ul>
-<li><p>의존성 주입이 되지 않았기 때문에 에러가 발생</p>
-</li>
-<li><p>예제</p>
-<ul>
-<li><p>PaymentRepository : 일부러 @Controller 명령어를 빼버림</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentRepository</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>PaymentController</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentController</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> PaymentRepository paymentRepository;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>에러명</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">***************************</span><br><span class="line">APPLICATION FAILED TO START</span><br><span class="line">***************************</span><br><span class="line"></span><br><span class="line">Description:</span><br><span class="line"></span><br><span class="line">Field paymentRepository in org.springframework.samples.petclinic.payment.PaymentController required a bean of type <span class="string">&#x27;org.springframework.samples.petclinic.payment.PaymentRepository&#x27;</span> that could not be found.</span><br><span class="line"></span><br><span class="line">The injection point has the following annotations:</span><br><span class="line">	- <span class="meta">@org</span>.springframework.beans.factory.annotation.Autowired(required=<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">Action:</span><br><span class="line"></span><br><span class="line">Consider defining a bean of type <span class="string">&#x27;org.springframework.samples.petclinic.payment.PaymentRepository&#x27;</span> in your configuration.</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>@Autowired 또는 @Inject</p>
-<ul>
-<li><p>Autowired</p>
-<ul>
-<li><p>스프링 4.3 부터는 생성자가 1개이며 생성자로 주입받는 레퍼런스 변수들이 bean으로 등록되어져 있을 경우 자동으로 주입하여 사용 가능하여  @Autowired 어노테이션 안적어도됨</p>
-</li>
-<li><p>생성자, 필드, Setter 등에서 사용이 가능하지만</p>
-</li>
-<li><p>생성자에서 Autowired 하는 것을 권장함</p>
-</li>
-<li><p>왜냐하면 필수적으로 사용하는 reference 없이는 instance를 만들지 못하도록 강제할 수 있기 때문이다.</p>
-</li>
-<li><p>순환참조가 일어나는 경우는 field, setter injection을 사용하여 해결, 생성자 injection 으로는 에러가 발생</p>
-<ul>
-<li><p>생성자에 주입</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">OwnerController</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">VIEWS_OWNER_CREATE_OR_UPDATE_FORM</span> <span class="operator">=</span> <span class="string">&quot;owners/createOrUpdateOwnerForm&quot;</span>;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> OwnerRepository owners;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> VetRepository vetRepository;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> ApplicationContext applicationContext;</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">OwnerController</span><span class="params">(OwnerRepository clinicService, VetRepository vetService, ApplicationContext applicationContext)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.owners = clinicService;</span><br><span class="line">		<span class="built_in">this</span>.vetRepository = vetService;</span><br><span class="line">		<span class="built_in">this</span>.applicationContext = applicationContext;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@GetMapping(&quot;/bean&quot;)</span></span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">bean</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;bean: &quot;</span> + applicationContext.getBean(OwnerController.class) + <span class="string">&quot;\\n&quot;</span></span><br><span class="line">			<span class="comment">// 싱글톤 스코프 객체 : 객체 하나를 어플리케이션 전반에서 계속해서 재사용해서 사용(아래 2개는 주소값이 같음)</span></span><br><span class="line">			+ applicationContext.getBean(OwnerRepository.class) + <span class="string">&quot;\\n&quot;</span></span><br><span class="line">			+ <span class="string">&quot;owners: &quot;</span> + <span class="built_in">this</span>.owners; <span class="comment">// 싱글톤 스코프 객체 : 객체 하나를 어플리케이션 전반에서 계속해서 재사용해서 사용</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>필드에 주입</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> OwnerRepository owners;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>setter에 주입</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getOwners</span><span class="params">(OwnerRepository owners)</span> &#123;</span><br><span class="line">	<span class="built_in">this</span>.owners = owners;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentRepository</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>bean으로 등록하지 않고 주입을 하게 되면 에러가 발생함</p>
-<ul>
-<li><p>의존성 주입이 되지 않았기 때문에 에러가 발생</p>
-</li>
-<li><p>예제</p>
-<ul>
-<li><p>PaymentRepository : 일부러 @Controller 명령어를 빼버림</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentRepository</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>PaymentController</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PaymentController</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> PaymentRepository paymentRepository;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>에러명</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">***************************</span><br><span class="line">APPLICATION FAILED TO START</span><br><span class="line">***************************</span><br><span class="line"></span><br><span class="line">Description:</span><br><span class="line"></span><br><span class="line">Field paymentRepository in org.springframework.samples.petclinic.payment.PaymentController required a bean of type <span class="string">&#x27;org.springframework.samples.petclinic.payment.PaymentRepository&#x27;</span> that could not be found.</span><br><span class="line"></span><br><span class="line">The injection point has the following annotations:</span><br><span class="line">	- <span class="meta">@org</span>.springframework.beans.factory.annotation.Autowired(required=<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">Action:</span><br><span class="line"></span><br><span class="line">Consider defining a bean of type <span class="string">&#x27;org.springframework.samples.petclinic.payment.PaymentRepository&#x27;</span> in your configuration.</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>또는 ApplicationContext에서 getBean()으로 직접 꺼냄</p>
-<ul>
-<li><p>예제</p>
-<ul>
-<li><p>PaymentController</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PaymentController</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> PaymentRepository paymentRepository;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getOwners</span><span class="params">(PaymentRepository paymentRepository)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.paymentRepository= paymentRepository;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> ApplicationContext applicationContext;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">PaymentController</span><span class="params">(PaymentRepository paymentService, ApplicationContext applicationContext)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.owners = paymentService;</span><br><span class="line">		<span class="built_in">this</span>.applicationContext = applicationContext;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@GetMapping(&quot;/bean&quot;)</span></span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">bean</span><span class="params">()</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">&quot;bean: &quot;</span> + applicationContext.getBean(OwnerController.class) + <span class="string">&quot;\\n&quot;</span> </span><br><span class="line">			<span class="comment">// 싱글톤 스코프 객체 : 객체 하나를 어플리케이션 전반에서 계속해서 재사용해서 사용(아래 2개는 주소값이 같음)</span></span><br><span class="line">			+ applicationContext.getBean(OwnerRepository.class) + <span class="string">&quot;\\n&quot;</span> </span><br><span class="line">      + <span class="string">&quot;owners: &quot;</span> + <span class="built_in">this</span>.owners;	</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>결과</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bean: org.springframework.samples.petclinic.owner.OwnerController@2aef3021 </span><br><span class="line">org.springframework.data.jpa.repository.support.SimpleJpaRepository@49bf2291 </span><br><span class="line">owners: org.springframework.data.jpa.repository.support.SimpleJpaRepository@49bf2291</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>오로지 빈들만 의존성 주입을 해야한다.</p>
-<p>IoC(Inversion of Control) 컨테이너</p>
-<p>ApplicationContext(BeanFactory)</p>
-<p>bean을 만들고 bean들 사이의 의존성을 엮어주며 만들어진 bean들을 제공해준다</p>
-<p>빈 설정</p>
-<ul>
-<li>이름 또는 ID</li>
-<li>타입</li>
-<li>스코프</li>
-</ul>
-<p>컨테이너를 직접 쓸 일은 많지 않음</p>
-<h2 id="빈의-스코프"><a href="#빈의-스코프" class="headerlink" title="빈의 스코프"></a>빈의 스코프</h2><p>싱글톤</p>
-<ul>
-<li>아무런 설정을 하지 않으면 기본 설정은 싱글톤 스코프의 빈이다.</li>
-</ul>
-<p>프로토차입</p>
-<ul>
-<li>Request</li>
-<li>Session</li>
-<li>WebSocket</li>
-<li>…</li>
-</ul>
-<p>프로토타입 빈이 싱글톤 빈을 참조하면?</p>
-<p>→ 아무 문제가 없음</p>
-<p>싱글톤 빈이 프로토타입 빈을 참조하면?</p>
-<p>→ 프로토타입 빈이 업데이트가 안됨</p>
-<p>업데이트 하려면</p>
-<ul>
-<li>scoped-proxy<ul>
-<li>빈을 선언하는 부분에서만 사용하는 것이기에 가장 나은 판단일듯</li>
-</ul>
-</li>
-<li>Object-Provider</li>
-<li>Provider (표준)</li>
-</ul>
-<h2 id="Environment-프로파일"><a href="#Environment-프로파일" class="headerlink" title="Environment - 프로파일"></a>Environment - 프로파일</h2><p>프로파일과 프로퍼티를 다루는 인터패이스</p>
-<p>ApplicationContext extends EnvironmentCapable</p>
-<ul>
-<li>getEnvironment()</li>
-</ul>
-<p>프로파일</p>
-<ul>
-<li>빈들의 그룹</li>
-<li>Environment의 역할은 활성화할 프로파일 확인 및 설정</li>
-</ul>
-<p>프로파일 유즈케이스</p>
-<ul>
-<li>테스트 환경에서는 A라는 빈을 사용하고, 배포 환경에서는 B라는 빈을 쓰고 싶음</li>
-<li>이 빈은 모니터링 용도니까 테스트 때는 필요가없고 배포할 때만 등록이 되면 좋겠다</li>
-</ul>
-<p>프로파일 정의하기</p>
-<ul>
-<li>클래스에 정의<ul>
-<li>@Configuration @Profile(”test”P</li>
-</ul>
-</li>
-<li>메소드에 정의<ul>
-<li>@Bean @Profile(”test”)</li>
-</ul>
-</li>
-</ul>
-<p>프로파일 설정하기</p>
-<ul>
-<li>Dspring.profiles.active&#x3D;”test,A,B,…”</li>
-<li>@ActiveProfiles(테스트용)</li>
-</ul>
-<p>프로파일 표현식</p>
-<ul>
-<li>! (not)</li>
-<li>&amp; (and)</li>
-<li>| (or)</li>
-</ul>
-<p>프록시</p>
-<p>싱글톤 객체 사용시 주의할점</p>
-<ul>
-<li>프로퍼티가 공유</li>
-<li>ApplicationContext 초기 구동 시 인스턴스 생성</li>
-</ul>
-<h2 id="Environment-프로퍼티"><a href="#Environment-프로퍼티" class="headerlink" title="Environment - 프로퍼티"></a>Environment - 프로퍼티</h2><p>프로퍼티</p>
-<ul>
-<li>다양한 방법으로 정의할 ㅅ ㅜ있는 설정값</li>
-<li>Environment의 역할은 프로퍼티 소스 설정 및 프로퍼티 값 가져오기</li>
-</ul>
-<p>프로퍼티에는 우선 순위가 있다.</p>
-<ul>
-<li>StandardServiceEnvironment의 우선순위<ul>
-<li>ServletConfig 매개변수</li>
-<li>ServletContext 매개변수</li>
-<li>JNDI (java:comp&#x2F;env&#x2F;)</li>
-<li>JVM 시스템 프로퍼티(-DKey&#x3D;”value”)</li>
-<li>JVM 시스템 환경 변수(운영 체제 환경 변수)</li>
-</ul>
-</li>
-</ul>
-<p>@PropertySource</p>
-<ul>
-<li>Environment를 통해 프로퍼티 추가하는 방법</li>
-</ul>
-<p>스프링부트의 외부 설정 참고</p>
-<ul>
-<li><p>기본 프로퍼티 소스 지원(application.properties)</p>
-</li>
-<li><p>프로파일까지 고려한 계층형 프로퍼티 우선 순위 제공</p>
-</li>
-<li><h2 id="MessageSource"><a href="#MessageSource" class="headerlink" title="MessageSource"></a>MessageSource</h2><p>국제화(i18n) 기능을 제공하는 인터페이스</p>
-<p>ApplicationContext extends MessageSource</p>
-<ul>
-<li>getMessage(String code, Object[] args, String default, Locale, loc)</li>
-</ul>
-<p>스프링 부트를 사용한다면 별다른 설정 필요없이 <a target="_blank" rel="noopener" href="http://messages.properties/">messages.properties</a> 사용할 수 있음</p>
-<ul>
-<li>messages.properties</li>
-<li>messages_ko_KR.properteis</li>
-<li>…</li>
-</ul>
-<p>예제</p>
-<ul>
-<li><p>messages.properties</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**greeting=Hello!, &#123;<span class="number">0</span>&#125;**</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>messages_ko_KR.properties</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">greeting=안녕하세요, &#123;<span class="number">0</span>&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>messages_en_US.properties</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">greeting=Hello!, &#123;<span class="number">0</span>&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>SpringMessageSourceApplication</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SpringMessageSourceApplication</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    SpringApplication.run(SpringMessageSourceApplication.class, args);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>AppRunner.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AppRunner</span> <span class="keyword">implements</span> <span class="title class_">ApplicationRunner</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Autowired</span></span><br><span class="line">  MessageSource messageSource;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">(ApplicationArguments args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    System.out.println(messageSource.getMessage(<span class="string">&quot;greeting&quot;</span>, <span class="keyword">new</span> <span class="title class_">String</span>[]&#123;<span class="string">&quot;스프링&quot;</span>&#125;, Locale.getDefault()));</span><br><span class="line">    System.out.println(messageSource.getMessage(<span class="string">&quot;greeting&quot;</span>, <span class="keyword">new</span> <span class="title class_">String</span>[]&#123;<span class="string">&quot;스프링&quot;</span>&#125;, Locale.KOREA));</span><br><span class="line">    System.out.println(messageSource.getMessage(<span class="string">&quot;greeting&quot;</span>, <span class="keyword">new</span> <span class="title class_">String</span>[]&#123;<span class="string">&quot;Spring&quot;</span>&#125;, Locale.US));</span><br><span class="line">		<span class="comment">// 안녕하세요, 스프링</span></span><br><span class="line">		<span class="comment">// 안녕하세요, 스프링</span></span><br><span class="line">		<span class="comment">// Hello!, Spring</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>출력:</p>
-<ul>
-<li>각 언어에 맞는 프로퍼티 대로 결과값이 출력이 됨을 확인할 수 있다.</li>
-<li>다만, getDefault()를 사용 시에 원하는 처음에는 기대값인 영어가 나올 것이라 생각했었다. 그 이유는 messages.properties 기본 파일이 영어이기 때문이었다. 하지만 예상과 달리 한글이 나오는 것을 확인할 수 있었음</li>
-<li>그 이유는 Locale.getDefault()는 운영체제의 기본 언어값을 읽어오기 때문이었음, 따라서 Locale.getDefault()는 개발 시에 해당 서버의 OS의 기본 언어값이 무엇인지를 알기 위한 것으로만 사용하도록 하자!</li>
-<li>영어 버전이 필요하다면, messages_en_US.properties 를 통해 처리하도록 하자</li>
-</ul>
-</li>
-</ul>
-<p>릴로딩 기능이 있는 메시지 소스 사용하기</p>
-</li>
-</ul>
-<h2 id="ApplicationEventPublisher"><a href="#ApplicationEventPublisher" class="headerlink" title="ApplicationEventPublisher"></a>ApplicationEventPublisher</h2><p>이벤트 프로그래밍에 필요한 인터페이스 제공, 옵저버 패턴 구현체</p>
-<p>이벤트는 빈이 아니다. 이벤트핸들러는 다만 빈으로 등록해서 Spring에 알려야한다.</p>
-<p>ApplicationContext extends ApplicationEventPublisher</p>
-<ul>
-<li>publushEvent(ApplicationEvent event)</li>
-</ul>
-<p>이벤트 만들기</p>
-<ul>
-<li>ApplicationEvent</li>
-<li>스프링 4.2 부터는 이 클래스를 상속받지 않아도 이벤트로 사용할 수 있음</li>
-</ul>
-<p>이벤트 발생 시키는 방법</p>
-<ul>
-<li>ApplicationEventPublisher.publish Event()</li>
-</ul>
-<p>이벤트를 처리하는 방법</p>
-<ul>
-<li>ApplicationListener&lt;이벤트&gt; 구현한 클래스 만들어서 빈으로 등록하기</li>
-<li>스프링 4.2부터는 @EventListener를 사용해서 빈의 메소드에 사용할 수 있음</li>
-<li>기본적으로는 synchronzied</li>
-<li>순서를 정하고 싶다면 @Order와 함께 사용</li>
-<li>비동기적으로 실행하고 싶다면 @Async와 함께 사용</li>
-</ul>
-<p>스프링이 제공하는 기본 이벤트</p>
-<ul>
-<li>ContextRefreshedEvent: ApplicationContext를 초기화 했더나 리프래시 했을 때 발생.</li>
-<li>ContextStartedEvent: ApplicationContext를 start()하여 라이프사이클 빈들이 시작 신호를 받은 시점에 발생</li>
-<li>ContextStoppedEvent: ApplicationContext를 stop()하여 라이프사이클 빈들이 정지 신호를 받은 시점에 발생.</li>
-<li>ContextClosedEvent: ApplicationContext를 close()하여 싱글톤 빈 소멸되는 시점에 발생</li>
-<li>RequestHandledEvent: HTTP 요청을 처리했을 때 발생.</li>
-</ul>
-<h1 id="ResourceLoader"><a href="#ResourceLoader" class="headerlink" title="ResourceLoader"></a>ResourceLoader</h1><p>리소스를 읽어오는 기능을 제공하는 인터페이스</p>
-<p>AplicationContext extends ResourceLoader</p>
-<p>리소스 읽어오기</p>
-<ul>
-<li>파일 시스템에서 읽어오기</li>
-<li>클래스패스에서 읽어오기</li>
-<li>URL로 읽어오기</li>
-<li>상대&#x2F;절대 경로로 읽어오기</li>
-</ul>
-<p>Resource getResource(java.lang.String location)</p>
-<h2 id="Resource-추상화"><a href="#Resource-추상화" class="headerlink" title="Resource 추상화"></a>Resource 추상화</h2><p>org.springframework.core.io.Resource</p>
-<p>특징</p>
-<ul>
-<li>java.net.URL을 추상화한 것</li>
-<li>스프링 내부에서 많이 사용하는 인터페이스</li>
-</ul>
-<p>추상화한 이유</p>
-<ul>
-<li><p>클래스패스 기준으로 리소스를 읽어오는 기능 부재</p>
-</li>
-<li><p>ServletContext를 기준으로 상대 경로를 읽어오는 기능 부재</p>
-</li>
-<li><p>새로운 핸들러를 등록하여 특별한 URL 접미사를 만들어 사용할 수는 있지만 구현이 복잡하고 편의성 메소드가 부족</p>
-</li>
-<li></li>
-</ul>
-<p>인터페이스 둘러보기</p>
-<ul>
-<li>상속 받은 인터페이스</li>
-<li>주요 메소드<ul>
-<li>getInputStream()</li>
-<li>exist()</li>
-<li>isOpen()</li>
-<li>getDescription(): 전체 경로 포함한 파일 이름 또는 실제 URL</li>
-</ul>
-</li>
-</ul>
-<p>구현체</p>
-<ul>
-<li>UrlResource: java.net.URL 참고, 기본으로 지원하는 프로토콜 http, https, ftp, file, jar.</li>
-<li>ClassPathResource: 지원하는 접두어 classpath:</li>
-<li>FileSystemResource</li>
-<li>ServletContextResource: 웹 애플리케이션 루트에서 상대 경로로 리소스 찾는다.</li>
-<li>…</li>
-<li></li>
-</ul>
-<p>리소스 읽어오기</p>
-<ul>
-<li>Resource의 타입은 locaion 문자열과 ApplicationContext의 타입에 따라 결정 된다.<ul>
-<li>ClassPathXmlApplicationContext -&gt; ClassPathResource</li>
-<li>FileSystemXmlApplicationContext -&gt; FileSystemResource</li>
-<li>WebApplicationContext -&gt; ServletContextResource</li>
-</ul>
-</li>
-<li>ApplicationContext의 타입에 상관없이 리소스 타입을 강제하려면 java.net.URL 접두어(+ classpath:)중 하나를 사용할 수 있다.<ul>
-<li>classpath:me&#x2F;whiteship&#x2F;config.xml -&gt; ClassPathResource</li>
-<li>file:&#x2F;&#x2F;&#x2F;some&#x2F;resource&#x2F;path&#x2F;config.xml -&gt; FileSystemResource</li>
-</ul>
-</li>
-</ul>
-<h2 id="Validation-추상화"><a href="#Validation-추상화" class="headerlink" title="Validation 추상화"></a>Validation 추상화</h2><p>org.springframework.validation.Validator</p>
-<p>애플리케이션에서 사용하는 객체 검증용 인터페이스.</p>
-<p>특징</p>
-<ul>
-<li>어떤한 계층과도 관계가 없다. &#x3D;&gt; 모든 계층(웹, 서비스, 데이터)에서 사용해도 좋다.</li>
-<li>구현체 중 하나로, JSR-303(Bean Validation 1.0)과 JSR-349(Bean Validation 1.1)을 지원한다. (LocalValidatorFactoryBean)</li>
-<li>DataBinder에 들어가 바인딩 할 때 같이 사용되기도 한다.</li>
-</ul>
-<p>인터페이스</p>
-<ul>
-<li>boolean supports(Class clazz): 어떤 타입의 객체를 검증할 때 사용할 것인지 결정함</li>
-<li>void validate(Object obj, Errors e): 실제 검증 로직을 이 안에서 구현<ul>
-<li>구현할 때 ValidationUtils 사용하며 편리 함.</li>
-</ul>
-</li>
-</ul>
-<p>스프링 부트 2.0.5 이상 버전을 사용할 때</p>
-<ul>
-<li>LocalValidatorFactoryBean 빈으로 자동 등록</li>
-<li>JSR-380(Bean Validation 2.0.1) 구현체로 hibernate-validator 사용.</li>
-<li><a target="_blank" rel="noopener" href="https://beanvalidation.org/">https://beanvalidation.org/</a></li>
-</ul>
-<p>PSA(Portable Service Abstraction)</p>
-<p>추상화 계층인 이유</p>
-<ul>
-<li>편의성 제공</li>
-<li>Portable 다른 것으로 바꿀 수 있음</li>
-<li>spring5 webflux</li>
-<li>@Transactional :  all or nothing</li>
-</ul>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/6/">Previous</a></div><div class="pagination-next"><a href="/page/8/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/6/">6</a></li><li><a class="pagination-link is-current" href="/page/7/">7</a></li><li><a class="pagination-link" href="/page/8/">8</a></li><li><a class="pagination-link" href="/page/9/">9</a></li><li><a class="pagination-link" href="/page/10/">10</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/matterhorn.jpg" alt="Shawn Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Shawn Choi</p><p class="is-size-6 is-block">노력 백줌 열정 천줌의 소프트웨어 개발자</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Seoul, Republic of Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">100</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">54</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">57</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/shchoice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/shchoice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Agile/"><span class="level-start"><span class="level-item">Agile</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Agile/%ED%95%A8%EA%BB%98%EC%9E%90%EB%A6%AC%EA%B8%B0/"><span class="level-start"><span class="level-item">함께자리기</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Github-Pages/"><span class="level-start"><span class="level-item">Github Pages</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/JPA/"><span class="level-start"><span class="level-item">JPA</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/JPA/Basic/"><span class="level-start"><span class="level-item">Basic</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/Java/Java8/"><span class="level-start"><span class="level-item">Java8</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/Spring-Basic/"><span class="level-start"><span class="level-item">Spring Basic</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/Spring-Framework/"><span class="level-start"><span class="level-item">Spring Framework</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/Spring-MVC/"><span class="level-start"><span class="level-item">Spring MVC</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/"><span class="level-start"><span class="level-item">클린코드</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">함수형 프로그래밍</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Kotlin/"><span class="level-start"><span class="level-item">Kotlin</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/Kotlin/WebFlux/"><span class="level-start"><span class="level-item">WebFlux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/MLOps/"><span class="level-start"><span class="level-item">MLOps</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/MLOps/MLflow/"><span class="level-start"><span class="level-item">MLflow</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/OPS/"><span class="level-start"><span class="level-item">OPS</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Ops/"><span class="level-start"><span class="level-item">Ops</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/Ops/Windows-CMD/"><span class="level-start"><span class="level-item">Windows CMD</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Ops/%EC%84%A4%EC%B9%98/"><span class="level-start"><span class="level-item">설치</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/Python/Advanced-Concept/"><span class="level-start"><span class="level-item">Advanced Concept</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/FastAPI/"><span class="level-start"><span class="level-item">FastAPI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">객체지향 프로그래밍</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EB%8F%99%EC%8B%9C%EC%84%B1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">동시성 프로그래밍</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Python-FastAPI/"><span class="level-start"><span class="level-item">Python FastAPI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/REST/"><span class="level-start"><span class="level-item">REST</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/TDD/"><span class="level-start"><span class="level-item">TDD</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/TIL/"><span class="level-start"><span class="level-item">TIL</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/TIL/1%EB%A7%8C-%EC%8B%9C%EA%B0%84%EC%9D%98-%EB%B2%95%EC%B9%99/"><span class="level-start"><span class="level-item">1만 시간의 법칙</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">객체지향 프로그래밍</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/"><span class="level-start"><span class="level-item">클린코드</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/"><span class="level-start"><span class="level-item">데이터 마이닝</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/%EA%B8%B0%EB%B3%B8/"><span class="level-start"><span class="level-item">기본</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/"><span class="level-start"><span class="level-item">딥러닝</span></span><span class="level-end"><span class="level-item tag">37</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">기본개념</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">자연어생성 개념</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어처리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%A4%91%EA%B8%89%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">중급개념</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/"><span class="level-start"><span class="level-item">인공지능</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/"><span class="level-start"><span class="level-item">개념 정리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어 처리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어처리</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/Text-Summarization/"><span class="level-start"><span class="level-item">Text Summarization</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/"><span class="level-start"><span class="level-item">컨테이너 오케스트레이션</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/Docker/"><span class="level-start"><span class="level-item">Docker</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/"><span class="level-start"><span class="level-item">통계학</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/%EA%B8%B0%EB%B3%B8/"><span class="level-start"><span class="level-item">기본</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%8C%8C%EC%9D%B4%EC%8D%AC/"><span class="level-start"><span class="level-item">파이썬</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">함수형 프로그래밍</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-29T14:37:14.000Z">2023-09-29</time></p><p class="title"><a href="/4%EC%9E%A5-Sequence2Sequence-Gradient-Accumlations/">4장. Sequence2Sequence - Gradient Accumlations</a></p><p class="categories"><a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a> / <a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-08-26T14:51:03.000Z">2023-08-26</time></p><p class="title"><a href="/%5BEdit%20conflict_local%5D4%E1%84%8C%E1%85%A1%E1%86%BC-Sequence2Sequence-Machine-Translation-%E1%84%89%E1%85%A9%E1%84%80%E1%85%A2/">4장.  Sequence2Sequence - Machine Translation 소개</a></p><p class="categories"><a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a> / <a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-08-26T14:51:03.000Z">2023-08-26</time></p><p class="title"><a href="/%5BEdit%20conflict_server%5D4%E1%84%8C%E1%85%A1%E1%86%BC-Sequence2Sequence-Machine-Translation-%E1%84%89%E1%85%A9%E1%84%80%E1%85%A2/">4장.  Sequence2Sequence - Machine Translation 소개</a></p><p class="categories"><a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a> / <a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-08-25T14:56:56.000Z">2023-08-25</time></p><p class="title"><a href="/3%EC%9E%A5-Data-Preparation/">3장. Data Preparation</a></p><p class="categories"><a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a> / <a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-08-24T14:49:45.000Z">2023-08-24</time></p><p class="title"><a href="/2%EC%9E%A5-Language-Modeling-Wrap-up/">2장 Language Modeling - Wrap up</a></p><p class="categories"><a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a> / <a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">September 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">August 2023</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/07/"><span class="level-start"><span class="level-item">July 2023</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">June 2023</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">April 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">March 2023</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">February 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">January 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">December 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">November 2022</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">October 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/08/"><span class="level-start"><span class="level-item">August 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AutoEncoder/"><span class="tag">AutoEncoder</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BERT/"><span class="tag">BERT</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Bind-Mounts/"><span class="tag">Bind Mounts</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Classification/"><span class="tag">Classification</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Cross-Entropy-Loss/"><span class="tag">Cross Entropy Loss</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Curse-of-Dimensionality/"><span class="tag">Curse of Dimensionality</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Data-Volume/"><span class="tag">Data Volume</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker/"><span class="tag">Docker</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker-Orchestration-Tools/"><span class="tag">Docker Orchestration Tools</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Document-Embedding/"><span class="tag">Document Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-Vectors/"><span class="tag">Embedding Vectors</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-vector/"><span class="tag">Embedding vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Entropy/"><span class="tag">Entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Feature-Vector/"><span class="tag">Feature Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Git/"><span class="tag">Git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Gradient-Descent/"><span class="tag">Gradient Descent</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hidden-Representation/"><span class="tag">Hidden Representation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KL-Divergence/"><span class="tag">KL Divergence</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KoNLPy/"><span class="tag">KoNLPy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Latent-Space/"><span class="tag">Latent Space</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Learning-Rate/"><span class="tag">Learning Rate</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linear-Layer/"><span class="tag">Linear Layer</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Log-Likelihood/"><span class="tag">Log-Likelihood</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MAP/"><span class="tag">MAP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MLE/"><span class="tag">MLE</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Manifold-hypothesis/"><span class="tag">Manifold hypothesis</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Matrix/"><span class="tag">Matrix</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Mecab/"><span class="tag">Mecab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Multi-Stage-Build/"><span class="tag">Multi Stage Build&quot;</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NLL/"><span class="tag">NLL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Persistence-Data/"><span class="tag">Persistence Data</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Probabilistic-Perspective/"><span class="tag">Probabilistic Perspective</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Representation-Learning/"><span class="tag">Representation Learning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Scalar/"><span class="tag">Scalar</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Subword-Embedding/"><span class="tag">Subword Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tensor/"><span class="tag">Tensor</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Transformer/"><span class="tag">Transformer</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vector/"><span class="tag">Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Word-Embedding/"><span class="tag">Word Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cross-entropy/"><span class="tag">cross entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/default-method/"><span class="tag">default method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mlflow/"><span class="tag">mlflow</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/one-hot-Encoding/"><span class="tag">one-hot Encoding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/packing/"><span class="tag">packing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/python-%EC%84%A4%EC%B9%98/"><span class="tag">python 설치</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/static-method/"><span class="tag">static method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/unpacking/"><span class="tag">unpacking</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%9E%8C%EB%8B%A4%EC%8B%9D/"><span class="tag">람다식</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%B2%A1%ED%84%B0%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">벡터의 곱셈</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%97%94%ED%8A%B8%EB%A1%9C%ED%94%BC/"><span class="tag">엔트로피</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EB%9F%89/"><span class="tag">정보량</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EC%9D%B4%EB%A1%A0/"><span class="tag">정보이론</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0/"><span class="tag">파라미터</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98%ED%98%95-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/"><span class="tag">함수형 인터페이스</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">행렬의 곱셈</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2023 Shawn Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-01T15:02:02.000Z" title="12/2/2022, 12:02:02 AM">2022-12-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T17:25:02.000Z" title="7/23/2023, 2:25:02 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/Java/">Java</a><span> / </span><a class="link-muted" href="/categories/Java/Spring-Basic/">Spring Basic</a></span><span class="level-item">a few seconds read (About 0 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Java-Spring/">Java Spring</a></h1><div class="content"></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/6/">Previous</a></div><div class="pagination-next"><a href="/page/8/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/6/">6</a></li><li><a class="pagination-link is-current" href="/page/7/">7</a></li><li><a class="pagination-link" href="/page/8/">8</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/11/">11</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/matterhorn.jpg" alt="Shawn Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Shawn Choi</p><p class="is-size-6 is-block">노력 백줌 열정 천줌의 소프트웨어 개발자</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Seoul, Republic of Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">101</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">54</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">57</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/shchoice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/shchoice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Agile/"><span class="level-start"><span class="level-item">Agile</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Agile/%ED%95%A8%EA%BB%98%EC%9E%90%EB%A6%AC%EA%B8%B0/"><span class="level-start"><span class="level-item">함께자리기</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Github-Pages/"><span class="level-start"><span class="level-item">Github Pages</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/JPA/"><span class="level-start"><span class="level-item">JPA</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/JPA/Basic/"><span class="level-start"><span class="level-item">Basic</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/Java/Java8/"><span class="level-start"><span class="level-item">Java8</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/Spring-Basic/"><span class="level-start"><span class="level-item">Spring Basic</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/Spring-Framework/"><span class="level-start"><span class="level-item">Spring Framework</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/Spring-MVC/"><span class="level-start"><span class="level-item">Spring MVC</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/"><span class="level-start"><span class="level-item">클린코드</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">함수형 프로그래밍</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Kotlin/"><span class="level-start"><span class="level-item">Kotlin</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/Kotlin/WebFlux/"><span class="level-start"><span class="level-item">WebFlux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/MLOps/"><span class="level-start"><span class="level-item">MLOps</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/MLOps/MLflow/"><span class="level-start"><span class="level-item">MLflow</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/OPS/"><span class="level-start"><span class="level-item">OPS</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Ops/"><span class="level-start"><span class="level-item">Ops</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/Ops/Windows-CMD/"><span class="level-start"><span class="level-item">Windows CMD</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Ops/%EC%84%A4%EC%B9%98/"><span class="level-start"><span class="level-item">설치</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/Python/Advanced-Concept/"><span class="level-start"><span class="level-item">Advanced Concept</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/FastAPI/"><span class="level-start"><span class="level-item">FastAPI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">객체지향 프로그래밍</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EB%8F%99%EC%8B%9C%EC%84%B1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">동시성 프로그래밍</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Python-FastAPI/"><span class="level-start"><span class="level-item">Python FastAPI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/REST/"><span class="level-start"><span class="level-item">REST</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/TDD/"><span class="level-start"><span class="level-item">TDD</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/TIL/"><span class="level-start"><span class="level-item">TIL</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/TIL/1%EB%A7%8C-%EC%8B%9C%EA%B0%84%EC%9D%98-%EB%B2%95%EC%B9%99/"><span class="level-start"><span class="level-item">1만 시간의 법칙</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">객체지향 프로그래밍</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/"><span class="level-start"><span class="level-item">클린코드</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/"><span class="level-start"><span class="level-item">데이터 마이닝</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/%EA%B8%B0%EB%B3%B8/"><span class="level-start"><span class="level-item">기본</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/"><span class="level-start"><span class="level-item">딥러닝</span></span><span class="level-end"><span class="level-item tag">37</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">기본개념</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">자연어생성 개념</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어처리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%A4%91%EA%B8%89%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">중급개념</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/"><span class="level-start"><span class="level-item">인공지능</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/"><span class="level-start"><span class="level-item">개념 정리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어 처리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어처리</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/Text-Summarization/"><span class="level-start"><span class="level-item">Text Summarization</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/"><span class="level-start"><span class="level-item">컨테이너 오케스트레이션</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/Docker/"><span class="level-start"><span class="level-item">Docker</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/"><span class="level-start"><span class="level-item">통계학</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/%EA%B8%B0%EB%B3%B8/"><span class="level-start"><span class="level-item">기본</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%8C%8C%EC%9D%B4%EC%8D%AC/"><span class="level-start"><span class="level-item">파이썬</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">함수형 프로그래밍</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-10-02T14:59:13.000Z">2023-10-02</time></p><p class="title"><a href="/4%EC%9E%A5-Sequence2Sequence-AMP-Automatic-Mixed-Precision/">4장. Sequence2Sequence - AMP(Automatic Mixed Precision)</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-29T14:37:14.000Z">2023-09-29</time></p><p class="title"><a href="/4%EC%9E%A5-Sequence2Sequence-Gradient-Accumlations/">4장. Sequence2Sequence - Gradient Accumlations</a></p><p class="categories"><a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a> / <a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-08-26T14:51:03.000Z">2023-08-26</time></p><p class="title"><a href="/%5BEdit%20conflict_local%5D4%E1%84%8C%E1%85%A1%E1%86%BC-Sequence2Sequence-Machine-Translation-%E1%84%89%E1%85%A9%E1%84%80%E1%85%A2/">4장.  Sequence2Sequence - Machine Translation 소개</a></p><p class="categories"><a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a> / <a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-08-26T14:51:03.000Z">2023-08-26</time></p><p class="title"><a href="/%5BEdit%20conflict_server%5D4%E1%84%8C%E1%85%A1%E1%86%BC-Sequence2Sequence-Machine-Translation-%E1%84%89%E1%85%A9%E1%84%80%E1%85%A2/">4장.  Sequence2Sequence - Machine Translation 소개</a></p><p class="categories"><a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a> / <a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-08-25T14:56:56.000Z">2023-08-25</time></p><p class="title"><a href="/3%EC%9E%A5-Data-Preparation/">3장. Data Preparation</a></p><p class="categories"><a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a> / <a href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/">자연어생성 개념</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2023/10/"><span class="level-start"><span class="level-item">October 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">September 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">August 2023</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/07/"><span class="level-start"><span class="level-item">July 2023</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">June 2023</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">April 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">March 2023</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">February 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">January 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">December 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">November 2022</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">October 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/08/"><span class="level-start"><span class="level-item">August 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/AutoEncoder/"><span class="tag">AutoEncoder</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BERT/"><span class="tag">BERT</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Bind-Mounts/"><span class="tag">Bind Mounts</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Classification/"><span class="tag">Classification</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Cross-Entropy-Loss/"><span class="tag">Cross Entropy Loss</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Curse-of-Dimensionality/"><span class="tag">Curse of Dimensionality</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Data-Volume/"><span class="tag">Data Volume</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker/"><span class="tag">Docker</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker-Orchestration-Tools/"><span class="tag">Docker Orchestration Tools</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Document-Embedding/"><span class="tag">Document Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-Vectors/"><span class="tag">Embedding Vectors</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-vector/"><span class="tag">Embedding vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Entropy/"><span class="tag">Entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Feature-Vector/"><span class="tag">Feature Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Git/"><span class="tag">Git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Gradient-Descent/"><span class="tag">Gradient Descent</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hidden-Representation/"><span class="tag">Hidden Representation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KL-Divergence/"><span class="tag">KL Divergence</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KoNLPy/"><span class="tag">KoNLPy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Latent-Space/"><span class="tag">Latent Space</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Learning-Rate/"><span class="tag">Learning Rate</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linear-Layer/"><span class="tag">Linear Layer</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Log-Likelihood/"><span class="tag">Log-Likelihood</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MAP/"><span class="tag">MAP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MLE/"><span class="tag">MLE</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Manifold-hypothesis/"><span class="tag">Manifold hypothesis</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Matrix/"><span class="tag">Matrix</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Mecab/"><span class="tag">Mecab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Multi-Stage-Build/"><span class="tag">Multi Stage Build&quot;</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NLL/"><span class="tag">NLL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Persistence-Data/"><span class="tag">Persistence Data</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Probabilistic-Perspective/"><span class="tag">Probabilistic Perspective</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Representation-Learning/"><span class="tag">Representation Learning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Scalar/"><span class="tag">Scalar</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Subword-Embedding/"><span class="tag">Subword Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tensor/"><span class="tag">Tensor</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Transformer/"><span class="tag">Transformer</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vector/"><span class="tag">Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Word-Embedding/"><span class="tag">Word Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cross-entropy/"><span class="tag">cross entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/default-method/"><span class="tag">default method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mlflow/"><span class="tag">mlflow</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/one-hot-Encoding/"><span class="tag">one-hot Encoding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/packing/"><span class="tag">packing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/python-%EC%84%A4%EC%B9%98/"><span class="tag">python 설치</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/static-method/"><span class="tag">static method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/unpacking/"><span class="tag">unpacking</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%9E%8C%EB%8B%A4%EC%8B%9D/"><span class="tag">람다식</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%B2%A1%ED%84%B0%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">벡터의 곱셈</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%97%94%ED%8A%B8%EB%A1%9C%ED%94%BC/"><span class="tag">엔트로피</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EB%9F%89/"><span class="tag">정보량</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EC%9D%B4%EB%A1%A0/"><span class="tag">정보이론</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0/"><span class="tag">파라미터</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98%ED%98%95-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/"><span class="tag">함수형 인터페이스</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">행렬의 곱셈</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2023 Shawn Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
