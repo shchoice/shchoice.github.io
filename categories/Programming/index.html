@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>Category: Programming - Shawn&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Shawn&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon_sh.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Shawn&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="차분하고 겸손하지만 확실하게!!"><meta property="og:type" content="blog"><meta property="og:title" content="Shawn&#039;s Blog"><meta property="og:url" content="http://example.com/"><meta property="og:site_name" content="Shawn&#039;s Blog"><meta property="og:description" content="차분하고 겸손하지만 확실하게!!"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/og_image.png"><meta property="article:author" content="Shawn Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"Shawn's Blog","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"Shawn Choi"},"publisher":{"@type":"Organization","name":"Shawn's Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.svg"}},"description":"차분하고 겸손하지만 확실하게!!"}</script><link rel="icon" href="/img/favicon_sh.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-D7QRVGYDET" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D7QRVGYDET');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+          Array
+              .from(document.querySelectorAll('.tab-content'))
+              .forEach($tab => {
+                  $tab.classList.add('is-hidden');
+              });
+          Array
+              .from(document.querySelectorAll('.tabs li'))
+              .forEach($tab => {
+                  $tab.classList.remove('is-active');
+              });
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">Programming</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-01-08T14:37:34.000Z" title="1/8/2024, 11:37:34 PM">2024-01-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-01-08T14:39:41.000Z" title="1/8/2024, 11:39:41 PM">2024-01-08</time></span><span class="level-item"><a class="link-muted" href="/categories/Programming/">Programming</a><span> / </span><a class="link-muted" href="/categories/Programming/%EB%82%B4-%EC%BD%94%EB%93%9C%EA%B0%80-%EA%B7%B8%EB%A0%87%EA%B2%8C-%EC%9D%B4%EC%83%81%ED%95%9C%EA%B0%80%EC%9A%94/">내 코드가 그렇게 이상한가요</a></span><span class="level-item">7 minutes read (About 1054 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Programming/%E1%84%82%E1%85%A2%20%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B3%E1%84%80%E1%85%A1%20%E1%84%80%E1%85%B3%E1%84%85%E1%85%A5%E1%87%82%E1%84%80%E1%85%A6%20%E1%84%8B%E1%85%B5%E1%84%89%E1%85%A1%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%E1%84%80%E1%85%A1%E1%84%8B%E1%85%AD/2%E1%84%8C%E1%85%A1%E1%86%BC-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%80%E1%85%A8-%E1%84%8E%E1%85%A5%E1%86%BA%E1%84%80%E1%85%A5%E1%86%AF%E1%84%8B%E1%85%B3%E1%86%B7/">2장.  설계 첫걸음</a></h1><div class="content"><h3 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h3><p>2.1 의도를 분명히 전달할 수 있는 이름 설계하기</p>
+<p>2.2 목적별로 변수를 따로 만들어 사용하기</p>
+<p>2.3 단순 나열이 아니라, 의미 있는 것을 모아 메서드로 만들기</p>
+<p>2.4 관련된 데이터와 로직을 클래스로 모으기</p>
+<h2 id="2장의-목적"><a href="#2장의-목적" class="headerlink" title="2장의 목적"></a>2장의 목적</h2><p>클래스를 설계 하기 전에 기본적인 설계, 즉 변수와 메서드(함수)를 설계하는 방법에 대해 알아보는 것이며</p>
+<p>의도를 갖고 적절하게 설계하면 유지보수와 변경이 쉬워짐</p>
+<h3 id="2-1-의도를-분명히-전달할-수-있는-이름-설계하기"><a href="#2-1-의도를-분명히-전달할-수-있는-이름-설계하기" class="headerlink" title="2.1 의도를 분명히 전달할 수 있는 이름 설계하기"></a>2.1 의도를 분명히 전달할 수 있는 이름 설계하기</h3><ul>
+<li><p>변수 이름은 의도를 쉽게 알 수 있는 쉬운 이름을 붙일 것</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 잘못된 변수명</span></span><br><span class="line"><span class="type">int</span> <span class="variable">d</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">d = p1 + p2;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 의도를 분명히 하기</span></span><br><span class="line"><span class="type">int</span> <span class="variable">damageAmount</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">damageAmount = playerArmPower + playerWeaponPower;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-2-목적별로-변수를-딸-만들어-사용하기"><a href="#2-2-목적별로-변수를-딸-만들어-사용하기" class="headerlink" title="2.2 목적별로 변수를 딸 만들어 사용하기"></a>2.2 목적별로 변수를 딸 만들어 사용하기</h3><ul>
+<li><p>변수에 값을 다시 할당하는 것을 <strong>재할당이라고 하는데, 이는 변수의 용도가 바뀌는 문제를 일으키기 쉬움</strong></p>
+</li>
+<li><p>코드를 읽는 사람을 혼란스럽게 만들고, 버그를 만들어 낼 가능성이 있기 때문이며</p>
+</li>
+<li><p>이를 해소한다면 전체적으로 어떤 값을 계산하는데 어떤 값을 사용하는지 관계를 파악하기 훨씬 쉬워짐</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 변수의 재할당 &lt;- 사용 금지</span></span><br><span class="line"><span class="type">int</span> <span class="variable">damageAmount</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">damageAmount = playerArmPower + playerWeaponPower; </span><br><span class="line">damageAmount = damageAmount - ((enemyBodyDefence + enemyArmorDefence) / <span class="number">2</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 목적별로 변수를 만들어 사용</span></span><br><span class="line"><span class="type">int</span> <span class="variable">totalPlayerAttackPower</span> <span class="operator">=</span> playerArmPower + playerWeaponPower;</span><br><span class="line"><span class="type">int</span> <span class="variable">totalEnemyDefence</span> <span class="operator">=</span> enemyBodyDefence + enemyAmorDefence;</span><br><span class="line"><span class="type">int</span> <span class="variable">damageAmount</span> <span class="operator">=</span> totalPlayerAttackPower - (totalEnemyDefence / <span class="number">2</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-3-단순-나열이-아니라-의미-있는-것을-모아-메서드로-만들기"><a href="#2-3-단순-나열이-아니라-의미-있는-것을-모아-메서드로-만들기" class="headerlink" title="2.3 단순 나열이 아니라, 의미 있는 것을 모아 메서드로 만들기"></a>2.3 단순 나열이 아니라, 의미 있는 것을 모아 메서드로 만들기</h3><ul>
+<li>계산 로직들이 단순하게 나열되어 있으면, 로직이 어디에서 시작해서 어디에서 끝나는지, 무슨 일을 하는지 알기 어려움</li>
+<li>따라서 의미 있는 로직을 모아서 메서드(함수)로 구현</li>
+</ul>
+<h3 id="2-4-관련된-데이터와-로직을-클래스로-모으기"><a href="#2-4-관련된-데이터와-로직을-클래스로-모으기" class="headerlink" title="2.4 관련된 데이터와 로직을 클래스로 모으기"></a>2.4 관련된 데이터와 로직을 클래스로 모으기</h3><ul>
+<li><pre><code>변수
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">와 </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+변수를 조작하는 로직
+</code></pre>
+<p> 이 이곳저곳에서 만들어지면 문제 발생가능</p>
+<ul>
+<li>수천, 수만 줄의 소스코드로 이루어진 프로그램이라면 관련된 로직을 찾아 돌아다니는 시간만 따져도 엄청날 것</li>
+<li>값이 잘못된 상태로 프로그램이 계속해서 동작한다면, 버그가 발생할 것</li>
+</ul>
+</li>
+<li><p>이러한 문제를 해결해주는 것이 바로 클래스</p>
+<ul>
+<li>데이터를 인스턴스 변수로 갖고</li>
+<li>인스턴스 변수를 조작하는 메서드를 함께 모아놓음</li>
+</ul>
+</li>
+<li><p>서로 밀접한 데이터와 로직을 한곳에 모아두면 이곳저곳 찾아 다니지 않아도 괜찮음</p>
+</li>
+</ul>
+<h3 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h3><ul>
+<li>클래스로 의도를 갖고 적절하게 설계하면 유지보수와 변경이 쉬워짐</li>
+<li>설계의 기초는 클래스!</li>
+</ul>
+<h3 id="스터디-참고"><a href="#스터디-참고" class="headerlink" title="스터디 참고"></a>스터디 참고</h3><p><strong>스레드 사용 시 고려해야 할 변수의 4가지 측면</strong></p>
+<p>프로그래밍에서 쓰레드를 사용하는 경우, 변수의 관리가 매우 중요. 특히 동시성과 스레드 안전성을 고려할 때 아래 4가지 주요 측면을 이해하는 것이 필수적</p>
+<ol>
+<li>변수의 가변성(Mutability)<ul>
+<li>변수가 변경될 수 있는지 여부를 파악해야함</li>
+<li>가변 변수는 동시에 여러 스레드에 의해 접근될 때 데이터 무결성 문제를 일으킬 수 있음</li>
+</ul>
+</li>
+<li>참조의 공유성(Reference Sharing)<ul>
+<li>변수가 프로그램의 다른 부분에서 참조되는지 여부를 파악해야함</li>
+<li>공유되는 참조는 스레드 간 동기화 문제를 일으킬 수 있음</li>
+</ul>
+</li>
+<li>값 변경 가능성(Value Modification Possibility)<ul>
+<li>쓰레드 내에서 변수의 값이 변경될 가능성을 인지해야함</li>
+<li>동시성 제어를 위한 메커니즘을 설계할 때 중요한 요소</li>
+</ul>
+</li>
+<li>스레드 간 참조 가능성(Cross-thread Reference Possibility)<ol>
+<li>여러 쓰레드가 동일한 변수를 참조할 수 있는지 여부를 고려해야 함</li>
+<li>Lock 이나 기타 동시성 제어 기법을 적용할 필요가 있는지를 결정하는 데 도움이 됨</li>
+</ol>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-01-08T14:05:45.000Z" title="1/8/2024, 11:05:45 PM">2024-01-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-01-08T14:11:37.000Z" title="1/8/2024, 11:11:37 PM">2024-01-08</time></span><span class="level-item"><a class="link-muted" href="/categories/Programming/">Programming</a><span> / </span><a class="link-muted" href="/categories/Programming/%EB%82%B4-%EC%BD%94%EB%93%9C%EA%B0%80-%EA%B7%B8%EB%A0%87%EA%B2%8C-%EC%9D%B4%EC%83%81%ED%95%9C%EA%B0%80%EC%9A%94/">내 코드가 그렇게 이상한가요</a></span><span class="level-item">9 minutes read (About 1317 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Programming/%E1%84%82%E1%85%A2%20%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B3%E1%84%80%E1%85%A1%20%E1%84%80%E1%85%B3%E1%84%85%E1%85%A5%E1%87%82%E1%84%80%E1%85%A6%20%E1%84%8B%E1%85%B5%E1%84%89%E1%85%A1%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%E1%84%80%E1%85%A1%E1%84%8B%E1%85%AD/1%E1%84%8C%E1%85%A1%E1%86%BC-%E1%84%8C%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A9%E1%86%BA%E1%84%83%E1%85%AC%E1%86%AB-%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A9%E1%84%8B%E1%85%B4-%E1%84%86%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A6-%E1%84%81%E1%85%A2%E1%84%83%E1%85%A1%E1%86%AE%E1%84%80%E1%85%B5/">1장. 잘못된 구조의 문제 깨닫기</a></h1><div class="content"><h1 id="1장-잘못된-구조의-문제-깨닫기"><a href="#1장-잘못된-구조의-문제-깨닫기" class="headerlink" title="1장. 잘못된 구조의 문제 깨닫기"></a>1장. 잘못된 구조의 문제 깨닫기</h1><h3 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h3><ul>
+<li>1.1 의미를 알 수 없는 이름</li>
+<li>1.2 이해하기 어렵게 만드는 조건 분기 중첩</li>
+<li>1.3 수많은 악마를 만들어 내는 클래스</li>
+<li>1.4 악마 퇴치의 기본</li>
+</ul>
+<h3 id="1장-핵심-내용"><a href="#1장-핵심-내용" class="headerlink" title="1장 핵심 내용"></a>1장 핵심 내용</h3><ul>
+<li>이 책에서 전체적으로 말하고자하는 바는 좋은 설계, 즉 설계의 중요성에 대해 말을 하고 있음</li>
+<li>좋은 설계를 하기 위해서는 설계를 소홀히 했을 때 어떠한 폐해가 일어나는 지를 알아야 한다고 말함<ul>
+<li>코드를 읽고 이해하는 데 시간이 오래걸림</li>
+<li>버그가 계속해서 발생함</li>
+<li>나쁜 구조로 인해서 더 나쁜 구조가 만들어짐</li>
+</ul>
+</li>
+<li>나쁜 구조와 그 폐해를 인지하는 것이 중요하다고 말함</li>
+<li>객체지향 설계가 곧 악마를 퇴치하는 무기임을 말함</li>
+<li>폐해는 아래로 부터 시작됨</li>
+</ul>
+<h3 id="1-1-의미를-알-수-없는-이름"><a href="#1-1-의미를-알-수-없는-이름" class="headerlink" title="1.1 의미를 알 수 없는 이름"></a>1.1 의미를 알 수 없는 이름</h3><ul>
+<li><p>기술 중싱 명명</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MemoryStateManager</span> &#123;</span><br><span class="line">	void changeIntValue01(<span class="built_in">int</span> changeValue) &#123;</span><br><span class="line">		updateState02Flag();	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>일련번호 명명</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Class001</span> &#123;</span><br><span class="line">	void method001();</span><br><span class="line">	void method002();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>문제점</p>
+<ul>
+<li>코드에서 의도를 읽어낼 수 없어 코드를 읽고 이해하는데 시간이 오래 걸림<ul>
+<li>그로인해 충분히 이해하지 못한 상태로 코드 변경 시 버그 발생 가능</li>
+<li>로직이 필요 이상으로 복잡해질 수 있음</li>
+<li>만약 이를 위해 클래스와 메서드의 역할과 기능을 설명하는 문서를 만들면.. 바쁜 업무로 유지보수가 이루어지지 않아 문서는 거짓말을 시작해 더 쉽게 버그가 쉽게 발생할 수 있음</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>대처</p>
+<ul>
+<li>의도와 목적을 드러내는 이름을 사용 (10장 참고)</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-이해하기-어렵게-만드는-조건-분기-중첩"><a href="#1-2-이해하기-어렵게-만드는-조건-분기-중첩" class="headerlink" title="1.2 이해하기 어렵게 만드는 조건 분기 중첩"></a>1.2 이해하기 어렵게 만드는 조건 분기 중첩</h3><ul>
+<li><p>문제점</p>
+<ul>
+<li>조건문 중첩이 많을수록 코드의 가독성이 나빠짐<ul>
+<li>어디서 어디까지가 if 조건문 처리 블록인지 확인하기 어렵기 때문</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>예시</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> （조건） &#123;</span><br><span class="line">	<span class="comment">// 수십~수백 줄의 코드</span></span><br><span class="line">	<span class="keyword">if</span> （조건） &#123;</span><br><span class="line">		<span class="comment">// 수십-수백 줄의 코드</span></span><br><span class="line">		<span class="keyword">if</span> （조건） &#123;</span><br><span class="line">			<span class="comment">// 수십-수백 줄의 코드</span></span><br><span class="line">			<span class="keyword">if</span> （조건） &#123;</span><br><span class="line">				<span class="comment">// 수십-수백 줄의 코드</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 수십쑤백 줄의 코드</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 수십~수백 줄의 코드</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="1-3-수많은-악마를-만들어-내는-클래스"><a href="#1-3-수많은-악마를-만들어-내는-클래스" class="headerlink" title="1.3 수많은 악마를 만들어 내는 클래스"></a>1.3 수많은 악마를 만들어 내는 클래스</h3><ul>
+<li><p>잘못된 데이터 클래스 예시</p>
+<ul>
+<li><p>데이터 클래스</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ContractAmount</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> amountlncludingTax; <span class="comment">// 세금 포함 금액</span></span><br><span class="line">	<span class="keyword">public</span> BigDecimal salesTaxRate; <span class="comment">// 소비세율</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>데이터 클래스에 들어갈 내용의 메서드가 다른 클래스에 구현이 됨</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 계약을 관리하는 클래스</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ContractManager</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> ContractAmount contractAmount;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 세금 포함 금액 계산</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">calculateAmountIncludingTax</span><span class="params">(<span class="type">int</span> amountExcludingTax, BigDecimal salesTaxRate)</span> &#123;</span><br><span class="line">		<span class="type">BigDecimal</span> <span class="variable">multiplier</span> <span class="operator">=</span> salesTaxRate.add(<span class="keyword">new</span> <span class="title class_">BigDecimalC</span><span class="string">&quot;1.0&quot;</span>))；</span><br><span class="line">		<span class="type">BigDecimal</span> <span class="variable">amountlncludingTax</span> <span class="operator">=</span></span><br><span class="line">			multiplier.multiply(<span class="keyword">new</span> <span class="title class_">BigDecimal</span>(amountExcludingTax));</span><br><span class="line">		<span class="keyword">return</span> amountlncludingTax.intValue();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 계약 체결</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">conclude</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="comment">// 생략</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">amountlncludingTax</span> <span class="operator">=</span> caleutateAmountIncludingTax(amountExcludingTax, salesTaxRate);</span><br><span class="line">		ContractAmount = <span class="keyword">new</span> <span class="title class_">ContractAmountO</span>;</span><br><span class="line">		ContractAmount.amountlncludingTax = amountlncludingTax;</span><br><span class="line">		ContractAmount.salesTaxRate = salesTaxRate;</span><br><span class="line">		<span class="comment">// 생략</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>만약에 재대로 설계를 제대로 해서 작성했다면 아래와 같을 것임</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ContractAmount</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> amountIncludingTax; <span class="comment">// 세금 포함 금액</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> BigDecimal salesTaxRate; <span class="comment">// 소비세율</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ContractAmount</span><span class="params">(<span class="type">int</span> amountIncludingTax, BigDecimal salesTaxRate)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.amountIncludingTax = amountIncludingTax;</span><br><span class="line">        <span class="built_in">this</span>.salesTaxRate = salesTaxRate;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAmountIncludingTax</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> amountIncludingTax;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> BigDecimal <span class="title function_">getSalesTaxRate</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> salesTaxRate;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TaxCalculator</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">calculateAmountIncludingTax</span><span class="params">(<span class="type">int</span> amountExcludingTax, BigDecimal salesTaxRate)</span> &#123;</span><br><span class="line">        <span class="type">BigDecimal</span> <span class="variable">multiplier</span> <span class="operator">=</span> salesTaxRate.add(BigDecimal.ONE);</span><br><span class="line">        <span class="type">BigDecimal</span> <span class="variable">amountIncludingTax</span> <span class="operator">=</span> multiplier.multiply(<span class="keyword">new</span> <span class="title class_">BigDecimal</span>(amountExcludingTax));</span><br><span class="line">        <span class="keyword">return</span> amountIncludingTax.intValue();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ContractManager</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> ContractAmount contractAmount;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">conclude</span><span class="params">(<span class="type">int</span> amountExcludingTax, BigDecimal salesTaxRate)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">amountIncludingTax</span> <span class="operator">=</span> TaxCalculator.calculateAmountIncludingTax(amountExcludingTax, salesTaxRate);</span><br><span class="line">        contractAmount = <span class="keyword">new</span> <span class="title class_">ContractAmount</span>(amountIncludingTax, salesTaxRate);</span><br><span class="line">        <span class="comment">// 여기에 추가적인 계약 체결 로직을 구현</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 필요한 경우, ContractAmount에 접근하는 메서드를 제공</span></span><br><span class="line">    <span class="keyword">public</span> ContractAmount <span class="title function_">getContractAmount</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> contractAmount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>폐해</p>
+<ul>
+<li><p>코드 중복</p>
+<ul>
+<li>관련된 코드가 서로 멀리 떨어져, 묶어서 파악하기가 힘듬</li>
+<li>위의 코드처럼 이미 기능이 구현이 되었음에도 동료 개발자들은 아직 기능이 구현되지 않았다고 오해할 수 있어 같은 로직을 여러 곳에 구현하는 의도치 않은 코드 중복이 발생할 수 있음</li>
+</ul>
+</li>
+<li><p>수정 누락</p>
+<ul>
+<li>코드 중복이 많으면, 사양이 변경될 때 중복된 코드를 모두 고쳐야 합니다. 하 지만 이 과정에서 일부 코드를 놓칠 수 있으며, 결국 버그를 낳음</li>
+</ul>
+</li>
+<li><p>가독성 저하</p>
+<ul>
+<li>코드가 분산되어 있으면, 중복된 코드를 포함해서 관련된 정보를 다 찾는 것만으로도 시간이 오래 걸립</li>
+</ul>
+</li>
+<li><p>초기화되지 않은 상태(쓰레기 객체)</p>
+<ul>
+<li><p>예시</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ContractAmount</span> <span class="variable">amount</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ContractAmount</span>();</span><br><span class="line">System.out.println(amount.salesTaxRate.toString());</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>따로 초기화하는 코드가 없기에, 초가화시 null이 되며 코드를 실행하면 NullPointerException이 발생 가능할 수 있음</p>
+</li>
+</ul>
+</li>
+<li><p>잘못된 값 할당</p>
+<ul>
+<li><p>예시</p>
+<ul>
+<li>주문 건수가 음수가 나오는 경우</li>
+<li>게임에서 Jit Point값이 최대값을 넘기는 경우</li>
+</ul>
+</li>
+<li><p>데이터 클래스는 음수를 대입해도 할당이 됨</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ContractAmount</span> <span class="variable">amount</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ContractAmount</span>();</span><br><span class="line">amount.salesTaxRate = <span class="keyword">new</span> <span class="title class_">BigDecimal</span>(<span class="string">&quot;-0.1&quot;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>대처</p>
+<ul>
+<li>데이터 클래스를 사용하는 쪽의 로직을 살짝 변경해 유효성 검사를 수행</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-4-악마-퇴치의-기본"><a href="#1-4-악마-퇴치의-기본" class="headerlink" title="1.4 악마 퇴치의 기본"></a>1.4 악마 퇴치의 기본</h3><ul>
+<li>나쁜 폐혜를 인지하는 것이 좋은 설계를 위한 첫걸음</li>
+<li>객체 지향 설계가 곧 악마를 퇴치하는 무기</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-11-25T14:49:53.000Z" title="11/25/2023, 11:49:53 PM">2023-11-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-12-20T15:15:55.000Z" title="12/21/2023, 12:15:55 AM">2023-12-21</time></span><span class="level-item"><a class="link-muted" href="/categories/Programming/">Programming</a><span> / </span><a class="link-muted" href="/categories/Programming/UML/">UML</a></span><span class="level-item">25 minutes read (About 3773 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Programming/UML/UML-Class-Diagram/">UML &amp; Class Diagram</a></h1><div class="content"><h2 id="UML-이란"><a href="#UML-이란" class="headerlink" title="UML 이란"></a>UML 이란</h2><ul>
+<li><p>UML(Unified Modeling Language)은 시스템의 구조와 설계를 시각화하는 데 사용되는 표준화된 모델링 언어</p>
+</li>
+<li><p>추상적인 개념을 시각적 형태로 표현함으로써 복잡한 시스템의 설계와 분석을 용이하게 하는 중요한 도구</p>
+</li>
+<li><p>다음과 같은 종류가 있음</p>
+<ol>
+<li><strong>클래스 다이어그램(Class Diagrams)</strong>: 시스템 내의 클래스들과 그들 사이의 관계를 보여줌</li>
+<li><strong>사용 사례 다이어그램(Use Case Diagrams)</strong>: 시스템이 사용자와 상호 작용하는 방식을 설명</li>
+<li><strong>시퀀스 다이어그램(Sequence Diagrams)</strong>: 객체 간의 상호 작용과 시간에 따른 이들의 관계를 나타냄</li>
+<li><strong>상태 다이어그램(State Diagrams)</strong>: 객체의 상태 변화를 보여줌</li>
+<li><strong>활동 다이어그램(Activity Diagrams)</strong>: 워크플로우나 비즈니스 프로세스의 흐름을 나타냄</li>
+<li><strong>구성 다이어그램(Component Diagrams)</strong>: 시스템의 물리적 구성 요소를 나타냄</li>
+<li><strong>배치 다이어그램(Deployment Diagrams)</strong>: 시스템의 물리적 배치와 인프라를 나타냄</li>
+</ol>
+</li>
+<li><p>UML 다이어그램은 구조 다이어그램과 행위 다이어그램으로 나뉨</p>
+<ul>
+<li>구조 다이어그램(Structure Diagram)<ul>
+<li>시스템의 정적인 측면, 즉 시스템의 물리적 구성 요소와 그들 간의 관계를 나타냄</li>
+<li>시스템의 구조를 보여주며, 주요 구성 요소들이 어떻게 서로 연결되어 있는지를 설명</li>
+<li>종류<ol>
+<li>클래스 다이어그램(Class Diagram): 시스템의 클래스들과 그들 사이의 관계를 보여줌</li>
+<li>객체 다이어그램(Object Diagram): 특정 시점에서 클래스 다이어그램의 인스턴스를 보여줌</li>
+<li>패키지 다이어그램(Package Diagram): 시스템의 패키지들과 그들 간의 의존성을 나타냄</li>
+<li>구성 다이어그램(Component Diagram): 시스템의 소프트웨어 구성 요소들을 보여줌.</li>
+<li>배치 다이어그램(Deployment Diagram): 시스템의 물리적 구조와 소프트웨어 구성 요소들이 배치되는 방법을 나타냄</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>행위 다이어그램(Behavior Diagram)<ul>
+<li>시스템의 동적인 측면, 시스템이 어떻게 동작하고, 구성 요소들이 시간에 따라 어떻게 상호 작용하는지를 보여줌</li>
+<li>시스템의 행동, 프로세스, 알고리즘 등을 시각화</li>
+<li>종류<ol>
+<li>사용 사례 다이어그램(Use Case Diagram): 시스템의 기능과 외부 요소(사용자, 외부 시스템 등)와의 상호 작용을 나타냄</li>
+<li>시퀀스 다이어그램(Sequence Diagram): 객체 간의 상호 작용과 이들이 메시지를 교환하는 순서를 보여줌</li>
+<li>활동 다이어그램(Activity Diagram): 시스템의 프로세스 흐름이나 워크플로우를 나타냄</li>
+<li>상태 다이어그램(State Diagram): 객체의 상태 변화와 그에 따른 이벤트 처리를 나타냄.</li>
+<li>커뮤니케이션 다이어그램(Communication Diagram): 시퀀스 다이어그램과 유사하지만, 객체 간의 연결과 메시지 흐름에 더 집중</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="왜-UML을-알아야-하나요-🤔"><a href="#왜-UML을-알아야-하나요-🤔" class="headerlink" title="왜 UML을 알아야 하나요?🤔"></a>왜 UML을 알아야 하나요?🤔</h3><ul>
+<li><p>**다른 사람들과의 협업에 필요(**의미가 명확하고 설계에 대한 논의가 명확해짐)</p>
+<ul>
+<li>다양한 다이어그램을 통해 개발자들이 소프트웨어의 구조를 더 잘 이해할 수 있음</li>
+<li>클라이언트나 이해관계자들에게 시스템의 작동 방식을 명확하게 전달할 수 있음</li>
+</ul>
+</li>
+<li><p><strong>전체 시스템의 구조와 클래스의 의존성을 파악</strong></p>
+<p>다이어그램을 분석하면, 시스템의 구조는 물론 클래스 간의 의존성도 파악이 쉬워짐</p>
+</li>
+<li><p><strong>유지보수를 위한 백엔드 문서로 사용</strong></p>
+<ul>
+<li>시스템 구조가 복잡할 경우 UML을 통해 시스템의 설계 및 구조를 복기 및 참고할 수 있음</li>
+<li>구조적으로 효율적이지 않거나, 모듈화 또는 구체화 해야하는 작업이 필요할 경우 UML을 먼저 참고 및 작성해보고 구조를 수정할 수 있음</li>
+</ul>
+</li>
+</ul>
+<h2 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h2><ul>
+<li><p>클래스 다이어그램은 <strong>시스템 내의 클래스들</strong>, <strong>그들 사이의 관계</strong> 그리고 <strong>각 클래스가 가지는 속성과 메서드를 시각적</strong>으로 표현</p>
+</li>
+<li><p>클래스 다이어그램의 구성 요소</p>
+<ol>
+<li><p><strong>클래스</strong></p>
+<ul>
+<li><p>클래스는 속성(attributes)과 메서드(methods)를 가진 사각형으로 표시됨</p>
+</li>
+<li><p>상단에는 클래스 이름이, 중간에는 속성이, 하단에는 메서드가 위치</p>
+</li>
+<li><p>클래스의 세부 사항은 필드와 메서드의 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">접근 제한자(Access Modifier)</span><br></pre></td></tr></table></figure>
+
+<p>, </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">속성(메서드)명</span><br></pre></td></tr></table></figure>
+
+<p>, </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">데이터 타입</span><br></pre></td></tr></table></figure>
+
+<p>, </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">매개변수(Parameter)</span><br></pre></td></tr></table></figure>
+
+<p>, </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">리턴 타입</span><br></pre></td></tr></table></figure>
+
+<p> 등을 나타낼 수 있음</p>
+<ul>
+<li>접근 제한자 (Access modifier)<ul>
+<li><code>+</code> : public</li>
+<li><code>-</code> : private</li>
+<li><code>#</code> : protected</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>속성</strong></p>
+<ul>
+<li>클래스의 특성이나 상태를 나타냄</li>
+<li>예를 들어, ‘Customer’ 클래스에는 id, name, age등의 속성이 있을 수 있음</li>
+</ul>
+</li>
+<li><p><strong>메서드</strong></p>
+<ul>
+<li>클래스가 수행할 수 있는 동작이나 기능을 나타냄</li>
+<li>예를 들어, ‘Customer’ 클래스는 order, addToCart등의 메서드를 가질 수 있음</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/3505725c-f003-4952-8fa6-dd76f6487bd6">https://github.com/shchoice/shchoice.github.io/assets/100276387/3505725c-f003-4952-8fa6-dd76f6487bd6</a></p>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/3505725c-f003-4952-8fa6-dd76f6487bd6" alt="ClassDiagram"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Customer</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">order</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 주문 관련 로직</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Boolean <span class="title function_">addToCart</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 장바구니 추가 관련 로직</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>관계</strong></p>
+<ul>
+<li><p>클래스 간의 다양한 관계를 표현</p>
+</li>
+<li><p><strong>일반화(Generalization)</strong></p>
+<ul>
+<li><p>한 클래스(자식 클래스)가 다른 클래스(부모 클래스)의 모든 특성을 상속받는 관계</p>
+</li>
+<li><p>부모 클래스는 자식 클래스를 일반화(Generalize)한 것이고, 자식 클래스는 부모 클래스를 구체화(Specialize)한 것</p>
+</li>
+<li><p>클래스 간의 <code>is-a 관계</code>를 표현</p>
+</li>
+<li><p>빈 삼각형 화살표로 표시되며, 상위 클래스 쪽으로 화살표가 향함</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/aa7fa828-cb86-4bda-aba3-3a2a155d121d">https://github.com/shchoice/shchoice.github.io/assets/100276387/aa7fa828-cb86-4bda-aba3-3a2a155d121d</a></p>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/aa7fa828-cb86-4bda-aba3-3a2a155d121d" alt="Generation"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">	  <span class="keyword">private</span> String id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">		<span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">changePassward</span><span class="params">(String password)</span> &#123;</span><br><span class="line">        <span class="comment">// 패스워드 변경 로직</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">changeName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">	    	<span class="comment">// 계정 이름 변경</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Customer</span> <span class="keyword">extends</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">order</span><span class="params">()</span> &#123;</span><br><span class="line">	    	<span class="comment">// 주문 관련 로직</span></span><br><span class="line">	  &#125;</span><br><span class="line">		<span class="keyword">public</span> Boolean <span class="title function_">addToCart</span><span class="params">(Item item)</span></span><br><span class="line">				<span class="comment">// 장바구니 추가 관련 로직</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Manager</span> <span class="keyword">extends</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">manageAccount</span><span class="params">()</span> &#123;</span><br><span class="line">	    	<span class="comment">// 계정 관리 로직</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>실현 관계 (Realization)</strong></p>
+<ul>
+<li><p>주로 인터페이스와 그 인터페이스를 구현하는 클래스 사이의 관계를 나타냄</p>
+</li>
+<li><p>클래스가 인터페이스의 모든 추상 메소드를 구현해야함</p>
+</li>
+<li><p>점선과 빈 삼각형 화살표로 표시되며, 인터페이스 쪽으로 화살표가 향함</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/ad999ae5-e731-4f91-a267-94df97444102">https://github.com/shchoice/shchoice.github.io/assets/100276387/ad999ae5-e731-4f91-a267-94df97444102</a></p>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/ad999ae5-e731-4f91-a267-94df97444102" alt="Realization"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">drive</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Car</span> <span class="keyword">implements</span> <span class="title class_">Vehicle</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">drive</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;The car is driving.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>의존 관계 (Dependency)</strong></p>
+<ul>
+<li><p>한 클래스가 다른 클래스를 참조(의존)하는 관계를 나타냄</p>
+<ul>
+<li>메서드 내 대상 클래스 객체 생성</li>
+<li>메서드 내 대상 클래스 객체 사용</li>
+<li>메서드 내 대상 클래스 메서드 호출</li>
+<li>메서드 내 대상 클래스 객체 리턴</li>
+<li>메서드에서 대상 클래스 객체를 매개변수로 받는 것</li>
+</ul>
+</li>
+<li><p>객체 참조는 계속 유지되지 않고 메서드의 호출이 끝나면 의존 관계의 클래스와 관계가 끝남</p>
+</li>
+<li><p>점선 화살표로 표시되며, 의존 받는 클래스 쪽으로 화살표가 발생</p>
+</li>
+<li><p>스트레오 타입으로 어떤 목적의 Dependency인지 의미를 명시할 수 있음</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/f2bf3bba-b692-42a5-ad5a-2fb7c84a7fa7">https://github.com/shchoice/shchoice.github.io/assets/100276387/f2bf3bba-b692-42a5-ad5a-2fb7c84a7fa7</a></p>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/f2bf3bba-b692-42a5-ad5a-2fb7c84a7fa7" alt="Dependency"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Document</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String content;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Document</span><span class="params">(String content)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.content = content;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getContent</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> content;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Printer</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">(Document doc)</span> &#123;</span><br><span class="line">        System.out.println(doc.getContent());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Pen</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">write</span><span class="params">(String text)</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Writer</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">writeSomething</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">Pen</span> <span class="variable">pen</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Pen</span>();</span><br><span class="line">        pen.write(<span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>연관 관계(Association)</strong></p>
+<ul>
+<li><p>두 클래스 간의 일반적인 관계를 나타냄</p>
+</li>
+<li><p>양방향이거나, 단방향 일수 있음</p>
+</li>
+<li><p>선으로 표현되면, 종종 화살표로 방향성을 나타냄</p>
+<ul>
+<li>일반적인 Association<ul>
+<li>실선 하나로 클래스를 연결</li>
+<li>방향이 없으므로 Engine 클래스가 Car 클래스를 참조할 수도 Car가 Engine을 참조할 수도, 둘 다일 수도 있음</li>
+</ul>
+</li>
+<li>Directed Association<ul>
+<li>클래스를 실선으로 연결 후 끝에 화살표를 추가</li>
+<li>화살표가 향하는 쪽으로 참조하는 것을 의미함</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>다중성(multiplicity)을 표시하여 관계의 성격(예: 1:1, 1:*, n:m)을 명확히 할 수 있음 <img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/96e5c294-df54-4c77-ab97-b58568f3b1a6" alt="Association"></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/96e5c294-df54-4c77-ab97-b58568f3b1a6">https://github.com/shchoice/shchoice.github.io/assets/100276387/96e5c294-df54-4c77-ab97-b58568f3b1a6</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Engine</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">start</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Car</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Engine engine;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Car</span><span class="params">()</span> &#123;</span><br><span class="line">        engine = <span class="keyword">new</span> <span class="title class_">Engine</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">startCar</span><span class="params">()</span> &#123;</span><br><span class="line">        engine.start();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>집합 관계(Aggregation)</strong></p>
+<ul>
+<li><p>Association을 조금더 특수하게 나타낸 것으로 한 클래스가 다른 클래스의 집합을 의미하며, ‘전체-부분’ 관계를 나타냄</p>
+</li>
+<li><p>Collection 이나 Array를 이용한 집합 관계</p>
+</li>
+<li><p>하나의 클래스가 다른 클래스의 컬렉션을 포함하지만, 생명주기가 독립적일 때 사용됨</p>
+</li>
+<li><p>빈 다이아몬드로 표시되는 선으로 나타내며, 전체 클래스 쪽에 빈 다이아몬드가 위치</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/e68303ba-dd15-482d-9da9-a2feda818519">https://github.com/shchoice/shchoice.github.io/assets/100276387/e68303ba-dd15-482d-9da9-a2feda818519</a></p>
+<p><img src="/%5B%3Chttps:/github.com/shchoice/shchoice.github.io/assets/100276387/95199bac-e5fd-4c88-850d-518095100ae9%3E%5D(%3Chttps:/github.com/shchoice/shchoice.github.io/assets/100276387/e68303ba-dd15-482d-9da9-a2feda818519%3E)" alt="Aggregation"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Employee</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Company</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Employee&gt; employees;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Company</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.employees = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addEmployee</span><span class="params">(Employee employee)</span> &#123;</span><br><span class="line">				<span class="comment">// 집합 관계에서는 외부에서 생성된 Employee 객체를 추가</span></span><br><span class="line">        employees.add(employee);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>합성 관계(Composition)</strong>:</p>
+<ul>
+<li><p>강한 형태의 집합 관계로, ‘전체-부분’ 관계 중에서도 부분이 전체에 의존하는 경우를 나타냄</p>
+</li>
+<li><p>부분 클래스의 생명주기가 전체 클래스에 종속적</p>
+<ul>
+<li>whole 인스턴스가 part 인스턴스를 생성</li>
+<li>whole 인스턴스가 소멸하면 part 인스턴스도 함께 소멸</li>
+<li>whole 인스턴스가 복사되면 part 인스턴스도 함께 복사</li>
+</ul>
+</li>
+<li><p>Composition을 사용할 때 개발자가 구현해야할 내용</p>
+<ul>
+<li>part 인스턴스의 공유 방지를 위한 <code>Deep Copy</code> 를 구현.</li>
+<li>whole 인스턴스가 part 인스턴스의 수명을 책임져야 하므로 whole 클래스의 생성자 또는 기타 메소드 내에서 part 인스턴스를 생성</li>
+<li>외부에서 part 객체를 생성하지 못하도록 whole 클래스에는 part 인스턴스에 대한 setter를 삭제</li>
+<li>자바는 <code>Garbage Collector</code> 가 객체 소멸을 담당하므로 part 인스턴스의 소멸은 신경쓰지 않아도 됨</li>
+</ul>
+</li>
+<li><p>채워진 다이아몬드로 표시되는 선으로 나타내며, 전체 클래스 쪽에 채워진 다이아몬드가 위치</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shchoice/shchoice.github.io/assets/100276387/c18323b3-ef95-4721-b5be-bd418de22d40">https://github.com/shchoice/shchoice.github.io/assets/100276387/c18323b3-ef95-4721-b5be-bd418de22d40</a></p>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/c18323b3-ef95-4721-b5be-bd418de22d40" alt="Composition"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Employee</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Company</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Employee&gt; employees;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Company</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.employees = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addEmployee</span><span class="params">(Employee employee)</span> &#123;</span><br><span class="line">        employees.add(employee);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="Streo-Type"><a href="#Streo-Type" class="headerlink" title="Streo Type"></a>Streo Type</h2><ul>
+<li>UML에서 streo type은 클래스 다이어그램을 비롯한 UML 다이어그램에서 사용되는 확장 메커니즘의 한 형태</li>
+<li>기존 UML 요소에 추가적인 의미를 부여하거나 새로운 속성을 제공하여, 모델의 정확성과 표현력을 향상시키는 데 사용됨</li>
+<li>abstract, enumerate, interface 등의 키워드에 적용이 가능하며, controller, service 등 표현력을 강화하기 위해 사용이 되기도 함</li>
+<li>길러멧 기호 («») 사이에 작성을 함</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+-------------------+    +---------------------+    +--------------------------------+</span><br><span class="line">|   &lt;&lt;interface&gt;&gt;   |    |    &lt;&lt;<span class="keyword">abstract</span>&gt;&gt;     |    |           &lt;&lt;service&gt;&gt;          |</span><br><span class="line">|  CustomerActions  |    |   AbstractCustomer  |    |         CustomerService        |</span><br><span class="line">|-------------------|    |---------------------|    |--------------------------------|</span><br><span class="line">| + order(): <span class="keyword">void</span>   |    | # id: <span class="type">int</span>           |    | - customerDAO: DAO             |</span><br><span class="line">| + addToCart(): <span class="keyword">void</span> |  | # name: String      |    |--------------------------------|</span><br><span class="line">+-------------------+    | # age: <span class="type">int</span>          |    | + getCustomer(): Customer      |</span><br><span class="line">                         |---------------------|    | + saveCustomer(Customer): <span class="keyword">void</span> |</span><br><span class="line">                         | + order(): <span class="keyword">void</span>     |    +--------------------------------+</span><br><span class="line">                         | + addToCart(): <span class="keyword">void</span> |</span><br><span class="line">                         +---------------------+</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="궁금증"><a href="#궁금증" class="headerlink" title="궁금증"></a>궁금증</h2><ol>
+<li><p>Association vs Composition</p>
+<ul>
+<li><p>연관관계 예시</p>
+<ul>
+<li><p>한 대학에 여러 교수가 있을 수 있으며, 이 교수들은 대학과 연관되어 있지만, 교수가 대학을 떠날 때 대학이 사라지지는 않음</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">University</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">University</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Professor</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> University university; <span class="comment">// 연관 관계</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Professor</span><span class="params">(String name, University university)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.university = university;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">University</span> <span class="variable">uni</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">University</span>(<span class="string">&quot;A University&quot;</span>);</span><br><span class="line">        <span class="type">Professor</span> <span class="variable">prof</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Professor</span>(<span class="string">&quot;RAON CHOI&quot;</span>, uni);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>합성 관계 예시</p>
+<ul>
+<li><p>자동차와 엔진의 관계를 들 수 있습니다. 자동차가 없어지면, 그 자동차의 엔진도 더 이상 존재하지 않게됨</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Engine</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">start</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Engine starts.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Engine engine; <span class="comment">// 합성 관계</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Car</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.engine = <span class="keyword">new</span> <span class="title class_">Engine</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">startCar</span><span class="params">()</span> &#123;</span><br><span class="line">        engine.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Car</span> <span class="variable">car</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Car</span>();</span><br><span class="line">        car.startCar();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>특징 비교</p>
+<ul>
+<li>연관 관계 : 연관 관계는 두 클래스가 서로 독립적인 생명주기를 가지며, 느슨하게 연결되어 있을 때 사용<ol>
+<li><strong>독립적인 생명주기</strong>: 연관된 객체들이 서로 독립적으로 생성되고 소멸할 수 있을 때 사용, 예를 들어, 여러 <strong><code>Controller</code></strong> 클래스가 하나의 <strong><code>Service</code></strong> 클래스의 인스턴스를 공유하는 경우에 적합</li>
+<li><strong>재사용성과 공유</strong>: 하나의 객체가 여러 곳에서 사용되거나 공유되어야 할 필요가 있을 때 연관 관계가 유용. 이는 코드의 재사용성을 높이고 중복을 줄이는 데 도움이 됨</li>
+<li><strong>변경의 유연성</strong>: 연관된 객체 중 하나를 변경하거나 교체해야 할 경우, 연관 관계는 이러한 변경을 용이. 객체 간의 결합도가 낮기 때문에, 한 객체의 변경이 다른 객체에 미치는 영향이 적음</li>
+</ol>
+</li>
+<li>합성 관계 : 한 클래스가 다른 클래스의 객체를 포함하며, 포함된 객체의 생명주기가 포함하는 객체에 의존적일 때 사용<ol>
+<li><strong>강한 소유권과 생명주기의 의존성</strong>: 합성 관계에서는 포함하는 객체가 생성될 때 포함된 객체도 함께 생성되고, 포함하는 객체가 소멸될 때 포함된 객체도 함께 소멸. 이는 “부품과 전체” 관계에 적합</li>
+<li><strong>단일 책임 원칙</strong>: 포함된 객체가 특정 클래스에 대해 단일 책임을 갖고 있을 때 사용됨. 예를 들어, 특정 클래스가 자신의 로직을 수행하는 데 필요한 여러 하위 컴포넌트를 포함하고 있을 때 적합.</li>
+<li><strong>독점적 사용</strong>: 포함된 객체가 포함하는 객체에 의해서만 사용되고, 다른 객체와 공유되지 않을 때 합성 관계가 적합.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Composition vs Aggregation</strong></p>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-06-13T14:55:41.000Z" title="6/13/2023, 11:55:41 PM">2023-06-13</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-12-20T15:11:28.000Z" title="12/21/2023, 12:11:28 AM">2023-12-21</time></span><span class="level-item"><a class="link-muted" href="/categories/Programming/">Programming</a><span> / </span><a class="link-muted" href="/categories/Programming/Clean-Code/">Clean Code</a></span><span class="level-item">2 minutes read (About 334 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Programming/Clean%20Code/Chap02%20%E1%84%8B%E1%85%B4%E1%84%86%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%BB%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%84%85%E1%85%B3%E1%86%B7/">Chap02. 의미 있는 이름</a></h1><div class="content"><h1 id="Chap02-의미-있는-이름"><a href="#Chap02-의미-있는-이름" class="headerlink" title="Chap02. 의미 있는 이름"></a>Chap02. 의미 있는 이름</h1><ol>
+<li>의미 있는 이름 짓기</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a;</span><br><span class="line">String b;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;User Requested %s. count = %d&quot;</span>, a, b);</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> itemCount;</span><br><span class="line">String itemName;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>루프 속 i, j, k 사용하지 않기</p>
+<ol>
+<li>배열을 순회할 때 index를 의미하는 i를 사용하지 않고 advanced for문으로 대체할 수 있음</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt; message.size(); i++) &#123;</span><br><span class="line">		<span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>advanced for문 으로 대체</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (String message: messages) &#123;</span><br><span class="line">		<span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>lamda 로 대체</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">messages.stream().forEach(</span><br><span class="line">	message -&gt; <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>최대한 의미를 찾을 수 있게 하자</p>
+<ul>
+<li>i, j, k 대신 맥락에 맞는 이름이 있음<ul>
+<li>i, j → row, col &#x2F;width, height</li>
+<li>i, j, k → row, col, depth</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>통일성 있는 단어 사용하기</p>
+<ul>
+<li>Member &#x2F; Customer &#x2F; User : Name 팀 단위에서 통일할 필요</li>
+<li>Service &#x2F; Manager</li>
+<li>Repository &#x2F; DAO</li>
+</ul>
+</li>
+<li><p>변수명에 타입 넣지 않기</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String <span class="title function_">nameString</span><span class="params">()</span> -&gt; name</span><br><span class="line">Int itemPriceAmount -&gt; itemPrice</span><br><span class="line"></span><br><span class="line">Account[] accountArray() -&gt; accounts</span><br><span class="line">List&lt;Account&gt; <span class="title function_">accountList</span><span class="params">(괜찮음)</span> -&gt; accounts, accountList</span><br><span class="line">Map&lt;Account&gt; <span class="title function_">accountMap</span><span class="params">(괜찮음)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IShapeFactory</span> -&gt; ShapeFactory</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ShapeFactoryImpl</span>() -&gt; CircleFactory</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Google Java Naming Guide</p>
+<ul>
+<li><p>Package Naming Guide</p>
+<ul>
+<li><p>All lower case, no underscores</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">com.example.deeplearning(굳)</span><br><span class="line">com.example.deepLearning(bad)</span><br><span class="line">com.example.deep_space(bad)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Class Naming Guide</p>
+<ul>
+<li><p>UpperCamelCase(대문자로 시작)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 클래스는 명사, 명사구</span></span><br><span class="line">Character, ImmutableList</span><br><span class="line"></span><br><span class="line"><span class="comment">// 인터페이스는 명사, 명사구 (형용사)</span></span><br><span class="line">List, Readable</span><br><span class="line"></span><br><span class="line"><span class="comment">// 테스트 클래스는 Test로 끝나기</span></span><br><span class="line">HashTest, HashIntegerationTest</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><ul>
+<li><p>Method Naming Guide</p>
+<ul>
+<li><p>LowerCamelCase (소문자로 시작)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 메소드는 동사, 동사구</span></span><br><span class="line">sendMessage, stop</span><br><span class="line"></span><br><span class="line"><span class="comment">// JUnit 테스트에 underscore 사용되기도 함</span></span><br><span class="line"><span class="comment">// &lt;methodUnderTest&gt;_&lt;state&gt; 패턴</span></span><br><span class="line">pop_emptyStack</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2></li>
+</ul>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-11-24T12:42:36.000Z" title="11/24/2022, 9:42:36 PM">2022-11-24</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-12-20T15:21:52.000Z" title="12/21/2023, 12:21:52 AM">2023-12-21</time></span><span class="level-item"><a class="link-muted" href="/categories/Programming/">Programming</a><span> / </span><a class="link-muted" href="/categories/Programming/TDD/">TDD</a></span><span class="level-item">a minute read (About 214 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Programming/TDD/TDD/">TDD</a></h1><div class="content"><p>회사에서 개발하는 솔루션이 어느새 브런치 여러개로 쪼개지게 되었다. 신규 기능이 추가되거나 유지보수를 수행할 때 하나의 부분을 고치면 3개를 수정해야하며 모두 테스트를 해야한다. 다른 회사라면 이미 여러가지 방법으로 테스트 코드로 검증을 하겠지만… 이런 저런 내부 사정으로 인해 테스트 코드가 없다. 따라서 junit&#x2F;Unittest 로 코드 테스트를 하고 Jenkins로 빌드 테스트를 하고 관리도구 웹페이지는 Selenium 등으로 테스트를 수행을 하려고한다. 깊은 지식이 없기에 해당내용에 대해 공부하면서 안정적으로 솔루션을 관리하는 역량을 키워보자!</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-11-12T14:56:24.000Z" title="11/12/2022, 11:56:24 PM">2022-11-12</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-12-20T15:04:56.000Z" title="12/21/2023, 12:04:56 AM">2023-12-21</time></span><span class="level-item"><a class="link-muted" href="/categories/Programming/">Programming</a><span> / </span><a class="link-muted" href="/categories/Programming/Agile/">Agile</a><span> / </span><a class="link-muted" href="/categories/Programming/Agile/%ED%95%A8%EA%BB%98%EC%9E%90%EB%A6%AC%EA%B8%B0/">함께자리기</a></span><span class="level-item">19 minutes read (About 2875 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Programming/Agile/%E1%84%92%E1%85%A1%E1%86%B7%E1%84%81%E1%85%A6-%E1%84%8C%E1%85%A1%E1%84%85%E1%85%A1%E1%84%80%E1%85%B5/">함께 자라기</a></h1><div class="content"><p>이 포스트는 <code>함께 자라기 - 애자일로 가는길</code>책의 1장 자라기 를 읽으면서 느꼈던 점을 나눕니다.</p>
+<ol>
+<li>우리는 올바르게 학습을 하고 있는가?</li>
+<li>무엇을 배워야 보다 유리해질수 있을까</li>
+<li>어떻게 배워야 하는가</li>
+<li>올바른 학습이 우리에게 주는 진정한 효과</li>
+</ol>
+<h2 id="1-우리는-올바르게-학습을-하고-있는가"><a href="#1-우리는-올바르게-학습을-하고-있는가" class="headerlink" title="1. 우리는 올바르게 학습을 하고 있는가?"></a>1. 우리는 올바르게 학습을 하고 있는가?</h2><p>필드에서 일하는 우리에게 학습의 모습은 어떠해야할까??</p>
+<p>어떠한 프로젝트 일감이 들어왔는데, 그 프로젝트는 내가 기존에 사용해본 적이 없는 심지어는 단순한&#x2F;단편적인 지식만 있다고 하자. 이 때 어떻게 반응을 하는가?</p>
+<h3 id="나의-경우의-학습의-문제점-반성할-점-😰"><a href="#나의-경우의-학습의-문제점-반성할-점-😰" class="headerlink" title="나의 경우의 학습의 문제점(반성할 점 😰)"></a>나의 경우의 학습의 문제점(반성할 점 😰)</h3><p>나의 경우에는 많은 경우 아래와 같은 습관이 있다.</p>
+<ul>
+<li>습관<ul>
+<li>주제에 맞는 책을 구매하고 A-Z까지 정독을 하고, 책에 있는 예제를 따라하며 정리한다.</li>
+<li>해당 내용을 동료들과 공유하기 위해 PPT를 작성()</li>
+<li>배운 것들을 바탕으로 구현을 시작하나 얼마가지 않아 문제점에 봉착함<ul>
+<li>업무를 하다보면 책에 없는 내용들이 많음</li>
+</ul>
+</li>
+<li>문제점을 해결하기 위해 블로그&#x2F;오픈채팅방 및 또다른 전문서적 등을 찾아보며 점진적인 구현</li>
+</ul>
+</li>
+<li>단점<ul>
+<li>학습에 너무 많은 시간을 사용하다보니 구현에 많은 시간을 쏟지를 못함<ul>
+<li>과할 경우, 코드를 치는 것보다 읽고 정리하는 시간이 더 길음</li>
+</ul>
+</li>
+<li>최악의 경우, 읽은 책이 실제 코드에 활용되는 부분이 별로 없음</li>
+</ul>
+</li>
+</ul>
+<p>위와 같이 반응하는 이유는 책에서 말하는 것처럼 <strong>학교 학습에서 효과적이었던 방법들을 그대로 야생 학습에 가져와서 적용하려 하기 때문</strong>이다. 학교에서의 습관과 전략을 여전히 필드에서 사용하기에 거기에서부터 문제가 발생한다.</p>
+<h3 id="야생학습과-학교학습"><a href="#야생학습과-학교학습" class="headerlink" title="야생학습과 학교학습"></a>야생학습과 학교학습</h3><table>
+<thead>
+<tr>
+<th>야생학습(😀)</th>
+<th>학교학습(😰)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>대부분 협력적</td>
+<td>대부분 개별적</td>
+</tr>
+<tr>
+<td>대부분 비순차적</td>
+<td>공부 순서가 정해져있음</td>
+</tr>
+<tr>
+<td>대부분 자료에 한정이 없다</td>
+<td>대부분 교과서, 교재, 시험 범위 등 정해져 있음</td>
+</tr>
+<tr>
+<td>명확한 평가가 없다</td>
+<td>대부분 시험이라는 명확한 평가 기준이 있음</td>
+</tr>
+<tr>
+<td>대부분 정답이 없음</td>
+<td>무엇이 정답인지 명확</td>
+</tr>
+<tr>
+<td>대부분 목표가 불분명하고 바뀜</td>
+<td>대부분 합격, 자격증 같은 목표가 분명</td>
+</tr>
+</tbody></table>
+<p>우리가 속한 필드는 거의 대부분이 야생학습의 환경이다. 그래서 우리가 속한 곳은 야생학습이라는 패러다임을 갖고 나아가야 한다.</p>
+<h2 id="2-무엇을-배워야-보다-유리해질수-있을까"><a href="#2-무엇을-배워야-보다-유리해질수-있을까" class="headerlink" title="2. 무엇을 배워야 보다 유리해질수 있을까"></a>2. 무엇을 배워야 보다 유리해질수 있을까</h2><p>인공지능 시대에 대비하려면 <strong>배우기 힘든 것</strong>에 집중하는 것이 더 좋다. 왜냐하면 정형화할 수 있거나 일정 수준의 규칙이 있는 것에 대해서는 인공지능의 능력이 사람의 능력보다 뛰어나기에, 우리는 인공지능이 배우기 힘든 것에 대해서 배워야 보다 미래에 유리해질 것이다.</p>
+<table>
+<thead>
+<tr>
+<th>학습에 불리한 조건(인공지능이 잘하는 것)(😀)</th>
+<th>학습에 유리한 조건(인공지능에 대체대기 어려운 것)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>목표가 분명&#x2F;객관적&#x2F;정적</td>
+<td>목표가 모호&#x2F;주관적&#x2F;동적</td>
+</tr>
+<tr>
+<td>매 순간 선택할 수 있는 행동&#x2F;선택의 종류가 유한함</td>
+<td>매 순간 선택할 수 있는 행동&#x2F;선택의 종류가 불확실</td>
+</tr>
+<tr>
+<td>매 순간 자신이 목표에 얼마나 근접했는지 알 수 있음(선택의 피드백을 빨리 받을 수 있음)</td>
+<td>매 순간 자신의 목표에 얼마나 근접했는지 알기 어렵다(선택의 피드백을 빨리 받기 어려움)</td>
+</tr>
+<tr>
+<td>닫힌 시스템(즉, 예상 못한 외부 요소가 갑자기 들어오지 않는) 속에서 일함</td>
+<td>열린 시스템(예상 못한 외붕 요소가 갑자기 들어오는 경우가 흔한) 속에서 일함</td>
+</tr>
+<tr>
+<td>과거의 선택과 결과에 대한 구조화된 데이터가 많음</td>
+<td>선택과 결과에 대한 구조화된 데이터가 별로 없음</td>
+</tr>
+</tbody></table>
+<p>즉 <strong>암묵지</strong>, <strong>직관</strong>으로  작동하는 회색 영역, 다시말해 자신이 왜 이런 선택을 했는지 쉽게 설명할 수 없는 것들을 선택하는 것이 보다 좋을 것이다.</p>
+<h2 id="3-어떻게-배워야-하는가"><a href="#3-어떻게-배워야-하는가" class="headerlink" title="3. 어떻게 배워야 하는가"></a>3. 어떻게 배워야 하는가</h2><h3 id="진정한-1만-시간의-법칙"><a href="#진정한-1만-시간의-법칙" class="headerlink" title="진정한 1만 시간의 법칙"></a>진정한 1만 시간의 법칙</h3><p>고등학생 때 말콤 글래드웰의 아웃라이어에서 1만시간의 법칙을 읽고 감명을 받았던 적이 있다. 하지만 시간이 지나고 나서 이제 어느덧 30대 중반을 향해 나가는 내 나이에서 1만시간 이상은 컴퓨터 관련 업무를 한것 같은데, 여전히 나는 업계에서 상위 Tier의 개발자들을 우러러 보고 있다.</p>
+<h3 id="무엇이-문제일까-→-학습-방법을-바꿔야함"><a href="#무엇이-문제일까-→-학습-방법을-바꿔야함" class="headerlink" title="무엇이 문제일까 → 학습 방법을 바꿔야함!"></a>무엇이 문제일까 → 학습 방법을 바꿔야함!</h3><p>우리는 **의도적 수련(deliberate practice)**이 필요하다.</p>
+<p>즉 단순한, 나이브한 경험을 통한 수련이 아니라 자신의 기량을 매우 의도&#x2F;의지적으로 향상시킬 목적의 수련이 필요하다. 이와 같은 노력이 있어야 1만 시간의 경험이 쌓여야 특정 분야의 전문가가 될 수 있을 것이다.</p>
+<blockquote>
+<p><strong>한 22년 경력의 스타크래프트 이야기</strong> </p>
+<p>가끔 유튜브로 전 프로게이머의 스타크래프트 대전 방송을 본다. 한 대전자는 전적은 1만 판이 넘었다. 채팅을 통해 확인한 결과는 22년동안 이 게임만 한 것이다. 엄청나게 고수라고 생각을 하며 기대하며 보았지만, 생각보다 너무 기대 이하의 실력을 보였다. 1만판이면.. 최소 10만 시간은 사용했을텐데.. 경력이 보다 훨씬 짧은 프로게이머에게 처참하게 무너졌다. 그 이유가 와닿는가??</p>
+</blockquote>
+<h3 id="자신의-약점을-개선하려고-애쓰는-의도적-훈련-애자일-철학을-활용해-해결"><a href="#자신의-약점을-개선하려고-애쓰는-의도적-훈련-애자일-철학을-활용해-해결" class="headerlink" title="자신의 약점을 개선하려고 애쓰는 의도적 훈련 - 애자일 철학을 활용해 해결!"></a>자신의 약점을 개선하려고 애쓰는 의도적 훈련 - 애자일 철학을 활용해 해결!</h3><p>의도적 수련의 필수 조건</p>
+<ul>
+<li>동기 : 실력을 개선시켜야겠다는 강한 의지</li>
+<li>피드백<ul>
+<li>내가 한 행동에 대한 피드백을 10분후, 1시간, 1일, 1주일 후 등 여러 주기를 통해 지속적으로 얻어야 함<ul>
+<li>(그렇지 못한다면) 행동&#x2F;결정한 문제에 대한 피드백을 몇 달후(테스트 단계)에 받음 - 결정 내렸던 근거들에 깊이감이 없어지며며 심지어는 결정의 이유조차 가물해짐</li>
+</ul>
+</li>
+<li>저지른 실수는 바로 다음 주기에서 교정</li>
+<li>상사, 고객 혹은 내가 개발하는 프로그램에서 직접 피드백을 적극적으로 구해야함</li>
+</ul>
+</li>
+<li>타당성<ul>
+<li>변수를 제한하고 실험을 하면서 규칙성과 인과관계를 찾으려는 노력을 해야함</li>
+</ul>
+</li>
+<li>적절한 난이도<ul>
+<li>나의 실력과 작업의 난이도가 비슷해야 함</li>
+</ul>
+</li>
+</ul>
+<h3 id="난이도는-어떻게-설계해-최대의-보람을-성취할-수-있을까"><a href="#난이도는-어떻게-설계해-최대의-보람을-성취할-수-있을까" class="headerlink" title="난이도는 어떻게 설계해 최대의 보람을 성취할 수 있을까"></a>난이도는 어떻게 설계해 최대의 보람을 성취할 수 있을까</h3><p>우선 미하이 칙센트미하이의 <code>몰입이론</code> 에 대해 알아보자</p>
+<p><img src="/img/agile/growup/flow_theory01.png" alt="몰입이론"></p>
+<ul>
+<li>A 영역 (지루함 😒)<ul>
+<li>실력 &gt; 작업 난이도 → 지금 당장은 조금 편할지라도 곧 <strong>지루함</strong>을 느끼게 됨</li>
+</ul>
+</li>
+<li>B 영역 (불안함&#x2F;두려움 😱)<ul>
+<li>작업 난이도 &gt; 실력 → 불안함, 두려움을 느끼게 됨</li>
+<li>인지 부하 이론(Congnitive Load Theory) : 학습 시 불필요하게 인지적인 부담을 주면 어떤 것도 제대로 학습하기 어려움(독일어로 미적분을 배우면, 독일어라는 엉뚱한 것에 두뇌 에너지를 빼앗겨 미적분 자체를 온전히 배우기 힘듬)</li>
+</ul>
+</li>
+<li>C 영역  (몰입 🤩)<ul>
+<li>실력 ≒ 작업 난이도 → 최고 수준의 집중력, 퍼포먼스 및 학습 능력 최대치, 최고 수준의 행복감</li>
+<li>크라센의 입력 가설(Input Theory) : i+1 이론이라고 하며, 학습자의 수준을 i라고 할 때 딱 한 단계 높은 i+1 수준의 입력이 주어질 때에만 언어 능력이 유의미하게 진전한다는 이론</li>
+</ul>
+</li>
+</ul>
+<p><img src="/img/agile/growup/flow_theory02.png" alt="몰입이론"></p>
+<h3 id="몰입-단계로-들어가기-제자리걸음에서-벗어나기"><a href="#몰입-단계로-들어가기-제자리걸음에서-벗어나기" class="headerlink" title="몰입 단계로 들어가기 - 제자리걸음에서 벗어나기"></a>몰입 단계로 들어가기 - 제자리걸음에서 벗어나기</h3><p><img src="/img/agile/growup/flow_theory03.png" alt="몰입이론"></p>
+<ul>
+<li><p>지루함을 느끼는 경우</p>
+<ul>
+<li>난이도 높이기(a2) - 요구사항에 대해 좀 더 심층적으로 요구사항을 해결함<ul>
+<li>100 rps면 되는 시스템 요구사항을 1000 rps 기준으로 만들기</li>
+<li>익숙치 않은 코딩 방식으로 짜보기<ul>
+<li>함수형 프로그래밍</li>
+<li>패턴 적용해보기</li>
+<li>새로운 언어로 작성해보기 등</li>
+</ul>
+</li>
+<li>자동화 테스트를 수행</li>
+<li>리팩토링 등</li>
+</ul>
+</li>
+<li>실력 낮추기(a1)<ul>
+<li>달리기 연습을 할때 모래주머니를 달고 운동하는 것과 유사함</li>
+<li>디버깅, 컴파일을 하는 횟수를 줄여서 긴장감을 높일수 있음</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>불안함을 느끼는 경우</p>
+<ul>
+<li><p>실력 높이기(b2)</p>
+<ul>
+<li>전문서적 읽기</li>
+<li>스터디&#x2F;교육 참석</li>
+<li>나보다 뛰어난 전문가의 도움을 얻음 (온&#x2F;오프라인)</li>
+<li>튜토리얼 문서</li>
+<li>오픈소스 라이브러리</li>
+</ul>
+</li>
+<li><p>난이도 낮추기(b1)</p>
+<ul>
+<li>아기 버전(0.0.1 버전)을 첫번째 목표로!</li>
+<li>WTSTTCPW(What’s The Simplest Thing That Could Possibly Work?)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-올바른-학습이-우리에게-주는-진정한-효과"><a href="#4-올바른-학습이-우리에게-주는-진정한-효과" class="headerlink" title="4. 올바른 학습이 우리에게 주는 진정한 효과"></a>4. 올바른 학습이 우리에게 주는 진정한 효과</h2><h3 id="자기-계발은-복리로-돌아옴"><a href="#자기-계발은-복리로-돌아옴" class="headerlink" title="자기 계발은 복리로 돌아옴"></a>자기 계발은 복리로 돌아옴</h3><ul>
+<li>자신이 습득한 지식이나 능력은 복리(더하기가 아닌 곱하기!)로 이자가 붙기 때문에 우리의 자기 계발은 축적이 되면 엄청난 차이를 만듬</li>
+<li>빨리 자라고 싶다면?<ul>
+<li>어떻게 이율을 높일 것인가<ul>
+<li>자신이 갖고 있는 것들을 잘 활용하자<ul>
+<li>새로운 지식을 받아들이는데만 집중하면 새로 들어온 것들이 이미 있는 것들을 덮을 수 있음</li>
+<li>내가 갖고 있는 지식을 얼마나 어떻게 활용하는지 반성해야한다.</li>
+<li>이미 갖고 있는 지식들을 하이퍼링크로 서로 촘촘히 연결</li>
+<li>새로운 지식을 받아들이면 지금 가지고 있는 지식들과 충돌을 시도하기</li>
+</ul>
+</li>
+<li>외부 물질을 체화하라<ul>
+<li>계속 내부 순환만 하다가는 일정 수준에 수렴할 수 있음. 따라서 주기적인 외부 자극을 받으면 좋음</li>
+<li>외부 물질을 받아들이면 소화해서 자신의 일부로 체화해야함</li>
+</ul>
+</li>
+<li>피드백을 자주 받아들여라</li>
+<li>자신의 능력을 높여주는  도구와 환경을 점진적으로 만들어라</li>
+<li>자신을 개선하는 프로세스에 대해 생각해 보기</li>
+</ul>
+</li>
+<li>어떻게 이자 적용 주기를 짧게 만들 것인가.</li>
+</ul>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-31T15:09:44.000Z" title="11/1/2022, 12:09:44 AM">2022-11-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-12-20T15:11:28.000Z" title="12/21/2023, 12:11:28 AM">2023-12-21</time></span><span class="level-item"><a class="link-muted" href="/categories/Programming/">Programming</a><span> / </span><a class="link-muted" href="/categories/Programming/Clean-Code/">Clean Code</a></span><span class="level-item">8 minutes read (About 1146 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Programming/Clean%20Code/Chap01.%20%EA%B9%A8%EB%81%97%ED%95%9C%20%EC%BD%94%EB%93%9C/">Clean Code</a></h1><div class="content"><h1 id="Chap01-깨끗한-코드"><a href="#Chap01-깨끗한-코드" class="headerlink" title="Chap01. 깨끗한 코드"></a>Chap01. 깨끗한 코드</h1><h2 id="코드는-앞으로도-여전히-중요하다"><a href="#코드는-앞으로도-여전히-중요하다" class="headerlink" title="코드는 앞으로도 여전히 중요하다"></a>코드는 앞으로도 여전히 중요하다</h2><p>인공지능 등의 기술의 발전으로 인해 코드를 자동으로 생성하는 시대가 오기 때문에, 프로그래머는 필요가 없어질까??</p>
+<p>이 책에서는 그것이 불가능하다고 한다. </p>
+<p>Why⁉️</p>
+<ol>
+<li><p>코드는 요구사항을 상세히 표현하는 수단이기 때문!</p>
+<ul>
+<li>어느정도 수준에 도달하면 코드의 도움 없이는 요구사항을 상세히 표현하기란 불가능</li>
+</ul>
+</li>
+<li><p>추상화가 불가능하기 때문</p>
+</li>
+</ol>
+<h2 id="나쁜-코드"><a href="#나쁜-코드" class="headerlink" title="나쁜 코드"></a>나쁜 코드</h2><h3 id="나쁜-코드란-무엇인가"><a href="#나쁜-코드란-무엇인가" class="headerlink" title="나쁜 코드란 무엇인가"></a>나쁜 코드란 무엇인가</h3><ol>
+<li>WTF가 분당 빈도수가 많을수록 나쁜 코드(&#x3D;법규형을 얼마나 많이 찾느냐)<ul>
+<li>알아보기 힘든 코드는 어쩔 수 없이 나올 수 밖에 없다. 하지만 나쁜 코드란 “WTF”이라고 나오는 빈도가 얼마나 많이 나오느냐이다</li>
+</ul>
+</li>
+</ol>
+<p><img src="/img/java/Clean_Code/bad_code.png" alt="Bad Code"></p>
+<h3 id="나쁜-코드를-짜는-이유"><a href="#나쁜-코드를-짜는-이유" class="headerlink" title="나쁜 코드를 짜는 이유"></a>나쁜 코드를 짜는 이유</h3><ol>
+<li>일정이 촉박<ul>
+<li>일정 안에 새로운 기능을 완성시켜야 함<ul>
+<li>하지만 나쁜 코드는 **<code>팀 생산성을 저하시키기 때문에 오히려 일정을 지연</code>**시키게 만든다.</li>
+</ul>
+</li>
+<li>우리 모두는 자신이 처음에 나이브하게 짠 코드를 보면서 나중에 손보겠다고 생각하지만 **<code>나중은 결코 오지 않는다**.</code>(르블랑의 법칙)</li>
+</ul>
+</li>
+<li>영향 범위가 넓어서<ul>
+<li>생각보다 영향 범위가 넓어서 건드렸다가 다른 부분에 버그가 발생할까봐. 하지만 기술 부채는 부메랑처럼 우리에게로 돌아옴</li>
+</ul>
+</li>
+</ol>
+<p>Chap01 깨끗한 코드</p>
+<p>클린코드와 그 첫걸음 네이밍</p>
+<ol>
+<li><p>나쁜 코드 란 무엇인가</p>
+<p>알아보기 힘든 코드는 어쩔 수 없이 나온다. 나쁜 코드란 와 이게 뭐지 라고 나오는 빈도가 얼마나 많이 나오느냐라고 나올 수 밖에 없다.</p>
+<ul>
+<li>성능이 나쁜 코드<ul>
+<li>불필요한 연산이 들어가서 개선의 여지가 있는 코드</li>
+</ul>
+</li>
+<li>의미가 모호한 코드<ul>
+<li>이해하기 어려운 코드</li>
+<li>네이밍과 그 내용이 다른 코드</li>
+</ul>
+</li>
+<li>중복된 코드<ul>
+<li>비슷한 내용인데 중복되는 코드들은 버그를 생성하고 유지보수를 어렵게 만듬</li>
+</ul>
+</li>
+<li>나쁜 코드가 나쁜 이유<ol>
+<li>나쁜 코드는 깨진 유리창처럼 계속 나쁜 코드가 만들어지도록 함.</li>
+<li>생산성 저하 나쁜 코드는 기술 부채를 만들어 요구사항에 대한 수정을 더 어렵게 만들며 그 결과  팀 생산성을 저하시킴</li>
+<li>새로운 시스템을 만들어야 함<ol>
+<li>현 시스템을 유지보수하며 대체할 새로운 시스템 개발은 현실적으로 매우 어렵다.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>나쁜 코드를 짜는 이유<ol>
+<li>일정이 촉박<ol>
+<li>일정 안에 새로운 기능을 완성시켜야 함 하지만 나쁜 코드는 생산성을 저하시키기 때문에 오히려 일정을 지연시키게 만든다.</li>
+</ol>
+</li>
+<li>영향 범위가 넓어서<ol>
+<li>생각보다 영향 범위가 넓어서 건드렸다가 다른 부분에 버그가 발생할까봐. 하지만 기술 부채는 부메랑처럼 우리에게로 돌아온다.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>그렇다면 클린 코드 란 무엇인가 나는 우아하고 효율적인 코드를 좋아한다. 논리가 간단해야 버그가 숨어들지 못한다. 의존ㄴ성을 최대한 줄여야 유지보수가 쉬워진다. 오류는 명백한 전략에 의거해 철저히 처리한다. 성능을 최적으로 유지해야 사람들이 원칙 없는 최적화로 코드를 망치려는 유혹에 빠지지 않는다. 깨끗한 코드는 한 가지를 제대로 한다 &lt;비야네 스트롭 c++ 창시자&gt;</p>
+<ul>
+<li><p>그레디 부지(객체지향 대가)</p>
+<p>깨끗한 코드는 단순하고 직접적이다. 깨끗한 코드는 잘 쓴 문장처럼 읽힌다. 깨끗한 코드는 결코 설계자의 의도를 숨기지 않는다. 오히려 명백한 추상화와 단순한 제어문으로 가득하다.</p>
+</li>
+<li><p>보이스카웃 룰</p>
+<p>“전보다 더 깨끗한 코드로 만든다.”</p>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>클린코드<ol>
+<li>성능이 좋은 코드</li>
+<li>의미가 명확한 코드 &#x3D; 가독성이 좋은 코드</li>
+<li>중복이 제거된 코드</li>
+</ol>
+</li>
+</ul>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/matterhorn.jpg" alt="Shawn Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Shawn Choi</p><p class="is-size-6 is-block">노력 백줌 열정 천줌의 소프트웨어 개발자</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Seoul, Republic of Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">122</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">64</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">73</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/shchoice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/shchoice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Deep-Learning/"><span class="level-start"><span class="level-item">Deep Learning</span></span><span class="level-end"><span class="level-item tag">40</span></span></a><ul><li><a class="level is-mobile" href="/categories/Deep-Learning/Paper/"><span class="level-start"><span class="level-item">Paper</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Deep-Learning/Text-Summarization/"><span class="level-start"><span class="level-item">Text Summarization</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Deep-Learning/Transformers/"><span class="level-start"><span class="level-item">Transformers</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Deep-Learning/Transformers/TainingArugments/"><span class="level-start"><span class="level-item">TainingArugments</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Deep-Learning/%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">기본 개념</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/Deep-Learning/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">자연어생성 개념</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/Deep-Learning/%EC%A4%91%EA%B8%89-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">중급 개념</span></span><span class="level-end"><span class="level-item tag">14</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/ElasticSearch/"><span class="level-start"><span class="level-item">ElasticSearch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/FastAPI/"><span class="level-start"><span class="level-item">FastAPI</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Github-Pages/"><span class="level-start"><span class="level-item">Github Pages</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/JPA/"><span class="level-start"><span class="level-item">JPA</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/JPA/Basic/"><span class="level-start"><span class="level-item">Basic</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">13</span></span></a><ul><li><a class="level is-mobile" href="/categories/Java/Java8/"><span class="level-start"><span class="level-item">Java8</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/"><span class="level-start"><span class="level-item">클린코드</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">함수형 프로그래밍</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Kotlin/"><span class="level-start"><span class="level-item">Kotlin</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/Kotlin/WebFlux/"><span class="level-start"><span class="level-item">WebFlux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Kotlin/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/MLOps/"><span class="level-start"><span class="level-item">MLOps</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/MLOps/MLflow/"><span class="level-start"><span class="level-item">MLflow</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/OPS/"><span class="level-start"><span class="level-item">OPS</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/OpenSearch/"><span class="level-start"><span class="level-item">OpenSearch</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Ops/"><span class="level-start"><span class="level-item">Ops</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/Ops/Windows-CMD/"><span class="level-start"><span class="level-item">Windows CMD</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Ops/%EC%84%A4%EC%B9%98/"><span class="level-start"><span class="level-item">설치</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Programming/"><span class="level-start"><span class="level-item">Programming</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/Programming/Agile/"><span class="level-start"><span class="level-item">Agile</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Programming/Agile/%ED%95%A8%EA%BB%98%EC%9E%90%EB%A6%AC%EA%B8%B0/"><span class="level-start"><span class="level-item">함께자리기</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Programming/Clean-Code/"><span class="level-start"><span class="level-item">Clean Code</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Programming/TDD/"><span class="level-start"><span class="level-item">TDD</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Programming/UML/"><span class="level-start"><span class="level-item">UML</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Programming/%EB%82%B4-%EC%BD%94%EB%93%9C%EA%B0%80-%EA%B7%B8%EB%A0%87%EA%B2%8C-%EC%9D%B4%EC%83%81%ED%95%9C%EA%B0%80%EC%9A%94/"><span class="level-start"><span class="level-item">내 코드가 그렇게 이상한가요</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul><li><a class="level is-mobile" href="/categories/Python/Advanced-Concept/"><span class="level-start"><span class="level-item">Advanced Concept</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">객체지향 프로그래밍</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EB%8F%99%EC%8B%9C%EC%84%B1-%EB%B0%8F-%EB%B9%84%EB%8F%99%EA%B8%B0/"><span class="level-start"><span class="level-item">동시성 및 비동기</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EB%AC%B8%EB%B2%95/"><span class="level-start"><span class="level-item">문법</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">함수형 프로그래밍</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/REST/"><span class="level-start"><span class="level-item">REST</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Spring/"><span class="level-start"><span class="level-item">Spring</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul><li><a class="level is-mobile" href="/categories/Spring/Spring-Framework/"><span class="level-start"><span class="level-item">Spring Framework</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Spring/Spring-MVC/"><span class="level-start"><span class="level-item">Spring MVC</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/"><span class="level-start"><span class="level-item">핵심 원리 - 기본편</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/TIL/"><span class="level-start"><span class="level-item">TIL</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/TIL/1%EB%A7%8C-%EC%8B%9C%EA%B0%84%EC%9D%98-%EB%B2%95%EC%B9%99/"><span class="level-start"><span class="level-item">1만 시간의 법칙</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/"><span class="level-start"><span class="level-item">데이터 마이닝</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/%EA%B8%B0%EB%B3%B8/"><span class="level-start"><span class="level-item">기본</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/"><span class="level-start"><span class="level-item">딥러닝</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어처리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/"><span class="level-start"><span class="level-item">인공지능</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/"><span class="level-start"><span class="level-item">개념 정리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어 처리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어처리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/"><span class="level-start"><span class="level-item">컨테이너 오케스트레이션</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/Docker/"><span class="level-start"><span class="level-item">Docker</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/"><span class="level-start"><span class="level-item">통계학</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/%EA%B8%B0%EB%B3%B8/"><span class="level-start"><span class="level-item">기본</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%8C%8C%EC%9D%B4%EC%8D%AC/"><span class="level-start"><span class="level-item">파이썬</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-30T14:51:21.000Z">2024-03-30</time></p><p class="title"><a href="/3-%EC%8A%A4%ED%94%84%EB%A7%81-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B9%88/">3. 스프링 컨테이너와 스프링 빈</a></p><p class="categories"><a href="/categories/Spring/">Spring</a> / <a href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/">핵심 원리 - 기본편</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-24T14:52:03.000Z">2024-03-24</time></p><p class="title"><a href="/2-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%9B%90%EB%A6%AC-%EC%A0%81%EC%9A%A9/">2. 객체지향 원리 적용</a></p><p class="categories"><a href="/categories/Spring/">Spring</a> / <a href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/">핵심 원리 - 기본편</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-15T14:57:52.000Z">2024-03-15</time></p><p class="title"><a href="/1-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%EC%84%A4%EA%B3%84%EC%99%80-%EC%8A%A4%ED%94%84%EB%A7%81/">1. 객체 지향 설계와 스프링</a></p><p class="categories"><a href="/categories/Spring/">Spring</a> / <a href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/">핵심 원리 - 기본편</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-07T13:08:16.000Z">2024-03-07</time></p><p class="title"><a href="/OpenSearch-%EC%84%A4%EC%B9%98/">OpenSearch 설치</a></p><p class="categories"><a href="/categories/OpenSearch/">OpenSearch</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-05T14:14:11.000Z">2024-03-05</time></p><p class="title"><a href="/OpenSearch-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/">OpenSearch 란 무엇인가</a></p><p class="categories"><a href="/categories/OpenSearch/">OpenSearch</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">March 2024</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">February 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">January 2024</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/10/"><span class="level-start"><span class="level-item">October 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">September 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">August 2023</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/07/"><span class="level-start"><span class="level-item">July 2023</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">June 2023</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">April 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">March 2023</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">February 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">January 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">December 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">November 2022</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">October 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/08/"><span class="level-start"><span class="level-item">August 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/1%EA%B8%89-%EC%8B%9C%EB%AF%BC/"><span class="tag">1급 시민</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Anonymous-Class/"><span class="tag">Anonymous Class</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/AutoEncoder/"><span class="tag">AutoEncoder</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BERT/"><span class="tag">BERT</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Bind-Mounts/"><span class="tag">Bind Mounts</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Classification/"><span class="tag">Classification</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Cross-Entropy-Loss/"><span class="tag">Cross Entropy Loss</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Curse-of-Dimensionality/"><span class="tag">Curse of Dimensionality</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Data-Volume/"><span class="tag">Data Volume</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker/"><span class="tag">Docker</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker-Orchestration-Tools/"><span class="tag">Docker Orchestration Tools</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Document-Embedding/"><span class="tag">Document Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-Vectors/"><span class="tag">Embedding Vectors</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-vector/"><span class="tag">Embedding vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Entropy/"><span class="tag">Entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FLAN/"><span class="tag">FLAN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Feature-Vector/"><span class="tag">Feature Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Function-Interface/"><span class="tag">Function Interface</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GPT/"><span class="tag">GPT</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Git/"><span class="tag">Git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Gradient-Descent/"><span class="tag">Gradient Descent</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hidden-Representation/"><span class="tag">Hidden Representation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Instruction-Finetuning/"><span class="tag">Instruction Finetuning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KL-Divergence/"><span class="tag">KL Divergence</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KoNLPy/"><span class="tag">KoNLPy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Lambda-Expression/"><span class="tag">Lambda Expression</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Latent-Space/"><span class="tag">Latent Space</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Learning-Rate/"><span class="tag">Learning Rate</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linear-Layer/"><span class="tag">Linear Layer</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Log-Likelihood/"><span class="tag">Log-Likelihood</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MAP/"><span class="tag">MAP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MLE/"><span class="tag">MLE</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Manifold-hypothesis/"><span class="tag">Manifold hypothesis</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Matrix/"><span class="tag">Matrix</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Mecab/"><span class="tag">Mecab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Multi-Stage-Build/"><span class="tag">Multi Stage Build&quot;</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NLL/"><span class="tag">NLL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Persistence-Data/"><span class="tag">Persistence Data</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Probabilistic-Perspective/"><span class="tag">Probabilistic Perspective</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Representation-Learning/"><span class="tag">Representation Learning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SOLID/"><span class="tag">SOLID</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Scalar/"><span class="tag">Scalar</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Spring%EC%9D%B4%EB%9E%80/"><span class="tag">Spring이란</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Subword-Embedding/"><span class="tag">Subword Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tensor/"><span class="tag">Tensor</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tramsformers/"><span class="tag">Tramsformers</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Transformer/"><span class="tag">Transformer</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vector/"><span class="tag">Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/What-to-do/"><span class="tag">What to do</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Word-Embedding/"><span class="tag">Word Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cross-entropy/"><span class="tag">cross entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/default-method/"><span class="tag">default method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/max-length/"><span class="tag">max_length</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mlflow/"><span class="tag">mlflow</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/one-hot-Encoding/"><span class="tag">one-hot Encoding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/packing/"><span class="tag">packing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/padding/"><span class="tag">padding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/python-%EC%84%A4%EC%B9%98/"><span class="tag">python 설치</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/static-method/"><span class="tag">static method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/unpacking/"><span class="tag">unpacking</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/"><span class="tag">객체지향</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%8B%A4%ED%98%95%EC%84%B1/"><span class="tag">다형성</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%9E%8C%EB%8B%A4%EC%8B%9D/"><span class="tag">람다식</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%B2%A1%ED%84%B0%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">벡터의 곱셈</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%97%94%ED%8A%B8%EB%A1%9C%ED%94%BC/"><span class="tag">엔트로피</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EB%9F%89/"><span class="tag">정보량</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EC%9D%B4%EB%A1%A0/"><span class="tag">정보이론</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0/"><span class="tag">파라미터</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98%ED%98%95-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/"><span class="tag">함수형 인터페이스</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="tag">함수형 프로그래밍</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">행렬의 곱셈</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 Shawn Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

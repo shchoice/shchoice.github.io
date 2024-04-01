@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Shawn&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Shawn&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon_sh.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Shawn&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="차분하고 겸손하지만 확실하게!!"><meta property="og:type" content="blog"><meta property="og:title" content="Shawn&#039;s Blog"><meta property="og:url" content="http://example.com/"><meta property="og:site_name" content="Shawn&#039;s Blog"><meta property="og:description" content="차분하고 겸손하지만 확실하게!!"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/og_image.png"><meta property="article:author" content="Shawn Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"Shawn's Blog","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"Shawn Choi"},"publisher":{"@type":"Organization","name":"Shawn's Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.svg"}},"description":"차분하고 겸손하지만 확실하게!!"}</script><link rel="icon" href="/img/favicon_sh.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-D7QRVGYDET" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D7QRVGYDET');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+          Array
+              .from(document.querySelectorAll('.tab-content'))
+              .forEach($tab => {
+                  $tab.classList.add('is-hidden');
+              });
+          Array
+              .from(document.querySelectorAll('.tabs li'))
+              .forEach($tab => {
+                  $tab.classList.remove('is-active');
+              });
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-06-17T14:58:51.000Z" title="6/17/2023, 11:58:51 PM">2023-06-17</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-12-20T15:03:39.000Z" title="12/21/2023, 12:03:39 AM">2023-12-21</time></span><span class="level-item"><a class="link-muted" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/">컨테이너 오케스트레이션</a><span> / </span><a class="link-muted" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/Docker/">Docker</a></span><span class="level-item">5 minutes read (About 785 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Container%20Orchestration/Docker/Docker-Orchestration-Tools/">Docker Orchestration Tools</a></h1><div class="content"><h1 id="Docker-Orchestration-Tools"><a href="#Docker-Orchestration-Tools" class="headerlink" title="Docker Orchestration Tools"></a>Docker Orchestration Tools</h1><h2 id="Docker-orchestration-tool-이란"><a href="#Docker-orchestration-tool-이란" class="headerlink" title="Docker orchestration tool 이란"></a>Docker orchestration tool 이란</h2><ul>
+<li>Docker 컨테이너를 관리하고, 자동화하는 기능을 제공하는 도구들을 의미함</li>
+<li>대규모 시스템에서 수십, 수백, 수천 개의 컨테이너를 효과적으로 관리하는 데 도움이 됨<ul>
+<li>컨테이너의 배포 및 스케일링</li>
+<li>서비스 간의 네트워킹과 통신</li>
+<li>로드 밸런싱</li>
+<li>컨테이너 간의 종속성 관리</li>
+<li>장애 발생 시 복구</li>
+<li>리소스 할당</li>
+</ul>
+</li>
+</ul>
+<h1 id="Docker-Orchestration-tool-종류"><a href="#Docker-Orchestration-tool-종류" class="headerlink" title="Docker Orchestration tool 종류"></a>Docker Orchestration tool 종류</h1><ul>
+<li><p>Kubernetes(k8s)</p>
+<ul>
+<li>컨테이너화된 애플리케이션을 배포, 확장, 관리하기 위한 오픈소스 플랫폼</li>
+<li>Google에서 개발한 이 플랫폼은 현재 Cloud Native Computing Foundation에서 관리</li>
+<li>주요 기능 및 컴포넌트<ul>
+<li><p>컨테이너 배포 및 스케일링</p>
+<ul>
+<li>k8s는 컨테이너 그룹 (Pods라고 부름)에 대한 선언적 업데이트와 롤백을 제공</li>
+<li>사용자는 특정 수의 컨테이너가 실행 중인지 확인할 수 있으며, 필요에 따라 수동 또는 자동으로 스케일링을 조정할 수 있음</li>
+</ul>
+</li>
+<li><p>서비스 디스커버리와 로드 밸런싱</p>
+<ul>
+<li>DNS 이름이나 자체 IP 주소를 사용하여 컨테이너를 찾을 수 있음</li>
+<li>컨테이너에 트래픽이 많을 경우, Kubernetes는 로드 밸런싱과 분산을 통해 트래픽을 관리</li>
+</ul>
+</li>
+<li><p>스토리지 오케스트레이션</p>
+<ul>
+<li>로컬 스토리지나 공용 클라우드 제공자 (GCP, AWS 등)의 스토리지, 네트워크 스토리지 시스템 (iSCSI, NFS, Gluster, Ceph 등) 등 다양한 스토리지 시스템을 자동으로 마운트할 수 있음</li>
+</ul>
+</li>
+<li><p>자동화된 롤아웃과 롤백</p>
+<ul>
+<li>애플리케이션의 원하는 상태를 기술하고, 현재 상태를 원하는 상태로 변경하는 속도를 제어할 수 있음<ul>
+<li>애플리케이션의 새 버전을 배포하거나, 현재 버전을 이전 버전으로 롤백하거나, 동시에 모든 인스턴스를 업데이트하지 않아도 됨</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Docker Compose</p>
+<ul>
+<li>Docker Compose는 여러 컨테이너로 구성된 애플리케이션을 정의하고 실행하는 도구</li>
+<li>여러 컨테이너로 구성된 도커 애플리케이션을 관리</li>
+<li>주로 단일 호스트를 대상으로</li>
+<li>yaml 파일 형식의 compose 파일을 사용하여 서비스, 네트워크, 볼륨 등을 정의 </li>
+<li><code>docker-compose up</code> 명령을 사용해 모든 컨테이너를 한번에 시작할 수 있음</li>
+</ul>
+</li>
+<li><p>Docker Swarm</p>
+<ul>
+<li>여러 Docker 호스트를 하나의 가상 호스트처럼 작동하게 하는 클러스터링 및 스케줄링 도구</li>
+<li>주로 멀티 호스트를 대상으로 함</li>
+<li>서비스 디스커버리, 로드밸런싱, 서비스 복제(replica) 등을 통해 고가용성과 확장성을 제공</li>
+</ul>
+</li>
+<li><p>Docker Service</p>
+<ul>
+<li>스웜에서 클러스터 안의 서비스(컨테이너 하나 이상의 집합)를 관리</li>
+</ul>
+</li>
+<li><p>Docker Stack</p>
+<ul>
+<li>스웜에서 여러 개의 서비스를 합한 애플리케이션을 관리</li>
+</ul>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-06-16T14:24:40.000Z" title="6/16/2023, 11:24:40 PM">2023-06-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-12-20T15:03:40.000Z" title="12/21/2023, 12:03:40 AM">2023-12-21</time></span><span class="level-item"><a class="link-muted" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/">컨테이너 오케스트레이션</a><span> / </span><a class="link-muted" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/Docker/">Docker</a></span><span class="level-item">11 minutes read (About 1582 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Container%20Orchestration/Docker/Docker-Persistance-Data/">Docker Persistance Data</a></h1><div class="content"><h1 id="Docker-Persistance-Data"><a href="#Docker-Persistance-Data" class="headerlink" title="Docker Persistance Data"></a>Docker Persistance Data</h1><h2 id="Persistence-Data란"><a href="#Persistence-Data란" class="headerlink" title="Persistence Data란"></a>Persistence Data란</h2><ul>
+<li><p>컨테이너가 생성하는 데이터를 저장하고 관리하기 위한 기능</p>
+<ul>
+<li>Docker 컨테이너는 기본적으로 휘발성(volatile), 즉 컨테이너가 종료되면 컨테이너에서 생성된 모든 데이터가 삭제됨</li>
+<li>이를 위해 Data를 영구적으로 보존하도록 하는 기능</li>
+</ul>
+</li>
+<li><p>애플리케이션을 종료하고 다시 실행하더라도 이전에 저장한 데이터를 다시 불러올 수 있는 기술</p>
+</li>
+<li><p>Docker는 데이터 지속성을 제공하는 몇 가지 메커니즘을 제공</p>
+<ul>
+<li>Docker Volumes</li>
+<li>바인드 마운트(Bind mounts)</li>
+<li>tmpfs 마운트 (tmpfs mounts)</li>
+<li>Volume Container</li>
+</ul>
+</li>
+</ul>
+<h2 id="Data-Volume"><a href="#Data-Volume" class="headerlink" title="Data Volume"></a>Data Volume</h2><ul>
+<li><p>Docker에 의해 직접 관리되며, 컨테이너 간에 쉽게 데이터를 공유할 수 있음</p>
+</li>
+<li><p>Docker의 볼륨은 호스트 시스템에서 관리되는 공간으로, 컨테이너에 마운트할 수 있음</p>
+<ul>
+<li>즉, 호스트와 컨테이너 사이의 디렉터리 공유 및 재사용 기능을 제공</li>
+</ul>
+</li>
+<li><p>Docker CLI 또는 Docker Compose를 사용하여 생성하고 관리할 수 있음</p>
+</li>
+<li><p>Docker Volume 드라이버를 사용하면 클라우드 기반 스토리지 서비스 등을 이용하여 볼륨을 호스팅할 수 있음</p>
+</li>
+<li><p>볼륨의 백업과 복원을 수행할 수 있음</p>
+</li>
+<li><p>컨테이너를 파기해도 디스크에 그대로 남아 stateful한 애플리케이션 실행에 적합함</p>
+<p><img src="https://user-images.githubusercontent.com/100276387/245652293-ef604f86-0ee9-4bef-bb62-c9f9f48145e5.png" alt="Docker Volume"></p>
+</li>
+<li><p><code>-v</code> 또는 <code>--volume</code> 옵션 뒤에 오는 값이 <code>VOLUME_NAME:CONTAINER_PATH</code> 형태라면, 이는 볼륨을 사용한다는 의미 <em>(bind mounts와 햇갈리지 말기)</em></p>
+<ul>
+<li><code>VOLUME_NAME</code> : Docker에 의해 관리되는 볼륨의 이름</li>
+<li><code>CONTAINER_PATH</code>는 컨테이너 내에서 해당 볼륨이 마운트될 위치</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">mysql_data라는 이름의 볼륨을 생성하고, 이를 컨테이너의 /var/lib/mysql 디렉토리에 마운트</span></span><br><span class="line">docker volume create mysql_data</span><br><span class="line">docker run -d \</span><br><span class="line">  --name mysql \</span><br><span class="line">  -v mysql_data:/var/lib/mysql \</span><br><span class="line">  -e MYSQL_ROOT_PASSWORD=my-secret-pw \</span><br><span class="line">  mysql:tag</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Bind-mounts"><a href="#Bind-mounts" class="headerlink" title="Bind mounts"></a>Bind mounts</h2><ul>
+<li><p>바인드 마운트는 호스트 시스템의 특정 디렉토리를 컨테이너에 직접 마운트하는 방법</p>
+</li>
+<li><p>이 방법은 컨테이너에서 생성된 데이터를 호스트에 직접 저장하게 함</p>
+</li>
+<li><p><code>-v</code> 또는 <code>--volume</code> 옵션 뒤에 오는 값이 <code>HOST_PATH:CONTAINER_PATH</code> 형태라면, 이는 바인드 마운트를 사용한다는 의미</p>
+<ul>
+<li><code>HOST_PATH</code>는 호스트 시스템의 파일 또는 디렉토리 경로</li>
+<li><code>CONTAINER_PATH</code>는 컨테이너 내에서 해당 경로가 마운트될 위치</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">호스트 시스템의 ~/myapp 디렉토리를 컨테이너의 /app 디렉토리에 마운트</span></span><br><span class="line">docker run -d \</span><br><span class="line">  -v ~/myapp:/app \</span><br><span class="line">  my_docker_image</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="tmpfs-mounts"><a href="#tmpfs-mounts" class="headerlink" title="tmpfs mounts"></a>tmpfs mounts</h2><ul>
+<li><p>Docker 컨테이너 내부에서 일시적인 파일 저장소로 사용되는 메모리 기반 파일 시스템</p>
+<ul>
+<li>컨테이너가 실행되는 동안에만 데이터를 저장하며, 컨테이너가 종료되면 모든 데이터가 사라짐</li>
+</ul>
+</li>
+<li><p>디스크에 데이터를 저장할 때 발생하는 I&#x2F;O 오버헤드 없이 빠른 데이터 액세스를 필요로 하는 경우에 유용</p>
+<p>ex. 웹사이트에서 세션 정보나 캐시 정보와 같은 일시적인 데이터를 tmpfs 마운트에 저장할 수 있음</p>
+<ul>
+<li>이런 정보들은 빠르게 접근해야 하지만, 서버가 재시작되는 경우 이전 세션 정보나 캐시 정보가 사라져도 큰 문제가 없는 데이터로 tmpfs 마운트를 사용하면 디스크 I&#x2F;O의 부하를 줄이면서 빠른 데이터 액세스를 가능하게 할 수 있음</li>
+</ul>
+</li>
+<li><p>임시 데이터를 저장하기에만 적합하며, 영구적인 데이터 저장에는 적합하지 않음</p>
+<ul>
+<li>Why! 컨테이너가 중지되거나 재시작되면 메모리에 저장된 모든 데이터가 사라지기 때문</li>
+</ul>
+</li>
+<li><p>tmpfs 마운트는 Linux 기반 시스템에서만 작동하며, 다른 운영 체제에서는 사용할 수 없음</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash"> 컨테이너에서 /app 디렉토리를 tmpfs로 마운트</span></span><br><span class="line">docker run -d \</span><br><span class="line">  --tmpfs /app \</span><br><span class="line">  my_docker_image</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Data-Volume-Container"><a href="#Data-Volume-Container" class="headerlink" title="Data Volume Container"></a>Data Volume Container</h2><ul>
+<li><p>Docker의 초기 버전에서 주로 사용되던 데이터 지속성 방법 중 하나였음. 그러나 Docker Volume과 Bind Mounts, tmpfs 등의 개념이 소개되면서 최근에는 잘 사용 되지 않음</p>
+</li>
+<li><p>특정 컨테이너에 볼륨을 생성하고, 다른 컨테이너들이 해당 컨테이너를 통해 볼륨에 접근하는 방식으로 작동</p>
+<ul>
+<li>볼륨 관리에 대한 미세 조절이 필요하거나 컨테이너간에 데이터를 공유하는 데 있어서 제한적인 면이 있음</li>
+</ul>
+</li>
+<li><p>현재 Docker에서는 Docker Volumes를 사용하여 데이터를 지속적으로 저장하는 것이 표준화</p>
+</li>
+<li><p>컨테이너 간에 디렉터리를 공유</p>
+</li>
+<li><p>데이터 볼륨 컨테이너가 공유한 디렉터리 역시 호스트 머신의 스토리지에 저장됨</p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/100276387/245652732-763cbc35-d097-4632-94ad-51a84219bfaf.png" alt="Docker Volume Container01"></p>
+<p><img src="https://user-images.githubusercontent.com/100276387/245652739-e725e4fe-69f9-4106-83b5-cfe563f7156e.png" alt="Docker Volume Container02"></p>
+<p><img src="https://user-images.githubusercontent.com/100276387/245652747-2507d5ef-6e72-451b-870b-2007cbb49daf.png" alt="Docker Volume Container03"></p>
+<ul>
+<li><p>예시</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">dbdata라는 볼륨을 가진 dbstore라는 이름의 컨테이너를 만듬</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">이 컨테이너는 실행되지 않고 볼륨을 제공하는 역할만 함</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">docker create -v /dbdata --name dbstore ubuntu 명령을 실행하면, Docker는 자동으로 /dbdata라는 이름의 볼륨을 생성, 이 볼륨은 호스트 시스템에 저장됨</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">일반적으로 Linux 시스템에서는 /var/lib/docker/volumes/ 디렉터리 아래에 위치</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">따라서, /dbdata 볼륨에 데이터를 저장하면, 실제로는 호스트의 /var/lib/docker/volumes/&lt;volume-identifier&gt;/_data 디렉터리에 저장</span></span><br><span class="line"></span><br><span class="line">docker create -v /dbdata --name dbstore ubuntu</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">dbstore 볼륨 컨테이너의 볼륨을 공유하는 새 컨테이너를 만듬</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--volumes-from 옵션은 dbstore 컨테이너의 볼륨을 db1 컨테이너와 공유</span></span><br><span class="line">docker run -d --volumes-from dbstore --name db1 ubuntu</span><br></pre></td></tr></table></figure>
+
+<p>※ 참고 : docker inspect <volume-name> 을 통해 볼륨의 세부 정보를 확인할 수 있음</p>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-06-15T14:48:47.000Z" title="6/15/2023, 11:48:47 PM">2023-06-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-12-20T15:03:41.000Z" title="12/21/2023, 12:03:41 AM">2023-12-21</time></span><span class="level-item"><a class="link-muted" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/">컨테이너 오케스트레이션</a><span> / </span><a class="link-muted" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/Docker/">Docker</a></span><span class="level-item">5 minutes read (About 710 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Container%20Orchestration/Docker/Docker-%EC%A3%BC%EC%9A%94-%EB%AA%85%EB%A0%B9%EC%96%B4/">Docker 주요 명령어</a></h1><div class="content"><h1 id="주요-도커-명령어"><a href="#주요-도커-명령어" class="headerlink" title="주요 도커 명령어"></a>주요 도커 명령어</h1><ol>
+<li><strong>이미지 생성 및 관리</strong><ul>
+<li><code>docker build</code> : Dockerfile을 사용해 이미지를 빌드</li>
+<li><code>docker pull</code> : Docker 이미지를 레지스트리로부터 가져옴</li>
+<li><code>docker push</code> : Docker 이미지를 레지스트리에 푸시</li>
+<li><code>docker images</code> : 로컬에 저장된 모든 Docker 이미지를 나열</li>
+<li><code>docker rmi</code> : 하나 이상의 이미지를 제거</li>
+<li><code>docker inspect</code> : Docker 객체에 대한 상세한 정보를 JSON 형식으로 출력</li>
+<li><code>docker save</code> :  Docker 이미지를 tar 파일로 저장</li>
+<li><code>docker load</code> : Docker 이미지를 tar 파일로부터 이미지를 로드</li>
+<li><code>docker commit</code> : 컨테이너의 현재 상태를 새 Docker 이미지로 저장</li>
+<li><code>docker tag</code>: 이미지에 태그를 추가하거나 변경</li>
+<li><code>docker history</code>: 이미지의 변경 이력을 확인</li>
+</ul>
+</li>
+<li><strong>컨테이너 생성 및 관리</strong><ul>
+<li><code>docker run</code> : 새 Docker 컨테이너를 실행</li>
+<li><code>docker start</code> : 정지된 Docker 컨테이너를 시작</li>
+<li><code>docker stop</code> : 실행 중인 Docker 컨테이너를 중지</li>
+<li><code>docker restart</code> : Docker 컨테이너를 재시작</li>
+<li><code>docker pause</code>: 컨테이너를 일시 중지</li>
+<li><code>docker unpause</code>: 일시 중지된 컨테이너를 다시 시작</li>
+<li><code>docker wait</code>: 컨테이너가 종료될 때까지 대기하고, 종료 상태 코드를 출력</li>
+<li><code>docker ps</code> : 현재 실행 중인 Docker 컨테이너를 나열</li>
+<li><code>docker rm</code> : 하나 이상의 컨테이너를 제거</li>
+<li><code>docker exec</code> : 실행 중인 Docker 컨테이너에서 명령을 실행</li>
+<li><code>docker logs</code> : Docker 컨테이너의 로그를 출력</li>
+<li><code>docker cp</code> : Docker 컨테이너와 호스트 시스템 간에 파일이나 디렉토리를 복사</li>
+<li><code>docker diff</code> : 컨테이너에서 변경된 파일과 디렉토리를 출력</li>
+<li><code>docker stats</code> : 실행 중인 컨테이너의 리소스 사용량을 실시간으로 표시</li>
+<li><code>docker top</code> : 컨테이너에서 실행되는 프로세스를 보여줌</li>
+</ul>
+</li>
+<li><strong>Docker 시스템</strong><ul>
+<li><code>docker info</code> : Docker 시스템에 대한 정보를 출력</li>
+<li><code>docker version</code> : Docker의 버전 정보를 출력</li>
+<li><code>docker system df</code> : Docker의 디스크 사용량을 출력</li>
+<li><code>docker system prune</code> : 사용하지 않는 Docker 리소스를 제거</li>
+<li><code>docker system events</code>: 실시간 시스템 이벤트를 출력</li>
+</ul>
+</li>
+<li><strong>네트워킹</strong><ul>
+<li><code>docker network create</code> : 새로운 네트워크를 생성</li>
+<li><code>docker network ls</code> : 모든 네트워크를 나열</li>
+<li><code>docker network rm</code> : 하나 이상의 네트워크를 제거</li>
+<li><code>docker port</code> : 특정 컨테이너의 네트워크 포트 매핑을 확인</li>
+<li><code>docker network connect</code>: 컨테이너를 네트워크에 연결합니다.</li>
+<li><code>docker network disconnect</code>: 컨테이너를 네트워크에서 연결 해제</li>
+<li><code>docker network inspect</code>: 네트워크 상세 정보를 출력</li>
+</ul>
+</li>
+<li><strong>볼륨 관리</strong><ul>
+<li><code>docker volume create</code> : 새로운 볼륨을 생성</li>
+<li><code>docker volume ls</code> : 모든 볼륨을 나열</li>
+<li><code>docker volume rm</code> : 하나 이상의 볼륨을 제거</li>
+<li><code>docker volume inspect</code>: 볼륨 상세 정보를 출력</li>
+<li><code>docker volume prune</code>: 사용하지 않는 볼륨을 제거</li>
+</ul>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-06-13T14:55:41.000Z" title="6/13/2023, 11:55:41 PM">2023-06-13</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-12-20T15:11:28.000Z" title="12/21/2023, 12:11:28 AM">2023-12-21</time></span><span class="level-item"><a class="link-muted" href="/categories/Programming/">Programming</a><span> / </span><a class="link-muted" href="/categories/Programming/Clean-Code/">Clean Code</a></span><span class="level-item">2 minutes read (About 334 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Programming/Clean%20Code/Chap02%20%E1%84%8B%E1%85%B4%E1%84%86%E1%85%B5%E1%84%8B%E1%85%B5%E1%86%BB%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%84%85%E1%85%B3%E1%86%B7/">Chap02. 의미 있는 이름</a></h1><div class="content"><h1 id="Chap02-의미-있는-이름"><a href="#Chap02-의미-있는-이름" class="headerlink" title="Chap02. 의미 있는 이름"></a>Chap02. 의미 있는 이름</h1><ol>
+<li>의미 있는 이름 짓기</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a;</span><br><span class="line">String b;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;User Requested %s. count = %d&quot;</span>, a, b);</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> itemCount;</span><br><span class="line">String itemName;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>루프 속 i, j, k 사용하지 않기</p>
+<ol>
+<li>배열을 순회할 때 index를 의미하는 i를 사용하지 않고 advanced for문으로 대체할 수 있음</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt; message.size(); i++) &#123;</span><br><span class="line">		<span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>advanced for문 으로 대체</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (String message: messages) &#123;</span><br><span class="line">		<span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>lamda 로 대체</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">messages.stream().forEach(</span><br><span class="line">	message -&gt; <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>최대한 의미를 찾을 수 있게 하자</p>
+<ul>
+<li>i, j, k 대신 맥락에 맞는 이름이 있음<ul>
+<li>i, j → row, col &#x2F;width, height</li>
+<li>i, j, k → row, col, depth</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>통일성 있는 단어 사용하기</p>
+<ul>
+<li>Member &#x2F; Customer &#x2F; User : Name 팀 단위에서 통일할 필요</li>
+<li>Service &#x2F; Manager</li>
+<li>Repository &#x2F; DAO</li>
+</ul>
+</li>
+<li><p>변수명에 타입 넣지 않기</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String <span class="title function_">nameString</span><span class="params">()</span> -&gt; name</span><br><span class="line">Int itemPriceAmount -&gt; itemPrice</span><br><span class="line"></span><br><span class="line">Account[] accountArray() -&gt; accounts</span><br><span class="line">List&lt;Account&gt; <span class="title function_">accountList</span><span class="params">(괜찮음)</span> -&gt; accounts, accountList</span><br><span class="line">Map&lt;Account&gt; <span class="title function_">accountMap</span><span class="params">(괜찮음)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IShapeFactory</span> -&gt; ShapeFactory</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ShapeFactoryImpl</span>() -&gt; CircleFactory</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Google Java Naming Guide</p>
+<ul>
+<li><p>Package Naming Guide</p>
+<ul>
+<li><p>All lower case, no underscores</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">com.example.deeplearning(굳)</span><br><span class="line">com.example.deepLearning(bad)</span><br><span class="line">com.example.deep_space(bad)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Class Naming Guide</p>
+<ul>
+<li><p>UpperCamelCase(대문자로 시작)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 클래스는 명사, 명사구</span></span><br><span class="line">Character, ImmutableList</span><br><span class="line"></span><br><span class="line"><span class="comment">// 인터페이스는 명사, 명사구 (형용사)</span></span><br><span class="line">List, Readable</span><br><span class="line"></span><br><span class="line"><span class="comment">// 테스트 클래스는 Test로 끝나기</span></span><br><span class="line">HashTest, HashIntegerationTest</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><ul>
+<li><p>Method Naming Guide</p>
+<ul>
+<li><p>LowerCamelCase (소문자로 시작)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 메소드는 동사, 동사구</span></span><br><span class="line">sendMessage, stop</span><br><span class="line"></span><br><span class="line"><span class="comment">// JUnit 테스트에 underscore 사용되기도 함</span></span><br><span class="line"><span class="comment">// &lt;methodUnderTest&gt;_&lt;state&gt; 패턴</span></span><br><span class="line">pop_emptyStack</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2></li>
+</ul>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-04-25T14:49:43.000Z" title="4/25/2023, 11:49:43 PM">2023-04-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T17:25:09.000Z" title="7/23/2023, 2:25:09 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/Kotlin/">Kotlin</a><span> / </span><a class="link-muted" href="/categories/Kotlin/WebFlux/">WebFlux</a></span><span class="level-item">6 minutes read (About 889 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Kotlin/WebFlux/%E1%84%85%E1%85%B5%E1%84%8B%E1%85%A2%E1%86%A8%E1%84%90%E1%85%B5%E1%84%87%E1%85%B3-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%84%86%E1%85%B5%E1%86%BC/">리액티브 프로그래밍</a></h1><div class="content"><h1 id="리액티브-프로그래밍"><a href="#리액티브-프로그래밍" class="headerlink" title="리액티브 프로그래밍"></a>리액티브 프로그래밍</h1><h2 id="1-리액티브-프로그래밍이란"><a href="#1-리액티브-프로그래밍이란" class="headerlink" title="1. 리액티브 프로그래밍이란"></a>1. 리액티브 프로그래밍이란</h2><ul>
+<li>리액티브 프로그래밍은 데이터 또는 이벤트의 변경이 발생하면 이에 반응해 처리하는 프로그래밍 기법을 말함</li>
+<li>비동기 프로그래밍을 처리하는 새로운 접근 방식</li>
+<li>데이터의 통지, 완료, 에러에 대한 처리를 옵저버 패턴에 영감을 받아 설계되었고 데이터의 손쉬운 비동기 처리를 위해 함수형 언어의 접근 방식을 사용</li>
+<li>2010년 에릭 마이어에 의해 마이크로소프트 .NET 에코 시스템으로 정의됨</li>
+</ul>
+<p>리액티브 프로그래밍 이전의 비동기 프로그래밍</p>
+<ul>
+<li><p>리액티브 프로그래밍이 나오기 전 비동기 프로그래밍은 대부분 <code>콜백</code>기반의 비동기 처리 방식을 사용</p>
+<ul>
+<li>간단한 콜백은 이해하기 쉬울 수 있지만 콜백이 많아져서 발생하는 콜백 헬로 인해 코드의 복잡도가 늘어남</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">etch(<span class="string">&quot;/api/users/me&quot;</span>) &#123; user-&gt;</span><br><span class="line">      fetch(<span class="string">&quot;/api/users/<span class="subst">$&#123;user.id&#125;</span>/followers&quot;</span>) &#123; followers -&gt;</span><br><span class="line">          fetch(<span class="string">&quot;/api/users/<span class="subst">$&#123;user.id&#125;</span>/likes&quot;</span>) &#123; likes -&gt;</span><br><span class="line">              fetch(<span class="string">&quot;/api/users/<span class="subst">$&#123;user.id&#125;</span>/contacts&quot;</span>) &#123; contacts -&gt;</span><br><span class="line">          		&#125;</span><br><span class="line">   				&#125;</span><br><span class="line">   		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>리액티브 프로그래밍을 적용한 사례</p>
+<ul>
+<li><p>리액티브 프로그래밍을 사용하면 콜백 헬 문제를 함수형 프로그래밍 관점으로 해결할 수 있음</p>
+<ul>
+<li>콜백 헬 없이 비동기 코드를 쉽게 작성할 수 있기 때문에 서버나 UI 애플리케이션 개발 시 리액티브 프로그래밍이 유용하게 사용됨</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fetchReactive(<span class="string">&quot;/api/users/me&quot;</span>)</span><br><span class="line">    .zip &#123; user -&gt; fetchReactive(<span class="string">&quot;/api/users/<span class="subst">$&#123;user.id&#125;</span>/followers&quot;</span>) &#125;</span><br><span class="line">    .zip &#123; user -&gt; fetchReactive(<span class="string">&quot;/api/users/<span class="subst">$&#123;user.id&#125;</span>/likes&quot;</span>) &#125;</span><br><span class="line">    .zip &#123; user -&gt; fetchReactive(<span class="string">&quot;/api/users/<span class="subst">$&#123;user.id&#125;</span>/contacts&quot;</span>) &#125;</span><br><span class="line">    .flatMap &#123; followers, likes, contacts -&gt;</span><br><span class="line">								<span class="comment">// Fh직구현</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="리액티브-스트림"><a href="#리액티브-스트림" class="headerlink" title="리액티브 스트림"></a>리액티브 스트림</h1><ul>
+<li>리액티브 스트림은 리액티브 프로그램의 표준 API 사양을 말함</li>
+<li>비동기 데이터 스트림과 Non-blocking Back-Pressure에 대한 사양을 제공</li>
+<li>리액티브 스트림 이전의 비동기식 애플리케이션에서는 CPU의 멀티 코어를 제대로 활용하기 위해 복잡한 병렬 처리 코드가 필요했음</li>
+<li>기존의 방식은 처리할 데이터가 무한정 많아져서 시프템의 한계를 넘어서는 경우 애플리케이션은 병목현상이 발생하거나 심각한 경우 애플리케이션이 정지되는 경우도 있음</li>
+<li>Netflix, Vmware, Redhat, Twitter, Lightbend 등과 같은 유명 회사들이 표준화에 참여 중</li>
+</ul>
+<p>리액티브 스트림의 다양한 구현체들</p>
+<ul>
+<li><p>리액티브 스트림은<code>TCK(Technology Compatibility Kit)</code> 를 지원하기 때문에 라이브러리가 정해진 사양에 맞게 구현되었는지 보장</p>
+<blockquote>
+<p>TCK는 라이브러리가 정해진 사양에 맞게 구현되었는지 보장하기 위해 만들어진 테스트 도구<br>자바 진영에선 Java SE 표준을 따른 JDK인지 검증하기 위해 TCK를 사용</p>
+</blockquote>
+</li>
+<li><p>리액티브 스트림은 TCK만 통과한다면 각 구현체들은 표준 사양에 포함되지 않은 라이브러리만의 추가 기능도 자유롭게 지원할 수 있게 함</p>
+</li>
+</ul>
+<p>리액티브 스트림을 표준 사양을 채택한 대표적인 구현체들</p>
+<ul>
+<li>Project Reactor</li>
+<li>RxJava</li>
+<li>JDK9 Flow</li>
+<li>Akka Streams</li>
+<li>Vert.x</li>
+</ul>
+<p>리액티브 스트림 사양</p>
+<ul>
+<li>리액티브 스트림 사양(specification)은 핵심 인터페이스와 프로토콜로 구성됨</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-04-07T14:10:29.000Z" title="4/7/2023, 11:10:29 PM">2023-04-07</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-12-20T15:19:04.000Z" title="12/21/2023, 12:19:04 AM">2023-12-21</time></span><span class="level-item"><a class="link-muted" href="/categories/Kotlin/">Kotlin</a><span> / </span><a class="link-muted" href="/categories/Kotlin/%EA%B0%9C%EB%85%90/">개념</a></span><span class="level-item">5 minutes read (About 795 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Kotlin/%E1%84%80%E1%85%A2%E1%84%82%E1%85%A7%E1%86%B7/%E1%84%8F%E1%85%A9%E1%84%90%E1%85%B3%E1%86%AF%E1%84%85%E1%85%B5%E1%86%AB%E1%84%8B%E1%85%B4-%E1%84%92%E1%85%A7%E1%86%AB%E1%84%8C%E1%85%A2%E1%84%8B%E1%85%AA-%E1%84%86%E1%85%B5%E1%84%85%E1%85%A2/">코틀린의 현재와 미래</a></h1><div class="content"><p>코틀린의 현재와 미래 </p>
+<ol>
+<li><p>코틀린을 배워야하는 이유 </p>
+<ul>
+<li><p>코틀린은 IntelliJ로 유명한 젯브레인사에서 만든 언어이기 때문에 IntelliJ에서 자동완성, 자바-코틀린 변환, 코루틴 등 코틀린 관련 편의 기능을 완벽하게 지원 </p>
+</li>
+<li><p>자바는 발표된지 20년이 넘었지만 코틀린, C#, 스위프트와 같은 현대적 언어에 비해 기능 이 부족함</p>
+<ul>
+<li>간결한 문법: 최근의 언어들은 간결하고 표현력이 높은 문법인 경우가 많습니다. 이에 반해 자바는 상대적으로 길고 복잡한 문법을 가지고 있습니다. 예를 들어, 코틀린과 스위프트는 람다식, 타입 추론 등의 기능을 제공하여 코드를 더 간결하게 작성할 수 있습니다.</li>
+<li>확장성 및 유연성: 코틀린, C#, 스위프트 등 현대적 언어는 확장성과 유연성 측면에서 더 많은 기능을 제공합니다. 예를 들어, C#은 확장 메서드를 통해 기존 클래스에 새로운 메서드를 추가할 수 있으며, 스위프트는 프로토콜 지향 프로그래밍을 통해 유연한 설계를 가능하게 합니다.</li>
+<li>표현력: 최근의 언어들은 고차함수, 패턴 매칭, 디스트럭처링 등의 고급 기능을 제공하여 코드의 가독성과 표현력을 높이고 있습니다. 이에 비해 자바는 이러한 기능들이 상대적으로 부족합니다.</li>
+<li>언어 기능 업데이트 속도: 자바는 오랜 역사와 거대한 사용자 층을 감안할 때, 기존 코드와의 호환성을 유지하면서 새로운 기능을 추가하기가 어렵습니다. 그래서 언어 기능의 업데이트 속도가 상대적으로 느리며, 현대적 언어들이 제공하는 다양한 기능을 적용하는데 한계가 있습니다.</li>
+</ul>
+</li>
+<li><p>자바에서 Best-Practice로 불리는 기법들을 언어적 차원에서 기본 제공 </p>
+<ul>
+<li>이펙티브 자바, 디자인 패턴 등 자바에 비해 문법이 간결하기 때문에 가독성과 생산성이 높고 오류 가능성이 적어진다</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>자바와 코틀린의 차이점</p>
+<ol>
+<li>자바에는 있지만 코틀린에는 없는 기능<ul>
+<li>Checked Exception<ul>
+<li>Error : 시스템에 비정상적인 상황이 발생, 예측이 어렵고 기본적으로 복구가 불가능함<ul>
+<li>OutOfMemoryError, StackOverflowError, Etc</li>
+</ul>
+</li>
+<li>Throwable : 예외 계층의 최상위 클래스</li>
+<li>Exception: 시스템에서 포착 가능하여(try-catch) 복구 가능, 예외 처리 강제<ul>
+<li>IOException, FileNotFoundException, etc</li>
+<li>@Transactional 에서 해당 예외가 발생하면 기본적으론 롤백이 동작하지 않음<ul>
+<li>rollbackFor를 사용해야함</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RuntimeException : 런타임 시에 발생하는 예외, 예외처리를 강제하지 않음<ul>
+<li>e.g. NullPointerException, ArrayIndexOutOfBoundsException, etc</li>
+</ul>
+</li>
+<li>코틀린에서는 자바의 Exception 계층을 코틀린 패키지로 래핑</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>코틀린에는 있지만자바에는 없는 기능</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-04-03T14:52:12.000Z" title="4/3/2023, 11:52:12 PM">2023-04-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T17:25:13.000Z" title="7/23/2023, 2:25:13 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/">인공지능</a><span> / </span><a class="link-muted" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC/">자연어 처리</a></span><span class="level-item">2 minutes read (About 337 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%EA%B8%B0%EB%B3%B8-%EC%88%98%ED%95%99/">기본 수학</a></h1><div class="content"><h1 id="Probablilistic-Perspective"><a href="#Probablilistic-Perspective" class="headerlink" title="Probablilistic Perspective"></a>Probablilistic Perspective</h1><p>신경망은 확률 분포 함수이다. 이전에는 신경망을 함수로 바라보았다면, 이제는 생각을 확장시켜 확률 분포로 바라보도록 하자</p>
+<ul>
+<li><p>Before</p>
+<ul>
+<li>어떠한 함수를 모사하여, 원하는 출력값을 반환하는 신경망의 파라미터를 찾자</li>
+<li>그래서 Gradient Descent, Back-propagation, Feature Vector 등을 통해 가상의 함수를 모사하려 하였다.</li>
+<li>Deterministic target 값을 예측</li>
+</ul>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/204417b3-e420-4273-8dda-e901f6c5bf4a/Untitled.png" alt="Untitled"></p>
+</li>
+<li><p>After : 확률 분포 함수를 배우자</p>
+<ul>
+<li>수학적으로 더 설명이 가능함</li>
+<li>불확실성까지 학습</li>
+</ul>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/baa83a15-a7c3-4830-8772-f1d5b955d1f0/Untitled.png" alt="Untitled"></p>
+</li>
+</ul>
+<p>Neural Networks는 확률 분포 함수를 모델링할 수 있음</p>
+<ul>
+<li>이를 통해 가상의 확률 분포 함수 $p(y|x)$ 를 근사(approximation)할 것</li>
+<li>대부분의 최신 기술들은 이 관점에 기반을 두고 만들어짐</li>
+<li>신경망을 확률 분포로 보았을 때 다음의 이론들에 대해서 이야기 할 것<ul>
+<li>Likelihood</li>
+<li>Maximum Likelihood Estimation(MLE)</li>
+<li>Maximum A Posterior Estimation(MAP)</li>
+<li>Cross Entropy</li>
+<li>KL-Divergence</li>
+</ul>
+</li>
+</ul>
+<h2 id="확률-변수와-확률-분포"><a href="#확률-변수와-확률-분포" class="headerlink" title="확률 변수와 확률 분포"></a>확률 변수와 확률 분포</h2><p>확률변수</p>
+<p>랜덤 변수(Random Variable)는 확률을 이야기할 때 랜덤하게 발생하는 어떤 사건(event)</p>
+<p>…</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-03-31T14:54:38.000Z" title="3/31/2023, 11:54:38 PM">2023-03-31</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T17:25:07.000Z" title="7/23/2023, 2:25:07 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/">자연어처리</a></span><span class="level-item">10 minutes read (About 1486 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC%EB%9E%80/">자연어 처리란</a></h1><div class="content"><h2 id="자연어-처리란-무엇일까"><a href="#자연어-처리란-무엇일까" class="headerlink" title="자연어 처리란 무엇일까"></a>자연어 처리란 무엇일까</h2><ul>
+<li>인간의 언어, 즉 자연어를 컴퓨터가 이해하고 처리할 수 있도록 하는 인공지능(AI) 및 컴퓨터 과학의 한 분야</li>
+<li>자연어 처리의 목표는 컴퓨터가 인간처럼 자연어를 이해하고 사용하여 텍스트나 음성 데이터를 분석, 해석, 생성하고 의사소통할 수 있게 하는 것</li>
+</ul>
+<h2 id="자연어-처리의-대표적인-과제-및-응용-분야"><a href="#자연어-처리의-대표적인-과제-및-응용-분야" class="headerlink" title="자연어 처리의 대표적인 과제 및 응용 분야"></a>자연어 처리의 대표적인 과제 및 응용 분야</h2><ul>
+<li>기계 번역 (Machine Translation)<ul>
+<li>컴퓨터가 한 언어에서 다른 언어로 텍스트를 번역하는 과정</li>
+<li>Google Translate 등의 서비스(영어 문장을 한국어 문장으로 변환)</li>
+</ul>
+</li>
+<li>감성 분석 (Sentiment Analysis)<ul>
+<li>텍스트에서 작성자의 감정, 의견, 태도 등을 판단하는 과정</li>
+<li>제품 리뷰나 소셜 미디어 게시물에서 사용자들의 반응을 분석(주로 긍정적, 부정적, 중립적 등의 카테고리로 분류)</li>
+</ul>
+</li>
+<li>텍스트 분류 (Text Classification)<ul>
+<li>주어진 텍스트를 미리 정의된 카테고리로 분류하는 과정</li>
+<li>뉴스 기사를 정치, 경제, 스포츠 등의 주제로 분류, 스팸 메일 필터링, 태그 지정 등 다양한 분야에서 활용</li>
+</ul>
+</li>
+<li>요약 (Summarization)<ul>
+<li>긴 텍스트를 짧은 텍스트로 줄이는 과정으로, 주요 내용을 유지하면서 텍스트의 길이를 줄임</li>
+<li>요약은 추출적 요약(Extractive Summarization)과 생성적 요약(Abstractive Summarization) 두 가지 방식이 있음</li>
+</ul>
+</li>
+<li>질문 답변 시스템(Question Answering System)<ul>
+<li>사용자의 질문에 대해 자동으로 답변을 생성하는 시스템</li>
+<li>질문 답변 시스템은 오픈 도메인(Open Domain)과 클로즈드 도메인(Closed Domain)으로 구분<ul>
+<li>오픈 도메인 시스템:  일반적인 주제에 대한 질문을 다룸</li>
+<li>클로즈드 도메인 시스템:  특정 주제나 분야에 관한 질문에 초점을 맞춤</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="자연어-처리의-대표적인-과제-및-응용-분야-1"><a href="#자연어-처리의-대표적인-과제-및-응용-분야-1" class="headerlink" title="자연어 처리의 대표적인 과제 및 응용 분야"></a>자연어 처리의 대표적인 과제 및 응용 분야</h2><ul>
+<li>기계 번역 (Machine Translation)<ul>
+<li>컴퓨터가 한 언어에서 다른 언어로 텍스트를 번역하는 과정</li>
+<li>Google Translate 등의 서비스(영어 문장을 한국어 문장으로 변환)</li>
+</ul>
+</li>
+<li>감성 분석 (Sentiment Analysis)<ul>
+<li>텍스트에서 작성자의 감정, 의견, 태도 등을 판단하는 과정</li>
+<li>제품 리뷰나 소셜 미디어 게시물에서 사용자들의 반응을 분석(주로 긍정적, 부정적, 중립적 등의 카테고리로 분류)</li>
+</ul>
+</li>
+<li>텍스트 분류 (Text Classification)<ul>
+<li>주어진 텍스트를 미리 정의된 카테고리로 분류하는 과정</li>
+<li>뉴스 기사를 정치, 경제, 스포츠 등의 주제로 분류, 스팸 메일 필터링, 태그 지정 등 다양한 분야에서 활용</li>
+</ul>
+</li>
+<li>요약 (Summarization)<ul>
+<li>긴 텍스트를 짧은 텍스트로 줄이는 과정으로, 주요 내용을 유지하면서 텍스트의 길이를 줄임</li>
+<li>요약은 추출적 요약(Extractive Summarization)과 생성적 요약(Abstractive Summarization) 두 가지 방식이 있음</li>
+</ul>
+</li>
+<li>질문 답변 시스템(Question Answering System)<ul>
+<li>사용자의 질문에 대해 자동으로 답변을 생성하는 시스템</li>
+<li>질문 답변 시스템은 오픈 도메인(Open Domain)과 클로즈드 도메인(Closed Domain)으로 구분<ul>
+<li>오픈 도메인 시스템:  일반적인 주제에 대한 질문을 다룸</li>
+<li>클로즈드 도메인 시스템:  특정 주제나 분야에 관한 질문에 초점을 맞춤</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="자연어-처리의-발전"><a href="#자연어-처리의-발전" class="headerlink" title="자연어 처리의 발전"></a>자연어 처리의 발전</h2><ul>
+<li><p>2010년에 <code>RNN</code>을 활용한 언어 모델을 시도하여 기존 n-gram 기반 언어 모델의 한계를 극복하고자 함</p>
+<ul>
+<li>하지만 n-gram 언어 모델을 기계번역 분야에 적용하기에는 구조적인 한계와 비교적 높은 연산량으로 인해 한계</li>
+</ul>
+</li>
+<li><p>2013년 <code>word2vec</code>을 통해 단순한 구조의 신경망을 사용하여 효과적으로 단어들을 잠재공간(latent space)에 성공적으로 투사시킴으로,고차원의 공간상의 단어가 어떻게 잠재 공간에 배치되는지 알 수 있었음 → 비슷한 단어일수록 저차원의 잠재 공간에서 가깝게 위치)</p>
+</li>
+<li><p>2014년 CNN과 단어 임베딩 벡터를 결합하여 성능을 더 극대화</p>
+<ul>
+<li>문장이란 곧 단어들의 시퀀셜 데이터이므로 RNN을 통해 해결해야 한다는 고정관념 극복</li>
+</ul>
+</li>
+<li><p>2017년 <code>어텐션(Attention)</code> 기법이 개발되어 기계번역에 적용되며 큰 성과를 거둠</p>
+<ul>
+<li>기존의 자연어 처리 분야는 기존의 한정적인 적용 사례에만 있었는데,</li>
+<li>주어진 정보에 기반하여 자유롭게 문장을 생성하는 자연어 생성(NLG)이 가능해짐</li>
+<li>그에 따라 요약 챗봇 등 더 넓고 깊은 주제의 자연어 처리 문제를 적극적으로 해결하려는 시도가 이어짐</li>
+</ul>
+</li>
+<li><p><code>강화학습</code>의 적용, MSE 손실 함수의 한계(손실 함수와 실제 기계번역을 위한 목적 함수와의 괴리)를 벗어나기위해 <code>Policy Gradient</code></p>
+<p> 방식을 적용함으로써 큰 성공,</p>
+<ul>
+<li>강화학습을 사용하여 실제 자연어 생성에서의 목적 함수로부터 보상(reward)을 받을 수 있게 되자, 훨씬 실제 사람이 사용하는 듯한 문장을 생성</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>자연어 처리는 단어 간의 순서 및 상호 정보가 반영된 Sequential Data라는 점이 큰 장벽이었으나, 2014년 이후 seq2seq 모델 구조가 나오며 end-to-end 신경망 기반 기계(Neural Machine, Translation, NMT)의 시대를 열었으며, Attention 메커니즘의 등장으로 인해 요원해 보이던 기계번역 분야마저 end-to-end 방식의 딥러닝에 의해 정복됨</p>
+</blockquote>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-03-28T14:11:41.000Z" title="3/28/2023, 11:11:41 PM">2023-03-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-12-20T15:45:16.000Z" title="12/21/2023, 12:45:16 AM">2023-12-21</time></span><span class="level-item"><a class="link-muted" href="/categories/Deep-Learning/">Deep Learning</a><span> / </span><a class="link-muted" href="/categories/Deep-Learning/Text-Summarization/">Text Summarization</a></span><span class="level-item">6 minutes read (About 912 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Deep%20Learning/Text%20Summarization/Text-Summarization-%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A1%E1%86%AB/">Text Summarization 이란</a></h1><div class="content"><h2 id="Text-Summarization-이란"><a href="#Text-Summarization-이란" class="headerlink" title="Text Summarization 이란"></a>Text Summarization 이란</h2><p>원문을 이해하기 쉬우면서도 가치있는 정보로 변환하는 작업을 말함</p>
+<ul>
+<li>인간은 길이가 길거나 여러 문서로 나눠져있는 텍스트 정보를 한 눈에 파악하기 어려워함</li>
+<li>때로는 알지 못하는 전문 용어가 많이 사용되어 있을 수도 있음</li>
+<li>이러한 텍스트를 원문을 잘 반영하면서도 간결하여 이해하기 쉬운 형태로 바꿔주는 작업은 상당히 가치있는 일</li>
+</ul>
+<blockquote>
+<p>Text summarization is the process of <strong>distilling the most important information</strong> from a text to produce an abridged version for a particular task and user</p>
+<p>텍스트 요약은 특정 작업 및 사용자에 대한 요약 버전을 생성하기 위해 텍스트에서 가장 중요한 정보를 추출하는 프로세스이다.<br><a target="_blank" rel="noopener" href="https://epubs.siam.org/doi/abs/10.1137/1037127">Berry, Dumais, &amp; O’Brien (1995)</a></p>
+</blockquote>
+<ul>
+<li>Text Summarization 은 요약의 대상(source)이 text 로 한정이 됨<ul>
+<li>Text를 image로 본다면 image captioning, video로 본다면 video summarization이 됨</li>
+<li>Text, image, video 등 다양한 형태의 source를 함께 요약하는 방식을 multimodal summarization이라고 함</li>
+</ul>
+</li>
+</ul>
+<h2 id="Task-Categories"><a href="#Task-Categories" class="headerlink" title="Task Categories"></a>Task Categories</h2><p>Text summarization의 task는 크게 요약문을 생성하는 방식에 따라 extractive summarization과 abstractive summarization으로 나눌 수 있음</p>
+<ol>
+<li>추출적 요약(Extractive Summarization)<ul>
+<li><code>원문에서 중요한 문장이나 구문을 선택</code>하여 요약문을 만드는 방법</li>
+<li>원문의 문장을 그대로 사용하며, 요약문은 원문에 있는 문장들의 조합으로 이루어짐</li>
+<li><code>원문의 정보를 그대로 유지하는 것이 중요한 경우에 적합</code></li>
+<li>주요 알고리즘: TextRank, LSA(Latent Semantic Analysis), Luhn 알고리즘 등</li>
+</ul>
+</li>
+<li>생성적 요약(Abstractive Summarization)<ul>
+<li><code>원문의 의미를 파악한 후, 새로운 문장을 생성</code>하여 요약문을 만드는 방법</li>
+<li>원문에 없는 표현이나 단어도 요약문에 포함될 수 있음</li>
+<li>원문의 정보를 보다 잘 요약하고, 자연스러운 문장으로 표현할 수 있는 장점이 있음</li>
+<li><code>요약문이 자연스럽고 독립적인 정보를 제공해야 하는 경우에 적합</code></li>
+<li>주요 기술 : Sequence-to-Sequence, Attention, Transformer 등</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://velog.velcdn.com/images%2Fjaehyeong%2Fpost%2Fa6e87a99-815a-4570-94d2-7083c0f065ac%2Fextractive-abstractive.PNG" alt="img"></p>
+<p>※ 이외에도 다음과 같은 관점으로 Task를 구분할 수 있음</p>
+<ul>
+<li><p>keyword&#x2F;sentence summarization : 생성해내는 Text 형태에 따라 구분</p>
+</li>
+<li><p>knowledge-poor&#x2F;rich summarization : 요약 과정에서 원문 외 외부 정보를 얼마나 사용하는지에 따라</p>
+</li>
+<li><p>single&#x2F;multi document summarization : 원문의 개수에 따라 구분</p>
+</li>
+</ul>
+<p><img src="https://github.com/uoneway/Text-Summarization-Repo/raw/main/images/Classification_of_summarization_tasks.png" alt="Figure 2.1: Classification of summarization tasks."></p>
+<p>(G. Sizov(2010). <a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/Extraction-Based-Automatic-Summarization%3A-and-of-Sizov/2d27fd9af4b10cc5b54a849a3c2ad84755b3b13c">Extraction-Based Automatic Summarization: Theoretical and Empirical Investigation of Summarization Techniques</a>)Text Summarization 이란</p>
+<h2 id="Text-Summarization-기초-개념"><a href="#Text-Summarization-기초-개념" class="headerlink" title="Text Summarization 기초 개념"></a>Text Summarization 기초 개념</h2><ul>
+<li>Summarization 기본 용어<ul>
+<li>Original text &#x3D; Source text</li>
+<li>generated summary &#x3D;  모델이 생성해낸 요약문을 의미</li>
+<li>reference summary &#x3D; 반면 우리가 정답으로 간주하는(보통은 사람이 직접 원문을 보고 생성한) 요약문, 또는 gold summary라고 부름<ul>
+<li>보통은 두 용어를 크게 구분없이 쓰는듯 하나,  generated summary는 평가하기 위한 기준이 되는 요약문이라는 면을 강조할 때, gold summary는 우리가 찾는 진짜 요약문이라는 점을 강조할 때 주로 사용되는 듯 함</li>
+</ul>
+</li>
+<li>Metric: Rouge, BLEU, Perplexity(PPL) 등</li>
+</ul>
+</li>
+</ul>
+<p>참고</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/uoneway/Text-Summarization-Repo">https://github.com/uoneway/Text-Summarization-Repo</a></p>
+</li>
+<li><p>[글] <a target="_blank" rel="noopener" href="https://github.com/icoxfog417/awesome-text-summarization">icoxfog417. awesome-text-summarization</a></p>
+</li>
+<li><p>[PPT] <a target="_blank" rel="noopener" href="https://www.slideshare.net/cozyhous?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Sang-Houn Choi. Text summarization</a></p>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-03-27T14:31:14.000Z" title="3/27/2023, 11:31:14 PM">2023-03-27</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T18:01:34.000Z" title="7/23/2023, 3:01:34 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/Python/">Python</a><span> / </span><a class="link-muted" href="/categories/Python/%EA%B0%9C%EB%85%90/">개념</a></span><span class="level-item">2 minutes read (About 267 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Python/%E1%84%80%E1%85%A2%E1%84%82%E1%85%A7%E1%86%B7/Context-Manager/">Context Manager</a></h1><div class="content"><p>Context Manager</p>
+<ul>
+<li><p>파일이나 소켓 등의 리소스 관리에 사용됨</p>
+</li>
+<li><p>리소스를 안전하게 열고 닫을 수 있도록 돕는 기능을 제공</p>
+</li>
+<li><p>&#96;&#96;&#96;<br>with</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   키워드를 사용</span><br><span class="line"></span><br><span class="line">  - `with` 블록을 벗어나면 자동으로 리소스가 닫히게 되어 있음</span><br><span class="line">  - 따라서 예외 발생 시에도 리소스가 제대로 닫히도록 보장</span><br><span class="line"></span><br><span class="line">Context Manager는 `__enter__` 와 `__exit__` 메소드를 구현하여 사용</span><br><span class="line"></span><br><span class="line">- enter</span><br><span class="line"></span><br><span class="line">   메소드</span><br><span class="line"></span><br><span class="line">  - with 블록을 실행할 때 호출됨</span><br><span class="line">  - 리소스를 열고 리소스 객체를 반환</span><br><span class="line"></span><br><span class="line">- exit</span><br><span class="line"></span><br><span class="line">   메소드</span><br><span class="line"></span><br><span class="line">  - with 블록을 빠져나갈 때 호출됨</span><br><span class="line">  - 리소스를 안전하게 닫는 역할</span><br><span class="line"></span><br><span class="line">- 예시</span><br><span class="line"></span><br><span class="line">  - with 블록에서 FileHandler 클래스의 인스턴스를 생성</span><br><span class="line">  - 파일 객체를 얻어온 후, 파일에 문자열을 write 수행</span><br><span class="line">  - with 블록을 벗어나면 자동으로 파일이 닫힘</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">class FileHandler:</span><br><span class="line">    def __init__(self, filename):</span><br><span class="line">        self.filename = filename</span><br><span class="line"></span><br><span class="line">    def __enter__(self):</span><br><span class="line">        self.file = open(self.filename, &#x27;w&#x27;)</span><br><span class="line">        return self.file</span><br><span class="line"></span><br><span class="line">    def __exit__(self, exc_type, exc_val, exc_tb):</span><br><span class="line">        self.file.close()</span><br><span class="line"></span><br><span class="line">with FileHandler(&#x27;example.txt&#x27;) as file:</span><br><span class="line">    file.write(&#x27;Hello, Python!&#x27;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/7/">Previous</a></div><div class="pagination-next"><a href="/page/9/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/7/">7</a></li><li><a class="pagination-link is-current" href="/page/8/">8</a></li><li><a class="pagination-link" href="/page/9/">9</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/13/">13</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/matterhorn.jpg" alt="Shawn Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Shawn Choi</p><p class="is-size-6 is-block">노력 백줌 열정 천줌의 소프트웨어 개발자</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Seoul, Republic of Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">122</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">64</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">73</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/shchoice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/shchoice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Deep-Learning/"><span class="level-start"><span class="level-item">Deep Learning</span></span><span class="level-end"><span class="level-item tag">40</span></span></a><ul><li><a class="level is-mobile" href="/categories/Deep-Learning/Paper/"><span class="level-start"><span class="level-item">Paper</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Deep-Learning/Text-Summarization/"><span class="level-start"><span class="level-item">Text Summarization</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Deep-Learning/Transformers/"><span class="level-start"><span class="level-item">Transformers</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Deep-Learning/Transformers/TainingArugments/"><span class="level-start"><span class="level-item">TainingArugments</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Deep-Learning/%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">기본 개념</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/Deep-Learning/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">자연어생성 개념</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/Deep-Learning/%EC%A4%91%EA%B8%89-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">중급 개념</span></span><span class="level-end"><span class="level-item tag">14</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/ElasticSearch/"><span class="level-start"><span class="level-item">ElasticSearch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/FastAPI/"><span class="level-start"><span class="level-item">FastAPI</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Github-Pages/"><span class="level-start"><span class="level-item">Github Pages</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/JPA/"><span class="level-start"><span class="level-item">JPA</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/JPA/Basic/"><span class="level-start"><span class="level-item">Basic</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">13</span></span></a><ul><li><a class="level is-mobile" href="/categories/Java/Java8/"><span class="level-start"><span class="level-item">Java8</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/"><span class="level-start"><span class="level-item">클린코드</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">함수형 프로그래밍</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Kotlin/"><span class="level-start"><span class="level-item">Kotlin</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/Kotlin/WebFlux/"><span class="level-start"><span class="level-item">WebFlux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Kotlin/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/MLOps/"><span class="level-start"><span class="level-item">MLOps</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/MLOps/MLflow/"><span class="level-start"><span class="level-item">MLflow</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/OPS/"><span class="level-start"><span class="level-item">OPS</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/OpenSearch/"><span class="level-start"><span class="level-item">OpenSearch</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Ops/"><span class="level-start"><span class="level-item">Ops</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/Ops/Windows-CMD/"><span class="level-start"><span class="level-item">Windows CMD</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Ops/%EC%84%A4%EC%B9%98/"><span class="level-start"><span class="level-item">설치</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Programming/"><span class="level-start"><span class="level-item">Programming</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/Programming/Agile/"><span class="level-start"><span class="level-item">Agile</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Programming/Agile/%ED%95%A8%EA%BB%98%EC%9E%90%EB%A6%AC%EA%B8%B0/"><span class="level-start"><span class="level-item">함께자리기</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Programming/Clean-Code/"><span class="level-start"><span class="level-item">Clean Code</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Programming/TDD/"><span class="level-start"><span class="level-item">TDD</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Programming/UML/"><span class="level-start"><span class="level-item">UML</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Programming/%EB%82%B4-%EC%BD%94%EB%93%9C%EA%B0%80-%EA%B7%B8%EB%A0%87%EA%B2%8C-%EC%9D%B4%EC%83%81%ED%95%9C%EA%B0%80%EC%9A%94/"><span class="level-start"><span class="level-item">내 코드가 그렇게 이상한가요</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul><li><a class="level is-mobile" href="/categories/Python/Advanced-Concept/"><span class="level-start"><span class="level-item">Advanced Concept</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">객체지향 프로그래밍</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EB%8F%99%EC%8B%9C%EC%84%B1-%EB%B0%8F-%EB%B9%84%EB%8F%99%EA%B8%B0/"><span class="level-start"><span class="level-item">동시성 및 비동기</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EB%AC%B8%EB%B2%95/"><span class="level-start"><span class="level-item">문법</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">함수형 프로그래밍</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/REST/"><span class="level-start"><span class="level-item">REST</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Spring/"><span class="level-start"><span class="level-item">Spring</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul><li><a class="level is-mobile" href="/categories/Spring/Spring-Framework/"><span class="level-start"><span class="level-item">Spring Framework</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Spring/Spring-MVC/"><span class="level-start"><span class="level-item">Spring MVC</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/"><span class="level-start"><span class="level-item">핵심 원리 - 기본편</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/TIL/"><span class="level-start"><span class="level-item">TIL</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/TIL/1%EB%A7%8C-%EC%8B%9C%EA%B0%84%EC%9D%98-%EB%B2%95%EC%B9%99/"><span class="level-start"><span class="level-item">1만 시간의 법칙</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/"><span class="level-start"><span class="level-item">데이터 마이닝</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/%EA%B8%B0%EB%B3%B8/"><span class="level-start"><span class="level-item">기본</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/"><span class="level-start"><span class="level-item">딥러닝</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어처리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/"><span class="level-start"><span class="level-item">인공지능</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/"><span class="level-start"><span class="level-item">개념 정리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어 처리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어처리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/"><span class="level-start"><span class="level-item">컨테이너 오케스트레이션</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/Docker/"><span class="level-start"><span class="level-item">Docker</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/"><span class="level-start"><span class="level-item">통계학</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/%EA%B8%B0%EB%B3%B8/"><span class="level-start"><span class="level-item">기본</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%8C%8C%EC%9D%B4%EC%8D%AC/"><span class="level-start"><span class="level-item">파이썬</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-30T14:51:21.000Z">2024-03-30</time></p><p class="title"><a href="/3-%EC%8A%A4%ED%94%84%EB%A7%81-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B9%88/">3. 스프링 컨테이너와 스프링 빈</a></p><p class="categories"><a href="/categories/Spring/">Spring</a> / <a href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/">핵심 원리 - 기본편</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-24T14:52:03.000Z">2024-03-24</time></p><p class="title"><a href="/2-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%9B%90%EB%A6%AC-%EC%A0%81%EC%9A%A9/">2. 객체지향 원리 적용</a></p><p class="categories"><a href="/categories/Spring/">Spring</a> / <a href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/">핵심 원리 - 기본편</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-15T14:57:52.000Z">2024-03-15</time></p><p class="title"><a href="/1-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%EC%84%A4%EA%B3%84%EC%99%80-%EC%8A%A4%ED%94%84%EB%A7%81/">1. 객체 지향 설계와 스프링</a></p><p class="categories"><a href="/categories/Spring/">Spring</a> / <a href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/">핵심 원리 - 기본편</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-07T13:08:16.000Z">2024-03-07</time></p><p class="title"><a href="/OpenSearch-%EC%84%A4%EC%B9%98/">OpenSearch 설치</a></p><p class="categories"><a href="/categories/OpenSearch/">OpenSearch</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-05T14:14:11.000Z">2024-03-05</time></p><p class="title"><a href="/OpenSearch-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/">OpenSearch 란 무엇인가</a></p><p class="categories"><a href="/categories/OpenSearch/">OpenSearch</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">March 2024</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">February 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">January 2024</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/10/"><span class="level-start"><span class="level-item">October 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">September 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">August 2023</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/07/"><span class="level-start"><span class="level-item">July 2023</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">June 2023</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">April 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">March 2023</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">February 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">January 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">December 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">November 2022</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">October 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/08/"><span class="level-start"><span class="level-item">August 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/1%EA%B8%89-%EC%8B%9C%EB%AF%BC/"><span class="tag">1급 시민</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Anonymous-Class/"><span class="tag">Anonymous Class</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/AutoEncoder/"><span class="tag">AutoEncoder</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BERT/"><span class="tag">BERT</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Bind-Mounts/"><span class="tag">Bind Mounts</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Classification/"><span class="tag">Classification</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Cross-Entropy-Loss/"><span class="tag">Cross Entropy Loss</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Curse-of-Dimensionality/"><span class="tag">Curse of Dimensionality</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Data-Volume/"><span class="tag">Data Volume</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker/"><span class="tag">Docker</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker-Orchestration-Tools/"><span class="tag">Docker Orchestration Tools</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Document-Embedding/"><span class="tag">Document Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-Vectors/"><span class="tag">Embedding Vectors</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-vector/"><span class="tag">Embedding vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Entropy/"><span class="tag">Entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FLAN/"><span class="tag">FLAN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Feature-Vector/"><span class="tag">Feature Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Function-Interface/"><span class="tag">Function Interface</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GPT/"><span class="tag">GPT</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Git/"><span class="tag">Git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Gradient-Descent/"><span class="tag">Gradient Descent</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hidden-Representation/"><span class="tag">Hidden Representation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Instruction-Finetuning/"><span class="tag">Instruction Finetuning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KL-Divergence/"><span class="tag">KL Divergence</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KoNLPy/"><span class="tag">KoNLPy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Lambda-Expression/"><span class="tag">Lambda Expression</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Latent-Space/"><span class="tag">Latent Space</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Learning-Rate/"><span class="tag">Learning Rate</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linear-Layer/"><span class="tag">Linear Layer</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Log-Likelihood/"><span class="tag">Log-Likelihood</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MAP/"><span class="tag">MAP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MLE/"><span class="tag">MLE</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Manifold-hypothesis/"><span class="tag">Manifold hypothesis</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Matrix/"><span class="tag">Matrix</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Mecab/"><span class="tag">Mecab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Multi-Stage-Build/"><span class="tag">Multi Stage Build&quot;</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NLL/"><span class="tag">NLL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Persistence-Data/"><span class="tag">Persistence Data</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Probabilistic-Perspective/"><span class="tag">Probabilistic Perspective</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Representation-Learning/"><span class="tag">Representation Learning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SOLID/"><span class="tag">SOLID</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Scalar/"><span class="tag">Scalar</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Spring%EC%9D%B4%EB%9E%80/"><span class="tag">Spring이란</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Subword-Embedding/"><span class="tag">Subword Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tensor/"><span class="tag">Tensor</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tramsformers/"><span class="tag">Tramsformers</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Transformer/"><span class="tag">Transformer</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vector/"><span class="tag">Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/What-to-do/"><span class="tag">What to do</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Word-Embedding/"><span class="tag">Word Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cross-entropy/"><span class="tag">cross entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/default-method/"><span class="tag">default method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/max-length/"><span class="tag">max_length</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mlflow/"><span class="tag">mlflow</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/one-hot-Encoding/"><span class="tag">one-hot Encoding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/packing/"><span class="tag">packing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/padding/"><span class="tag">padding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/python-%EC%84%A4%EC%B9%98/"><span class="tag">python 설치</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/static-method/"><span class="tag">static method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/unpacking/"><span class="tag">unpacking</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/"><span class="tag">객체지향</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%8B%A4%ED%98%95%EC%84%B1/"><span class="tag">다형성</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%9E%8C%EB%8B%A4%EC%8B%9D/"><span class="tag">람다식</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%B2%A1%ED%84%B0%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">벡터의 곱셈</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%97%94%ED%8A%B8%EB%A1%9C%ED%94%BC/"><span class="tag">엔트로피</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EB%9F%89/"><span class="tag">정보량</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EC%9D%B4%EB%A1%A0/"><span class="tag">정보이론</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0/"><span class="tag">파라미터</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98%ED%98%95-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/"><span class="tag">함수형 인터페이스</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="tag">함수형 프로그래밍</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">행렬의 곱셈</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 Shawn Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

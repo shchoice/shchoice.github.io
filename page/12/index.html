@@ -1,0 +1,1788 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Shawn&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Shawn&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon_sh.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Shawn&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="차분하고 겸손하지만 확실하게!!"><meta property="og:type" content="blog"><meta property="og:title" content="Shawn&#039;s Blog"><meta property="og:url" content="http://example.com/"><meta property="og:site_name" content="Shawn&#039;s Blog"><meta property="og:description" content="차분하고 겸손하지만 확실하게!!"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/og_image.png"><meta property="article:author" content="Shawn Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"Shawn's Blog","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"Shawn Choi"},"publisher":{"@type":"Organization","name":"Shawn's Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.svg"}},"description":"차분하고 겸손하지만 확실하게!!"}</script><link rel="icon" href="/img/favicon_sh.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-D7QRVGYDET" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-D7QRVGYDET');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+          Array
+              .from(document.querySelectorAll('.tab-content'))
+              .forEach($tab => {
+                  $tab.classList.add('is-hidden');
+              });
+          Array
+              .from(document.querySelectorAll('.tabs li'))
+              .forEach($tab => {
+                  $tab.classList.remove('is-active');
+              });
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-27T06:46:02.000Z" title="10/27/2022, 3:46:02 PM">2022-10-27</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T17:42:18.000Z" title="7/23/2023, 2:42:18 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/REST/">REST</a></span><span class="level-item">2 minutes read (About 293 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/REST/RESTful-API%E1%84%85%E1%85%B3%E1%86%AF-%E1%84%80%E1%85%AE%E1%84%92%E1%85%A7%E1%86%AB%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5-%E1%84%8B%E1%85%B1%E1%84%92%E1%85%A1%E1%86%AB-%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%8E%E1%85%B5%E1%86%A8/">RESTful API를 구현하기 위한 원칙</a></h1><div class="content"><h2 id="REST-란"><a href="#REST-란" class="headerlink" title="REST 란"></a>REST 란</h2><ul>
+<li>REST는 Representational state transfer 의 약자로 WWW과 같은 분산 하이퍼미디어 시스템에서 운영되는 소프트웨어 아키텍처 스타일</li>
+<li>REST는 HTTP&#x2F;1.1 스펙과 동시에 만들어졌는데, HTTP 프로토콜을 정확히 의도에 맞게 활용하여 디자인하게 유도<ul>
+<li>따라서 디자인 기준이 명확해지며</li>
+<li>의미적인 범용성을 지니므로 중간 계층의 Component들이 서비스를 최적화하는데 도움</li>
+</ul>
+</li>
+<li>REST의 기본 원칙을 성실히 지킨 서비스 디자인은 RESTful 하다 라고 표현</li>
+<li>REST는 웹 서비스 아키텍처로서 아주 중요한 역할<ul>
+<li>API는 서비스가 여러 플랫폼을 지원해야할 때</li>
+<li>API로서 외부에 공개되어야할 때</li>
+<li>설명을 간결하게 하며, 여러가지 문제 상황을 지혜롭게 해결하기 때문(버전, 포맷 등)</li>
+</ul>
+</li>
+</ul>
+<h2 id="중심-규칙"><a href="#중심-규칙" class="headerlink" title="중심 규칙"></a>중심 규칙</h2><ol>
+<li>URI는 정보의 자원을 표현해야 함</li>
+<li>자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE 등)으로 표현</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /users/show/1  (👎)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<blockquote>
+<p><strong>참고 레퍼런스</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://spoqa.github.io/2012/02/27/rest-introduction.html">https://spoqa.github.io/2012/02/27/rest-introduction.html</a></li>
+</ul>
+</blockquote>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-26T12:56:16.000Z" title="10/26/2022, 9:56:16 PM">2022-10-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T17:42:13.000Z" title="7/23/2023, 2:42:13 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/">데이터 마이닝</a><span> / </span><a class="link-muted" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/%EA%B8%B0%EB%B3%B8/">기본</a></span><span class="level-item">4 minutes read (About 667 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Data%20Mining/%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5%E1%84%86%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%82%E1%85%B5%E1%86%BC/">데이터마이닝</a></h1><div class="content"><h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>ADsP를 준비하면서 요약 정리를 위해 작성</p>
+<h2 id="데이터-마이닝"><a href="#데이터-마이닝" class="headerlink" title="데이터 마이닝"></a>데이터 마이닝</h2><ol>
+<li><p>데이터마이닝이란</p>
+<ul>
+<li>대규모 데이터베이스를 사용해서 기존에 알려지지 않은 <strong>패턴이나 규칙</strong>을 찾아내는 과정</li>
+<li>대규모의 데이터로부터 유용한 정보를 추출</li>
+<li>컴퓨터 과학의 패턴인식 기술, 토계 및 수학적 분석방법 등을 사요앻서 새로운 관계, 성향, 패턴 등 가치를 발견하는 일련의 과정</li>
+<li>의미있는 패턴과 규칙을 발견하기 위해서 자동화되거나 반자동화된 도구를 이용하여 대량의 데이터를 탐색하고 분석하는 과정 </li>
+<li>Knowledge Discovery in large Databses (KDD)</li>
+</ul>
+<blockquote>
+<p><strong>통계 vs 기계학습 vs 데이터마이닝</strong></p>
+<ul>
+<li>통계(통계학)</li>
+<li><strong>표본 데이터</strong>를 이용하여 모집단에 대해 <strong>추론</strong></li>
+<li>기계학습(컴퓨터공학)<ul>
+<li><strong>전체 데이터</strong>를 이용해 개별값 <strong>예측</strong></li>
+<li>기존 데이터로 모델을 학습시킨 후 새로운 데이터를 입력했을 때 예측값을 알아내기 위한 목적</li>
+</ul>
+</li>
+<li>데이터마이닝(경영)<ul>
+<li>통계 + 기계학습</li>
+<li>가지고 있는 데이터에서 일정한 패터이나 특성을 발견 -&gt; 개별값 예측</li>
+<li>분석결과를 비지니스에 응용(Business Intelligence)</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>데이터마이닝기법</p>
+<ul>
+<li><p>지도학습(Supervised Learning)과 비지도학습(Unsupervised Learning)의 관점 및 예측(Estimate) 과 설명(Description)의 관점으로 분류할 수 있음</p>
+</li>
+<li><p>지도학습과 비지도학습</p>
+<ul>
+<li>지도학습 : 결과변수가 주어진 경우에 변수 간의 관계를 분석<ul>
+<li>예측<ul>
+<li>과거 데이터를 분석하여 모델을 만들고 새로운 케이스를 예측하는 방법</li>
+</ul>
+</li>
+<li>분류 <ul>
+<li>새로운 데이터가 어느 범주에 속하는지 분류하는 방법</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>비지도학습 : 결과변수가 없는 경우 분석하는 방법으로 객체 간의 관계를 분석하여 결과변수를 분석함<ul>
+<li>군집<ul>
+<li>데이터 특성을 유사성으로 군집화하여 새로운 데이터의 군집을 분석</li>
+</ul>
+</li>
+<li>연관규칙<ul>
+<li>연관성 변수들 간의 동시발생 빈도를 분석하여 변수들 간의 관계를 파악,</li>
+<li>마케팅 전략으로 활용</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>예측(Estimate)과 설명(Description)</p>
+<ul>
+<li><p>예측기법</p>
+<ul>
+<li>분류</li>
+<li>회귀분석</li>
+<li>시계열분석</li>
+</ul>
+</li>
+<li><p>설명기법</p>
+<ul>
+<li>연관규칙</li>
+<li>군집분석</li>
+<li>Text Mining 기법</li>
+<li>요약(Summarization)</li>
+</ul>
+<p><img src="/img/data_mining/%EB%B6%84%EC%84%9D%EB%B0%A9%EB%B2%952.png" alt="분석방법"></p>
+<p><img src="/img/data_mining/%EB%B6%84%EC%84%9D%EB%B0%A9%EB%B2%95.png" alt="분석방법"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>데이터마이닝 분석절차</p>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-26T12:45:50.000Z" title="10/26/2022, 9:45:50 PM">2022-10-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T18:01:35.000Z" title="7/23/2023, 3:01:35 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/">통계학</a><span> / </span><a class="link-muted" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/%EA%B8%B0%EB%B3%B8/">기본</a></span><span class="level-item">an hour read (About 7939 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Deep%20Learning/%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%92%E1%85%A1%E1%86%A8/%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB/%E1%84%80%E1%85%B5%E1%84%89%E1%85%AE%E1%86%AF%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8/">(2) 통계학 기본 - 데이터 구성</a></h1><div class="content"><h2 id="통계분석-자료분석"><a href="#통계분석-자료분석" class="headerlink" title="통계분석 - 자료분석"></a>통계분석 - 자료분석</h2><h3 id="데이터-구성"><a href="#데이터-구성" class="headerlink" title="데이터  구성"></a>데이터  구성</h3><ul>
+<li><p>데이터는 기본적으로 **관측치(행)**와 **변수(변수)**들로 구성</p>
+<p><img src="/img/basic_statistics/obser.png" alt="관측치"></p>
+</li>
+<li><p>관측치(Observations)</p>
+<ul>
+<li>모집단으로부터 추출된 표본의 수</li>
+</ul>
+</li>
+<li><p>변수(Variable)</p>
+<ul>
+<li><p>속성 혹은 특성이라고 함</p>
+</li>
+<li><p>독립변수와 종속변수</p>
+<ul>
+<li><p>변수들 간의 상호 관련성, 즉 인과관계가 있는지에 따라 구분</p>
+<ul>
+<li><p>$$<br>y&#x3D;f(x)<br>$$</p>
+<ul>
+<li>x를 독립변수, y를 종속변수라 한다.</li>
+<li>온도에 따른 아이스크림의 판매량 상관관계를 예시로 들었을 때, 날씨가 영하일 경우 아이스크림의 판매량이 떨어지고, 날씨가 더울 경우 아이스크림 판매량이 늘어나는 것처럼 원인이 되는 변수를 독립변수 원인의 결과인 아이스크림 판매량은 독립변수라 한다.</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>독립 변수<br />(Qualitative variable)</td>
+<td>설명변수로 원인이 되는 변수</td>
+</tr>
+<tr>
+<td>종속 변수<br />(Quantitative variable)</td>
+<td>결과변수로 독립변수에 영향을 받아서 결과가 되는 변수</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>질적&#x2F;양적 변수</p>
+<ul>
+<li><p>속성을 수량화 할 수 있는가에 따라 구분</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>질적 변수<br />(Qualitative variable)</td>
+<td>수치로 나타낼 수 없는 변수 <br />(ex. 회사명, 직종, 혈액형 등)</td>
+</tr>
+<tr>
+<td>양적 변수 <br />(Quantitative variable)</td>
+<td>수치로 나타낼 수 있는 변수 <br />(ex. 체중, 온도, 나이, 키 등)</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>이산변수 및 종속변수</p>
+<ul>
+<li><p>변수가 어떠한 값이라도 가질 수 있는지 아니면 특정 수치만 가질 수 있는지에 따라 구분</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>이산 변수<br />(Discrete variable)</td>
+<td>셀 수 있는 정수 값을 갖는변수<br />(ex. 학생수, 직원수 등)</td>
+</tr>
+<tr>
+<td>연속 변수<br />(Continuous variable)</td>
+<td>연속적인 모든 실수 값을 갖는 변수<br /> (ex. 길이, 무게, 온도 등)</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>명목변수와 서열변수</p>
+<ul>
+<li><p>구분한 범주기 서열이 존재하는지에 따라 구분</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>명목 변수<br />(Discrete variable)</td>
+<td>자료를 서로 다른 범주로 구분, 각 범주에 수치를 부여<br />(ex. 남자-1 여자-2 등)</td>
+</tr>
+<tr>
+<td>서열 변수<br />(Continuous variable)</td>
+<td>자료에 서열을 부여하기 위해서 수치를 사용<br />(ex. 5는 만족 3은 보통 1은 불만족으로 구분)</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>등간변수와 비율변수</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>등간변수 <br />(Interval variable)</td>
+<td>자료를 서열뿐 아니라 상대척 차이까지 제시<br />(ex. 온도 20도와 30도의 차이는 10도 이다.</td>
+</tr>
+<tr>
+<td>비율 변수 <br />(Ratio variable)</td>
+<td>자료를 분류, 서열, 차이와 함께 절대영점까지 표현 <br />(ex. 키 180cm &#x3D; 90cm * 2)</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>잔차(Residual)<ul>
+<li>관측값과 계산 값의 차이를 의미하며, 잔차를 바탕으로 각종 오차를 계산</li>
+</ul>
+</li>
+</ul>
+<h2 id="통계분석-표본조사-Sample"><a href="#통계분석-표본조사-Sample" class="headerlink" title="통계분석 - 표본조사(Sample)"></a>통계분석 - 표본조사(Sample)</h2><ul>
+<li>표본조사란<ul>
+<li>모집단의 특성을 나타내는 일부 표본을 추출하기 위해서 자료를 수집하는 행위</li>
+<li>모집단은 대상이 너무에 현실적으로 모집단을 전수조사하는 것은 불가능</li>
+<li>모집단을 전수조사하는 것보다 표본 조사가 오히려 오차가 적을 수 있음</li>
+</ul>
+</li>
+<li>표본방법<ul>
+<li><strong>확률표집</strong><ul>
+<li>정의<ul>
+<li>수학적인 지침에 의해 선정되는 표본추출법</li>
+<li>표본의 오차를 계산해야 함</li>
+</ul>
+</li>
+<li>종류<ul>
+<li>단순 무작위 표집(Simple random sampling)<ul>
+<li>랜덤하게 묘수에서 표본을 반복적으로 추출하는 것으로 난수표 및 체계적 표집법을 사용</li>
+</ul>
+</li>
+<li>층화표집법(Stratified sampling)<ul>
+<li>모집단을 기준에 따라서 소집단으로 분류하고, <strong>각 소집단으로부터 무작위로 표본을 추출</strong></li>
+<li>모집단에 대한 특성을 이해해야 하기에, 소집단 구분에 많은 비용과 노력이 발생</li>
+<li>발생비율이 낮은 소집단은 해당 표본을 찾기 어려운 문제가 있음</li>
+</ul>
+</li>
+<li>군집표집법(Clustser sampling)<ul>
+<li>모집단을 특정 군집으로 분류하고, <strong>군집 중 일부를 선택해서 군집의 모든 구성원을 전수조사</strong> 하는 방법</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>비확률표집</strong><ul>
+<li>정의<ul>
+<li>수학적으로 계산할 수 없는 경우에 사용되는 표본추출법</li>
+<li>표본의 오차를 계산할 수 없음</li>
+</ul>
+</li>
+<li>방법<ul>
+<li>할당표본추출법(Quota sampling)<ul>
+<li>가장 널리 사용되는 방법으로 모집단의 특성이 잘 반영되도록 특성별로 비례해서 표본을 추출</li>
+<li>사전에 정해놓은 분류기준에 의해서 집단을 <strong>소집단으로 분류</strong>하고 집단별 대상을 선정</li>
+<li>마케팅 조사, 연령별, 성별 설문조사 등에 사용됨</li>
+</ul>
+</li>
+<li>편의표본추출법(Convenience sampling)<ul>
+<li>가장 간단한 형태로 임의의 선정지역, 조사시간 등을 정의해 표본을 선택하는 방법</li>
+<li>표본추출 비용이 거의 발생하지 않고 조사가 아주 간단</li>
+<li>추출된 표본이 모집단을 대표하지 못함</li>
+<li>응답거부자의 특성이 반영되지 않음</li>
+</ul>
+</li>
+<li>판단표본추출법(Purposive sampling)<ul>
+<li>모집단의 의견을 반영할 수 있을 것이라고 판단될 때 사용하는 방법</li>
+<li>조사문제에 대해서 잘 알고있을 때 사용</li>
+<li>적은 비용으로 의미 있는 자료를 수집할 수 있는 장점</li>
+<li>모집단의 성격을 대표하지 못할 수 있음</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="통계분석-기술통계-분석"><a href="#통계분석-기술통계-분석" class="headerlink" title="통계분석 - 기술통계 분석"></a>통계분석 - 기술통계 분석</h2><ul>
+<li>통계에는 기술통계와 추리통계 2가지가 있다.<ul>
+<li>기술통계 : 표 및 그래프, 객관적인 수치를 사용해 데이터를 요약</li>
+<li>추리통계 : 확률을 사용해서 모수와 표본 간의 오차 범위를 예측</li>
+</ul>
+</li>
+</ul>
+<h3 id="기술통계-분석"><a href="#기술통계-분석" class="headerlink" title="기술통계 분석"></a>기술통계 분석</h3><table>
+<thead>
+<tr>
+<th>구분</th>
+<th>요약방법</th>
+<th>자료 정리</th>
+<th>그래프</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>질적자료</td>
+<td>도표<br />그래프</td>
+<td>도수분포표<br />분할표</td>
+<td>막대그래프(Bar Chart, 빈도)<br />막대그래프(Bar Chart, 퍼센트)<br />원 그래프(Pie Chart)</td>
+</tr>
+<tr>
+<td>연속자료</td>
+<td>수치<br />그래프</td>
+<td>산술평균<br />중앙값<br />조화평균</td>
+<td>히스토그램(Histogram)<br />상자그래프(Box Plot)<br />시계열(Time Series)<br />산점도(Scatter Plot)</td>
+</tr>
+</tbody></table>
+<h4 id="질적자료-기술통계"><a href="#질적자료-기술통계" class="headerlink" title="질적자료 기술통계"></a>질적자료 기술통계</h4><ul>
+<li><p>도수분포표(Frequency Table)</p>
+<ul>
+<li><p>수집된 자료애 대해서 적절한 등급으로 분류해서 정리한 표</p>
+</li>
+<li><p>각 자료에 대해서 출현 빈도를 계산하고 여러 구간으로 분료한 표</p>
+</li>
+<li><p>관측값을 여러 개의 그룹으로 나누고 관측값의 수를 요약 정리한 표</p>
+<p><img src="/img/basic_statistics/freq.png" alt="freq"></p>
+</li>
+<li><p>이러한 표를 바탕으로 그래프(Bar&#x2F;Pie Graph)를 그린다</p>
+</li>
+</ul>
+</li>
+<li><p>분할표(Contingency Table)</p>
+<ul>
+<li><p>질적변수가 2개일 때 관측치를 몇 개의 그룹으로 분할해서 빈도수를 정리한 것</p>
+</li>
+<li><p>예시 - 2개의 질적 범주(성별, 플레이 유무)</p>
+<p><img src="/img/basic_statistics/conti01.png" alt="cont01"></p>
+<p><img src="/img/basic_statistics/conti02.png" alt="cont02"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="연속자료-기술통계"><a href="#연속자료-기술통계" class="headerlink" title="연속자료 기술통계"></a>연속자료 기술통계</h4><ul>
+<li><p>자료의 분포 특성을 파악하기 위해서 숫자로 표현</p>
+</li>
+<li><p>중심위치와 산포경향을 파악하여 요약</p>
+<table>
+<thead>
+<tr>
+<th>중심위치</th>
+<th>산포경향</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>관측 잘가 어디에 집중되어 있는지를 분석</td>
+<td>자료가 중심위치를 기준으로 어느 정도 흩어져 있는지를 분석</td>
+</tr>
+<tr>
+<td>산술평균, 중앙값, 최빈값, 기하평균, 조화평균, 가중편균</td>
+<td>범위, 편차, 표준편차</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>중심위치</p>
+<ul>
+<li><p>평균은 자료의 분포상 무게중심을 하지만, 평균은 데이터의 분포에 따라 역할을 제대로 하지 못할 수 있다. 아래의 예는 평균은 178.46이지만 정작 170-180의 사람은 가장 적은 것을 볼 수있음</p>
+<p><img src="/img/basic_statistics/mean.png" alt="mean"></p>
+</li>
+<li><p>따라서 표존편차를 함께 사용한다. 표준편차는 평ㅇ균을 기준으로 데이터가 떨어져 있는 거리 값으로 표준편차가 크게 나타난다면 평균을 기준으로 데이터가 멀리 흩어져 있다는 것을 알 수 있다.</p>
+</li>
+<li><p>평균, 중앙값, 최빈값</p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>평균(Mean)</th>
+<th>중앙값(Median)</th>
+<th>최빈값(Mode)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>의미</td>
+<td>자료의 합을 개수로 나눈 값</td>
+<td>작은값부터 큰 값을 나열할 때 중앙에 있는 값</td>
+<td>자료 중 빈도가 가장 많이 나타나는 값</td>
+</tr>
+<tr>
+<td>장점</td>
+<td>자료의 값을 모두 사용</td>
+<td>극단적인 값이 있을 때 자료의 특성을 잘 반영</td>
+<td>쉽게 계산이 가능</td>
+</tr>
+<tr>
+<td>단점</td>
+<td>극단적인 값이 있으면 자료의 특성을 잘 반영하지 못함</td>
+<td>모든 자료를 사용하지 않음</td>
+<td>자료의 수가 적으면 중심 경향을 잘 바영하지 못함</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>가중평균(Weighted mean)</p>
+<ul>
+<li>자료의 중요도 및 영향 등에 따라서 가중치를 반영한 평균값</li>
+</ul>
+</li>
+<li><p>기하평균(Geometric mean)</p>
+<ul>
+<li>변화량을 계산할 때 많이 사용</li>
+<li>연간 경제성장률, 물가 인상률, 연간 이자율 등과 같은 곳에 사용 2010년부터 2022년까지 경제 성장률에 대한 평균, 즉 2010년의 기준에서 2022년의 경쟁률로 발전하려면 매년 몇 퍼센트가 증가해야 하는가를 의미</li>
+</ul>
+</li>
+<li><p>조화평균(Harmonic mean)</p>
+<ul>
+<li><p>여러 단위가 결합될 때 평균적인 변화를 계산</p>
+</li>
+<li><p>상대적인 비를 계산</p>
+</li>
+<li><p>예시</p>
+<ul>
+<li><p>경기도에서 서울까지 자동차로 다녀왔는데 갈 때에는 고속도로를 이요하여 100km&#x2F;h로 갔고, 올때는 국도를 이용해서 70km.h로 돌아왔다면 왕복 평균 속도는 얼마인가?</p>
+<ul>
+<li>평균이라면 85이지만 조화평균의 경우 82.3km&#x2F;h이다</li>
+</ul>
+<p>$$<br>H&#x3D; \frac{n}{\frac{1}{a_1}+…+\frac{1}{a_n}} &#x3D; \frac{2}{\frac{1}{100}+\frac{1}{70}}&#x3D;2&#x2F;(0.0143+0.01)&#x3D;82.3<br>$$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>절단평균(Trimmed Mean)</p>
+<ul>
+<li>가장 큰 값과 작은 값을 잘라내고 산술평균을 구한 것</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>산포경향</p>
+<ul>
+<li><p>범위</p>
+</li>
+<li><p>분산</p>
+<ul>
+<li>자료가 평균을 중심으로 얼마나 븐포하고 있는가를 수치로 나타냄</li>
+<li>확률변수가 기대값으로부터 얼마나 떨어진 곳에 분포하는지를 나타내는 숫자값</li>
+</ul>
+</li>
+<li><p><strong>표준편차</strong></p>
+<ul>
+<li>자료의 분포와 변동에 대한 정보를 제공</li>
+<li>자료에 있는 이상치를 점검</li>
+<li>가설검정을 함</li>
+</ul>
+<blockquote>
+<p><strong>체비쇼프의 정리(Chebyshev’s Theorem)</strong></p>
+<ul>
+<li>어떤 k에 대해서 적어도 자료의 (1-(1&#x2F;k*2)) 만큼의 비율이 k표준편차 내에 있음을 의미</li>
+<li>k&#x3D;2 이면 3&#x2F;4인 75%의 자료가 2 표준편차 내에 있다는 것을 의미</li>
+<li>k&#x3D; 3이라면 88.9%의 자료가 3 표준편차 내에 있다는 것을 의미</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>변동계수(Coefficient of Variation)</strong></p>
+<ul>
+<li><p><strong>측정 단위가 다른 자료나 자료 값의 차이가 너무 큰 경우</strong> 사용</p>
+</li>
+<li><p>상대 표준편차라고도 한다, 즉 상대적인 산포를 계산한다</p>
+</li>
+<li><p>변동계수는 <strong>표준편차를 산술평균으로 나눈 값</strong>이다.<br>$$<br>CV&#x3D;\frac{σ}{\overset{-}{x}}<br>$$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="그래프"><a href="#그래프" class="headerlink" title="그래프"></a>그래프</h4><ul>
+<li><p>히스토그램(Histogram)</p>
+<ul>
+<li>각 구간별 현황 및 대칭 여부를 확인하기 위해서 히스토그램을 사용할 수 있음</li>
+<li>데이터의 이상값(outler) 유무를 확인할 수 있음</li>
+</ul>
+<p><img src="/img/basic_statistics/histogram.png" alt="histogram"></p>
+</li>
+<li><p>상자그림(Box Plot)</p>
+<ul>
+<li><p>대칭여부, 이상값, 자료의 분포, 최대값, 최소값, 중위값 등을 확인할 수 있음</p>
+<p><img src="/img/basic_statistics/boxplot.png" alt="boxplot"></p>
+</li>
+<li><p>사분위수</p>
+<table>
+<thead>
+<tr>
+<th>사분위수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>제1사분위수(Q1)</td>
+<td>데이터의 25%가 이 값보다 작거나 같음</td>
+</tr>
+<tr>
+<td>제2사분위수(Q2)</td>
+<td>중위수 데이터의 50%가 이 값보다 작거나 같다</td>
+</tr>
+<tr>
+<td>제3사분위수(Q3)</td>
+<td>데이터의 75%가 이 값보다 작거나 같다</td>
+</tr>
+<tr>
+<td>사분위간범위<br />(InterQuantile Range)</td>
+<td>재1사분위수(Q1)과 제3사분위수(Q3) 간의 거리(Q3-Q1)이고, 데이터의 50%의 범위</td>
+</tr>
+</tbody></table>
+<p><img src="D:/NaverCloud/md/git/blog/matte/source/_posts/통계학/기본/img/basic_statistics/boxplot2.png" alt="boxplot2"></p>
+</li>
+<li><p>Boxplot의 의미</p>
+<p><img src="D:/NaverCloud/md/git/blog/matte/source/_posts/통계학/기본/img/basic_statistics/boxplot3.png" alt="boxplot3"></p>
+</li>
+<li><p>박스의 길이가 길면 자료가 넓게 펴져있는 것</p>
+</li>
+<li><p>박스의 길이가 짧으면 자료가 평균을 중심으로 모여있는 것</p>
+</li>
+</ul>
+</li>
+<li><p>시계열(TimeSeries) 분석</p>
+<ul>
+<li><p>시계열 분석이란</p>
+<ul>
+<li>시계열 데이터는 관측치가 시간적 순서를 가지고 있음</li>
+<li>미래를 예측하는 것을 목적으로 함</li>
+<li>시계열 데이터를 사용해서 추세(Trend)분석, 원인 예측, 전망 등을 분석</li>
+<li>주가 환율, 거래량 변동, 기온, 습도 등의 데이터이다.</li>
+</ul>
+</li>
+<li><p>시계열 데이터 구성요소</p>
+<table>
+<thead>
+<tr>
+<th>구성요소</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>추세<br />(Trend)</td>
+<td>기술혁신, 인구증가, 문화의 변화 등과 같이 장기간에 걸쳐 일정한 방향으로 지속적으로 사읏ㅇ하거나 하강하는 경향이다.</td>
+</tr>
+<tr>
+<td>계절적 변동<br />(Seasonal variation)</td>
+<td>봄, 여름, 가을, 겨울에 따라서 특정 소비가 증가하거나, 감소하는 형태로 나타남</td>
+</tr>
+<tr>
+<td>주기적 변동<br />(Cyclical variation)</td>
+<td>경기동향, 실업률, 이자율과 같이 일정한 주기를 가지고 장기간에 걸쳐 변동됨</td>
+</tr>
+<tr>
+<td>임의 변동<br />(Random variation)</td>
+<td>불규칙 변동이라고 하며, 우연한 요인에 의해 발생되기 때문에 패턴을 가지고 있지 않음</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>추세(Trend)분해 방법</p>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Lowess.Loess 회귀</td>
+<td>특정 범위에 다항 회귀선을 구하여 병합하는 방법</td>
+</tr>
+<tr>
+<td>이동평균<br />(Moving Average)</td>
+<td>특정 기간 동안의 값의 평균변화를 분석</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="통계분석-추리통계"><a href="#통계분석-추리통계" class="headerlink" title="통계분석 - 추리통계"></a>통계분석 - 추리통계</h2><h3 id="1-확률"><a href="#1-확률" class="headerlink" title="1. 확률"></a>1. 확률</h3><ul>
+<li>확률은 어떤 사건이 발생할 가능성으로 0과 1사이의 숫자로 표현</li>
+<li>표본 자료를 사용해서 구한 통계량과 모집단의 모수를 추론</li>
+</ul>
+<h3 id="2-확률계산"><a href="#2-확률계산" class="headerlink" title="2. 확률계산"></a>2. 확률계산</h3><ul>
+<li>표본공간(Sample space)<ul>
+<li>S로 표시하며 통계적 시험에서 발생할 수 있는 경우의 수</li>
+</ul>
+</li>
+<li>사건(Event)<ul>
+<li>특정 결과가 발생하는 모임으로 A,B,C 등으로 표현<ul>
+<li>P(A) : 사건 A가 일어날 확률</li>
+<li>n(A) : 사건 A가 일어날 수 있는 경우의 수</li>
+<li>n(S) : 전체 경우의 수</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>$$<br>확률 &#x3D; \frac{사건이 발생할 경우의 수}{전체경우의수}<br>$$</p>
+<p>$$<br>P(A) &#x3D; \frac{n(A)}{n(S)}<br>$$</p>
+<h3 id="3-추리통계-Inferential-Statistics-란"><a href="#3-추리통계-Inferential-Statistics-란" class="headerlink" title="3. 추리통계(Inferential Statistics)란"></a>3. 추리통계(Inferential Statistics)란</h3><p>기술통계에서 자료의 특성이 분석되면 표본을 사용하여 모집단의 특성을 추정하는 분석</p>
+<p><img src="D:/NaverCloud/md/git/blog/matte/source/_posts/통계학/기본/img/basic_statistics/inferstats.png" alt="inferstats"></p>
+<ul>
+<li><p>기술통계와 추리 통계의 차이점</p>
+<table>
+<thead>
+<tr>
+<th>기술통계</th>
+<th>추리통계</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>수집한 데이터</strong>의 특성을 파악하기 위해서 <strong>요약정리</strong>하는 통계방법</td>
+<td>수집한 데이터에서 <strong>표본(sample)을</strong> <strong>추출하여</strong>  <strong>모집단의 특성을 추정</strong></td>
+</tr>
+<tr>
+<td>평균, 중위값, 최빈수, 범위, 분산, 표준편차와 같은 분석으로 데이터의 특성을 파악</td>
+<td>표본을 사용해서 미래를 예측하는 것<br />차이검정 및 관계검정 등</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>추리통계학 작업</p>
+<ul>
+<li>가설형태</li>
+<li>통계적 결정오류 및 통계적 유의도</li>
+<li>가설검증</li>
+</ul>
+</li>
+<li><p>추리통계학 검증방법</p>
+<ul>
+<li>모수에 의한 검증<ul>
+<li>T-test</li>
+<li>ANOVA</li>
+<li>Z 검증 방법</li>
+</ul>
+</li>
+<li>비모수 통계 검증<ul>
+<li>카이제곱 검증</li>
+<li>Mann-Whitney U 검증</li>
+<li>Kruskal-Wallis 검증</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="통계분석-통계적-추론"><a href="#통계분석-통계적-추론" class="headerlink" title="통계분석 - 통계적 추론"></a>통계분석 - 통계적 추론</h2><h3 id="1-확률분포"><a href="#1-확률분포" class="headerlink" title="1. 확률분포"></a>1. 확률분포</h3><ul>
+<li><p>확률변수란</p>
+<ul>
+<li>확률변수가 특정 값을 가질 확률을 나타내는 함수</li>
+<li>통계량을 분석하여 통계적 의사결정을 내릴 수 있는 기준을 제시</li>
+<li>이산확률분포와 연속활률분포로 분류(어떤 종류의 값을 가지고 있는가에 따라 구분)</li>
+</ul>
+</li>
+<li><p>확률분포의 종류</p>
+<ul>
+<li>이산확률분포 : 일양균등분포, 이항분포, 포아송분포, 초기하분포, 기하분포</li>
+<li>연속확률분포 <ul>
+<li>평균분포 : 정규분포, t-분포</li>
+<li>분산분포 : 카이제곱분포, f-분포</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>확률변수와 확률분포의 관계</p>
+<ul>
+<li>확률변수는 모든 원소를 실수로 대응하는 함수이고</li>
+<li>확률분포는 확률변수로 얻어진 실수를 확률 값으로 반환하는 함수</li>
+</ul>
+<p><img src="D:/NaverCloud/md/git/blog/matte/source/_posts/통계학/기본/img/basic_statistics/prob01.png" alt="prob01"></p>
+</li>
+</ul>
+<h2 id="2-이산확률분포"><a href="#2-이산확률분포" class="headerlink" title="2. 이산확률분포"></a>2. 이산확률분포</h2><ul>
+<li><p>이산확률분포란</p>
+<ul>
+<li>확률변수가 0,1,2,와 같이 이산적인 형태를 이루는 분포</li>
+<li>로또 1등으로 당첨될 확률, 1남 3녀가 될 확률 등을 계산하는 형태</li>
+</ul>
+</li>
+<li><p>이산확률변수(Discreate Random Variable)</p>
+<ul>
+<li>특정 수치만을 가지고 확률변수로 정수로 표현된다</li>
+<li>P(X) &#x3D; 180</li>
+</ul>
+</li>
+<li><p>이항분포(Binomial Distribution) &#x3D; 베르누이분포</p>
+<ul>
+<li><p>베르누이 과정의 시행을 반복</p>
+</li>
+<li><p>베르누이 시행은 두 가지 결과 중 하나만 나타나게 시행하는 것으로 보통 “성공”, “실패”로 표현</p>
+</li>
+<li><p>이전의 실행 결과에 독립적이므로 영향을 주지 않는다.</p>
+</li>
+<li><p>각 시행의 성공 혹은 실패의 확률은 처음부터 끝까지 변하지 않음</p>
+<blockquote>
+<p><strong>베르누이분포(Bernoulli ditribution)</strong></p>
+<ul>
+<li>베르누이분포는 확률변수가 0과 1 두 가지 결과 값만을 가지고 서로 독립적으로 시행됨</li>
+<li>모든 실험결과에서 결과 확률은 항상 동일</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>포아송분포(poisson distribution)</p>
+<ul>
+<li><p>데이터 분석자가 설정한 시간에서 사건이 발생하는 건수</p>
+</li>
+<li><p>주어진 시간, 거리, 공간 범위에서 발생 할 확률이 아주 낮은 사건들의 발생에 관한 이산확률 분포</p>
+</li>
+<li><p>시간 단위당 도착에 대한 모델에 많이 사용됨</p>
+</li>
+<li><p>예시</p>
+<ul>
+<li>주어지 기간 동안 살인 사건의 수</li>
+<li>생산 공장에서 작업 중에 재해가 발생하여 사망할 건수</li>
+<li>일정한 거리의 전선에서 결점 수</li>
+</ul>
+<blockquote>
+<p><strong>지수분포(Exponential Distribution)</strong></p>
+<ul>
+<li>포아송분포의 반대로 도착시간에 따른 시간을 측정할 때 사용하는 연속확률분포</li>
+<li>두 사건 사이에서 시간에 대한 확률을 의미</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>초기하분포(Hypergeometric distribution)</p>
+<ul>
+<li>주어진 횟수만큼 반복되는 경우 성공할 횟수를 예측</li>
+<li>과거의 결과는 현재, 미래의 결과에 영향을 미치는 것으로 분석(이항확률분포는 연속되는 시행이 독립적)</li>
+<li>시행마다 발생할 결과가 이항분포처럼 두 가지만 있지만 유한 모집단에서 비복원 추출되기 때문에 베르누이 시행조건에 만족되지 안흔ㄴ 경우 사용되는 확률분포</li>
+<li>베르누이 과정을 따르지 않는다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-연속확률분포"><a href="#3-연속확률분포" class="headerlink" title="3. 연속확률분포"></a>3. 연속확률분포</h3><ul>
+<li><p>연속확률분포란</p>
+<ul>
+<li>연속 확률변수의 값에 대응하는 확률을 표시</li>
+<li>확률밀도함수를 사용해서 분포를 표현할 수 있음</li>
+<li>관측값이 연속적인 값을 가지고 있는 확률변수</li>
+</ul>
+</li>
+<li><p>연속확률변수(Continuous Random Variable)</p>
+<ul>
+<li>어떤 범위에서 연속적인 값을 가질 수 있는 실수</li>
+<li>연속확률변수의 자료는 각각 고유의 값을 가지고 있음</li>
+<li>몸무게, 체온, 수명 등의 변수가 있음</li>
+<li>P(175.0 &lt;&#x3D; X &lt;&#x3D; 185.0)</li>
+</ul>
+</li>
+<li><p>정규분포(Normal Distribution)</p>
+<ul>
+<li><p>통계이론에서 중요한 확률분포로 샘플을 추출해서 모집단의 모수를 예측할 때 사용</p>
+</li>
+<li><p>모집단의 분포를 정규분포로 가정하고 통계분석을 수행</p>
+</li>
+<li><p>정규분포는 평균을 중심으로 좌우대칭 구조를 가지고 잇는 확률분포</p>
+<p><img src="D:/NaverCloud/md/git/blog/matte/source/_posts/통계학/기본/img/basic_statistics/ND.svg" alt="ND"></p>
+</li>
+</ul>
+</li>
+<li><p>표준정규분포(Stadard Normal Distribution)</p>
+<ul>
+<li><p>정규분포에서 확률변수를 측정단위와 관계없이 자료를 표준화시켜 측정한 확률분포</p>
+</li>
+<li><p>표준 확률변수(Standardized Random Variable)</p>
+<ul>
+<li>표준 확률변수는 측정단위와 관계없이 자료를 표준화시킴</li>
+<li>평균으로부터 떨어진 거리를 계산할 수 있음</li>
+</ul>
+<p><img src="D:/NaverCloud/md/git/blog/matte/source/_posts/통계학/기본/img/basic_statistics/SND.png" alt="SND"></p>
+</li>
+<li><p>경험적 법칙(Empirical Rule)</p>
+<ul>
+<li><p>k&#x3D;1, 68.26% 이상의 데이터가 μ ± 1 시그마에 있다</p>
+</li>
+<li><p>k&#x3D;2, 95.44% 이상의 데이터가 μ ± 2 시그마에 있다</p>
+</li>
+<li><p>k&#x3D;3, 99.73% 이상의 데이터가 μ ± 3 시그마에 있다</p>
+<p><img src="D:/NaverCloud/md/git/blog/matte/source/_posts/통계학/기본/img/basic_statistics/er.jpg" alt="er"></p>
+</li>
+<li><p>z 함수를 이요해서 평균과 표준편차로 면적을 계산할 수 있음(적분 사용 안해도됨)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-통계적-추론-Statistical-Inference"><a href="#4-통계적-추론-Statistical-Inference" class="headerlink" title="4. 통계적 추론(Statistical Inference)"></a>4. 통계적 추론(Statistical Inference)</h3><ul>
+<li><p>통계적 추론이란 우리가 알지 못하는 대상에 대해서 통계적으로 접근하여 알아가는 과정</p>
+</li>
+<li><p>예시</p>
+<ul>
+<li>스마트폰을 가장 많이 사용하는 시간?</li>
+<li>스마트폰을 남자와 여자 중에 누가 더 많이 사용할까?</li>
+<li>급여수준과 사용하는 스마트폰의 종류는 관계가 있을까?</li>
+</ul>
+</li>
+<li><p>모수적 추론(Parametric inference)</p>
+<ul>
+<li>어떤 대상인 모집단의 분포가 어떤 분포일 것이라고 가정하고 모수에 대해서 추론</li>
+<li>모집단이 정규분포를 따른다면 분포의 모수는 평균과 분산일 것</li>
+<li>따라서 모수적 추론의 가정은 최종 결론에 아주 큰 영향을 줌</li>
+<li>정규분포, 이항분포, 포아송분포 등을 가정</li>
+</ul>
+</li>
+<li><p>비모수적 추론(Non-parametric inference)</p>
+<ul>
+<li>모집단에 대해서 어떠한 가정도 하지 않고 추론</li>
+<li>모집단을 몇개의 모수로 결정하기 어려워서 많은 모수를 사용해야 할 때 비모수적 추론을 함</li>
+<li>비모수적 추론을 사용하는 경우<ul>
+<li>정규분포를 따르지 않는 것이 증명</li>
+<li>표본의 수가 적어서 정규분포를 가정할 수가 없음</li>
+<li>모집단에 대한 아무런 정보가 없음</li>
+<li>정규분포를 가정하지 않기 때문에 평균과 분산이 없고 평균값의 차이, 신뢰구간을 구할 수가 없음</li>
+<li>따라서 비모수적 추론은 해석이 복잡해지고 실제 값을 사용하기 보다 부호나 순위 등의 형태를 사용하는 경우가 많음</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>베이지안 추론(Bayesian Inference)</p>
+<ul>
+<li><p>베이지안 확률을 사용해서 추론하는 방법으로 모수적 추론에서 가정한 분포의 모수로 추론</p>
+</li>
+<li><p>실험을 통해서 정보를 획득하고 베이즈 정리를 사용하여 가설 확률을 수정하는 통계적 추정방법</p>
+</li>
+<li><p>인공지능에서 사전 데이터로부터 학습된 지식을 추가 데이터로 업데이트할 때 사용됨<br>$$<br>P(H|E) &#x3D; \frac{P(E|H)P(H)}{P(E)}<br>$$</p>
+<blockquote>
+<p><strong>베이즈 정리(Bayes’ theorm)</strong></p>
+<ul>
+<li>A와 B는 모두 독립사건이고, A에 대해서 B의 조건부 확률 P(A|B)와 B에 대한 A의 조건부확률(B|A)는 일반적으로 같지 않음 <ul>
+<li>A와 B의 사전확률(Prior probability)인 P(A)와 P(B)가 같지 않기 때문</li>
+</ul>
+</li>
+<li>결론적으로 베이즈 정리는 P(A|B), P(B|A) 사이의 연관규칙이 존재하며 해당 규칙의 관계를 설명</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>$$<br>P(A|B) &#x3D; \frac{P(B|A)P(A)}{P(B)}<br>$$</p>
+<ul>
+<li>A와 B는 모두 독립사건이고 B가 발생활 확률 P(B)가 0 이 아님</li>
+<li>사건 A가 일어날 확률 P(A)와 사건 B가 일어날 확률 P(B)에서 B에 대한 사건 A의 조건부확률(P(B|A))를 알고 있으면 A에 대한 B가 일어날 확률을 알지 못해도 추정이 가능하다는 것</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>베이즈 정리를 사용한 베이지안 추론</p>
+<ul>
+<li><p>사전 경험과 현재 데이터를 사용해서 어떤 사건의 확률을 베이즈 정리를 사용해서 추론한 것</p>
+</li>
+<li><p>P(A)는 사전확률이고 “사건A가 발생한다”라는 명제에 대한 확률값으로 정의됨</p>
+</li>
+<li><p>P(B)는 증거로 측정을 통해서 얻어진 B가 발생할 확률</p>
+</li>
+<li><p>P(B|A)는 가능도(Likelihood)로 “사건 A가 발생할 때 명제 B가 발생할 조건부확률”</p>
+</li>
+<li><p>P(B|A)와 P(A), P(B)를 통해서 P(A|B)를 얻을 수 있으며, P(A|B)는 사후확률로 B라는 증거가 관찰된 후의 명제에 대한 확률</p>
+<blockquote>
+<p><strong>베이지안 추론</strong><br>$$<br>P(H|E) &#x3D; \frac{P(E|H)P(H)}{P(E)}<br>$$</p>
+<ul>
+<li>사건 A가 발생한다라는 명제를 H로 정의하고 믿음의 정도는 P(H)로 나타냄</li>
+<li>증거B를 E로 나타냄</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>통계적 추론 방법에 따른 분류</p>
+<ul>
+<li>통계적 추론<ul>
+<li>추정(Estimation)<ul>
+<li>점추정(Point Estimation)<ul>
+<li>미지의 모수에 대해 표본의 통계량을 사용해서 어떤 값으로 추정하는 과정</li>
+<li>모집단의 특성을 단일값으로 추정하는 방법</li>
+<li>모집단의 평균이 표본평균과 일치하는 세타를 찾는 방법을 적률방법(Moment Method)라고 함</li>
+<li>예<ul>
+<li>표본평균</li>
+<li>표본분산</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>구간추정(Interval Estimation)<ul>
+<li>모수의 값이 포함될 것이라 생각되는 범위를 통해서 모수를 추정</li>
+<li>모수의 구간 값을 계산해서 모수가 특정 구간에 포함될 것을 확률로 분석</li>
+<li>신뢰수준으로 85%, 97% 등으로 확률로 나타냄</li>
+<li>신뢰구간(Confidnece interval)<ul>
+<li>P(L ≤ θ ≤ U) - 1 - α</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>가설검정(Testing hypothesis)<ul>
+<li>모수에 대한 가설을 세우고 해당 가설의 옳고 그름을 판단</li>
+<li>가설에 대한 검정을 통해서 기각할 것인지 채택할 것인지 결정</li>
+<li>검정 통계량(Test statsitic)은 귀무가설을 기각하고 대립가설을  채택할지 아니면 귀무가설을 채택하고 대립가설을 기각할 것인지에 대한 통계량</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="통계분석-5-가설"><a href="#통계분석-5-가설" class="headerlink" title="통계분석 - 5.가설"></a>통계분석 - 5.가설</h2><h3 id="가설검증"><a href="#가설검증" class="headerlink" title="가설검증"></a>가설검증</h3><ul>
+<li><p>가설검증(hypothesis test)이란</p>
+<ul>
+<li>표본 데이터를 기반으로 모집단에 대한 새로운 주장의 옳고 그름을 추론하는 과정</li>
+<li>가설의 진설여부를 증명하는 것</li>
+<li>통계적 유의성을 검정하는 것으로, 유의적 검정(Significance Test)라고도 함</li>
+<li>모수에서 표본을 사용하여 진실여부를 True, False로 판단</li>
+<li>귀무가설(H0)이 사실이라고 가정하고 검증</li>
+<li>통계적 검정(statstical test) 라고도 함</li>
+</ul>
+</li>
+<li><p>귀무가설(Null, Hypothesis ,H0)</p>
+<ul>
+<li>기존의 주장 또는 기존에 알려진 사실(일반적으로 진실이라고 믿고 있는 것)</li>
+<li>통계적 검정 대상이 됨<ul>
+<li>제네시스는 연비가 10km 이다</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>대립가설(Alternative Hypothesis, H1)</p>
+<ul>
+<li>모집단에 대한 새로운 주장 (모집단과 표본의 평균은 다르다.)</li>
+<li>귀무가설과 대립하는 가설로 새로운 사실을 입증</li>
+<li>연구가설이라고도 함</li>
+<li>모수의 표본을 사용해서 검증<ul>
+<li>제네시스는 연비가 10km가 아니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>가설검정(귀무가설을 채택할 것인지 기각할 것인지 검증)의 종류</p>
+<ul>
+<li>우측 검정(Right-sided Test)<ul>
+<li>오른쪽 5% 내에 있는지를 확인</li>
+<li>95% 구간을 벗어나면 귀무가설을 기각됨</li>
+</ul>
+</li>
+<li>좌측 검정(Left-sided Test)<ul>
+<li>좌측 5%로 검정하여 귀무가설을 채택할지 기각할지 결정</li>
+</ul>
+</li>
+<li>양측 검정(Two-sided Test)<ul>
+<li>우측과 좌측 2.5% 구간을 기준으로 귀무가설을 채택할지 기각할지 결정</li>
+</ul>
+</li>
+</ul>
+<p><img src="D:/NaverCloud/md/git/blog/matte/source/_posts/통계학/기본/img/basic_statistics/hypo_test.png" alt="hypo_test"></p>
+</li>
+</ul>
+<h2 id="통계분석-7-통계분석-기법"><a href="#통계분석-7-통계분석-기법" class="headerlink" title="통계분석 - 7. 통계분석 기법"></a>통계분석 - 7. 통계분석 기법</h2><ul>
+<li><p>통계분석이란</p>
+<ul>
+<li>특정집단을 대상으로 자료를 수집하여 대상집단의 정보를 구체적 통계분석 기법으로 통계적 추론을 하는 일련의 과정을 의미</li>
+</ul>
+<p><img src="D:/NaverCloud/md/git/blog/matte/source/_posts/통계학/기본/img/basic_statistics/stats_anal.jpg" alt="stats_anal"></p>
+</li>
+</ul>
+<h3 id="평균차이검정"><a href="#평균차이검정" class="headerlink" title="평균차이검정"></a>평균차이검정</h3><ul>
+<li><p>평균차이검정</p>
+<ul>
+<li><p>평균검정(T-test)</p>
+<ul>
+<li><p>분석해야하는 집단의 수가 2개 미만일 때 사용하는 방법</p>
+</li>
+<li><p>집단 간에 평균 값을 비교하는 분석기법</p>
+</li>
+<li><p>3개의 집단에 대해서 평균분석을 하면 1종 오류가 발생할 확률이 높아짐</p>
+</li>
+<li><p>평균검정은 집단이 1,2,3 이면 1:2, 2:3, 1:3 처럼 3번 평균을 비교하지만 분산분석(ANOVA)은 한번에 평균을 비교</p>
+</li>
+<li><p>종류</p>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>One Sample T-test</td>
+<td>하나의 집단에 평균이 얼마인지를 검사하는 방법</td>
+</tr>
+<tr>
+<td>Independent Samples T-test</td>
+<td>독립된 두 집단 간에 평균의 차이를 검사하는 방법</td>
+</tr>
+<tr>
+<td>Paired Samples T-test</td>
+<td>하나의 집단을 처리 전과 처리 후로 나누어 분석하는 방법</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>분산분석(ANOVA, Analysis of Variance)</p>
+<ul>
+<li><p>ANOVA는 전체분산을 여러 개로 분할하여 분석하는 것으로 어떤 요인(factor)의 영향이 유의한지를 검정</p>
+</li>
+<li><p>집단이 3개 이상인 경우 사용</p>
+</li>
+<li><p>두개 이상의 집단을 비교할 때 사용하며 각 집단의 평균 차이에 의해서 발생되는 집단 간의 분산을 비교</p>
+</li>
+<li><p>F-분포(F-distribution, 연속확률분포)를 사용해서 가설을 검증하는 방법</p>
+</li>
+<li><p>종류 </p>
+<table>
+<thead>
+<tr>
+<th>기법</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>One way ANOVA</td>
+<td>하나의 집단구분 변수를 사용</td>
+</tr>
+<tr>
+<td>Two way ANOVA</td>
+<td>동시에 두 집단의 집단구분 변수를 사용<br />평균 반응 프로파일(두 변수 간의 상호작용을 확인하여 변화량을 확인)을 사용하여 두 개의 벼누 간에 상호작용(변화)를 확인</td>
+</tr>
+<tr>
+<td>Repeated Measured ANOVA</td>
+<td>집단이 3개이고 반복적으로 측정<br />반복해서 측정하여 변화된 것을 비교하는 방법</td>
+</tr>
+<tr>
+<td>Two way Repeated Measured ANOVA</td>
+<td>시점 데이터와 집단 데이터를 사용해서 분석하는 형태</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>F값의 의미</strong></p>
+<ul>
+<li>F값 &#x3D; 집단 간의 변량 &#x2F; 집단 내의 변량</li>
+<li>F값이 클수록 집단 간 변량이 집단 내 변량보다 커진다는 것을 의미</li>
+<li>독립변수의 설명력이 크다는 것은 집단 간의 변량이 크다는 것을 의미하기에 독립변수의 설명력이 커질수록 F값이 커진다</li>
+<li>변량은 변수나 분산의 뜻으로 사용됨</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>관계검정</p>
+<ul>
+<li>차이검정은 그룹 간의 차이를 분석(평균, 분산)하는 것이고 관계검정은 벼누솨 변수의 관계(연관성)울 검정</li>
+<li>종류<ul>
+<li>상관분석(Correlation)<ul>
+<li>연속변수와 연속변수를 분석</li>
+<li>두 개의 변수 간에 관계를 통계적 기법으로 분석</li>
+<li>인과관계가 명확하지 않을 때 분석</li>
+<li>선형관계를 전제</li>
+<li>두 개의 변수는 균등한 관계<ul>
+<li>ex. 키와 몸무게 -&gt; 어떤 변수가 원인이고 어떤 변수가 결과인지 알 수 없을 때 변수는 균등관계</li>
+</ul>
+</li>
+<li>종류<ul>
+<li>공분산(Covariance)</li>
+<li>상관계수(Correlation Coefficient)</li>
+<li>Pearson 상관계수</li>
+<li>Spearman 상관계수</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>회귀분석(Regression)<ul>
+<li>연속변수와 연속변수를 분석</li>
+<li>변수 간의 인과관계를 분석</li>
+<li>상관관계에서는 두가지 변수는 변수간에 원인과 결과가 없는 균등한 변수이고 회귀분석은 변수 간에 원인과 결과가 있는 변수</li>
+<li>상관분석은 1:1의 관계이지만, 회귀분석은 1:N의 관계에서 데이터를 분석</li>
+<li>인과 분석(원인 결과 분석)으로 독립변수의 변화가 종속변수의 변화를 어떻게 유발하는지 분석<ul>
+<li>독립변수 : 독립변수의 변화가 종속변수에 여향을 주는 변수 x1, x2, …</li>
+<li>종속변수 : 독깁변수에 영향을 받는 변수</li>
+</ul>
+</li>
+<li>목적<ul>
+<li>예측<ul>
+<li>원인변수에 영향을 받는 기울기(회귀계수)를 찾아 y를 예측</li>
+<li>변수를 비표준화하여 사용</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>종류<ul>
+<li>Multiple Linear Regression</li>
+<li>Logistic Regression</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>교차분석(Cross-tabulation)<ul>
+<li>질적변수와 질적변수를 분석</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-22T14:36:41.000Z" title="10/22/2022, 11:36:41 PM">2022-10-22</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T18:01:35.000Z" title="7/23/2023, 3:01:35 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/">통계학</a><span> / </span><a class="link-muted" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/%EA%B8%B0%EB%B3%B8/">기본</a></span><span class="level-item">10 minutes read (About 1498 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Deep%20Learning/%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%92%E1%85%A1%E1%86%A8/%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB/01.%20%E1%84%90%E1%85%A9%E1%86%BC%E1%84%80%E1%85%A8%E1%84%92%E1%85%A1%E1%86%A8%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A1%E1%86%AB/">(1) 통계학 기본 - 통계학이란</a></h1><div class="content"><h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>전공으로 통계를 공부하지 않았기 때문에 머신러닝에 대한 대학 원서나 확률과 통계에 대한 개념을 접할 때 간혹 전문용어 등이 나타날 때 갸우뚱하는 경우가 있었다. 그래서 용어에 대한 개념체계를 명백히 하면서 자격증이 남을 수 있는  ADsP 를 준비하게 되었다.<br>따라서 전반적으로 엔지니어로써의 관점보다는, <strong>원론적인 내용</strong>에 대해 알아두면 언젠가는 도움이 되지 않을까라는 지적 호기심의 관점으로  작성하였다.<br>(대부분의 내용은 이기적 ADsP 책을 기본으로 하였습니다.)</p>
+<h2 id="통계학-Statistics-이란"><a href="#통계학-Statistics-이란" class="headerlink" title="통계학(Statistics)이란"></a>통계학(Statistics)이란</h2><ul>
+<li><p>관심 대상인 <strong>모집단의 특성</strong>을 파악하기 위해</p>
+<ul>
+<li>문제 : 모집단을 조사하기란 매우 어려움, 현실세계에서 99%이상은 표본추출로 실행할 것임</li>
+</ul>
+</li>
+<li><p>모집단으로부터 관련된 일부 자료인 <strong>표본을 수집</strong>하고</p>
+<ul>
+<li>표본추출(sampling)</li>
+</ul>
+</li>
+<li><p>수집된 표본의 자료를 <strong>요약</strong>하여 표본의 특성을 파악하고</p>
+<ul>
+<li>기술통계학(Descriptive Statistics)</li>
+</ul>
+</li>
+<li><p>표본의 자료를 이용하여 모집단의 특성에 대해 <strong>확률을 이용해 추론</strong>(95% 신뢰도로, σ&#x3D;1.96)하는 학문</p>
+<ul>
+<li>추론통계학(Inferential Statistics)</li>
+</ul>
+<p><img src="/img/basic_statistics/popu_sample.png" alt="core_statistics">)</p>
+</li>
+</ul>
+<h3 id="기술통계학-Descriptive-Statistics"><a href="#기술통계학-Descriptive-Statistics" class="headerlink" title="기술통계학(Descriptive Statistics)"></a>기술통계학(Descriptive Statistics)</h3><ul>
+<li>조사 및 측정된 자료를 통해 그 자료가 가지고 있는 특징을 수치, 표, 그래프로 <strong>정리</strong>하는 과정<ul>
+<li>수치 <ul>
+<li>중심위치<ul>
+<li>평균(산술평균, 기하평균, 조화평균, 가중평균)</li>
+<li>중앙값</li>
+<li>최빈값</li>
+</ul>
+</li>
+<li>산포경향<ul>
+<li>범위</li>
+<li>편차</li>
+<li>표준편차</li>
+<li>변동계수(Coefficient of Variation)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>표</li>
+<li>그래프</li>
+</ul>
+</li>
+</ul>
+<h4 id="추론통계학-Inferential-Statistics"><a href="#추론통계학-Inferential-Statistics" class="headerlink" title="추론통계학(Inferential Statistics)"></a>추론통계학(Inferential Statistics)</h4><ul>
+<li>모집단으로부터  플을 추출 및 분석하여 그 결과로부터 전체 모집단에 대한 특성을 <strong>예측</strong>하는 과정</li>
+<li>추리통계학 작업<ul>
+<li>가설형태</li>
+<li>통계적 결정오류 및 통계적 유의도</li>
+<li>가설검증</li>
+</ul>
+</li>
+<li>추리통계학 검증방법<ul>
+<li>모수에 의한 검증<ul>
+<li>T-test</li>
+<li>ANOVA</li>
+<li>Z 검증 방법</li>
+</ul>
+</li>
+<li>비모수 통계 검증<ul>
+<li>카이제곱 검증</li>
+<li>Mann-Whitney U 검증</li>
+<li>Kruskal-Wallis 검증</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="기본-용어-정리"><a href="#기본-용어-정리" class="headerlink" title="기본 용어 정리"></a>기본 용어 정리</h4><ol>
+<li><p><strong>모집단과 표본</strong></p>
+<ul>
+<li><p>모집단(Population)</p>
+<ul>
+<li>관심 있는 연구대상 전체의 집합</li>
+<li>무한모집단: 모집단의 크기가 무한한 경우(전 세계인구, 축구를 좋아하는 사람들의 수)</li>
+<li>유한모집단: 모집단의 크기가 유한한 경우(A 대학교 재학생의 수)</li>
+</ul>
+</li>
+<li><p>전수조사(Census)</p>
+<ul>
+<li>관심있는 모집단 전체를 조사하는 경우로서 주로 모집단의 규모가 작을 경우에 실시</li>
+<li>전수조사의 어려움<ul>
+<li>조사 불가능 (모집단 전체를 대상으로 조사자체가 불가능)</li>
+<li>엄청난 시간과 비용 소모</li>
+</ul>
+</li>
+<li>해결책<ul>
+<li>전수조사 -&gt; 표본조사</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>표본(Sample)</p>
+<ul>
+<li>실제로 조사 및 측정되는 모집단의 일부</li>
+</ul>
+</li>
+<li><p>조사하기 위해 추출한 모집단의 일부 원소들</p>
+</li>
+<li><p>표본조사</p>
+<ul>
+<li>모집단에서 추출된 일부분인 표본을 가지고하는 조사</li>
+<li>수집방법<ul>
+<li>실험(Eperiment)</li>
+<li>조사(Survey)</li>
+<li>출판 자료(Published data)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>모수(Parameter) 와 통계량(Statistic)</strong></p>
+<ul>
+<li><p>모수(Parameter)</p>
+<ul>
+<li><p>통계적 관점에서의 의미</p>
+<ul>
+<li>모집단에 대한 수치 특성값</li>
+<li>모집단의 특성을 나타내는 양적인 측도로서 주어진 모집단을 따르는 고유의 상수(상수&#x3D;모집단은 진실된 하나의 값임)</li>
+<li>모집단의 특성(모평균(𝜇), 모분산(𝜎)  등)을 나타내는 값으로 모집단을 전수조사해야만 알 수 있는 값</li>
+<li>실제로는 모집단의 크기와 범위가 너무 방대하기에 전수조사를 실시하지 않고 표본 조사를 하는데, 표본평균, 표본분산 등으로 모평균, 모분산등을 추정할 수 있음</li>
+<li>표본 관측으로 구하고자 하는 모집단에 대한 정보</li>
+<li>예시</li>
+<li>서울시 송파구 소재의 고등학교 사교육비 평균</li>
+</ul>
+</li>
+<li><p>확률적 관점에서의 의미</p>
+<ul>
+<li>정규 분포(Normal Distribution)의 경우<ul>
+<li>모수: 평균 (μ, Mean), 분산(σ², Variance)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>수학적 관점에서의 의미<br>$$<br>f(x) &#x3D; ax^2+bx+c<br>$$</p>
+<ul>
+<li>모수는 a,b,c를 뜻함, x는 함수의 인수(the function’s argument)</li>
+<li>특정 시스템을 정의하거나 분류하는데 도움이 되는 특성</li>
+<li>함수의 특정한 성질을 나타내는 변수를 의미</li>
+<li>일반적으로 θ로 표현</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>통계량(Statistic)</p>
+<ul>
+<li>표본에서 얻은 수치 특성값</li>
+<li>표본의 특성을 나타내는 양적인 측도로서 모집단의 분포를 따르는 확률변수<ul>
+<li>확률변수 &#x3D; 표본에 따라 값이 변함을 의미</li>
+</ul>
+</li>
+<li>표본평균(x̅), 표본표준편차(𝑠)</li>
+<li>예시<ul>
+<li>우리나라 고등학교 1학년 중에서 1000명만 뽑아 조사하여 얻은 평균 사 교육비</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>표본오차와 통계적 추론</strong></p>
+<ul>
+<li><p>표본오차(Sampling Error)</p>
+<ul>
+<li>모집단에서 표본을 추출해서 조사하기 때문에, 모수와 표본 통계량 사이에 생기는 오차</li>
+<li>표본의 크기를 크게함으로써 표본 오차를 감소 -&gt; 통계학에서 표본의 크기를 크게 하라는 이유</li>
+<li>표본오차는 아무리 표본을 크게 해도 전수조사를 하지 않는 이상 존재</li>
+<li><strong>표본오차의 허용범위를 확률로 구하는 것이 통계의 목적</strong></li>
+</ul>
+</li>
+<li><p>통계적추론</p>
+<ul>
+<li>우리가 실제로 알고 싶은 것은 표본의 값(통계량: statistic)이 아니고 모집단의 값(모수:parameter)</li>
+<li>통계학의 목적 : 추론(Inference) -&gt; 표본에서 구한 값을 이용해 우리가 구하고자하는 모집단의 값도 어떠할 것이다 추론</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-10-03T15:16:31.000Z" title="10/4/2022, 12:16:31 AM">2022-10-04</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T17:42:16.000Z" title="7/23/2023, 2:42:16 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/Github-Pages/">Github Pages</a></span><span class="level-item">4 minutes read (About 599 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Github%20Pages/Hexo-Icarus_style_%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/">Hexo-Icarus style 설정</a></h1><div class="content"><h2 id="Profile-수정"><a href="#Profile-수정" class="headerlink" title="Profile 수정"></a><strong>Profile 수정</strong></h2><h3 id="프로필-아바타-이미지-및-소개-수정"><a href="#프로필-아바타-이미지-및-소개-수정" class="headerlink" title="프로필 아바타 이미지 및 소개 수정"></a><strong>프로필 아바타 이미지 및 소개 수정</strong></h3><ul>
+<li><p>cart.styl</p>
+<ul>
+<li><p>경로 : themes&#x2F;icarus&#x2F;include&#x2F;style</p>
+</li>
+<li><p>아바타 이미지에 요소검사를 수행하면 figure 태그를 수정하면 됨을 알 수 있음, 따라서 card-content &gt; image 를 수정</p>
+</li>
+<li><p>제목 및 소개 글의 요소 검사를 수행하면 p태그를 수정함을 알 수 있음, card-content &gt; level-item &gt; p 의 1,2,3 번째 요소를 수정</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.card-content</span><br><span class="line">    .image</span><br><span class="line">        width: 220px</span><br><span class="line">        height: 220px</span><br><span class="line"></span><br><span class="line">    .level-item</span><br><span class="line">        p.title.is-size-4.is-block</span><br><span class="line">            margin-top: 22px</span><br><span class="line">            font-weight: 600</span><br><span class="line">            font-size: 22px</span><br><span class="line">        p.is-size-6.is-block</span><br><span class="line">            margin-top: 10px</span><br><span class="line">            font-size: 16px</span><br><span class="line">        p.is-size-6.is-flex.justify-content-center</span><br><span class="line">            margin-top: 7px</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="Article-수정"><a href="#Article-수정" class="headerlink" title="Article 수정"></a><strong>Article 수정</strong></h2><h3 id="Title-폰트-사이즈-x2F-굵기-및-본문과-간격-변경"><a href="#Title-폰트-사이즈-x2F-굵기-및-본문과-간격-변경" class="headerlink" title="Title 폰트 사이즈&#x2F;굵기 및 본문과 간격 변경"></a><strong>Title 폰트 사이즈&#x2F;굵기 및 본문과 간격 변경</strong></h3><ul>
+<li><p>article.styl</p>
+<ul>
+<li><p>경로 : themes&#x2F;icarus&#x2F;include&#x2F;style</p>
+</li>
+<li><p>제목에 요소 검사를 수행하면 article tag 하위에 css class로 title이 걸려있음을 확인할 수 있음, 따라서 아래 내용처럼 수정</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&amp;.article</span><br><span class="line">    .title</span><br><span class="line">        font-size: 2.5rem</span><br><span class="line">        font-weight: bold</span><br><span class="line">        margin-bottom: 30px</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="본문의-h1-h2-굵기-변경"><a href="#본문의-h1-h2-굵기-변경" class="headerlink" title="본문의 h1, h2 굵기 변경"></a><strong>본문의 h1, h2 굵기 변경</strong></h3><ul>
+<li><p>article.styl</p>
+<ul>
+<li><p>경로 : themes&#x2F;icarus&#x2F;include&#x2F;style</p>
+</li>
+<li><p>article tag 하위에 content class 밑에 있는 h1, h2 태그를 수정</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&amp;.article</span><br><span class="line">    .title</span><br><span class="line">        font-size: 2.5rem</span><br><span class="line">        font-weight: bold</span><br><span class="line">    margin-bottom: 30px</span><br><span class="line">    </span><br><span class="line">    .article-meta, .article-tags</span><br><span class="line">    color: $text-light</span><br><span class="line">    </span><br><span class="line">    .article-meta</span><br><span class="line">        overflow-x: auto</span><br><span class="line">    margin-bottom: .5rem</span><br><span class="line">    </span><br><span class="line">    .article-more</span><br><span class="line">    @extend .button.is-light</span><br><span class="line">    </span><br><span class="line">    .content</span><br><span class="line">        word-wrap: break-word</span><br><span class="line">        font-size: $article-font-size</span><br><span class="line">    margin-top: 20px</span><br><span class="line">    </span><br><span class="line">        h1</span><br><span class="line">            font-size: 1.75em</span><br><span class="line">        font-weight: bold</span><br><span class="line">    </span><br><span class="line">        h2</span><br><span class="line">            font-size: 1.5em</span><br><span class="line">            font-weight: bold</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="styl-파일-수정-후-hexo-server로-확인-시-css-파일-지우기"><a href="#styl-파일-수정-후-hexo-server로-확인-시-css-파일-지우기" class="headerlink" title="styl 파일 수정 후, hexo server로 확인 시 css 파일 지우기"></a>styl 파일 수정 후, hexo server로 확인 시 css 파일 지우기</h2><ul>
+<li>styl 파일을 수정 후 hexo generate만 수행해서 사용한다면 pulbic&#x2F;css&#x2F;*.css 파일을 지워서 사용해야 함(파일이 있을 경우 수정 내용 반영 안됨)</li>
+<li>위를 방지하고 싶으면 hexo clean &amp;&amp; hexo generate을 하자</li>
+</ul>
+<h2 id="Google-Analytics-기능-추가"><a href="#Google-Analytics-기능-추가" class="headerlink" title="Google Analytics 기능 추가"></a><strong>Google Analytics 기능 추가</strong></h2><ul>
+<li><p>Google Analytics 에 Tracking ID 찾기</p>
+<ul>
+<li><p>(애널리틱스 계정 생성 및 속성 생성 생략)</p>
+</li>
+<li><p>관리 &gt; 데이터 스트림</p>
+<p><img src="/img/github_pages/GoogleAnalystics.png" alt="GoogleAnalystics"></p>
+</li>
+<li><p>tracking ID 복사</p>
+<p><img src="/img/github_pages/tracking_id.png" alt="tracking_id"></p>
+</li>
+</ul>
+<p>[상세내용] <a target="_blank" rel="noopener" href="https://support.google.com/analytics/answer/9539598?hl=ko">Googel Analytics Tracking ID 설정</a></p>
+</li>
+<li><p>config_icarus.yml 파일에서 google_analytics &gt; tracking_id 란에 복사한 Tracking ID 붙여넣기</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">google_analytics:</span></span><br><span class="line">        <span class="comment"># Google Analytics tracking ID</span></span><br><span class="line">        <span class="attr">tracking_id:</span> <span class="string">G-D7AAAAAAAA</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="post글에-댓글-기능-추가-by-disqus"><a href="#post글에-댓글-기능-추가-by-disqus" class="headerlink" title="post글에 댓글 기능 추가(by disqus)"></a><strong>post글에 댓글 기능 추가(by disqus)</strong></h2><ul>
+<li><p>Disqus 회원 가입<a href="%5B%5D()">Disqus</a> 및 Site 생성(생략)</p>
+</li>
+<li><p>Short Name 복사</p>
+</li>
+<li><p>config_icarus.yml 파일에서 comment &gt; shorname에 복사 내용 붙여넣기</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">comment:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">disqus</span></span><br><span class="line">    <span class="comment"># Disqus shortname</span></span><br><span class="line">    <span class="attr">shortname:</span> <span class="string">myshortname</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="레퍼런스"><a href="#레퍼런스" class="headerlink" title="레퍼런스"></a><strong>레퍼런스</strong></h2><blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://support.google.com/analytics/answer/9539598?hl=ko">Googel Analytics Tracking ID 설정</a></li>
+<li><a target="_blank" rel="noopener" href="https://eunii.github.io/2019/04/17/tec/blog/blog10/">https://eunii.github.io/2019/04/17/tec/blog/blog10/</a></li>
+<li><a target="_blank" rel="noopener" href="https://datahack.dev/2020/04/18/etc/hexo-blog/">https://datahack.dev/2020/04/18/etc/hexo-blog/</a></li>
+</ol>
+</blockquote>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-08-14T13:43:09.000Z" title="8/14/2022, 10:43:09 PM">2022-08-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T18:01:35.000Z" title="7/23/2023, 3:01:35 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/MLOps/">MLOps</a><span> / </span><a class="link-muted" href="/categories/MLOps/MLflow/">MLflow</a></span><span class="level-item">13 minutes read (About 1939 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/MLOps/MLflow/MLflow%20%E1%84%80%E1%85%A2%E1%84%8B%E1%85%AD%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%87%E1%85%A5%E1%86%B8/">MLflow 개요 및 설치법</a></h1><div class="content"><h2 id="배경"><a href="#배경" class="headerlink" title="배경"></a>배경</h2><p>새로 들어오는 DL 프로젝트에 대해 매번 실험을 수기(PPT, 스프레드시트)로 수행하는 데에 한계를 느낌</p>
+<ul>
+<li><p>복수의 모델 및 여러 하이퍼 파라미터 의 값을 조정해 가며 테스트를 수행해 최적화된 모델을 산출하고 싶었음</p>
+<ul>
+<li>Epoch, Layer Depth, Regularization(Dropout, Batch Norm, max_len_size, num_update_token 등)</li>
+</ul>
+</li>
+<li><p>정확도 평가 지표를 여러개 사용하고 그 결과를 한눈에 보기를 희망</p>
+<ul>
+<li>분류 : Accuracy, Recall, Precision, F1-Score, AUROC 등</li>
+<li>예측 : MAE, RMSE, MPE, R2 Score 등</li>
+</ul>
+</li>
+<li><p>산출한 모델의 버전 관리가 어려움 </p>
+<ul>
+<li>ex) model_loss .pkl  등</li>
+</ul>
+</li>
+</ul>
+<h2 id="설치-환경"><a href="#설치-환경" class="headerlink" title="설치 환경"></a>설치 환경</h2><ul>
+<li>OS : Ubuntu 16.04</li>
+<li>Python : 3.8<ul>
+<li>(python 3.6 이상이면 문제 없음)</li>
+</ul>
+</li>
+</ul>
+<h2 id="MLflow-개요"><a href="#MLflow-개요" class="headerlink" title="MLflow 개요"></a>MLflow 개요</h2><ul>
+<li><p>MLflow란</p>
+<ul>
+<li>MLflow는 실험(experimentation), 재현성(reproducibility), 배포(deployment) 및 Model registry 등의 ML life-cycle을 관리할 수 있는 오픈소스 플랫폼</li>
+<li>CLI 및 웹 기반 GUI 를 지원</li>
+<li>Tensorflow, PyTorch, Keras, sklearn, fast.ai 등 다양한 라이브러리와 통합하여 사용할 수 있음</li>
+<li>부분 유료인 WanDB 등 다른 툴도 존재하지만, 무료로 사용할 수 있음</li>
+</ul>
+</li>
+<li><p>주요기능(크게 4가지 Component로 구성)</p>
+<ol>
+<li><strong>MLflow Tracking</strong><ul>
+<li>ML Code를 수행할 때 설정한 parameter, code version, metris, loss 의 변화, 시각화 자료 등의 log를 API 및 UI로 제공</li>
+<li>Tensorflow &amp; Keras, pytorch, FastAI, Scikit-learn, Spark, XGBoost 등의 라이브러리에 대해서는 자동으로 로그를 기록함(Automatic Logging)</li>
+</ul>
+</li>
+<li>MLflow Projects<ul>
+<li>ML code를 재사용, 재구현 가능한 형태로 패키징하여 다른 데이터 과학자들과 공유하거나 프로덕션으로 변환 기능 제공</li>
+</ul>
+</li>
+<li>MLflow Models<ul>
+<li>REST API 기반으로 실시간 서빙 및 추론 플랫폼 제공</li>
+</ul>
+</li>
+<li>Model Registry<ul>
+<li>Centeralized model store의 역할을 수행함</li>
+<li>Model의 생성부터 모델의 버전 및 스테이지를 충돌없이 관리할 수 있음<br>따라서 Model Registry에 update가 발생할 경우, 핵심 정보를 로그로 남길 수 있도록 이벤트를 설계</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>REST API 및 CLI 를 통해 모든 기능에 엑세스할 수 있음</p>
+</li>
+<li><p>API는 Pyhthon, R, Java 등 존재</p>
+</li>
+</ul>
+<h2 id="MLflow-설치-및-기동"><a href="#MLflow-설치-및-기동" class="headerlink" title="MLflow 설치 및 기동"></a>MLflow 설치 및 기동</h2><ul>
+<li><p>MLflow 설치 및 확인</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 22.08.10 기준으로 1.27.0 버전이 설치되었음</span></span><br><span class="line">$ pip install mlflow</span><br><span class="line"><span class="comment"># 설치 확인</span></span><br><span class="line">$ mlflow --version</span><br><span class="line"><span class="comment"># mlflow, version 1.27.0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>MLflow 디렉토리 생성</p>
+<ul>
+<li><p>간단한 구성을 위해 계정 home path 에 mlflow 디렉토리를 구성하고 해당 디렉토리에 mlflow의 artifact 및 data 파일을 저장</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> ~/mlflow</span><br><span class="line">$ <span class="built_in">cd</span> ~/mlflow</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>MLflow tracking server  기동</p>
+<ul>
+<li><p>mlflow ui 로 기동하는 방법, mlflow server 로 기동하는 방법 총 2가지 방법이 있음</p>
+<ul>
+<li><p>mlflow ui는 localhost에서만 기동 가능</p>
+<ul>
+<li>작업 연속성을 위해서는 기동은 반드시 같은 디렉토리에서 수행해야함</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 해당 작업의 결과 ~/mlflow 경로에 mlruns 디렉토리가 생김을 확인할 수 있음</span></span><br><span class="line"><span class="comment"># mlruns 디렉토리를 통해 entity와 artifacts 관련 내용을 관리</span></span><br><span class="line">$ mlflow ui -h &lt;IP&gt;</span><br><span class="line">[2022-08-12 15:57:21 +0900] [5691] [INFO] Starting gunicorn 20.1.0</span><br><span class="line">[2022-08-12 15:57:21 +0900] [5691] [INFO] Listening at: http://&lt;IP&gt;:5000 (5691)</span><br><span class="line">[2022-08-12 15:57:21 +0900] [5691] [INFO] Using worker: <span class="built_in">sync</span></span><br><span class="line">[2022-08-12 15:57:21 +0900] [5693] [INFO] Booting worker with pid: 5693</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mlflow server는 production 용도로 사용</p>
+<ul>
+<li>worker를 여러개 띄울 수 있고 prometheus가 metrics를 가져갈 수 있는 엔드포인트를 제공하는 추가적 기능 존재</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 해당 작업 결과 ~/mlflow 경로에 artifacts 디렉토리와 mlflow.db 파일이 생김을 확인할 수 있음</span></span><br><span class="line"><span class="comment"># mlflow.db를 통해 entity를 관리하며 artifacts 디렉터리에서 artifacts 관련 내용을 관리</span></span><br><span class="line">$ mlflow server -h &lt;IP&gt; --backend-store-uri sqlite:///mlflow.db --default-artifact-root $(<span class="built_in">pwd</span>)/artifacts</span><br><span class="line"></span><br><span class="line">2022/08/16 11:06:58 INFO mlflow.store.db.utils: Creating initial MLflow database tables...</span><br><span class="line">2022/08/16 11:06:58 INFO mlflow.store.db.utils: Updating database tables</span><br><span class="line">INFO  [alembic.runtime.migration] Context impl SQLiteImpl.</span><br><span class="line">INFO  [alembic.runtime.migration] Will assume non-transactional DDL.</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade  -&gt; 451aebb31d03, add metric step</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade 451aebb31d03 -&gt; 90e64c465722, migrate user column to tags</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade 90e64c465722 -&gt; 181f10493468, allow nulls <span class="keyword">for</span> metric values</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade 181f10493468 -&gt; df50e92ffc5e, Add Experiment Tags Table</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade df50e92ffc5e -&gt; 7ac759974ad8, Update run tags with larger <span class="built_in">limit</span></span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade 7ac759974ad8 -&gt; 89d4b8295536, create latest metrics table</span><br><span class="line">INFO  [89d4b8295536_create_latest_metrics_table_py] Migration complete!</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade 89d4b8295536 -&gt; 2b4d017a5e9b, add model registry tables to db</span><br><span class="line">INFO  [2b4d017a5e9b_add_model_registry_tables_to_db_py] Adding registered_models and model_versions tables to database.</span><br><span class="line">INFO  [2b4d017a5e9b_add_model_registry_tables_to_db_py] Migration complete!</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade 2b4d017a5e9b -&gt; cfd24bdc0731, Update run status constraint with killed</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade cfd24bdc0731 -&gt; 0a8213491aaa, drop_duplicate_killed_constraint</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade 0a8213491aaa -&gt; 728d730b5ebd, add registered model tags table</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade 728d730b5ebd -&gt; 27a6a02d2cf1, add model version tags table</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade 27a6a02d2cf1 -&gt; 84291f40a231, add run_link to model_version</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade 84291f40a231 -&gt; a8c4a736bde6, allow nulls <span class="keyword">for</span> run_id</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade a8c4a736bde6 -&gt; 39d1c3be5f05, add_is_nan_constraint_for_metrics_tables_if_necessary</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade 39d1c3be5f05 -&gt; c48cb773bb87, reset_default_value_for_is_nan_in_metrics_table_for_mysql</span><br><span class="line">INFO  [alembic.runtime.migration] Running upgrade c48cb773bb87 -&gt; bd07f7e963c5, create index on run_uuid</span><br><span class="line">INFO  [alembic.runtime.migration] Context impl SQLiteImpl.</span><br><span class="line">INFO  [alembic.runtime.migration] Will assume non-transactional DDL.</span><br><span class="line">[2022-08-16 11:06:59 +0900] [26693] [INFO] Starting gunicorn 20.1.0</span><br><span class="line">[2022-08-16 11:06:59 +0900] [26693] [INFO] Listening at: http://&lt;IP&gt;:5000 (26693)</span><br><span class="line">[2022-08-16 11:06:59 +0900] [26693] [INFO] Using worker: <span class="built_in">sync</span></span><br><span class="line">[2022-08-16 11:06:59 +0900] [26695] [INFO] Booting worker with pid: 26695</span><br><span class="line">[2022-08-16 11:06:59 +0900] [26704] [INFO] Booting worker with pid: 26704</span><br><span class="line">[2022-08-16 11:06:59 +0900] [26776] [INFO] Booting worker with pid: 26776</span><br><span class="line">[2022-08-16 11:06:59 +0900] [26777] [INFO] Booting worker with pid: 26777</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>옵션 설명</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mlflow server -h &lt;ip&gt; -p &lt;port&gt; --backend-store-uri &lt;path&gt; -- default-artifact-root &lt;path&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>-h : 접속이 가능한 네트워크 주소</p>
+</li>
+<li><p>-p : 접속에 사용할 포트번호</p>
+</li>
+<li><p>–backend-store-uri </p>
+<ul>
+<li>MLflow 엔티티가 기록되는 저장소 (experiments 이름, params, metrics 등)</li>
+<li>DB나 파일시스템으로 저장이 되며 아무 설정 없을시 .&#x2F;mlruns에 데이터가 로깅이 된다.<ul>
+<li><p>DB : sqlite:&#x2F;&#x2F;&#x2F;path&#x2F;to&#x2F;file.db</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MLflow 의 Entitiy가 SQL에 저장이 됨을 확인</span></span><br><span class="line">$ sqlite3 mlflow.db</span><br><span class="line">sqlite&gt; .table</span><br><span class="line">alembic_version        metrics                registered_model_tags</span><br><span class="line">experiment_tags        model_version_tags     registered_models    </span><br><span class="line">experiments            model_versions         runs                 </span><br><span class="line">latest_metrics         params                 tags</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>파일시스템 : file:&#x2F;&#x2F;&#x2F;absolute&#x2F;path&#x2F;to&#x2F;directory</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MLflow 의 Entitiy가 file system에 저장됨을 확인</span></span><br><span class="line"><span class="comment"># DB와 다르게 artigact 와 함께 있음을 확인할 수 있음</span></span><br><span class="line">$ tree mlruns/</span><br><span class="line">mlruns/</span><br><span class="line">└── 0</span><br><span class="line">    ├── 05a7b8d5a9f842be85de459e3bc758f9</span><br><span class="line">    │   ├── artifacts</span><br><span class="line">    │   │   ├── feature_importance_weight.json</span><br><span class="line">    │   │   ├── feature_importance_weight.png</span><br><span class="line">    │   │   └── model</span><br><span class="line">    │   │       ├── MLmodel</span><br><span class="line">    │   │       ├── conda.yaml</span><br><span class="line">    │   │       ├── model.xgb</span><br><span class="line">    │   │       ├── python_env.yaml</span><br><span class="line">    │   │       └── requirements.txt</span><br><span class="line">    │   ├── meta.yaml</span><br><span class="line">    │   ├── metrics</span><br><span class="line">    │   │   ├── accuracy</span><br><span class="line">    │   │   ├── log_loss</span><br><span class="line">    │   │   └── train-mlogloss</span><br><span class="line">    │   ├── params</span><br><span class="line">    │   │   ├── colsample_bytree</span><br><span class="line">    │   │   ├── early_stopping_rounds</span><br><span class="line">    │   │   ├── eval_metric</span><br><span class="line">    │   │   ├── learning_rate</span><br><span class="line">    │   │   ├── maximize</span><br><span class="line">    │   │   ├── num_boost_round</span><br><span class="line">    │   │   ├── num_class</span><br><span class="line">    │   │   ├── objective</span><br><span class="line">    │   │   ├── seed</span><br><span class="line">    │   │   ├── subsample</span><br><span class="line">    │   │   └── verbose_eval</span><br><span class="line">    │   └── tags</span><br><span class="line">    │       ├── mlflow.log-model.history</span><br><span class="line">    │       ├── mlflow.source.name</span><br><span class="line">    │       ├── mlflow.source.type</span><br><span class="line">    │       └── mlflow.user</span><br><span class="line">    └── meta.yaml</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>–default-artifact-root</p>
+<ul>
+<li><p>ML experiment에 대한 artifacts가 저장이 됨</p>
+<ul>
+<li><p>backend-store-uri를 db로 설정할시 artifact만 다음 파일시스템에 저장됨</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ tree artifacts/</span><br><span class="line">artifacts/</span><br><span class="line">└── 0</span><br><span class="line">    └── 365c26af022e4850bd17e01834b30933</span><br><span class="line">        └── artifacts</span><br><span class="line">            └── model</span><br><span class="line">                ├── MLmodel</span><br><span class="line">                ├── conda.yaml</span><br><span class="line">                ├── model.pkl</span><br><span class="line">                ├── python_env.yaml</span><br><span class="line">                └── requirements.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>backend-store-uri를 filesystem 으로 설정할 시 artifact 가 entity와 함께 저장됨</p>
+</li>
+</ul>
+</li>
+<li><p>파일시스템으로 저장이 되며 아무설정 없을시 .&#x2F;mlruns에 데이터가 로깅이 된다.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>추가 옵션을 사용하고 싶을시 mlflow server –help 로 상세 확인</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>MLflow tracking server UI 확인</p>
+<ul>
+<li><p>http:&#x2F;&#x2F;&lt;ip&gt;:&lt;port&gt; 로 접속</p>
+<p><img src="/img/ops/mlflow/mlflow_init.png" alt="mlflow_init"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="느낀점"><a href="#느낀점" class="headerlink" title="느낀점"></a>느낀점</h2><p>MLflow를 설치 시,  backend-store-uri 는 sqlite, mariadb 등의 RDBMS 에 등록을 해야 추후 관리하기에 용이한 것 같다.</p>
+<h2 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://mlflow.org/">https://mlflow.org/</a></li>
+<li><a target="_blank" rel="noopener" href="https://zzsza.github.io/mlops/2019/01/16/mlflow-basic/">https://zzsza.github.io/mlops/2019/01/16/mlflow-basic/</a></li>
+<li><a target="_blank" rel="noopener" href="https://myeonghak.github.io/mlops/MLOps-MLFlow%EB%A1%9C-%EB%AA%A8%EB%8D%B8-%ED%95%99%EC%8A%B5-%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0/">https://myeonghak.github.io/mlops/MLOps-MLFlow%EB%A1%9C-%EB%AA%A8%EB%8D%B8-%ED%95%99%EC%8A%B5-%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0/</a></li>
+<li><a target="_blank" rel="noopener" href="https://velog.io/@ifelifelse/MLflow">https://velog.io/@ifelifelse/MLflow</a></li>
+<li><a target="_blank" rel="noopener" href="https://dailyheumsi.tistory.com/260">https://dailyheumsi.tistory.com/260</a></li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-08-10T13:27:13.000Z" title="8/10/2022, 10:27:13 PM">2022-08-10</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T18:01:35.000Z" title="7/23/2023, 3:01:35 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/Ops/">Ops</a><span> / </span><a class="link-muted" href="/categories/Ops/%EC%84%A4%EC%B9%98/">설치</a></span><span class="level-item">9 minutes read (About 1275 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Ops/%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5/Ubuntu%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5%20python%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/">Ubuntu에서 python 설치하기</a></h1><div class="content"><h2 id="배경"><a href="#배경" class="headerlink" title="배경"></a>배경</h2><p>DL 프로젝트를 수행하면서 mlflow를 별도로 구축해야할 필요가 생김<br>따라서 ubuntu에 Test용 계정을 생성하여 python 환경을 구성</p>
+<h2 id="설치-환경"><a href="#설치-환경" class="headerlink" title="설치 환경"></a>설치 환경</h2><ul>
+<li>OS : Ubuntu 16.04</li>
+<li>Python : 3.8</li>
+</ul>
+<h2 id="작업"><a href="#작업" class="headerlink" title="작업"></a>작업</h2><ul>
+<li>Ubuntu 관련 계정 생성 및 권한 설정</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 계정 생성 </span></span><br><span class="line"><span class="comment">## -m : 홈 디렉토리가 생성</span></span><br><span class="line"><span class="comment">## -s : /bin/bash 옵션을 명시해야 쉘 환경이 설정됨)</span></span><br><span class="line">$ sudo uesradd -m -s /bin/bash 계정명</span><br><span class="line"></span><br><span class="line"><span class="comment"># sudo 권한 부여</span></span><br><span class="line">$ sudo usermod -aG sudo 계정명</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Python 버전 확인 및 업데이트</p>
+<ul>
+<li><p>버전확인</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 새로 생성된 계정의 경우, python 명령어를 치면 버전이 2버전으로 symbolic link가 걸려있기에</span></span><br><span class="line"><span class="comment"># python3 명령어를 입력하여 버전을 확인</span></span><br><span class="line">shchoice@mls-01:~$ python</span><br><span class="line">Python 2.7.12 (default, Mar  1 2021, 11:38:31) </span><br><span class="line">[GCC 5.4.0 20160609] on linux2</span><br><span class="line">Type <span class="string">&quot;help&quot;</span>, <span class="string">&quot;copyright&quot;</span>, <span class="string">&quot;credits&quot;</span> or <span class="string">&quot;license&quot;</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">exit</span>()</span><br><span class="line"></span><br><span class="line">shchoice@mls-01:~$ python3</span><br><span class="line">Python 3.5.2 (default, Jan 26 2021, 13:30:48) </span><br><span class="line">[GCC 5.4.0 20160609] on linux</span><br><span class="line">Type <span class="string">&quot;help&quot;</span>, <span class="string">&quot;copyright&quot;</span>, <span class="string">&quot;credits&quot;</span> or <span class="string">&quot;license&quot;</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">exit</span>()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>의존성 있는 라이브러리 설치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt upgrade</span><br><span class="line">$ sudo apt dist-upgrade</span><br><span class="line">$ sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Python 버전 업데이트</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python 3.8.13 설치 파일 다운로드(소스코드로 설치)</span></span><br><span class="line">$ wget https://www.python.org/ftp/python/3.8.13/Python-3.8.13.tgz</span><br><span class="line"><span class="comment"># tgz 파일 압축 해제</span></span><br><span class="line">$ tar -xzvf Python-3.8.13.tgz</span><br><span class="line">$ <span class="built_in">cd</span> Python-3.8.13</span><br><span class="line"><span class="comment"># 소스코드에 대한 환경설정 작업, 작업 결과 makefile이 생성됨</span></span><br><span class="line">$ ./configure</span><br><span class="line"><span class="comment"># 시스템의 python을 덮어쓰지 않도록 altinstall을 사용</span></span><br><span class="line">$ sudo make altinstall</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>설치 확인</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python3.8 설치 제대로 되었는지 확인</span></span><br><span class="line">$ python3.8</span><br><span class="line">shchoice@dmls-01:~/Python-3.8.13$ python3.8</span><br><span class="line">Python 3.8.13 (default, Aug 10 2022, 18:22:14) </span><br><span class="line">[GCC 5.4.0 20160609] on linux</span><br><span class="line">Type <span class="string">&quot;help&quot;</span>, <span class="string">&quot;copyright&quot;</span>, <span class="string">&quot;credits&quot;</span> or <span class="string">&quot;license&quot;</span> <span class="keyword">for</span> more information.</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">exit</span>()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>사용자 계정에 대해 python3 명령어 alias 걸기</p>
+<ul>
+<li><p>vim ~&#x2F;.bashrc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> python=python3.8</span><br><span class="line"><span class="built_in">alias</span> pip=pip3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>source ~&#x2F;.bashrc</p>
+</li>
+</ul>
+</li>
+<li><p>여러 python3 버전을 설치하고 원하는 버전에 맞추어 실행하기</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python 3.8을 update-alternatives에 등록(우선순위는 1로 등록)</span></span><br><span class="line">$ sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.8 1</span><br><span class="line"><span class="comment"># update-alternatives: using /usr/local/bin/python3.8 to provide /usr/bin/python3 (python3) in auto mode</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># python 3.7을 update-alternatives에 등록(우선순위는 2로 등록)</span></span><br><span class="line">$ sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.7 2</span><br><span class="line"><span class="comment"># update-alternatives: using /usr/local/bin/python3.7 to provide /usr/bin/python3 (python3) in auto mode</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>(과거 경험적으로)  python이 아닌 python3로 하는 이유는 Ubuntu 에서 어떠한 스크립트나 파일을 돌릴 때, python2를 사용하는 경우가 있기 때문에 개인적으로는 python 에 대한 symbolic link는 건드리지 않음</p>
+</blockquote>
+</li>
+<li><p>다른 Python 버전으로 변경을 하고 싶을시 다음과 같이 클릭</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ sudo update-alternatives --config python3</span><br><span class="line"></span><br><span class="line">대체 항목 python3에 대해 (/usr/bin/python3 제공) 2개 선택이 있습니다.</span><br><span class="line"></span><br><span class="line">  선택       경로                    우선순ꡬ태</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">  0            /usr/local/bin/python3.7   2         자동 모드</span><br><span class="line">  1            /usr/local/bin/python3.7   2         수동 모드</span><br><span class="line">* 2            /usr/local/bin/python3.8   1         수동 모드</span><br><span class="line">  </span><br><span class="line">Press &lt;enter&gt; to keep the current choice[*], or <span class="built_in">type</span> selection number: 2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>현재 python 3.7을 사용하는 0번이 선택되어져 있음 python 3.8 사용 희망으로 2 를 누르고 <enter></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="느낀점"><a href="#느낀점" class="headerlink" title="느낀점"></a>느낀점</h2><p>이용하는 Ubuntu 서버에서 이유는 모르겠지만 apt 패키지 매니저로 python package를 설치하면 설치가 불가능하다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">search2@dq-mls-01:~$ sudo apt install python3.6</span><br><span class="line">패키지 목록을 읽는 중입니다... 완료</span><br><span class="line">의존성 트리를 만드는 중입니다       </span><br><span class="line">상태 정보를 읽는 중입니다... 완료</span><br><span class="line">E: python3.6 패키지를 찾을 수 없습니다</span><br><span class="line">E: Couldn<span class="string">&#x27;t find any package by glob &#x27;</span>python3.6<span class="string">&#x27;</span></span><br><span class="line"><span class="string">E: &#x27;</span>python3.6<span class="string">&#x27; 정규식에 해당하는 패키지가 없습니다</span></span><br></pre></td></tr></table></figure>
+
+<p>sudo apt update &amp;&amp; upgrade를 수행하면 다음과 같은 에러로 수행이 불가능하기 때문일 것이라 판단한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">오류:21 http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64  InRelease                                                               </span><br><span class="line">  다음 서명들은 공개키가 없기 때문에 인증할 수 없습니다: NO_PUBKEY A4B469963BF863CC</span><br><span class="line">무시:27 http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64  InRelease                                                   </span><br><span class="line">기존:28 http://kr.archive.ubuntu.com/ubuntu xenial-updates InRelease                                                                                       </span><br><span class="line">기존:29 https://apt.kubernetes.io kubernetes-xenial InRelease                                                                                              </span><br><span class="line">기존:30 http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1604/x86_64  Release                                                     </span><br><span class="line">기존:31 http://kr.archive.ubuntu.com/ubuntu xenial-backports InRelease                                                                                     </span><br><span class="line">기존:33 http://mariadb.mirror.liquidtelecom.com/repo/10.4/ubuntu xenial InRelease                                                                          </span><br><span class="line">기존:34 http://ppa.launchpad.net/linuxuprising/java/ubuntu xenial InRelease   </span><br><span class="line">기존:35 http://ppa.launchpad.net/webupd8team/java/ubuntu xenial InRelease                      </span><br><span class="line">기존:36 http://ppa.launchpad.net/webupd8team/y-ppa-manager/ubuntu xenial InRelease             </span><br><span class="line">패키지 목록을 읽는 중입니다... 완료                                </span><br><span class="line">E: 설치 방법 드라이버 /usr/lib/apt/methods/&lt;https을(를) 찾을 수 없습니다.</span><br><span class="line">E: 설치 방법 드라이버 /usr/lib/apt/methods/&lt;https을(를) 찾을 수 없습니다.</span><br><span class="line">E: 설치 방법 드라이버 /usr/lib/apt/methods/oops을(를) 찾을 수 없습니다.</span><br><span class="line">W: GPG 오류: http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64  InRelease: 다음 서명들은 공개키가 없기 때문에 인증할 수 없습니다: NO_PUBKEY A4B469963BF863CC</span><br><span class="line">E: The repository <span class="string">&#x27;http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64  InRelease&#x27;</span> is not signed.</span><br><span class="line">N: Updating from such a repository can<span class="string">&#x27;t be done securely, and is therefore disabled by default.</span></span><br><span class="line"><span class="string">N: See apt-secure(8) manpage for repository creation and user configuration details.</span></span><br></pre></td></tr></table></figure>
+
+<p>여기 부분을 수정하면 apt- install 이 가능하다 판단을 하는데, 추후 해당 오류를 수정하는 방법을 찾아보아야겠다.<br>다른 업무가 많으니.. 우선 소스코드로 설치해 업무 처리를 빠르게 하자!</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-08-09T14:57:27.000Z" title="8/9/2022, 11:57:27 PM">2022-08-09</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T17:42:15.000Z" title="7/23/2023, 2:42:15 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/Git/">Git</a></span><span class="level-item">a minute read (About 173 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Git/Git%E1%84%8B%E1%85%A6%20%E1%84%8C%E1%85%A5%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%83%E1%85%AC%E1%86%AB%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%AE%E1%84%80%E1%85%B5/">Git에 저장된 파일 지우기</a></h1><div class="content"><h2 id="배경"><a href="#배경" class="headerlink" title="배경"></a>배경</h2><ul>
+<li><p>업무 관련 Git Reopository에 딥러닝 모델 Checkpoint가 잘못 저장되어 있음 </p>
+</li>
+<li><p>그로인해 프로젝트 구성을 위해 git pull 혹은 프로그램을 deploy를 수행하는데 불필요하게 시간이 많이 소요</p>
+</li>
+</ul>
+<h2 id="작업절차"><a href="#작업절차" class="headerlink" title="작업절차"></a>작업절차</h2><ol>
+<li>불필요한 파일이 model_zoo 디렉토리에 model.ckpt-50000.index  파일이 존재한다고 가정<ul>
+<li>.&#x2F;model_zoo&#x2F;model.ckpt-50000.index</li>
+</ul>
+</li>
+<li>파일 지우기</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git filter-branch --tree-filter <span class="string">&#x27;rm -rf ./model_zoo/model.ckpt-50000.index&#x27;</span> HEAD</span><br><span class="line"></span><br><span class="line"><span class="comment"># 만약에 model_zoo 디렉토리만 지우고 싶다면 다음 명령어를 입력</span></span><br><span class="line"><span class="comment"># git filter-branch --tree-filter &#x27;rm -rf ./model_zoo&#x27; HEAD</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>빈 커밋 지우기</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git filter-branch --prune-empty HEAD</span><br><span class="line">$ git push origin legacy-3.0.2.x --force</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-08-08T02:42:08.000Z" title="8/8/2022, 11:42:08 AM">2022-08-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T17:42:14.000Z" title="7/23/2023, 2:42:14 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/Git/">Git</a></span><span class="level-item">3 minutes read (About 402 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Git/Git%20%E1%84%80%E1%85%A8%E1%84%8C%E1%85%A5%E1%86%BC%20%E1%84%87%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC/">Git 계정 변경</a></h1><div class="content"><h3 id="배경"><a href="#배경" class="headerlink" title="배경"></a>배경</h3><ol>
+<li>컴퓨터 1대를 통해서 개인 Git을 위한 계정 그리고 별도의 팀 프로젝트를 위한 Git 계정을 동시에 사용할 일이 생김</li>
+<li>공용 컴퓨터에 이미 설치된 Git 환경에서 작업을 수행할 경우가 생김</li>
+</ol>
+<h3 id="작업절차"><a href="#작업절차" class="headerlink" title="작업절차"></a>작업절차</h3><ol>
+<li><p>현재 git에 등록된 계정 정보를 확인</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 현재 등록된 계정의 이름 확인</span></span><br><span class="line">$ git config user.name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 현재 등록된 계정의 이메일 확인</span></span><br><span class="line">$ git config user.email</span><br><span class="line"></span><br><span class="line"><span class="comment"># (참고) 한번에 확인하려면 다음과 같이 확인 가능</span></span><br><span class="line">git config --list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>변경할 계정을 등록 및 재확인</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 새롭게 등록할 계정의 이름 등록</span></span><br><span class="line">$ git config --global user.name 새로운_계정</span><br><span class="line"></span><br><span class="line"><span class="comment"># 새롭게 등록할 계정의 이메일 등록</span></span><br><span class="line">$ git config --global user.email 새로운_이메일주소</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>이름에서 띄어쓰기 작업 시(ex. Seohwan Choi) “Seohwan Choi”으로 작성을 해야한다. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 새롭게 등록할 계정의 이름 등록</span></span><br><span class="line">$ git config --global user.name <span class="string">&quot;Seohwan Choi&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>만약에 “”로 감싸지 않는다면 이름에 2개 이상의 값이 있어 문제가 발생하게 된다. 추후 계정 변경 시 cannot overwrite multiple values with a single value 에러가 발생하게 된다. 해당 내용 발견 시 –replace-all 을 덧붙여 정정해야 한다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --replace-all user.email <span class="string">&quot;shchoice7140@gmail.com&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>윈도우 자격 증명 삭제</p>
+<ul>
+<li>제어판 &gt; 사용자 계정 &gt; 자격 증명 관리 &gt; windows 자격 증명 &gt; 일반 자격 증명<ul>
+<li>git:<a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a> 관련한 모든 자격 증명 제거</li>
+<li>GitHub 관련한 모든 자격 증명 제거</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-08-04T00:39:12.000Z" title="8/4/2022, 9:39:12 AM">2022-08-04</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-07-22T17:42:14.000Z" title="7/23/2023, 2:42:14 AM">2023-07-23</time></span><span class="level-item"><a class="link-muted" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/">인공지능</a><span> / </span><a class="link-muted" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/">자연어처리</a></span><span class="level-item">6 minutes read (About 904 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/Deep%20Learning/NLP/KoNLPy%20%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8E%E1%85%B5(Ubuntu)/">KoNLPy 설치(Ubuntu)</a></h1><div class="content"><h3 id="배경"><a href="#배경" class="headerlink" title="배경"></a>배경</h3><p>한국어를 위한 Text Classification을 수행하기 위해 형태소 분석기(Mecab)를 사용할 필요가 있었음<br>이를 위해 하지만 <a target="_blank" rel="noopener" href="https://konlpy.org/ko/v0.5.2/install/">konlpy 공식 홈페이지</a> 의 설명대로 수행하였으나 잘 설치가 되지 않아 결국 수동으로 직접 설치 수행</p>
+<ul>
+<li>서버 : Ubuntu 16.04</li>
+<li>Python Version :  3.8.13</li>
+<li>JDK Versuib:  openjdk 1.8.0_292<ul>
+<li>Mecab은 Java로 구현된 모듈이기에 필요</li>
+</ul>
+</li>
+<li>KoNLPy Version : 0.60 (0.52 에서도 정상 동작 확인)</li>
+<li>설치 날짜 : 22.08.03</li>
+</ul>
+<h3 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h3><ul>
+<li><p>Install KoNLPy Package </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install konlpy </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ubuntu dependency 설치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install g++ openjdk-8-jdk python3-dev python3-pip curl</span><br></pre></td></tr></table></figure>
+
+<p>※ openjdk-8-jdk : 필자는 기존에 JDK가 설치가 되어져 있었음, JDK가  설치 되어있지 않다면 해당 작업 외에 JDK를 bash에서 사용할 수 있도록 추가 작업 필요!</p>
+</li>
+<li><p>mecab-ko 설치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/util <span class="comment"># util 파일 위치 지정(/tmp, /usr/local/share/util 등)</span></span><br><span class="line">sudo wget https://bitbucket.org/eunjeon/mecab-ko/downloads/mecab-0.996-ko-0.9.2.tar.gz</span><br><span class="line">sudo tar xvf mecab-0.996-ko-0.9.2.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> mecab-0.996-ko-0.9.2</span><br><span class="line">sudo ./configure</span><br><span class="line">sudo make check</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mecab-dic 설치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/util</span><br><span class="line">wget https://bitbucket.org/eunjeon/mecab-ko-dic/downloads/mecab-ko-dic-2.1.1-20180720.tar.gz</span><br><span class="line">tar zxvf mecab-ko-dic-2.1.1-20180720.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> mecab-ko-dic-2.1.1-20180720</span><br><span class="line">sudo ./autogen.sh</span><br><span class="line">sudo ./configure</span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<p>※ 아래와 같은 오류 발생 시 sudo apt-get install automake libtool 수행</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(pytorch_p38) shchoice@dq-mls-01:~/util/mecab-ko-dic-2.1.1-20180720$ sh autogen.sh </span><br><span class="line">Looking <span class="keyword">in</span> current directory <span class="keyword">for</span> macros.</span><br><span class="line">autogen.sh: 11: autogen.sh: aclocal: not found</span><br><span class="line">autogen.sh: 14: autogen.sh: autoconf: not found</span><br><span class="line">autogen.sh: 15: autogen.sh: automake: not found</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mecab-python 설치</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/util</span><br><span class="line">git <span class="built_in">clone</span> https://bitbucket.org/eunjeon/mecab-python-0.996.git</span><br><span class="line"><span class="built_in">cd</span> mecab-python-0.996</span><br><span class="line">python3 setup.py build</span><br><span class="line">python3 setup.py install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mecab 정상 동작 확인</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ python</span><br><span class="line">Python <span class="number">3.8</span><span class="number">.13</span> (default, Mar <span class="number">28</span> <span class="number">2022</span>, <span class="number">11</span>:<span class="number">38</span>:<span class="number">47</span>) </span><br><span class="line">[GCC <span class="number">7.5</span><span class="number">.0</span>] :: Anaconda, Inc. on linux</span><br><span class="line"><span class="type">Type</span> <span class="string">&quot;help&quot;</span>, <span class="string">&quot;copyright&quot;</span>, <span class="string">&quot;credits&quot;</span> <span class="keyword">or</span> <span class="string">&quot;license&quot;</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> konlpy.tag <span class="keyword">import</span> Mecab</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>mecab = Mecab()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sentence = <span class="string">&quot;안녕하세요~ KoNLPy 설치 후 테스트를 위한 문장입니다.&quot;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>mecab.morphs(sentence)</span><br><span class="line">[<span class="string">&#x27;안녕&#x27;</span>, <span class="string">&#x27;하&#x27;</span>, <span class="string">&#x27;세요&#x27;</span>, <span class="string">&#x27;~&#x27;</span>, <span class="string">&#x27;KoNLPy&#x27;</span>, <span class="string">&#x27;설치&#x27;</span>, <span class="string">&#x27;후&#x27;</span>, <span class="string">&#x27;테스트&#x27;</span>, <span class="string">&#x27;를&#x27;</span>, <span class="string">&#x27;위한&#x27;</span>, <span class="string">&#x27;문장&#x27;</span>, <span class="string">&#x27;입니다&#x27;</span>, <span class="string">&#x27;.&#x27;</span>]</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="참고-공식-홈페이지를-통한-설치-시-오류-내용"><a href="#참고-공식-홈페이지를-통한-설치-시-오류-내용" class="headerlink" title="[참고] 공식 홈페이지를 통한 설치 시 오류 내용"></a>[참고] 공식 홈페이지를 통한 설치 시 오류 내용</h3><ul>
+<li><p>mecab.sh 스크립트 사용 중 오류</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -s https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh)</span><br><span class="line"></span><br><span class="line">기존:34 http://ppa.launchpad.net/webupd8team/java/ubuntu xenial InRelease                                                                                  </span><br><span class="line">기존:35 http://ppa.launchpad.net/webupd8team/y-ppa-manager/ubuntu xenial InRelease                                                                         </span><br><span class="line">기존:36 http://mariadb.mirror.liquidtelecom.com/repo/10.4/ubuntu xenial InRelease                                                                </span><br><span class="line">내려받기 72.2 k바이트, 소요시간 2초 (25.8 k바이트/초)</span><br><span class="line">패키지 목록을 읽는 중입니다... 완료</span><br><span class="line">E: 설치 방법 드라이버 /usr/lib/apt/methods/&lt;https을(를) 찾을 수 없습니다.</span><br><span class="line">E: 설치 방법 드라이버 /usr/lib/apt/methods/&lt;https을(를) 찾을 수 없습니다.</span><br><span class="line">E: 설치 방법 드라이버 /usr/lib/apt/methods/oops을(를) 찾을 수 없습니다.</span><br><span class="line">W: GPG 오류: http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64  InRelease: 다음 서명들은 공개키가 없기 때문에 인증할 수 없습니다: NO_PUBKEY A4B469963BF863CC</span><br><span class="line">W: The repository <span class="string">&#x27;http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64  InRelease&#x27;</span> is not signed.</span><br><span class="line">N: Data from such a repository can<span class="string">&#x27;t be authenticated and is therefore potentially dangerous to use.</span></span><br><span class="line"><span class="string">N: See apt-secure(8) manpage for repository creation and user configuration details.</span></span><br><span class="line"><span class="string">E: &lt;https://dl.bintray.com/rabbitmq-erlang/debian&gt;/dists/xenial/InRelease 파일을 받는데 실패했습니다  </span></span><br><span class="line"><span class="string">E: &lt;https://dl.bintray.com/rabbitmq/debian&gt;/dists/xenial/InRelease 파일을 받는데 실패했습니다  </span></span><br><span class="line"><span class="string">E: oops://ubuntu.com/dists/foo/InRelease 파일을 받는데 실패했습니다  </span></span><br><span class="line"><span class="string">E: Some index files failed to download. They have been ignored, or old ones used instead.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pip3 install konlpy 설치는 완료했지만 위의 스크립트 파일 실행 오류로 tagger를 읽어오지 못하는 오류 발생</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Python <span class="number">3.8</span><span class="number">.13</span> (default, Mar <span class="number">28</span> <span class="number">2022</span>, <span class="number">11</span>:<span class="number">38</span>:<span class="number">47</span>) </span><br><span class="line">[GCC <span class="number">7.5</span><span class="number">.0</span>] :: Anaconda, Inc. on linux</span><br><span class="line"><span class="type">Type</span> <span class="string">&quot;help&quot;</span>, <span class="string">&quot;copyright&quot;</span>, <span class="string">&quot;credits&quot;</span> <span class="keyword">or</span> <span class="string">&quot;license&quot;</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> konlpy.tag <span class="keyword">import</span> Mecab</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>mecab = Mecab()</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;/home/shchoice/anaconda3/envs/pytorch_p38/lib/python3.8/site-packages/konlpy/tag/_mecab.py&quot;</span>, line <span class="number">77</span>, <span class="keyword">in</span> __init__</span><br><span class="line">    self.tagger = Tagger(<span class="string">&#x27;-d %s&#x27;</span> % dicpath)</span><br><span class="line">NameError: name <span class="string">&#x27;Tagger&#x27;</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br><span class="line"></span><br><span class="line">During handling of the above exception, another exception occurred:</span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  File <span class="string">&quot;/home/shchoice/anaconda3/envs/pytorch_p38/lib/python3.8/site-packages/konlpy/tag/_mecab.py&quot;</span>, line <span class="number">82</span>, <span class="keyword">in</span> __init__</span><br><span class="line">    <span class="keyword">raise</span> Exception(<span class="string">&#x27;Install MeCab in order to use it: http://konlpy.org/en/latest/install/&#x27;</span>)</span><br><span class="line">Exception: Install MeCab <span class="keyword">in</span> order to use it: http://konlpy.org/en/latest/install/</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="느낀점"><a href="#느낀점" class="headerlink" title="느낀점"></a>느낀점</h3><p>KoNLPy를 설치를 3번째 해보는데, 매번 오래된? 관리가 잘되지 않은? ubuntu 환경에서 사용해서인지 홈페이지 가이드 대로 설치를 수행하다 불필요하게 시간을 소모했다. 따라서 KoNLPy 설치할 때에는 그냥 처음부터 수동으로 설치를 하자</p>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/11/">Previous</a></div><div class="pagination-next"><a href="/page/13/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/11/">11</a></li><li><a class="pagination-link is-current" href="/page/12/">12</a></li><li><a class="pagination-link" href="/page/13/">13</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/matterhorn.jpg" alt="Shawn Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Shawn Choi</p><p class="is-size-6 is-block">노력 백줌 열정 천줌의 소프트웨어 개발자</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Seoul, Republic of Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">122</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">64</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">73</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/shchoice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/shchoice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Deep-Learning/"><span class="level-start"><span class="level-item">Deep Learning</span></span><span class="level-end"><span class="level-item tag">40</span></span></a><ul><li><a class="level is-mobile" href="/categories/Deep-Learning/Paper/"><span class="level-start"><span class="level-item">Paper</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Deep-Learning/Text-Summarization/"><span class="level-start"><span class="level-item">Text Summarization</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Deep-Learning/Transformers/"><span class="level-start"><span class="level-item">Transformers</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Deep-Learning/Transformers/TainingArugments/"><span class="level-start"><span class="level-item">TainingArugments</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Deep-Learning/%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">기본 개념</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/Deep-Learning/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">자연어생성 개념</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/Deep-Learning/%EC%A4%91%EA%B8%89-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">중급 개념</span></span><span class="level-end"><span class="level-item tag">14</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/ElasticSearch/"><span class="level-start"><span class="level-item">ElasticSearch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/FastAPI/"><span class="level-start"><span class="level-item">FastAPI</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Github-Pages/"><span class="level-start"><span class="level-item">Github Pages</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/JPA/"><span class="level-start"><span class="level-item">JPA</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/JPA/Basic/"><span class="level-start"><span class="level-item">Basic</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">13</span></span></a><ul><li><a class="level is-mobile" href="/categories/Java/Java8/"><span class="level-start"><span class="level-item">Java8</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/"><span class="level-start"><span class="level-item">클린코드</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Java/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">함수형 프로그래밍</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Kotlin/"><span class="level-start"><span class="level-item">Kotlin</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/Kotlin/WebFlux/"><span class="level-start"><span class="level-item">WebFlux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Kotlin/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/MLOps/"><span class="level-start"><span class="level-item">MLOps</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/MLOps/MLflow/"><span class="level-start"><span class="level-item">MLflow</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/OPS/"><span class="level-start"><span class="level-item">OPS</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/OpenSearch/"><span class="level-start"><span class="level-item">OpenSearch</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Ops/"><span class="level-start"><span class="level-item">Ops</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/Ops/Windows-CMD/"><span class="level-start"><span class="level-item">Windows CMD</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Ops/%EC%84%A4%EC%B9%98/"><span class="level-start"><span class="level-item">설치</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Programming/"><span class="level-start"><span class="level-item">Programming</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/Programming/Agile/"><span class="level-start"><span class="level-item">Agile</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Programming/Agile/%ED%95%A8%EA%BB%98%EC%9E%90%EB%A6%AC%EA%B8%B0/"><span class="level-start"><span class="level-item">함께자리기</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Programming/Clean-Code/"><span class="level-start"><span class="level-item">Clean Code</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Programming/TDD/"><span class="level-start"><span class="level-item">TDD</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Programming/UML/"><span class="level-start"><span class="level-item">UML</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Programming/%EB%82%B4-%EC%BD%94%EB%93%9C%EA%B0%80-%EA%B7%B8%EB%A0%87%EA%B2%8C-%EC%9D%B4%EC%83%81%ED%95%9C%EA%B0%80%EC%9A%94/"><span class="level-start"><span class="level-item">내 코드가 그렇게 이상한가요</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul><li><a class="level is-mobile" href="/categories/Python/Advanced-Concept/"><span class="level-start"><span class="level-item">Advanced Concept</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">객체지향 프로그래밍</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EB%8F%99%EC%8B%9C%EC%84%B1-%EB%B0%8F-%EB%B9%84%EB%8F%99%EA%B8%B0/"><span class="level-start"><span class="level-item">동시성 및 비동기</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%EB%AC%B8%EB%B2%95/"><span class="level-start"><span class="level-item">문법</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">함수형 프로그래밍</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/REST/"><span class="level-start"><span class="level-item">REST</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/Spring/"><span class="level-start"><span class="level-item">Spring</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul><li><a class="level is-mobile" href="/categories/Spring/Spring-Framework/"><span class="level-start"><span class="level-item">Spring Framework</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Spring/Spring-MVC/"><span class="level-start"><span class="level-item">Spring MVC</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/"><span class="level-start"><span class="level-item">핵심 원리 - 기본편</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/TIL/"><span class="level-start"><span class="level-item">TIL</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/TIL/1%EB%A7%8C-%EC%8B%9C%EA%B0%84%EC%9D%98-%EB%B2%95%EC%B9%99/"><span class="level-start"><span class="level-item">1만 시간의 법칙</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/"><span class="level-start"><span class="level-item">데이터 마이닝</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A7%88%EC%9D%B4%EB%8B%9D/%EA%B8%B0%EB%B3%B8/"><span class="level-start"><span class="level-item">기본</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/"><span class="level-start"><span class="level-item">딥러닝</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어처리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/"><span class="level-start"><span class="level-item">인공지능</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/"><span class="level-start"><span class="level-item">개념 정리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어 처리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%AC/"><span class="level-start"><span class="level-item">자연어처리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/"><span class="level-start"><span class="level-item">컨테이너 오케스트레이션</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98/Docker/"><span class="level-start"><span class="level-item">Docker</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/"><span class="level-start"><span class="level-item">통계학</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%86%B5%EA%B3%84%ED%95%99/%EA%B8%B0%EB%B3%B8/"><span class="level-start"><span class="level-item">기본</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%8C%8C%EC%9D%B4%EC%8D%AC/"><span class="level-start"><span class="level-item">파이썬</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">개념</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-30T14:51:21.000Z">2024-03-30</time></p><p class="title"><a href="/3-%EC%8A%A4%ED%94%84%EB%A7%81-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B9%88/">3. 스프링 컨테이너와 스프링 빈</a></p><p class="categories"><a href="/categories/Spring/">Spring</a> / <a href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/">핵심 원리 - 기본편</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-24T14:52:03.000Z">2024-03-24</time></p><p class="title"><a href="/2-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-%EC%9B%90%EB%A6%AC-%EC%A0%81%EC%9A%A9/">2. 객체지향 원리 적용</a></p><p class="categories"><a href="/categories/Spring/">Spring</a> / <a href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/">핵심 원리 - 기본편</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-15T14:57:52.000Z">2024-03-15</time></p><p class="title"><a href="/1-%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%EC%84%A4%EA%B3%84%EC%99%80-%EC%8A%A4%ED%94%84%EB%A7%81/">1. 객체 지향 설계와 스프링</a></p><p class="categories"><a href="/categories/Spring/">Spring</a> / <a href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/">핵심 원리 - 기본편</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-07T13:08:16.000Z">2024-03-07</time></p><p class="title"><a href="/OpenSearch-%EC%84%A4%EC%B9%98/">OpenSearch 설치</a></p><p class="categories"><a href="/categories/OpenSearch/">OpenSearch</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-03-05T14:14:11.000Z">2024-03-05</time></p><p class="title"><a href="/OpenSearch-%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80/">OpenSearch 란 무엇인가</a></p><p class="categories"><a href="/categories/OpenSearch/">OpenSearch</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">March 2024</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">February 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">January 2024</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/10/"><span class="level-start"><span class="level-item">October 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">September 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">August 2023</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/07/"><span class="level-start"><span class="level-item">July 2023</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">June 2023</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">April 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">March 2023</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">February 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">January 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">December 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">November 2022</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">October 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/08/"><span class="level-start"><span class="level-item">August 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/1%EA%B8%89-%EC%8B%9C%EB%AF%BC/"><span class="tag">1급 시민</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Anonymous-Class/"><span class="tag">Anonymous Class</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/AutoEncoder/"><span class="tag">AutoEncoder</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BERT/"><span class="tag">BERT</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Bind-Mounts/"><span class="tag">Bind Mounts</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Classification/"><span class="tag">Classification</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Cross-Entropy-Loss/"><span class="tag">Cross Entropy Loss</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Curse-of-Dimensionality/"><span class="tag">Curse of Dimensionality</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Data-Volume/"><span class="tag">Data Volume</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker/"><span class="tag">Docker</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker-Orchestration-Tools/"><span class="tag">Docker Orchestration Tools</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Document-Embedding/"><span class="tag">Document Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-Vectors/"><span class="tag">Embedding Vectors</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-vector/"><span class="tag">Embedding vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Entropy/"><span class="tag">Entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FLAN/"><span class="tag">FLAN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Feature-Vector/"><span class="tag">Feature Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Function-Interface/"><span class="tag">Function Interface</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GPT/"><span class="tag">GPT</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Git/"><span class="tag">Git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Gradient-Descent/"><span class="tag">Gradient Descent</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hidden-Representation/"><span class="tag">Hidden Representation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Instruction-Finetuning/"><span class="tag">Instruction Finetuning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KL-Divergence/"><span class="tag">KL Divergence</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KoNLPy/"><span class="tag">KoNLPy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Lambda-Expression/"><span class="tag">Lambda Expression</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Latent-Space/"><span class="tag">Latent Space</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Learning-Rate/"><span class="tag">Learning Rate</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linear-Layer/"><span class="tag">Linear Layer</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Log-Likelihood/"><span class="tag">Log-Likelihood</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MAP/"><span class="tag">MAP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MLE/"><span class="tag">MLE</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Manifold-hypothesis/"><span class="tag">Manifold hypothesis</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Matrix/"><span class="tag">Matrix</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Mecab/"><span class="tag">Mecab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Multi-Stage-Build/"><span class="tag">Multi Stage Build&quot;</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NLL/"><span class="tag">NLL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Persistence-Data/"><span class="tag">Persistence Data</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Probabilistic-Perspective/"><span class="tag">Probabilistic Perspective</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Representation-Learning/"><span class="tag">Representation Learning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SOLID/"><span class="tag">SOLID</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Scalar/"><span class="tag">Scalar</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Spring%EC%9D%B4%EB%9E%80/"><span class="tag">Spring이란</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Subword-Embedding/"><span class="tag">Subword Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tensor/"><span class="tag">Tensor</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tramsformers/"><span class="tag">Tramsformers</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Transformer/"><span class="tag">Transformer</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vector/"><span class="tag">Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/What-to-do/"><span class="tag">What to do</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Word-Embedding/"><span class="tag">Word Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cross-entropy/"><span class="tag">cross entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/default-method/"><span class="tag">default method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/max-length/"><span class="tag">max_length</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mlflow/"><span class="tag">mlflow</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/one-hot-Encoding/"><span class="tag">one-hot Encoding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/packing/"><span class="tag">packing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/padding/"><span class="tag">padding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/python-%EC%84%A4%EC%B9%98/"><span class="tag">python 설치</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/static-method/"><span class="tag">static method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/unpacking/"><span class="tag">unpacking</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/"><span class="tag">객체지향</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%8B%A4%ED%98%95%EC%84%B1/"><span class="tag">다형성</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%9E%8C%EB%8B%A4%EC%8B%9D/"><span class="tag">람다식</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%B2%A1%ED%84%B0%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">벡터의 곱셈</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%97%94%ED%8A%B8%EB%A1%9C%ED%94%BC/"><span class="tag">엔트로피</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EB%9F%89/"><span class="tag">정보량</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EC%9D%B4%EB%A1%A0/"><span class="tag">정보이론</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0/"><span class="tag">파라미터</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98%ED%98%95-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/"><span class="tag">함수형 인터페이스</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="tag">함수형 프로그래밍</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">행렬의 곱셈</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 Shawn Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
