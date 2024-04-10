@@ -10758,20 +10758,20 @@ body > .section {
   background: transparent;
   border-color: transparent;
 }
-* .card {
+.card {
   overflow: visible;
   border-radius: 4px;
 }
-* .card + .card,
-* .card + .column-right-shadow {
+.card + .card,
+.card + .column-right-shadow {
   margin-top: 1.5rem;
 }
-* .card .card-image {
+.card .card-image {
   overflow: hidden;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
-* .card .media + .media {
+.card .media + .media {
   border: none;
   margin-top: 0;
 }
@@ -11592,9 +11592,6 @@ figure.highlight.foldable div.level-left {
   line-height: inherit;
 }
 .MathJax,
-.MathJax_Display,
-.MJXc-display,
-.MathJax_SVG_Display,
 .katex-display {
   overflow-x: auto;
   overflow-y: hidden;
