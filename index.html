@@ -29,7 +29,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-05-23T13:47:52.000Z" title="5/23/2024, 10:47:52 PM">2024-05-23</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-05-23T13:49:52.270Z" title="5/23/2024, 10:49:52 PM">2024-05-23</time></span><span class="level-item">a few seconds read (About 88 words)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/05/23/DDD/">DDD</a></p><div class="content"><h2 id="도메인-주도-설계-DDD-개념"><a href="#도메인-주도-설계-DDD-개념" class="headerlink" title="도메인 주도 설계(DDD) 개념"></a>도메인 주도 설계(DDD) 개념</h2><h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-05-23T13:47:52.000Z" title="5/23/2024, 10:47:52 PM">2024-05-23</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-05-30T13:58:50.130Z" title="5/30/2024, 10:58:50 PM">2024-05-30</time></span><span class="level-item">5 minutes read (About 707 words)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/05/23/DDD/">DDD</a></p><div class="content"><h2 id="도메인-주도-설계-DDD-개념"><a href="#도메인-주도-설계-DDD-개념" class="headerlink" title="도메인 주도 설계(DDD) 개념"></a>도메인 주도 설계(DDD) 개념</h2><h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><ul>
 <li>DDD 를 개발 방식으로 사용한 이유</li>
 <li>DDD 로 개발을 할 때 규칙</li>
 <li>DDD 를 위한 아키텍처 소개<ul>
@@ -45,6 +45,48 @@
 </ul>
 </li>
 </ul>
+<h2 id="DDD-를-위한-아키텍처-소개"><a href="#DDD-를-위한-아키텍처-소개" class="headerlink" title="DDD 를 위한 아키텍처 소개"></a>DDD 를 위한 아키텍처 소개</h2><h3 id="1-Layered-Architecture"><a href="#1-Layered-Architecture" class="headerlink" title="1. Layered Architecture"></a>1. Layered Architecture</h3><p><strong>Presentation Layer(표현 계층)</strong></p>
+<ul>
+<li>사용자의 요청을 받아 응용 영역에 전달하고 응용 영역의 처리 결과를 다시 사용자에게 보여주는 역할</li>
+<li>사용자는 소프트웨어를 사용하는 사람일 뿐만 아니라 REST API 를 호출하는 외부 시스템일 수 있음</li>
+<li>스프링 MVC 프레임워크가 표현 영역을 위한 기술</li>
+<li>HTTP 요청을 응용 영역이 필요로 하는 형식으로 변환해서 응용 영역에 전달하고 응용 영역의 응답을 HTTP 응답으로 변환하여 전송<ul>
+<li>ex) 웹 브라우저가 HTTP 요청 파라미터로 전송한 데이터를 응용 서비스가 요구하는 형식의 객체 타입으로 변환해서 전달하고, 응용 서비스가 리턴한 결과를 JSON 형식으로 변환해서 HTTP 응답으로 웹 브라우저에 전송</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/5cd363f4-f3a9-49d6-b47d-a8972aacf6ef" alt="Presentation Layer"></p>
+<p><strong>Application Layer(응용 계층)</strong></p>
+<ul>
+<li>사용자가 요청한 기능을 실행</li>
+<li>업무 로직을 직접 구현하지 않으며 도메인 계층을 조합해서 기능을 실행<ul>
+<li>즉, 응용 계층은 도메인 모델을 이용해서 사용자에게 제공할 기능을 구현하며 실제 도메인 로직 구현은 도메인 모델에 위임</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/d2163d33-ffdc-451a-853a-363979de42a4" alt="Application Layer"></p>
+<p><strong>Domain Layer(모델 계층)</strong></p>
+<ul>
+<li>시스템이 제공할 도메인 규칙을 구현</li>
+<li>도메인 모델을 구현</li>
+<li>도메인의 핵심 로직을 구현<ul>
+<li>주문 도메인의 경우 배송지 변경, 결제완료, 주문 총액 계산 과 같은 핵심 로직을 도메인 모델에서 구현</li>
+</ul>
+</li>
+</ul>
+<p><strong>Infrastructure Layer(인프라 계층)</strong></p>
+<ul>
+<li>DB나 메세징 시스템과 같은 외부 시스템과 연동을 처리<ul>
+<li>RDBMS 연동 처리</li>
+<li>Kafka 등 메시징 큐에 메세지를 전송하거나 수신하는 기능을 구현</li>
+<li>MongoDB나 Redsis와 데이터 연동을 처리</li>
+<li>HTTP 클라이언트를 이용해서 REST API를 호출하는 것도 처리</li>
+<li>SMTP를 이용한 메일 발송 기능을 구현</li>
+</ul>
+</li>
+<li>인프라스트럭쳐 영역은 논리적인 개념을 표현하기보다는 실제 구현을 다룸</li>
+</ul>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/7d9c4b98-4dba-4f21-8a6f-faaa62317eab" alt="Infrastructure Layer"></p>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-05-05T14:54:43.000Z" title="5/5/2024, 11:54:43 PM">2024-05-05</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-05-23T13:49:48.152Z" title="5/23/2024, 10:49:48 PM">2024-05-23</time></span><span class="level-item"><a class="link-muted" href="/categories/Microservice/">Microservice</a></span><span class="level-item">a few seconds read (About 1 word)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/05/05/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B0%9C%EB%85%90/">마이크로서비스 개념</a></p><div class="content"><p>DDD</p>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-04-22T14:54:37.000Z" title="4/22/2024, 11:54:37 PM">2024-04-22</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-04-29T14:37:26.187Z" title="4/29/2024, 11:37:26 PM">2024-04-29</time></span><span class="level-item"><a class="link-muted" href="/categories/Spring/">Spring</a><span> / </span><a class="link-muted" href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/">핵심 원리 - 기본편</a></span><span class="level-item">14 minutes read (About 2104 words)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/04/22/5.%20Component-Scan/">Component Scan</a></p><div class="content"><ul>
 <li><ul>
