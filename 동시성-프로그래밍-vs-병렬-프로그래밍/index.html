@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Shawn&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Shawn&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon_sh.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Shawn&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="딥러닝 CUDA 작업 환경 구성해당 내용은 서버의 GPU CUDA 환경과 딥러닝 프로젝트의 GPU CUDA 환경이 다를 경우의 문제를 어떻게 해결해야 하는지를 위해 작성 CUDA 환경 가이드라인 서버의 기본 CUDA 버전은 최신 CUDA 버전을 사용  개발 환경으로  anaconda 또는 py env를 사용 시, 서버의 기본 CUDA 버전 보다 낮으면 CU"><meta property="og:type" content="blog"><meta property="og:title" content="Shawn&#039;s Blog"><meta property="og:url" content="http://example.com/%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC%20CUDA%20%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%8B%E1%85%A5%E1%86%B8%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%20%E1%84%80%E1%85%AE%E1%84%89%E1%85%A5%E1%86%BC/"><meta property="og:site_name" content="Shawn&#039;s Blog"><meta property="og:description" content="딥러닝 CUDA 작업 환경 구성해당 내용은 서버의 GPU CUDA 환경과 딥러닝 프로젝트의 GPU CUDA 환경이 다를 경우의 문제를 어떻게 해결해야 하는지를 위해 작성 CUDA 환경 가이드라인 서버의 기본 CUDA 버전은 최신 CUDA 버전을 사용  개발 환경으로  anaconda 또는 py env를 사용 시, 서버의 기본 CUDA 버전 보다 낮으면 CU"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/og_image.png"><meta property="article:published_time" content="2023-11-20T08:03:17.000Z"><meta property="article:modified_time" content="2023-11-09T23:04:57.000Z"><meta property="article:author" content="Shawn Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC%20CUDA%20%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%8B%E1%85%A5%E1%86%B8%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%20%E1%84%80%E1%85%AE%E1%84%89%E1%85%A5%E1%86%BC/"},"headline":"Shawn's Blog","image":["http://example.com/img/og_image.png"],"datePublished":"2023-11-20T08:03:17.000Z","dateModified":"2023-11-09T23:04:57.000Z","author":{"@type":"Person","name":"Shawn Choi"},"publisher":{"@type":"Organization","name":"Shawn's Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.svg"}},"description":"딥러닝 CUDA 작업 환경 구성해당 내용은 서버의 GPU CUDA 환경과 딥러닝 프로젝트의 GPU CUDA 환경이 다를 경우의 문제를 어떻게 해결해야 하는지를 위해 작성 CUDA 환경 가이드라인 서버의 기본 CUDA 버전은 최신 CUDA 버전을 사용  개발 환경으로  anaconda 또는 py env를 사용 시, 서버의 기본 CUDA 버전 보다 낮으면 CU"}</script><link rel="canonical" href="http://example.com/%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC%20CUDA%20%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%8B%E1%85%A5%E1%86%B8%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%20%E1%84%80%E1%85%AE%E1%84%89%E1%85%A5%E1%86%BC/"><link rel="icon" href="/img/favicon_sh.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-D7QRVGYDET" async></script><script>window.dataLayer = window.dataLayer || [];
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>동시성 프로그래밍 vs 병렬 프로그래밍 - Shawn&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Shawn&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon_sh.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Shawn&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="1. 동시성 프로그래밍 (Concurrency) 개념 동시성 프로그래밍은 여러 작업이 겹쳐서 실행될 수 있는 개념을 다룸 여러 작업이 동시에 “시작”되거나 “진행”될 수 있지만, 꼭 동일한 순간에 실행되는 것은 아님 동시성은 하나의 프로세서에서 여러 작업이 마치 동시에 실행되는 것처럼 보이게 하는 것을 목표로 하며, 이를 위해 작업 간의 컨텍스트 스위칭(c"><meta property="og:type" content="blog"><meta property="og:title" content="동시성 프로그래밍 vs 병렬 프로그래밍"><meta property="og:url" content="http://example.com/%EB%8F%99%EC%8B%9C%EC%84%B1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-vs-%EB%B3%91%EB%A0%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><meta property="og:site_name" content="Shawn&#039;s Blog"><meta property="og:description" content="1. 동시성 프로그래밍 (Concurrency) 개념 동시성 프로그래밍은 여러 작업이 겹쳐서 실행될 수 있는 개념을 다룸 여러 작업이 동시에 “시작”되거나 “진행”될 수 있지만, 꼭 동일한 순간에 실행되는 것은 아님 동시성은 하나의 프로세서에서 여러 작업이 마치 동시에 실행되는 것처럼 보이게 하는 것을 목표로 하며, 이를 위해 작업 간의 컨텍스트 스위칭(c"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/og_image.png"><meta property="article:published_time" content="2024-08-19T14:22:16.000Z"><meta property="article:modified_time" content="2024-08-19T14:23:33.789Z"><meta property="article:author" content="Shawn Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/%EB%8F%99%EC%8B%9C%EC%84%B1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-vs-%EB%B3%91%EB%A0%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"},"headline":"동시성 프로그래밍 vs 병렬 프로그래밍","image":["http://example.com/img/og_image.png"],"datePublished":"2024-08-19T14:22:16.000Z","dateModified":"2024-08-19T14:23:33.789Z","author":{"@type":"Person","name":"Shawn Choi"},"publisher":{"@type":"Organization","name":"Shawn's Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.svg"}},"description":"1. 동시성 프로그래밍 (Concurrency) 개념 동시성 프로그래밍은 여러 작업이 겹쳐서 실행될 수 있는 개념을 다룸 여러 작업이 동시에 “시작”되거나 “진행”될 수 있지만, 꼭 동일한 순간에 실행되는 것은 아님 동시성은 하나의 프로세서에서 여러 작업이 마치 동시에 실행되는 것처럼 보이게 하는 것을 목표로 하며, 이를 위해 작업 간의 컨텍스트 스위칭(c"}</script><link rel="canonical" href="http://example.com/%EB%8F%99%EC%8B%9C%EC%84%B1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-vs-%EB%B3%91%EB%A0%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><link rel="icon" href="/img/favicon_sh.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-D7QRVGYDET" async></script><script>window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
     
@@ -31,67 +31,88 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-11-20T08:03:17.000Z" title="11/20/2023, 5:03:17 PM">2023-11-20</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-11-09T23:04:57.000Z" title="11/10/2023, 8:04:57 AM">2023-11-10</time></span><span class="level-item">3 minutes read (About 500 words)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><div class="content"><h1 id="딥러닝-CUDA-작업-환경-구성"><a href="#딥러닝-CUDA-작업-환경-구성" class="headerlink" title="딥러닝 CUDA 작업 환경 구성"></a>딥러닝 CUDA 작업 환경 구성</h1><p>해당 내용은 서버의 GPU CUDA 환경과 딥러닝 프로젝트의 GPU CUDA 환경이 다를 경우의 문제를 어떻게 해결해야 하는지를 위해 작성</p>
-<h2 id="CUDA-환경-가이드라인"><a href="#CUDA-환경-가이드라인" class="headerlink" title="CUDA 환경 가이드라인"></a>CUDA 환경 가이드라인</h2><ul>
-<li><p>서버의 기본 CUDA 버전은 최신 CUDA 버전을 사용</p>
-<ul>
-<li>개발 환경으로  anaconda 또는 py env를 사용 시, 서버의 기본 CUDA 버전 보다 낮으면 CUDA의 하위호환성으로 인해 정상적으로 사용이 가능</li>
-<li>운영 환경으로 Docker 컨테이너를 사용 시, 서버의 기본 CUDA 버전 보다 낮으면 CUDA의 하위호환성으로 인해 정상적으로 사용이 가능</li>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-08-19T14:22:16.000Z" title="8/19/2024, 11:22:16 PM">2024-08-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-08-19T14:23:33.789Z" title="8/19/2024, 11:23:33 PM">2024-08-19</time></span><span class="level-item">8 minutes read (About 1179 words)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">동시성 프로그래밍 vs 병렬 프로그래밍</h1><div class="content"><h2 id="1-동시성-프로그래밍-Concurrency"><a href="#1-동시성-프로그래밍-Concurrency" class="headerlink" title="1. 동시성 프로그래밍 (Concurrency)"></a>1. 동시성 프로그래밍 (Concurrency)</h2><ul>
+<li>개념<ul>
+<li>동시성 프로그래밍은 여러 작업이 겹쳐서 실행될 수 있는 개념을 다룸</li>
+<li>여러 작업이 동시에 “시작”되거나 “진행”될 수 있지만, 꼭 동일한 순간에 실행되는 것은 아님</li>
+<li>동시성은 하나의 프로세서에서 여러 작업이 마치 동시에 실행되는 것처럼 보이게 하는 것을 목표로 하며, 이를 위해 작업 간의 컨텍스트 스위칭(context switching)이 발생할 수 있음</li>
 </ul>
 </li>
-<li><p>예시1</p>
-<ul>
-<li>서버의 CUDA 버전 : 12.3 (23.11.08 기준 최신 버전)</li>
-<li>프로젝트 버전 ㄴ<ul>
-<li>CUDA 11.8 사용 가능</li>
-<li>CUDA 9.0 사용 가능</li>
+<li>주요 특징<ul>
+<li>멀티스레딩(Multithreading) : 여러 스레드가 동일한 프로세스 내에서 동시성을 구현</li>
+<li>비동기 프로그래밍: 비동기적으로 여러 작업이 동시 진행되는 것처럼 처리됨</li>
+<li>협력적 동시성: 각 작업이 자발적으로 CPU를 양보하여 다른 작업이 실행될 수 있도록 함</li>
 </ul>
 </li>
+<li>예시<ol>
+<li>웹 서버 요청 처리<ul>
+<li>대규모 웹 애플리케이션에서 수천, 수만 명의 사용자가 동시에 접속하여 요청을 보낼 때</li>
+<li>각 사용자의 요청이 독립적이기 때문에, 동시성 프로그래밍을 통해 여러 요청을 동시에 처리할 수 있음</li>
+<li>Java 에서는 ExecutorService와 Future&#x2F;CompletableFuture 및 Reactive Programming이 예시가 될 수 있음</li>
+<li>Python의 asyncio나 Node.js의 이벤트 루프(async&#x2F;await)는 비동기 방식</li>
 </ul>
 </li>
-<li><p>예시2 </p>
-<ul>
-<li>서버의 CUDA 버전 : 11.8</li>
-<li>프로젝트 버전 <ul>
-<li>CUDA 12.2 사용 불가</li>
-<li>CUDA 11.6 사용 가능</li>
+<li>마이크로서비스 아키텍처<ul>
+<li>마이크로서비스 기반의 시스템에서는 서로 다른 서비스들이 독립적으로 동작하며, 서로 간에 비동기 메시지를 주고받음</li>
+<li>RabbitMQ, Kafka 같은 메시지 큐를 사용하여 비동기적으로 메시지를 처리하거나 HTTP&#x2F;2 기반의 비동기 통신을 통해 마이크로서비스 간에 데이터를 주고받음</li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-<h2 id="개발-환경"><a href="#개발-환경" class="headerlink" title="개발 환경"></a>개발 환경</h2><p><strong>실습 환경</strong></p>
-<ul>
-<li>서버 환경 : CUDA 12.2</li>
-<li>가상(사이드 프로젝트) 환경 : CUDA 11.8</li>
-</ul>
-<ol>
-<li><p>서버 환경 - CUDA Toolkit, Nvidia-Driver, CuDNN이 설치 되어졌음을 가정</p>
-<ul>
-<li><p>bashrc 에 다음 내용 추가</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use CUDA 12.2 Version </span></span><br><span class="line"><span class="built_in">export</span> PATH=/usr/local/cuda-12.2/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:/usr/local/cuda-12.2/lib64</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>가상 환경 생성(anaconda)</p>
-<ul>
-<li><p>conda create -n {myenvname} cudatoolkit&#x3D;{cuda_version} python&#x3D;{python_version}</p>
-<ul>
-<li><p>해당 명령어의 결과 가상환경이 활성화 될 때 bashrc가 다음과 같은 식으로 적용이 됨</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/usr/local/cuda-11.8/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/local/cuda-11.8/lib64:<span class="variable">$LD_LIBRARY_PATH</span></span><br></pre></td></tr></table></figure>
-
-<p>※ bashrc 파일 자체에는 변화는 없음, 하지만 echo를 날려보면 다음과 같이 적용이 되어져 있음</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line">/usr/local/cuda-11.8/lib64:/usr/local/cuda-12.2/lib64</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></span><br><span class="line">/usr/local/cuda-12.2/bin:/home/shchoice/anaconda3/envs/csh_p311_c118/bin:/home/shchoice/anaconda3/condabin:/usr/local/cuda-11.8/bin:/usr/local/cuda-12.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>가상환경이 비활성화 될 때</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=원래의_PATH</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=원래의_LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
+<li>네트워크 I&#x2F;O, Disk I&#x2F;O 등 백그라운드 작업 처리<ul>
+<li>웹 애플리케이션에서 긴 시간이 걸리는 작업(예: 이메일 전송, 동영상 다운로드 등)을 동시적으로 처리해야 하는 경우</li>
 </ul>
 </li>
 </ol>
-</div><div class="article-licensing box"><div class="licensing-title"><p><a href="http://example.com/딥러닝 CUDA 작업 환경 구성/">http://example.com/딥러닝 CUDA 작업 환경 구성/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Shawn Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2023-11-20</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2023-11-10</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creativFe-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/Programming/UML/UML-Class-Diagram/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">UML &amp; Class Diagram</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Deep%20Learning/%E1%84%8C%E1%85%A1%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%8B%E1%85%A5%E1%84%89%E1%85%A2%E1%86%BC%E1%84%89%E1%85%A5%E1%86%BC%20%E1%84%80%E1%85%A2%E1%84%82%E1%85%A7%E1%86%B7/4%E1%84%8C%E1%85%A1%E1%86%BC-Sequence2Sequence-AMP-Automatic-Mixed-Precision/"><span class="level-item">4장. Sequence2Sequence - AMP(Automatic Mixed Precision)</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
-            this.page.url = 'http://example.com/%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC%20CUDA%20%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%8B%E1%85%A5%E1%86%B8%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%20%E1%84%80%E1%85%AE%E1%84%89%E1%85%A5%E1%86%BC/';
-            this.page.identifier = '딥러닝 CUDA 작업 환경 구성/';
+</li>
+</ul>
+<h2 id="2-병렬-프로그래밍-Parallelism"><a href="#2-병렬-프로그래밍-Parallelism" class="headerlink" title="2. 병렬 프로그래밍 (Parallelism)"></a>2. 병렬 프로그래밍 (Parallelism)</h2><ul>
+<li>개념<ul>
+<li>여러 작업이 물리적으로 동시에 수행되는 것을 의미</li>
+<li>병렬 프로그래밍은 여러 프로세서나 코어가 동시에 여러 작업을 실행하는 것을 목표로 함</li>
+<li>병렬 처리 시스템은 여러 작업을 분할하고 동시에 실행함으로써 작업 완료 시간을 단축</li>
+</ul>
+</li>
+<li>주요 특징<ul>
+<li>멀티프로세싱(Multiprocessing): 여러 프로세서가 각기 다른 작업을 동시에 처리</li>
+<li>데이터 병렬성(Data Parallelism): 동일한 작업을 여러 데이터에 대해 동시에 수행</li>
+<li>태스크 병렬성(Task Parallelism): 서로 다른 작업을 동시에 수행</li>
+</ul>
+</li>
+<li>예시<ul>
+<li>머신러닝 모델 훈련<ul>
+<li>딥러닝 모델을 훈련할 때 GPU를 활용하여 병렬로 데이터 포인트를 처리하고, 모델 파라미터를 업데이트</li>
+</ul>
+</li>
+<li>이미지 처리<ul>
+<li>대용량 이미지 파일을 처리할 때 병렬 프로그래밍을 사용하여 여러 이미지를 동시에 처리</li>
+</ul>
+</li>
+<li>금융 시스템에서의 병렬 계산<ul>
+<li>금융 시스템에서는 몬테카를로 시뮬레이션, 위험 관리, 파생 상품 같은 복잡한 계산을 빠르게 수행하기 위해 병렬 프로그래밍을 사용</li>
+</ul>
+</li>
+<li>실시간 데이터 스트리밍 분석<ul>
+<li>IoT 센서 데이터, 금융 거래 데이터 등의 실시간 스트리밍 데이터를 Apache Flink, Apache Kafka Streams 같은 플랫폼을 사용하여 데이터 스트리밍을 병렬로 처리, 각 스트림 파티션에서 병렬로 연산 수행</li>
+<li>실시간으로 들어오는 금융 거래 데이터를 분석하여 이상 거래를 감지</li>
+</ul>
+</li>
+<li>대규모 데이터 분석<ul>
+<li>Apache Spark와 같은 분산 데이터 처리 플랫폼을 사용하여 대용량 데이터를 분석 및 처리</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-동시성과-병렬성의-차이"><a href="#3-동시성과-병렬성의-차이" class="headerlink" title="3. 동시성과 병렬성의 차이"></a>3. 동시성과 병렬성의 차이</h2><ul>
+<li>동시성 : 작업의 실행 순서가 겹치지만, 실제로는 단일 프로세서에서 작업이 빠르게 전환되며 처리</li>
+<li>병렬성 : 여러 프로세서나 코어에서 병렬 처리가 이루어져 작업들이 동시에 처리됨</li>
+</ul>
+<h3 id="예시를-통한-차이-이해"><a href="#예시를-통한-차이-이해" class="headerlink" title="예시를 통한 차이 이해"></a>예시를 통한 차이 이해</h3><ul>
+<li>동시성 : 한 사람이 컴퓨터 앞에서 여러 창을 빠르게 전환하며 각의 작업을 조금씩 수행</li>
+<li>병렬성 : 여러 사람이 각자 하나씩 창을 열고 동시에 작업을 수행</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>동시성 프로그래밍 vs 병렬 프로그래밍</p><p><a href="http://example.com/동시성-프로그래밍-vs-병렬-프로그래밍/">http://example.com/동시성-프로그래밍-vs-병렬-프로그래밍/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Shawn Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-08-19</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-08-19</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creativFe-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EA%B0%9C%EC%9A%94/"><span class="level-item">2. 아키텍처 개요</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'http://example.com/%EB%8F%99%EC%8B%9C%EC%84%B1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-vs-%EB%B3%91%EB%A0%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/';
+            this.page.identifier = '동시성-프로그래밍-vs-병렬-프로그래밍/';
         };
         (function() {
             var d = document, s = d.createElement('script');  
