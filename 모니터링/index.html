@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>동시성 프로그래밍 vs 병렬 프로그래밍 - Shawn&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Shawn&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon_sh.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Shawn&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="1. 동시성 프로그래밍 (Concurrency) 개념 동시성 프로그래밍은 여러 작업이 겹쳐서 실행될 수 있는 개념을 다룸 여러 작업이 동시에 “시작”되거나 “진행”될 수 있지만, 꼭 동일한 순간에 실행되는 것은 아님 동시성은 하나의 프로세서에서 여러 작업이 마치 동시에 실행되는 것처럼 보이게 하는 것을 목표로 하며, 이를 위해 작업 간의 컨텍스트 스위칭(c"><meta property="og:type" content="blog"><meta property="og:title" content="동시성 프로그래밍 vs 병렬 프로그래밍"><meta property="og:url" content="http://example.com/%EB%8F%99%EC%8B%9C%EC%84%B1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-vs-%EB%B3%91%EB%A0%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><meta property="og:site_name" content="Shawn&#039;s Blog"><meta property="og:description" content="1. 동시성 프로그래밍 (Concurrency) 개념 동시성 프로그래밍은 여러 작업이 겹쳐서 실행될 수 있는 개념을 다룸 여러 작업이 동시에 “시작”되거나 “진행”될 수 있지만, 꼭 동일한 순간에 실행되는 것은 아님 동시성은 하나의 프로세서에서 여러 작업이 마치 동시에 실행되는 것처럼 보이게 하는 것을 목표로 하며, 이를 위해 작업 간의 컨텍스트 스위칭(c"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/og_image.png"><meta property="article:published_time" content="2024-08-19T14:22:16.000Z"><meta property="article:modified_time" content="2024-08-19T14:23:33.789Z"><meta property="article:author" content="Shawn Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/%EB%8F%99%EC%8B%9C%EC%84%B1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-vs-%EB%B3%91%EB%A0%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"},"headline":"동시성 프로그래밍 vs 병렬 프로그래밍","image":["http://example.com/img/og_image.png"],"datePublished":"2024-08-19T14:22:16.000Z","dateModified":"2024-08-19T14:23:33.789Z","author":{"@type":"Person","name":"Shawn Choi"},"publisher":{"@type":"Organization","name":"Shawn's Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.svg"}},"description":"1. 동시성 프로그래밍 (Concurrency) 개념 동시성 프로그래밍은 여러 작업이 겹쳐서 실행될 수 있는 개념을 다룸 여러 작업이 동시에 “시작”되거나 “진행”될 수 있지만, 꼭 동일한 순간에 실행되는 것은 아님 동시성은 하나의 프로세서에서 여러 작업이 마치 동시에 실행되는 것처럼 보이게 하는 것을 목표로 하며, 이를 위해 작업 간의 컨텍스트 스위칭(c"}</script><link rel="canonical" href="http://example.com/%EB%8F%99%EC%8B%9C%EC%84%B1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-vs-%EB%B3%91%EB%A0%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><link rel="icon" href="/img/favicon_sh.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-D7QRVGYDET" async></script><script>window.dataLayer = window.dataLayer || [];
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>모니터링 - Shawn&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Shawn&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon_sh.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Shawn&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="성능 테스트란? 앱이나 시스템이 주어진 조건에서 얼마나 효율적이고 안정적으로 동작하는지 평가하기 위한 테스트 과정 시스템의 성능을 다양한 관점에서 측정하여, 실제 운영 환경에서 발생할 수 있는 문제를 미리 파악하고 해결하는 데 목적이 있음  성능 테스트의 목적 설정한 목표치 달성  목표 : 초당 1000건의 요청 처리, 모든 조회 요청을 1초 이내로 응답"><meta property="og:type" content="blog"><meta property="og:title" content="모니터링"><meta property="og:url" content="http://example.com/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/"><meta property="og:site_name" content="Shawn&#039;s Blog"><meta property="og:description" content="성능 테스트란? 앱이나 시스템이 주어진 조건에서 얼마나 효율적이고 안정적으로 동작하는지 평가하기 위한 테스트 과정 시스템의 성능을 다양한 관점에서 측정하여, 실제 운영 환경에서 발생할 수 있는 문제를 미리 파악하고 해결하는 데 목적이 있음  성능 테스트의 목적 설정한 목표치 달성  목표 : 초당 1000건의 요청 처리, 모든 조회 요청을 1초 이내로 응답"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/cc0eb6e3-c6ca-4e00-a5e9-54015a94de55/image.png"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/da9c53bd-40cc-40e1-92a8-e0213a09052c/image.png"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/a4499a0a-2cc1-44f8-8228-06aa792c4825/image.png"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/c4318bb3-d568-4bd9-9013-db294efa4efe/image.png"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/d9db36e8-c508-4c68-9c5e-87d09fdbd421/ebd8d571-036f-4bcd-92b4-7b4f21966732.png"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/33705d05-1ea6-44f1-8a0a-357a9bf4e778/image.png"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/d38190e1-38c6-4908-895b-d9ec0c536759/image.png"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/e78d9a28-5148-46e0-ade0-4967d4672623/image.png"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/81981169-9e49-466e-8e6d-dd5ef8794b07/image.png"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/d173cd3e-c452-4bf5-9b07-07b8c8a9c987/image.png"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/21fc65de-cc41-4395-9d0f-52e20e51fc2e/image.png"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/7fad8a5a-9d56-46c0-a6f2-4d06b6408aa9/image.png"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/f4ac69e2-84dc-4990-92f0-cab9946a2ac0/image.png"><meta property="og:image" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/125b15c3-2ec5-4ed6-8dab-f3554a26553f/image.png"><meta property="article:published_time" content="2024-08-26T14:52:30.000Z"><meta property="article:modified_time" content="2024-08-26T14:52:52.965Z"><meta property="article:author" content="Shawn Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/cc0eb6e3-c6ca-4e00-a5e9-54015a94de55/image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/"},"headline":"모니터링","image":["https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/cc0eb6e3-c6ca-4e00-a5e9-54015a94de55/image.png","https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/da9c53bd-40cc-40e1-92a8-e0213a09052c/image.png","https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/a4499a0a-2cc1-44f8-8228-06aa792c4825/image.png","https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/c4318bb3-d568-4bd9-9013-db294efa4efe/image.png","https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/d9db36e8-c508-4c68-9c5e-87d09fdbd421/ebd8d571-036f-4bcd-92b4-7b4f21966732.png","https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/33705d05-1ea6-44f1-8a0a-357a9bf4e778/image.png","https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/d38190e1-38c6-4908-895b-d9ec0c536759/image.png","https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/e78d9a28-5148-46e0-ade0-4967d4672623/image.png","https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/81981169-9e49-466e-8e6d-dd5ef8794b07/image.png","https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/d173cd3e-c452-4bf5-9b07-07b8c8a9c987/image.png","https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/21fc65de-cc41-4395-9d0f-52e20e51fc2e/image.png","https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/7fad8a5a-9d56-46c0-a6f2-4d06b6408aa9/image.png","https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/f4ac69e2-84dc-4990-92f0-cab9946a2ac0/image.png","https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/125b15c3-2ec5-4ed6-8dab-f3554a26553f/image.png"],"datePublished":"2024-08-26T14:52:30.000Z","dateModified":"2024-08-26T14:52:52.965Z","author":{"@type":"Person","name":"Shawn Choi"},"publisher":{"@type":"Organization","name":"Shawn's Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.svg"}},"description":"성능 테스트란? 앱이나 시스템이 주어진 조건에서 얼마나 효율적이고 안정적으로 동작하는지 평가하기 위한 테스트 과정 시스템의 성능을 다양한 관점에서 측정하여, 실제 운영 환경에서 발생할 수 있는 문제를 미리 파악하고 해결하는 데 목적이 있음  성능 테스트의 목적 설정한 목표치 달성  목표 : 초당 1000건의 요청 처리, 모든 조회 요청을 1초 이내로 응답"}</script><link rel="canonical" href="http://example.com/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/"><link rel="icon" href="/img/favicon_sh.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-D7QRVGYDET" async></script><script>window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
     
@@ -31,88 +31,188 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-08-19T14:22:16.000Z" title="8/19/2024, 11:22:16 PM">2024-08-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-08-19T14:23:33.789Z" title="8/19/2024, 11:23:33 PM">2024-08-19</time></span><span class="level-item">8 minutes read (About 1179 words)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">동시성 프로그래밍 vs 병렬 프로그래밍</h1><div class="content"><h2 id="1-동시성-프로그래밍-Concurrency"><a href="#1-동시성-프로그래밍-Concurrency" class="headerlink" title="1. 동시성 프로그래밍 (Concurrency)"></a>1. 동시성 프로그래밍 (Concurrency)</h2><ul>
-<li>개념<ul>
-<li>동시성 프로그래밍은 여러 작업이 겹쳐서 실행될 수 있는 개념을 다룸</li>
-<li>여러 작업이 동시에 “시작”되거나 “진행”될 수 있지만, 꼭 동일한 순간에 실행되는 것은 아님</li>
-<li>동시성은 하나의 프로세서에서 여러 작업이 마치 동시에 실행되는 것처럼 보이게 하는 것을 목표로 하며, 이를 위해 작업 간의 컨텍스트 스위칭(context switching)이 발생할 수 있음</li>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-08-26T14:52:30.000Z" title="8/26/2024, 11:52:30 PM">2024-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-08-26T14:52:52.965Z" title="8/26/2024, 11:52:52 PM">2024-08-26</time></span><span class="level-item">15 minutes read (About 2293 words)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">모니터링</h1><div class="content"><h2 id="성능-테스트란"><a href="#성능-테스트란" class="headerlink" title="성능 테스트란?"></a>성능 테스트란?</h2><ul>
+<li>앱이나 시스템이 주어진 조건에서 얼마나 효율적이고 안정적으로 동작하는지 평가하기 위한 테스트 과정</li>
+<li>시스템의 성능을 다양한 관점에서 측정하여, 실제 운영 환경에서 발생할 수 있는 문제를 미리 파악하고 해결하는 데 목적이 있음</li>
+</ul>
+<h2 id="성능-테스트의-목적"><a href="#성능-테스트의-목적" class="headerlink" title="성능 테스트의 목적"></a>성능 테스트의 목적</h2><ul>
+<li><p>설정한 목표치 달성</p>
+<ul>
+<li><p>목표 : 초당 1000건의 요청 처리, 모든 조회 요청을 1초 이내로 응답</p>
+<p>→ 배포 전 성능 테스트를 통해 목표치를 만족하는지 확인</p>
+</li>
+<li><p>어떤 지표를 확인해야할까요?</p>
+<ul>
+<li>초당 1000건의 요청 처리 → Throughput (처리량)</li>
+<li>모든 조회 요청을 1초 이내로 응답 → Response Time(응답 시간)</li>
 </ul>
 </li>
-<li>주요 특징<ul>
-<li>멀티스레딩(Multithreading) : 여러 스레드가 동일한 프로세스 내에서 동시성을 구현</li>
-<li>비동기 프로그래밍: 비동기적으로 여러 작업이 동시 진행되는 것처럼 처리됨</li>
-<li>협력적 동시성: 각 작업이 자발적으로 CPU를 양보하여 다른 작업이 실행될 수 있도록 함</li>
 </ul>
 </li>
-<li>예시<ol>
-<li>웹 서버 요청 처리<ul>
-<li>대규모 웹 애플리케이션에서 수천, 수만 명의 사용자가 동시에 접속하여 요청을 보낼 때</li>
-<li>각 사용자의 요청이 독립적이기 때문에, 동시성 프로그래밍을 통해 여러 요청을 동시에 처리할 수 있음</li>
-<li>Java 에서는 ExecutorService와 Future&#x2F;CompletableFuture 및 Reactive Programming이 예시가 될 수 있음</li>
-<li>Python의 asyncio나 Node.js의 이벤트 루프(async&#x2F;await)는 비동기 방식</li>
+<li><p>성능 병목 현상 파악</p>
+<ul>
+<li>응답 시간, 처리량 등 성능 지표를 통해 시스템의 병목 현상을 발견하고 해결</li>
 </ul>
 </li>
-<li>마이크로서비스 아키텍처<ul>
-<li>마이크로서비스 기반의 시스템에서는 서로 다른 서비스들이 독립적으로 동작하며, 서로 간에 비동기 메시지를 주고받음</li>
-<li>RabbitMQ, Kafka 같은 메시지 큐를 사용하여 비동기적으로 메시지를 처리하거나 HTTP&#x2F;2 기반의 비동기 통신을 통해 마이크로서비스 간에 데이터를 주고받음</li>
+<li><p>가용성</p>
+<ul>
+<li>시스템이 서비스를 정상적으로 제공할 수 있는 상태</li>
 </ul>
 </li>
-<li>네트워크 I&#x2F;O, Disk I&#x2F;O 등 백그라운드 작업 처리<ul>
-<li>웹 애플리케이션에서 긴 시간이 걸리는 작업(예: 이메일 전송, 동영상 다운로드 등)을 동시적으로 처리해야 하는 경우</li>
+<li><p>기타</p>
+<ul>
+<li>확장성 확인<ul>
+<li>시스템이 사용자 수나 데이터의 증가에 따라 잘 확장될 수 있는지를 확인</li>
 </ul>
 </li>
-</ol>
-</li>
-</ul>
-<h2 id="2-병렬-프로그래밍-Parallelism"><a href="#2-병렬-프로그래밍-Parallelism" class="headerlink" title="2. 병렬 프로그래밍 (Parallelism)"></a>2. 병렬 프로그래밍 (Parallelism)</h2><ul>
-<li>개념<ul>
-<li>여러 작업이 물리적으로 동시에 수행되는 것을 의미</li>
-<li>병렬 프로그래밍은 여러 프로세서나 코어가 동시에 여러 작업을 실행하는 것을 목표로 함</li>
-<li>병렬 처리 시스템은 여러 작업을 분할하고 동시에 실행함으로써 작업 완료 시간을 단축</li>
+<li>안정성 검증<ul>
+<li>시스템이 장시간 동안 안정적으로 운영될 수 있는지를 확인</li>
 </ul>
 </li>
-<li>주요 특징<ul>
-<li>멀티프로세싱(Multiprocessing): 여러 프로세서가 각기 다른 작업을 동시에 처리</li>
-<li>데이터 병렬성(Data Parallelism): 동일한 작업을 여러 데이터에 대해 동시에 수행</li>
-<li>태스크 병렬성(Task Parallelism): 서로 다른 작업을 동시에 수행</li>
+<li>복구 능력 평가<ul>
+<li>시스템이 장애 상황에서 얼마나 빠르고 신속하게 복구될 수 있는지를 평가</li>
 </ul>
 </li>
-<li>예시<ul>
-<li>머신러닝 모델 훈련<ul>
-<li>딥러닝 모델을 훈련할 때 GPU를 활용하여 병렬로 데이터 포인트를 처리하고, 모델 파라미터를 업데이트</li>
-</ul>
-</li>
-<li>이미지 처리<ul>
-<li>대용량 이미지 파일을 처리할 때 병렬 프로그래밍을 사용하여 여러 이미지를 동시에 처리</li>
-</ul>
-</li>
-<li>금융 시스템에서의 병렬 계산<ul>
-<li>금융 시스템에서는 몬테카를로 시뮬레이션, 위험 관리, 파생 상품 같은 복잡한 계산을 빠르게 수행하기 위해 병렬 프로그래밍을 사용</li>
-</ul>
-</li>
-<li>실시간 데이터 스트리밍 분석<ul>
-<li>IoT 센서 데이터, 금융 거래 데이터 등의 실시간 스트리밍 데이터를 Apache Flink, Apache Kafka Streams 같은 플랫폼을 사용하여 데이터 스트리밍을 병렬로 처리, 각 스트림 파티션에서 병렬로 연산 수행</li>
-<li>실시간으로 들어오는 금융 거래 데이터를 분석하여 이상 거래를 감지</li>
-</ul>
-</li>
-<li>대규모 데이터 분석<ul>
-<li>Apache Spark와 같은 분산 데이터 처리 플랫폼을 사용하여 대용량 데이터를 분석 및 처리</li>
+<li>최적화<ul>
+<li>시스템의 자원 사용을 최적화하여 비용을 절감하고 성능을 향상</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="3-동시성과-병렬성의-차이"><a href="#3-동시성과-병렬성의-차이" class="headerlink" title="3. 동시성과 병렬성의 차이"></a>3. 동시성과 병렬성의 차이</h2><ul>
-<li>동시성 : 작업의 실행 순서가 겹치지만, 실제로는 단일 프로세서에서 작업이 빠르게 전환되며 처리</li>
-<li>병렬성 : 여러 프로세서나 코어에서 병렬 처리가 이루어져 작업들이 동시에 처리됨</li>
+<h3 id="성능-지표-Metrics"><a href="#성능-지표-Metrics" class="headerlink" title="성능 지표 (Metrics)"></a>성능 지표 (Metrics)</h3><p>성능 테스트의 결과를 정량적으로 평가하는 기준</p>
+<ul>
+<li><p>응답 시간(Response Time) : 사용자가 요청을 보낸 시점부터 응답을 받기까지의 시간</p>
+<ul>
+<li>평균 응답 시간 : 모든 요청에 대해 평균적으로 걸리는 시간을 계산</li>
+<li>최대&#x2F;최소 응답 시간 : 특정 시점이나 특정 조건에서 발생하는 최고 및 최저 응답 시간을 파악</li>
+<li>백분위 응답 시간 : 예를 들어 95퍼센트 응답 시간은 전체 요청 중 95%가 그 시간 이내에 응답되었음을 의미</li>
 </ul>
-<h3 id="예시를-통한-차이-이해"><a href="#예시를-통한-차이-이해" class="headerlink" title="예시를 통한 차이 이해"></a>예시를 통한 차이 이해</h3><ul>
-<li>동시성 : 한 사람이 컴퓨터 앞에서 여러 창을 빠르게 전환하며 각의 작업을 조금씩 수행</li>
-<li>병렬성 : 여러 사람이 각자 하나씩 창을 열고 동시에 작업을 수행</li>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/cc0eb6e3-c6ca-4e00-a5e9-54015a94de55/image.png" alt="image.png"></p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/da9c53bd-40cc-40e1-92a8-e0213a09052c/image.png" alt="image.png"></p>
+<ul>
+<li>응답 시간 &#x3D; 150 + 200 + 100 &#x3D; 450 ms</li>
 </ul>
-</div><div class="article-licensing box"><div class="licensing-title"><p>동시성 프로그래밍 vs 병렬 프로그래밍</p><p><a href="http://example.com/동시성-프로그래밍-vs-병렬-프로그래밍/">http://example.com/동시성-프로그래밍-vs-병렬-프로그래밍/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Shawn Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-08-19</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-08-19</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creativFe-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">모니터링</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EA%B0%9C%EC%9A%94/"><span class="level-item">2. 아키텍처 개요</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
-            this.page.url = 'http://example.com/%EB%8F%99%EC%8B%9C%EC%84%B1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-vs-%EB%B3%91%EB%A0%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/';
-            this.page.identifier = '동시성-프로그래밍-vs-병렬-프로그래밍/';
+</li>
+<li><p>처리량(Throughput) : 시스템이 단위 시간당 처리할 수 있는 요청이나 트랜잭션의 수</p>
+<ul>
+<li><p>초당 요청 수 (Requests per Second, RPS) : 시스템이 초당 처리할 수 있는 HTTP 요청의 수를 측정하여, 웹 앱의 처리 능력을 평가</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/a4499a0a-2cc1-44f8-8228-06aa792c4825/image.png" alt="image.png"></p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/c4318bb3-d568-4bd9-9013-db294efa4efe/image.png" alt="image.png"></p>
+<ul>
+<li>현재 시스템에서 처리량은 얼마일까요?<ul>
+<li>100 rps → 서브 시스템 중 가장 처리량이 낮은 부분으로 계산할 수 있음</li>
+</ul>
+</li>
+<li>병목 구간 : 하위 시스템 중 가장 낮은 처리량을 가지는 부분<ul>
+<li>병목 구간이 아닌 곳을 성능 개선한다면 → 전체적인 성능 개선 실패 500rps를 700rps라고 해도 mysql에서 100 rps라면 여전히 100 rps</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>트랜잭션 수 (Transactions per Second, TPS) : DB나 앱에서 초당 처리되는 트랜잭션 수를 평가하여, 시스템의 처리 능력을 파악</p>
+</li>
+<li><p>데이터 전송량 : 네트워크를 통해 초당 전송되는 데이터 양(예: MB&#x2F;s)을 측정하여, 대용량 데이터 전송 시의 성능을 평가</p>
+</li>
+</ul>
+</li>
+<li><p>자원 사용량(Resource Utilization) : CPU, 메모리, 네트워크 대역폭 등의 자원 사용률</p>
+</li>
+<li><p>오류율(Error Rate) : 처리된 요청 중 실패한 요청의 비율</p>
+</li>
+</ul>
+<h3 id="성능-테스트-유형-Test-Types"><a href="#성능-테스트-유형-Test-Types" class="headerlink" title="성능 테스트 유형 (Test Types)"></a>성능 테스트 유형 (Test Types)</h3><p>성능 테스트의 구체적인 방법을 나타내며, 각각의 유형은 특정한 목적을 달성하기 위해 사용됨</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/d9db36e8-c508-4c68-9c5e-87d09fdbd421/ebd8d571-036f-4bcd-92b4-7b4f21966732.png" alt="image.png"></p>
+<ul>
+<li><p><strong>부하 관련 테스트 (Load Testing)</strong></p>
+<ul>
+<li><p><code>부하 테스트**(Load Testing)**</code> : 예상되는 최대 사용자 수나 트래픽 조건에서 시스템 성능을 평가, 목표값에 해당되는 부하를 견딜 수 있는지 확인</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/33705d05-1ea6-44f1-8a0a-357a9bf4e778/image.png" alt="image.png"></p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/d38190e1-38c6-4908-895b-d9ec0c536759/image.png" alt="image.png"></p>
+</li>
+<li><p>고정 부하 테스트 : 예상되는 최대 부하를 일정 시간 동안 유지하여 안정성 평가</p>
+</li>
+<li><p><code>스파이크 테스트(Spike Testing)</code> ****: 짧은 시간 동안 급격하게 부하를 증가시켜 시스템이 어떻게 대응하는지 평가, 사용량이 급증하는 상황에서 시스템이 견디고 성능에 문제가 없는지 확인</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/e78d9a28-5148-46e0-ade0-4967d4672623/image.png" alt="image.png"></p>
+</li>
+<li><p><code>피크 테스트(Peak Testing)</code> <strong>:</strong> 예상되는 최고 부하 상태에서 시스템 성능을 평가</p>
+</li>
+</ul>
+</li>
+<li><p><strong>한계점 및 회복력 테스트</strong></p>
+<ul>
+<li><p><code>스트레스 테스트**(Stress Testing)**</code> : 시스템이 최대치에 해당되는 부하를 받았을 때 성능과 회복 능력을 평가</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/81981169-9e49-466e-8e6d-dd5ef8794b07/image.png" alt="image.png"></p>
+<ul>
+<li>부하 테스트 대비 50% 혹은 그 이상의 부하를 주어 테스트</li>
+<li>한계점 파악: 시스템 성능 저하, 오류, 다운타임 발생 시점을 확인</li>
+<li>자원 소진 <strong>테스트</strong>: 자원이 소진될 때의 시스템 반응 평가</li>
+<li>복구 능력 테스트: 한계 초과 후 시스템이 얼마나 빠르게 정상 상태로 복구되는지 평가</li>
+</ul>
+</li>
+<li><p><code>중단점 테스트(Breakpoint Testing)</code> : 시스템이 감당할 수 있는 최대 부하 수준을 찾기 위해 점진적으로 부하를 증가시키며 테스트</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/d173cd3e-c452-4bf5-9b07-07b8c8a9c987/image.png" alt="image.png"></p>
+</li>
+<li><p>회복 테스트 : 시스템 장애 이후 정상 상태로 회복하는 능력을 평가</p>
+</li>
+</ul>
+</li>
+<li><p>지속성 및 안정성 평가</p>
+<ul>
+<li><p><code>내구 테스트 (Endurance/Soak Testing)</code> ****: 장시간 동안 평균 사용률로 일정한 부하를 가하여 시스템 성능과 안정성을 평가</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/21fc65de-cc41-4395-9d0f-52e20e51fc2e/image.png" alt="image.png"></p>
+<ul>
+<li><strong>지속적인 부하 테스트</strong> : 장시간 동안 부하를 가해 성능 변화를 모니터링</li>
+<li><strong>리소스 누수 확인</strong> : 메모리 누수, 핸들 누수 등 장시간 테스트에서 발생하는 문제를 확인</li>
+</ul>
+</li>
+<li><p>안정성 테스트 : 시스템이 오랜 시간 동안 지속적인 부하에서 얼마나 안정적으로 동작하는지 평가</p>
+</li>
+</ul>
+</li>
+<li><p>데이터 처리 관련 테스트</p>
+<ul>
+<li><p>볼륨 테스트</p>
+<p> : 대량의 데이터를 처리할 때 시스템 성능이 어떻게 변화하는지 평가</p>
+<ul>
+<li>대량 데이터 입력 : 시스템에 대량 데이터를 입력하여 성능 변화를 평가</li>
+<li>데이터베이스 성능 평가 : 대용량 데이터 처리 시 데이터베이스의 성능을 집중적으로 평가</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>기본 기능 확인 테스트</p>
+<ul>
+<li><p><code>스모크 테스트(Smoke Testing)</code> : 시스템의 주요 기능이 정상적으로 동작하는지 간단히 확인하는 초기 테스트</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/7fad8a5a-9d56-46c0-a6f2-4d06b6408aa9/image.png" alt="image.png"></p>
+</li>
+</ul>
+</li>
+<li><p><strong>스트레스 테스트 (Stress Testing)</strong> : 시스템이 최대 부하를 초과하는 상황에서의 성능을 평가</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/f4ac69e2-84dc-4990-92f0-cab9946a2ac0/image.png" alt="image.png"></p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/7b369cfd-c306-4c28-aef0-ebcdfd744219/125b15c3-2ec5-4ed6-8dab-f3554a26553f/image.png" alt="image.png"></p>
+</li>
+<li><p><strong>내구 테스트 (Endurance&#x2F;Soak Testing)</strong> : 장시간 동안 시스템의 안정성을 평가</p>
+</li>
+<li><p><strong>볼륨 테스트 (Volume Testing)</strong> : 대량의 데이터를 처리할 때 시스템 성능을 평가</p>
+</li>
+</ul>
+<h2 id="부록-1-Response-Time-Latency-Processing-Time"><a href="#부록-1-Response-Time-Latency-Processing-Time" class="headerlink" title="부록 1. Response Time, Latency, Processing Time"></a>부록 1. Response Time, Latency, Processing Time</h2><h3 id="Response-Time-응답-시간"><a href="#Response-Time-응답-시간" class="headerlink" title="Response Time (응답 시간)"></a>Response Time (응답 시간)</h3><ul>
+<li>사용자가 어떤 요청을 보내고, 시스템이 해당 요청에 대한 응답을 전송하는 데 걸리는 시간</li>
+<li>일반적으로 밀리초 단위로 측정</li>
+<li>시스템 또는 네트워크의 성능에 대한 전반적인 인식을 제공</li>
+</ul>
+<h3 id="Latency-지연-시간"><a href="#Latency-지연-시간" class="headerlink" title="Latency (지연 시간)"></a>Latency (지연 시간)</h3><ul>
+<li>데이터가 네트워크를 통해 이동하는 데 걸리는 시간</li>
+</ul>
+<h3 id="Processing-Time-처리-시간"><a href="#Processing-Time-처리-시간" class="headerlink" title="Processing Time(처리 시간)"></a>Processing Time(처리 시간)</h3><ul>
+<li>시스템이 요청을 받은 후, 해당 요청을 처리하는 데 소요되는 시간</li>
+<li>일반적으로 응답시간보다 짧은 시간으로 측정</li>
+<li>시스템이 얼마나 효율적으로 요청을 처리하고 있는지를 나타내는 중요한 지표</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>모니터링</p><p><a href="http://example.com/모니터링/">http://example.com/모니터링/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Shawn Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-08-26</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-08-26</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creativFe-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/%EB%8F%99%EC%8B%9C%EC%84%B1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-vs-%EB%B3%91%EB%A0%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-item">동시성 프로그래밍 vs 병렬 프로그래밍</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'http://example.com/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/';
+            this.page.identifier = '모니터링/';
         };
         (function() {
             var d = document, s = d.createElement('script');  
