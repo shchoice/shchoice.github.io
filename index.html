@@ -31,7 +31,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-08-26T14:52:30.000Z" title="8/26/2024, 11:52:30 PM">2024-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-08-26T14:52:52.965Z" title="8/26/2024, 11:52:52 PM">2024-08-26</time></span><span class="level-item">15 minutes read (About 2293 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/">모니터링</a></h1><div class="content"><h2 id="성능-테스트란"><a href="#성능-테스트란" class="headerlink" title="성능 테스트란?"></a>성능 테스트란?</h2><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-08-26T14:52:30.000Z" title="8/26/2024, 11:52:30 PM">2024-08-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-08-28T14:59:01.866Z" title="8/28/2024, 11:59:01 PM">2024-08-28</time></span><span class="level-item">18 minutes read (About 2694 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/">모니터링</a></h1><div class="content"><h2 id="성능-테스트란"><a href="#성능-테스트란" class="headerlink" title="성능 테스트란?"></a>성능 테스트란?</h2><ul>
 <li>앱이나 시스템이 주어진 조건에서 얼마나 효율적이고 안정적으로 동작하는지 평가하기 위한 테스트 과정</li>
 <li>시스템의 성능을 다양한 관점에서 측정하여, 실제 운영 환경에서 발생할 수 있는 문제를 미리 파악하고 해결하는 데 목적이 있음</li>
 </ul>
@@ -210,6 +210,108 @@
 <li>일반적으로 응답시간보다 짧은 시간으로 측정</li>
 <li>시스템이 얼마나 효율적으로 요청을 처리하고 있는지를 나타내는 중요한 지표</li>
 </ul>
+<h2 id="JMeter-nGrinder-등의-도구와의-차별점"><a href="#JMeter-nGrinder-등의-도구와의-차별점" class="headerlink" title="JMeter, nGrinder 등의 도구와의 차별점"></a>JMeter, nGrinder 등의 도구와의 차별점</h2><table>
+<thead>
+<tr>
+<th><strong>테스트 도구</strong></th>
+<th>Locust</th>
+<th>JMeter</th>
+<th>k6</th>
+<th>nGrinder</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>개발 조직</td>
+<td>Locust 오픈소스 커뮤니티</td>
+<td>Apache Foundation</td>
+<td>Grafana Labs</td>
+<td>NHN</td>
+</tr>
+<tr>
+<td>언어</td>
+<td>Python</td>
+<td>Java</td>
+<td>JavaScript</td>
+<td>Jython, Groovy</td>
+</tr>
+<tr>
+<td>사용자 시나리오 정의</td>
+<td>코드 기반</td>
+<td>GUI 또는 코드 기반</td>
+<td>다양한 GUI</td>
+<td></td>
+</tr>
+<tr>
+<td>(Grafana 호환)</td>
+<td>GUI 또는 코드 기반</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>설치 및 시작</td>
+<td>pip install locust</td>
+<td>Java 설치 및 GUI 또는 명령행으로 실행</td>
+<td>패키지 설치, CLI 실행</td>
+<td>Java 설치 및 실행</td>
+</tr>
+<tr>
+<td>분산 테스트</td>
+<td>마스터-워커 구조 지원</td>
+<td>분산 테스트 지원</td>
+<td>분산 테스트 지원</td>
+<td></td>
+</tr>
+<tr>
+<td>(클라우드 유료)</td>
+<td>분산 테스트 지원</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>유연성 및 확장성</td>
+<td>Python 코드로 유연성이 높음</td>
+<td>플러그인 아키텍처로 확장 가능</td>
+<td>코드 기반으로 높은 유연성 제공</td>
+<td>플러그인으로 확장 가능</td>
+</tr>
+<tr>
+<td>학습 곡선</td>
+<td>Python 개발자 친숙</td>
+<td>GUI 사용으로 비전공자도 가능</td>
+<td>코드 작성 필요로 중급 이상</td>
+<td>Java 친숙 필요</td>
+</tr>
+<tr>
+<td>메모리 사용량</td>
+<td>약 50 ~ 150 MB</td>
+<td>약 512MB ~ 1GB</td>
+<td>약 128~ 256MB</td>
+<td>약 300 ~ 500MB</td>
+</tr>
+<tr>
+<td>비고</td>
+<td>단일 코어에서 실행 시 메모리 소비가 적은 편</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>분산 테스트 시 사용되는 워커의 수에 따라 메모리 사용량이 증가</td>
+<td>JVM의 특성상 메모리 사용량이 비교적 높은 편,</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>많은 스레드를 생성할 때 메모리 소모가 크며, 대규모 테스트에서 성능에 영향</td>
+<td>Go 언어 기반의 경량 도구로, 메모리 사용량이 비교적 적음, 이로 인해 클라우드 환경에서 매우 효율적으로 작동</td>
+<td>-</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-08-19T14:22:16.000Z" title="8/19/2024, 11:22:16 PM">2024-08-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-08-19T14:23:33.789Z" title="8/19/2024, 11:23:33 PM">2024-08-19</time></span><span class="level-item">8 minutes read (About 1179 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%EB%8F%99%EC%8B%9C%EC%84%B1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-vs-%EB%B3%91%EB%A0%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">동시성 프로그래밍 vs 병렬 프로그래밍</a></h1><div class="content"><h2 id="1-동시성-프로그래밍-Concurrency"><a href="#1-동시성-프로그래밍-Concurrency" class="headerlink" title="1. 동시성 프로그래밍 (Concurrency)"></a>1. 동시성 프로그래밍 (Concurrency)</h2><ul>
 <li>개념<ul>
 <li>동시성 프로그래밍은 여러 작업이 겹쳐서 실행될 수 있는 개념을 다룸</li>
