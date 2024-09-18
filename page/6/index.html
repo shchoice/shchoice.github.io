@@ -31,7 +31,540 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-12T14:55:02.000Z" title="8/12/2023, 11:55:02 PM">2023-08-12</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-09-05T15:05:15.000Z" title="9/6/2024, 12:05:15 AM">2024-09-06</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/">딥러닝 개념</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC-NLP-%EA%B0%9C%EB%85%90/">딥러닝을 활용한 자연어 처리(NLP) 개념</a></span><span class="level-item">6 minutes read (About 942 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%EC%9E%90%EC%97%B0%EC%96%B4%20%EC%B2%98%EB%A6%AC%20(NLP)%20%EA%B0%9C%EB%85%90/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1%20%EA%B0%9C%EB%85%90/1%EC%9E%A5-Orientation-Review-NLP-Introduction-Class/">1장. Orientation - Review NLP Introduction Class</a></h1><div class="content"><h2 id="Review-Statistical-amp-Geometric-Perspective-for-Deep-Learning"><a href="#Review-Statistical-amp-Geometric-Perspective-for-Deep-Learning" class="headerlink" title="Review Statistical &amp; Geometric Perspective for Deep Learning"></a><strong>Review Statistical &amp; Geometric Perspective for Deep Learning</strong></h2><h3 id="Before-this-class"><a href="#Before-this-class" class="headerlink" title="Before this class"></a>Before this class</h3><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-17T14:27:24.000Z" title="8/17/2023, 11:27:24 PM">2023-08-17</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-09-05T15:05:52.000Z" title="9/6/2024, 12:05:52 AM">2024-09-06</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/">딥러닝 개념</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC-NLP-%EA%B0%9C%EB%85%90/">딥러닝을 활용한 자연어 처리(NLP) 개념</a></span><span class="level-item">9 minutes read (About 1395 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%EC%9E%90%EC%97%B0%EC%96%B4%20%EC%B2%98%EB%A6%AC%20(NLP)%20%EA%B0%9C%EB%85%90/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1%20%EA%B0%9C%EB%85%90/2%EC%9E%A5-Language-Modeling-N-gram-Language-Model/">2장. Language Modeling - N-gram Language Model</a></h1><div class="content"><h2 id="N-gram-Language-Model"><a href="#N-gram-Language-Model" class="headerlink" title="N-gram Language Model"></a>N-gram Language Model</h2><h3 id="좋은-모델이란-무엇인가"><a href="#좋은-모델이란-무엇인가" class="headerlink" title="좋은 모델이란 무엇인가"></a>좋은 모델이란 무엇인가</h3><ul>
+<li>Generalization (일반화를 잘 하는 모델)<ul>
+<li>Training(seen) data를 통해서 test(unseen) data에 대해 훌륭한 prediction을 할 수 있는가</li>
+</ul>
+</li>
+<li>만약 모든 경우의 수에 대해 학습 데이터를 모을 수 있다면, table look-up(DB)으로 모든 문제를 풀 수 있을 것<ul>
+<li>하지만 그것은 불가능하므로 generalization 능력이 중요 (사람은 이 능력이 뛰어남, 보지못한 걸 기존에 본 것으로 잘 예측 함)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/abccf694-61f2-407c-af95-cc1ede8dc544" alt="Generalization"></p>
+<h3 id="Count-based-Approximation"><a href="#Count-based-Approximation" class="headerlink" title="Count based Approximation"></a>Count based Approximation</h3><ul>
+<li><p>주어진 문장이 다음과 같다면</p>
+<ul>
+<li><p>P(<BOS>,I, Love, to, play, <EOS>)</p>
+<p>&#x3D; P(<EOS>|<BOS>,I, Love, to, play) P(<BOS>,I, Love, to, play)</p>
+<p>&#x3D; P(<EOS>|<BOS>,I, Love, to, play) P(play|<BOS>,I, Love, to) P(<BOS>,I, Love, to) &#x3D; P(<EOS>|<BOS>,I, Love, to, play) P(play|<BOS>,I, Love, to) P(to|<BOS>,I, Love)P(<BOS>,I, Love)</p>
+<p>&#x3D; P(<EOS>|<BOS>,I, Love, to, play) P(play|<BOS>,I, Love, to) P(to|<BOS>,I, Love)P(Love|<BOS>,I)P(<BOS>,I) &#x3D; P(<EOS>|<BOS>,I, Love, to, play) P(play|<BOS>,I, Love, to) P(to|<BOS>,I, Love)P(Love|<BOS>,I)P(I|<BOS>)P(<BOS>)</p>
+</li>
+</ul>
+</li>
+<li><p>우리는 Word Sequnce의 count에 기반한 조건부 확률을 통해 근사할 수 있음(We can approximate conditional probability by counting word sequence)</p>
+<ul>
+<li>P(<BOS>,I, Love, to, play, <EOS>) $\approx \frac{COUNT(<BOS>,I, Love, to, play, <EOS>)}{COUNT(<BOS>,I, Love, to, play)}$</li>
+</ul>
+</li>
+<li><p>이를 수식으로 나타내면</p>
+<ul>
+<li>$P(x_n|x_{&lt;n}) \approx \frac{COUNT(x_1,⋯,x_{n})}{COUNT(x_1,⋯,x_{n-1})}$</li>
+</ul>
+</li>
+<li><p>문제점</p>
+<ul>
+<li>만약에 문장의 빈도수가 0인 것이 있다면, chain rule에 따라 모두가 0이 되어서 큰 문제가 발생</li>
+<li>심지어는 분모가 0이 될 수도 있음</li>
+</ul>
+</li>
+</ul>
+<h3 id="Markov-Assumption을-적용하면"><a href="#Markov-Assumption을-적용하면" class="headerlink" title="Markov Assumption을 적용하면"></a>Markov Assumption을 적용하면</h3><ul>
+<li><p>Apporximate with counting only previous k tokens (모든 단어를 보지 않고 k개만 봄)</p>
+<ul>
+<li>$P(x_n|x_{&lt;n}) \approx P(x_n|x_1,⋯,x_{n-k}) \approx \frac{COUNT(x_{n-k},⋯,x_{n})}{COUNT(x_{n-k},⋯,x_{n-1})}$</li>
+</ul>
+</li>
+<li><p>if k &#x3D; 2</p>
+<ul>
+<li>$P(x_n|x_{&lt;n}) \approx P(x_n|x_{n-2},x_{n-1},x_{n}) \approx \frac{COUNT(x_{n-2},x_{n-1},x_{n})}{COUNT(x_{n-2},x_{n-1})}$</li>
+</ul>
+</li>
+</ul>
+<h3 id="만약에-이를-Sentence-level에-까지-적용한다면"><a href="#만약에-이를-Sentence-level에-까지-적용한다면" class="headerlink" title="만약에 이를 Sentence level에 까지 적용한다면"></a>만약에 이를 Sentence level에 까지 적용한다면</h3><ul>
+<li><p>training corpus에서 보지 못한 word sequnce까지 대처할 수 있음</p>
+<ul>
+<li>$\log P(x_{1:n}) &#x3D; \sum_{i&#x3D;1}^N \log P(x_i | x_{&lt;i}) approx \sum_{i&#x3D;1}^N \log P(x_i | x_{i-1},⋯,x_{i-k})$</li>
+</ul>
+</li>
+</ul>
+<h3 id="N-gram"><a href="#N-gram" class="headerlink" title="N-gram"></a>N-gram</h3><ul>
+<li><p>n이 커질수록 오히려 확률이 정확하게 표현되는데 어려움</p>
+<ul>
+<li>Markov assumption이 약하게 들어가기에, count가 증가하기 쉽지 않음 반대로 n이 너무 작으면 Markov assumption이 강하게 들어가 확률이 왜곡이 심해짐</li>
+<li>적절한 n을 사용해야 함</li>
+</ul>
+</li>
+<li><p>보통 3-gram을 가장 많이 사용</p>
+</li>
+<li><p>corpus(말뭉치)의 양이 많을 때는 4-gram을 사용하기도 함</p>
+<ul>
+<li>언어모델의 성능은 크게 오르지 않는데 반해</li>
+<li>단어 조합의 경우의 수는 exponential하게 증가하므로 효율성이 없음</li>
+</ul>
+</li>
+<li><p>n &#x3D; k + 1</p>
+<table>
+<thead>
+<tr>
+<th>k</th>
+<th>n-gram</th>
+<th>명칭</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>1-gram</td>
+<td>uni-gram</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2-gram</td>
+<td>bi-gram</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3-gram</td>
+<td>tri-gram</td>
+</tr>
+<tr>
+<td>3</td>
+<td>4-gram</td>
+<td>four-gram</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>N-gram LM을 어떻게 훈련 및 추론하는 방법</p>
+<ul>
+<li>SRILM<ul>
+<li>download : <a target="_blank" rel="noopener" href="http://www.speech.sri.com/projects/srilm/download.html">http://www.speech.sri.com/projects/srilm/download.html</a></li>
+</ul>
+</li>
+<li>ngram-count: LM을 훈련 (그 결과 model file이 나오게 됨)<ul>
+<li>vocab : lexicon file name</li>
+<li>text : training corpus file name</li>
+<li>order : n-gram count</li>
+<li>write : output countfile file name</li>
+<li>unk : mark OOV as</li>
+<li>kndiscount : Use Kneser-Ney discounting for N-grams of order n</li>
+</ul>
+</li>
+<li>ngram : LM을 활용<ul>
+<li>ppl : calculate perplexity for test file name</li>
+<li>order : n-gram count</li>
+<li>lm : language model file name</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="요약"><a href="#요약" class="headerlink" title="요약"></a>요약</h3><ul>
+<li>확률값을 근사하는 가장 간단한 방법은 코퍼스에서 빈도를 세는 것<ul>
+<li>하지만 복잡한 문장일수록 코퍼스에서 출현 빈도가 낮아, 부정확한 근사가 이루어질 것</li>
+</ul>
+</li>
+<li>따라서 Markov assumption을 도입하여 확률값을 근사하자<ul>
+<li>이제 학습 코퍼스에서 보지 못한 문장에 대해서도 확률값을 구할 수 있다.</li>
+<li>n의 크기가 중요함<ul>
+<li>n &#x3D; 3~4 가 적당</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>하지만 Markov assumption을 도입해도 0이 나올 수가 있음</li>
+</ul>
+<h2 id="Smoothing-amp-Discounting"><a href="#Smoothing-amp-Discounting" class="headerlink" title="Smoothing &amp; Discounting"></a>Smoothing &amp; Discounting</h2><ul>
+<li>Smoothing<ul>
+<li>Markov assumption을 도입하였지만 여전히 문제는 남아있음</li>
+<li>Training corpus에 없는 unseen word sequence의 확률은 0?</li>
+<li>Unseen word sequence에 대한 대처<ul>
+<li>Smoothing or Discounting</li>
+</ul>
+</li>
+<li>Popular algorithm<ul>
+<li>Modified Kneser-Ney Discounting</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/7e0288d0-6a58-42e3-b579-93a4652cba71" alt="smoothing"></p>
+<ul>
+<li><p>Add One Smoothing</p>
+<ul>
+<li><p>To prevent count becomes zero</p>
+<ul>
+<li>$P(w_t|w_{&lt;t}) \approx \frac{C(w_{1:t})}{C(w_{1:t-1})}$             &#x2F;&#x2F; t time-step의 시점일 때까지의 t time-step의 언어의 확률 분포(확률값) $\approx \frac{C(w_{1:t}) + 1}{C(w_{1:t-1}) + ,|V,|} text{where } |V| \text{ is a size of vocabulary}$</li>
+</ul>
+</li>
+<li><p>Generalization of Add One Smoothing</p>
+<ul>
+<li><p>If we generalize this :</p>
+<ul>
+<li>$P(w_t|w_{&lt;t}) \approx \frac{C(w_{1:t})}{C(w_{1:t-1})} \approx \frac{C(w_{1:t}) + 1}{C(w_{1:t-1}) + ,|V,|} \approx \frac{C(w_{1:t}) + k}{C(w_{1:t-1}) + k \times ,|V,|} \approx \frac{C(w_{1:t}) + \frac{m}{,|V,|}}{C(w_{1:t-1}) + m} \text{where } |V| \text{ is a size of vocabulary}$</li>
+</ul>
+</li>
+<li><p>Take more generailzation :</p>
+<ul>
+<li><p>$P(w_t|w_{&lt;t}) \approx \frac{C(w_{1:t}) + m \times P(w_t)}{C(w_{1:t-1}) + m}$</p>
+<p>$\text{where } P(w_t) \text{ is unigram probability}$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Kneser-Ney-Discounting"><a href="#Kneser-Ney-Discounting" class="headerlink" title="Kneser-Ney Discounting"></a>Kneser-Ney Discounting</h3><ul>
+<li><p>In this lecture</p>
+<ul>
+<li>C(learning) &gt; C(laptop)</li>
+<li>Because of “deep learning”, “machine learning”</li>
+</ul>
+</li>
+<li><p>다양한 단어 뒤에 나타나는 단어일수록 unseen word sequence에 등장할 확률이 높지 않을까?</p>
+<ul>
+<li><p>앞에 등장한 단어의 종류가 다양할수록 해당 확률이 높을 것 같음</p>
+<p>$P_{continuation} (w) \propto | {v : C(v, w) &gt; 0} |$</p>
+<ul>
+<li>$P_{continuation}$ : 단어 $w$ 이후에 계속되는 단어의 확률을 나타냄</li>
+<li>$C(v, w)$ : 단어 $v$와 $w$ 가 함께 등장하는 횟수를 나타냄</li>
+<li>$\propto$ : 비례</li>
+<li>$| {v : C(v, w) &gt; 0} |$는 $w$와 함께 등장하는 단어 $v$의 수를 나타냄</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="요약-1"><a href="#요약-1" class="headerlink" title="요약"></a>요약</h3><ul>
+<li>Markov Assumption<ul>
+<li>Count 기반의 approximation</li>
+<li>긴 word sequence는 학습 코퍼스에 존재하지 않을 수 있음<ul>
+<li>확률 값이 0으로 맵핑</li>
+</ul>
+</li>
+<li>Markov assumption을 통해 근거리의 단어만 고려</li>
+</ul>
+</li>
+<li>Smoothing and Discounting<ul>
+<li>Markov assumption을 통해서도 여전히 확률값이 0이 될 수 있음</li>
+<li>Smoothing 또는 discounting을 통해 현상을 완화</li>
+<li>여전히 unseen word sequence에 대한 대처는 미흡</li>
+</ul>
+</li>
+</ul>
+<h2 id="Interpolation-amp-Back-off"><a href="#Interpolation-amp-Back-off" class="headerlink" title="Interpolation &amp; Back-off"></a>Interpolation &amp; Back-off</h2><h3 id="Interpolation-보간법"><a href="#Interpolation-보간법" class="headerlink" title="Interpolation (보간법)"></a>Interpolation (보간법)</h3><ul>
+<li>다른 Language Model을 linear하게 일정 비율(𝝀)로 섞는 것</li>
+<li>general domain LM + domain specific LM &#x3D; general domain에서 잘 동작하는 domain adapted LM</li>
+<li>domain specific LMExamples<ul>
+<li>의료 domain ASR, MT system</li>
+<li>법률 domain ASR, MT system</li>
+<li>특허 domain MT system</li>
+</ul>
+</li>
+<li>수식<ul>
+<li>$\tilde{P}(w_n | w_{n-k}, \ldots, w_{n-1}) &#x3D; \lambda P_1(w_n | w_{n-k}, \ldots, w_{n-1}) + (1 - \lambda) P_2(w_n | w_{n-k}, \ldots, w_{n-1})$<ul>
+<li>$P_1(w_n | w_{n-k}, \ldots, w_{n-1})$ : 첫번째 LM</li>
+<li>$P_2(w_n | w_{n-k}, \ldots, w_{n-1})$ : 두번째 LM</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>그냥 domain specific corpus로 LM을 만들면 장땡 아닌가?<ul>
+<li>그럼 unseen word sequence가 너무 많을 수 있음</li>
+</ul>
+</li>
+<li>그냥 전체 corpus를 합쳐서 LM을 만들면 장땡 아닌가?<ul>
+<li>Domain Specific corpus의 양이 너무 적어서 반영이 안될 수 있음</li>
+</ul>
+</li>
+<li>Interpolation에서 ratio(𝝀)를 조절하여 중요도(weight)를 조절<ul>
+<li>명시적(explicit)으로 섞을 수 있다.</li>
+<li>General domain test set과 Domain specific test set 모두에서 좋은 성능을 찾는 hyper-parameter 𝜆를 찾아야 한다.</li>
+</ul>
+</li>
+<li>예제<ul>
+<li>“준비 된 진정제 를 투여 합 시다“</li>
+<li>General domain<ul>
+<li>P(진정제 | 준비, 된) &#x3D; 0.00001</li>
+<li>P(사나이 | 준비, 된) &#x3D; 0.01</li>
+</ul>
+</li>
+<li>Domain Specialized<ul>
+<li>P(진정제 | 준비, 된) &#x3D; 0.09</li>
+<li>P(약 | 준비, 된) &#x3D; 0.04</li>
+</ul>
+</li>
+<li>P(진정제 | 준비, 된) &#x3D; 0.5 * 0.09 + (1 – 0.5) * 0.00001 &#x3D; 0.045005</li>
+</ul>
+</li>
+</ul>
+<h3 id="Back-off-tri-gram-bi-gram-uni-gram-모델들을-다-interpolation"><a href="#Back-off-tri-gram-bi-gram-uni-gram-모델들을-다-interpolation" class="headerlink" title="Back-off (tri-gram, bi-gram, uni-gram 모델들을 다 interpolation)"></a>Back-off (tri-gram, bi-gram, uni-gram 모델들을 다 interpolation)</h3><ul>
+<li><p>희소성에 대처하는 방법</p>
+<ul>
+<li><p>Markov assumption 처럼 n을 점점 줄여가면?</p>
+<ul>
+<li>조건부 확률에서 조건부 word sequence를 줄여가면,</li>
+<li>Unknown(UNK) word가 없다면 언젠가는 확률을 구할 수 있다. (uni-gram에서는 걸림!!)</li>
+</ul>
+</li>
+<li><p>$\tilde{P}(w_n | w_{n-k}, \ldots, w_{n-1}) &#x3D; \lambda_1 P_1(w_n | w_{n-k}, \ldots, w_{n-1}) + \lambda_2 P_2(w_n | w_{n-k}, \ldots, w_{n-1}) + \ldots+\lambda_kP_k(w_n)$</p>
+<p>$\text {where } \sum_i\lambda_i&#x3D;1$</p>
+</li>
+</ul>
+</li>
+<li><p>Example</p>
+<ul>
+<li>P(분석했다 | 비핵화, 선언과는, 거리가, 멀다고)<ul>
+<li>C(비핵화, 선언과는, 거리가, 멀다고, 분석했다) &gt; 0?</li>
+</ul>
+</li>
+<li>P(분석했다 | 거리가, 멀다고)<ul>
+<li>C(거리가, 멀다고, 분석했다) &gt; 0?</li>
+</ul>
+</li>
+<li>P(분석했다 | 멀다고)</li>
+<li>P(분석했다) &#x2F;&#x2F; 단어가 없어서 0이면 uni-gram까지 내려감</li>
+</ul>
+</li>
+</ul>
+<h3 id="요약-2"><a href="#요약-2" class="headerlink" title="요약"></a>요약</h3><ul>
+<li><p>Back-off를 통해 확률값이 0이 되는 현상은 방지할 수 있음 – OOV 제외</p>
+<ul>
+<li>하지만 unseen word sequence를 위해 back-off를 거치는 순간 확률값이 매우 낮아져 버림</li>
+<li>여전히 음성인식(ASR) 등의 활용에서 어려움이 남음</li>
+</ul>
+</li>
+<li><p>전통적인 방식의 NLP</p>
+<p>에서는 </p>
+<p>단어를 discrete symbol로 보기 때문에</p>
+<p> 문제 발생</p>
+<ul>
+<li><p><strong>Exact matching에 대해서만 count</strong>를 하여, 확률값을 approximation</p>
+</li>
+<li><p>다양한 방법을 통해 문제를 완화하려 하지만 </p>
+<p>근본적인 해결책은 아님</p>
+<ul>
+<li>Markov Assumption</li>
+<li>Smoothing and Discounting</li>
+<li>Interpolation and Back-off</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Pros</p>
+<ul>
+<li>Scalable : 쉽게(large vocabulary 등의) 대형 시스템에 적용 가능</li>
+<li>n-gram 훈련 및 추론 방식이 굉장히 <strong>쉽고 간편</strong></li>
+</ul>
+</li>
+<li><p>Cons</p>
+<ul>
+<li><p>Poor generalization</p>
+<p> : 등장하지 않은 단어 조합에 대처 미흡(Count 기반이기에, exact matching)</p>
+<ul>
+<li>단어를 discrete symbol로 취급</li>
+<li>따라서 비슷한 단어에 대한 확률을 이용(leverage, exploit)하지 못함</li>
+<li>Smoothing과 Back-off 방식을 통해서 단점을 보완하려 했으나, 근본적인 해결책이 아님</li>
+</ul>
+</li>
+<li><p>Poor with long dependency : 멀리있는 단어에 대해 대처 불가</p>
+</li>
+<li><p>n이 커질수록 용량도 커짐</p>
+</li>
+</ul>
+</li>
+<li><p>실제로 어플리케이션 적용(ASR, SMT 음성인식&#x2F;통계기반번역)에 있어서 큰 과제</p>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-14T14:53:24.000Z" title="8/14/2023, 11:53:24 PM">2023-08-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-09-05T15:05:38.000Z" title="9/6/2024, 12:05:38 AM">2024-09-06</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/">딥러닝 개념</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC-NLP-%EA%B0%9C%EB%85%90/">딥러닝을 활용한 자연어 처리(NLP) 개념</a></span><span class="level-item">6 minutes read (About 881 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%EC%9E%90%EC%97%B0%EC%96%B4%20%EC%B2%98%EB%A6%AC%20(NLP)%20%EA%B0%9C%EB%85%90/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1%20%EA%B0%9C%EB%85%90/2%EC%9E%A5-Language-Modeling-Introduction-to-LM/">2장. Language Modeling - Introduction to LM</a></h1><div class="content"><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li><p>우리의 머릿속에는 단어와 단어 사이의 확률이 우리도 모르게 학습되어 있음</p>
+<ul>
+<li>대화를 하다가 정확하게 듣지 못하여도 대화에 지장이 없음</li>
+</ul>
+</li>
+<li><p>많은 문장들을 수집하여, 단어와 단어 사이의 출현 빈도를 세어 확률을 계산</p>
+</li>
+<li><p>궁극적인 목표는 우리가 일상 생활에서 사용하는 언어의 문장 분포를 정확하게 모델링 하는 것(그것을 통해 우리의 머릿속에 있는 확률 분포 함수를 잘 근사해야 함!)</p>
+<ul>
+<li>특정 분야(domain)의 문장의 분포를 파악하기 위해서 해당 분야의 말뭉치를 수집하기도</li>
+</ul>
+</li>
+<li><p>Again, Korean is Hell</p>
+<ul>
+<li><strong>단어와 단어 사이의 확률을 계산하는데 불리하게 작용</strong></li>
+<li>단어의 어순이 중요하지 않기 때문</li>
+<li>또는 생략 가능하기 때문</li>
+</ul>
+</li>
+<li><p>Example</p>
+<ul>
+<li>나는 학교에 갑니다 버스를 타고.</li>
+<li>나는 버스를 타고 학교에 갑니다.</li>
+<li>버스를 타고 나는 학교에 갑니다.</li>
+<li>(나는) 버스를 타고 학교에 갑니다.</li>
+</ul>
+</li>
+<li><p>확률이 퍼지는 현상</p>
+<ul>
+<li>‘타고’ 다음에 나타날 수 있는 단어들은 ‘.’, ‘학교에‘ ‘나는‘ 3개이기 때문</li>
+</ul>
+</li>
+<li><p>접사를 따로 분리해주지 않으면 어휘의 수가 기하급수적으로 늘어나 희소성이 더욱 높아짐</p>
+</li>
+<li><p>Applicartions</p>
+<ul>
+<li><p>Natural Language Generation</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Speech Recognition</td>
+<td>Acoustic Model과 결합하여, 인식된 phone(음소)의 sequence에 대해서 좀 더 높은 확률을 갖는 sequence로 보완</td>
+</tr>
+<tr>
+<td>Machine Translation</td>
+<td>번역 모델과 결합하여, 번역된 결과 문장을 자연스럽게 만듬</td>
+</tr>
+<tr>
+<td>Optical Character Recognition</td>
+<td>인식된 character candidate sequence에 대해서 좀 더 높은 확률을 갖는 sequence를 선택하도록 도움</td>
+</tr>
+<tr>
+<td>Other NLG Tasks</td>
+<td>뉴스 기사 생성, chat-bot 등</td>
+</tr>
+<tr>
+<td>Others</td>
+<td>검색어 자동 완성 등</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Chain-Rule"><a href="#Chain-Rule" class="headerlink" title="Chain Rule"></a>Chain Rule</h3><ul>
+<li><p>We can convert joint probability yo conditional probability</p>
+<ul>
+<li><p>$P(A,B,C,D)&#x3D;P(D|A,B,C)P(A,B,C)<br>&#x3D;P(D|A,B,C)P(C|A,B)<br>&#x3D;P(D|A,B,C)P(C|A,B)P(B|A)P(A)$</p>
+</li>
+<li><p>P(<BOS>,I, Love, to, play, <EOS>)</p>
+<p>&#x3D; P(<EOS>|<BOS>,I, Love, to, play) P(<BOS>,I, Love, to, play)</p>
+<p>&#x3D; P(<EOS>|<BOS>,I, Love, to, play) P(play|<BOS>,I, Love, to) P(<BOS>,I, Love, to) &#x3D; P(<EOS>|<BOS>,I, Love, to, play) P(play|<BOS>,I, Love, to) P(to|<BOS>,I, Love)P(<BOS>,I, Love)</p>
+<p>&#x3D; P(<EOS>|<BOS>,I, Love, to, play) P(play|<BOS>,I, Love, to) P(to|<BOS>,I, Love)P(Love|<BOS>,I)P(<BOS>,I) &#x3D; P(<EOS>|<BOS>,I, Love, to, play) P(play|<BOS>,I, Love, to) P(to|<BOS>,I, Love)P(Love|<BOS>,I)P(I|<BOS>)P(<BOS>)</p>
+</li>
+</ul>
+</li>
+<li><p>By Chain Rule,</p>
+<ul>
+<li>$P(x_{1:n}) &#x3D; P(x_1, \ldots, x_n)<br>&#x3D; P(x_n | x_{1}, \ldots, x_{n-1}) \ldots P(x_2| x_1)P(x_1)<br>&#x3D; \prod_{i&#x3D;1}^n P(x_i | x_{&lt;i})$        &#x2F;&#x2F; $x_i$ 이전까지의 단어가 주어졌을 때, i의 확률값의 곱 <ul>
+<li>$\log P(x_{1:n}) &#x3D; \sum_{i&#x3D;1}^N \log P(x_i | x_{&lt;i})$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="언어모델-Language-Model"><a href="#언어모델-Language-Model" class="headerlink" title="언어모델(Language Model)"></a>언어모델(Language Model)</h3><ul>
+<li><p>language modeling은 문장의 출현 확률을 모델링을 하는 동시에 단어가 주어졌을 때, 다음 단어의 출현 확률을 모델링하는 것</p>
+</li>
+<li><p>Chain Rule을 통해 문장의 확률을 모델링을 하게 되면, 문장 내 단어가 주어졌을 때, 다음 단어의 확률을 알 수 있게됨</p>
+</li>
+<li><p>언어 모델 수식</p>
+<ul>
+<li><p>$D&#x3D;{x^i }_{i&#x3D;1}^N$ .         &#x2F;&#x2F; $x \sim P(x)$, $x^i$ 는 문장, 즉 대문자 N개의 문장</p>
+<p>$\hat{\theta} &#x3D; \text{argmax}<em>{\theta \in \Theta} \sum</em>{i&#x3D;1}^{N} \log P(x_{1:n}^{i}; \theta)$ &#x2F;&#x2F; log-likelihood 값을 다 더해서 최대로 하는 파라미터를 구하자</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$= \\text&#123;argmax&#125;_&#123;\\theta \\in \\Theta&#125; \\sum_&#123;i=1&#125;^&#123;N&#125;\\sum_&#123;j=1&#125;^&#123;n&#125; \\log P(x_&#123;j&#125;^&#123;i&#125;|x_&#123;&lt;j&#125;^i; \\theta)$</span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;&#x2F; chain rule에 의해 다음과 같이 작성할 수 있음</p>
+<p>$\text{where } x_{1:n} &#x3D; {x_1, …, x_n}$ &#x2F;&#x2F; 문장은  n개의 단어로 이루어짐</p>
+<p>$L(\theta) &#x3D; -\sum_{i&#x3D;1}^{N} \log P(x_{1:n}^{i}; \theta)$</p>
+<p>$\theta \leftarrow \theta - \eta\nabla_\theta L(\theta)$</p>
+</li>
+</ul>
+</li>
+<li><p>더 좋은 문장이 무엇인지 선택할 수 있음(Pick better&#x2F;fluent sentece)</p>
+<ul>
+<li>$x^1, x^2$ (문장1과 문장2) 가 있을 때 더 높은 확률값을 고르면 된다. $P_θ(x^1) &gt; P_θ(x^2)$</li>
+</ul>
+</li>
+<li><p>이전 단어들을 통해 다음 단어들을 예측 할 수 있음(Predict next word given previous words)</p>
+<ul>
+<li>$\hat{x_t}&#x3D; \text{argmax}<em>{x_t \in \Chi}  \log P(x</em>{t}|x_{&lt;t}; \theta)$</li>
+</ul>
+</li>
+</ul>
+<h3 id="요약"><a href="#요약" class="headerlink" title="요약"></a>요약</h3><ul>
+<li>언어모델은 주어진 코퍼스 문장들의 likelihood를 최대화 하는 파라미터를 찾아내, 주어진 코퍼스를 기반으로 언어의 분포를 학습한다.<ul>
+<li>즉, 코퍼스 기반으로 문장들에 대한 확률 분포 함수를 근사(approximate)한다.</li>
+</ul>
+</li>
+<li>문장의 확률은 단어가 주어졌을 때, 다음 단어를 예측하는 확률을 차례대로 곱한 것과 같음</li>
+<li>따라서 언어모델링은 주어진 단어가 있을 때, 다음 단어의 likelihood를 최대화하는 파라미터를 찾는 과정이라 볼 수 있다.<ul>
+<li>주어진 단어들이 있을 때, 다음 단어에 대한 확률 분포 함수를 근사하는 과정</li>
+</ul>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-13T13:12:18.000Z" title="8/13/2023, 10:12:18 PM">2023-08-13</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-09-05T15:05:10.000Z" title="9/6/2024, 12:05:10 AM">2024-09-06</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/">딥러닝 개념</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC-NLP-%EA%B0%9C%EB%85%90/">딥러닝을 활용한 자연어 처리(NLP) 개념</a></span><span class="level-item">3 minutes read (About 471 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%EC%9E%90%EC%97%B0%EC%96%B4%20%EC%B2%98%EB%A6%AC%20(NLP)%20%EA%B0%9C%EB%85%90/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1%20%EA%B0%9C%EB%85%90/1%EC%9E%A5-Orientation-Introduction-to-NLG/">1장 Orientation - Introduction to NLG</a></h1><div class="content"><ul>
+<li><p>Our Objective</p>
+<ul>
+<li>컴퓨터가 인간이 만들어놓은 대량의 문서를 통해 정보를 얻고(NLU)</li>
+<li>얻어낸 정보를 사람이 이해할 수 있게 사람의 언어로 표현하는 것(NLG)</li>
+</ul>
+</li>
+<li><p>Before Sequence-to-Sequence</p>
+<ul>
+<li>단지 단어&#x2F;문장(text)을 벡터로(numeric)으로 바꿀 뿐이었음</li>
+</ul>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/1a5a7037-4ff7-4fa4-8810-70322e084559" alt="BeforeSeq2Seq"></p>
+</li>
+<li><p>After Sequence-to-Sequence With Attention</p>
+<ul>
+<li><p>Beyond “numeric to text”</p>
+<ul>
+<li>이제는 숫자를 넘어 text로 표현이 가능해짐, 글을 넣으면 숫자로 바뀌었던 것이 숫자를 넣으면 글로 바뀜</li>
+</ul>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/7d5cd395-a01f-46cd-87ee-495643ebae48" alt="AfterSeq2Seq"></p>
+</li>
+</ul>
+</li>
+<li><p>Era of Attention</p>
+<ul>
+<li><p>Transformer의 등장으로 인해 연구는 더더욱 가속됨</p>
+<ul>
+<li>PLM의 유행으로 인해 NLG 뿐만 아니라 NLP의 다른 영역에도 큰 영향</li>
+</ul>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/9442a465-0565-4682-809b-25bc184701aa" alt="Transformer"></p>
+</li>
+<li><p>거스를 수 없는 대세, PLM</p>
+<ul>
+<li>이 수업은 PLM을 제대로 이루기 위한 Step-stone</li>
+</ul>
+<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/1e9d6e9c-b161-4042-a138-e9e450ebc218" alt="StepStone"></p>
+</li>
+</ul>
+</li>
+<li><p>In this class,</p>
+<ul>
+<li>NMT(한때 자연어 처리의 꽃이었던)를 통해 자연어 생성의 근본부터 다질 수 있도록 구성<ul>
+<li>반복된 학습을 통해 Auto-regressive 특성을 몸으로 익히고,</li>
+<li>이를 해결하기 위한 여러가지(Empirical + Mathematica, 경험&#x2F;수학적) 방법들을 다룸</li>
+</ul>
+</li>
+<li>Sequence-to-Sequence w&#x2F; Attention뿐만 아니라, Transformer도 nano 단위로 detail하게 분해하여 이해&#x2F; 구현할 수 있도록 구성<ul>
+<li>짧은 실습을 통해 단순히 구현하는 것에 그치는 것이 아닌,</li>
+<li>실제 업무&#x2F;연구와 같이 프로젝트 설계부터 객관적인 평가방법까지 A to Z를 경험하도록 구성</li>
+</ul>
+</li>
+<li>이를 통해 추후 PLM을 활용한 NLP 심화 과정을 어려움 없이 받아들이도록 구성</li>
+</ul>
+</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-12T14:55:02.000Z" title="8/12/2023, 11:55:02 PM">2023-08-12</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-09-05T15:05:15.000Z" title="9/6/2024, 12:05:15 AM">2024-09-06</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/">딥러닝 개념</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC-NLP-%EA%B0%9C%EB%85%90/">딥러닝을 활용한 자연어 처리(NLP) 개념</a></span><span class="level-item">6 minutes read (About 942 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%EC%9E%90%EC%97%B0%EC%96%B4%20%EC%B2%98%EB%A6%AC%20(NLP)%20%EA%B0%9C%EB%85%90/%EC%9E%90%EC%97%B0%EC%96%B4%EC%83%9D%EC%84%B1%20%EA%B0%9C%EB%85%90/1%EC%9E%A5-Orientation-Review-NLP-Introduction-Class/">1장. Orientation - Review NLP Introduction Class</a></h1><div class="content"><h2 id="Review-Statistical-amp-Geometric-Perspective-for-Deep-Learning"><a href="#Review-Statistical-amp-Geometric-Perspective-for-Deep-Learning" class="headerlink" title="Review Statistical &amp; Geometric Perspective for Deep Learning"></a><strong>Review Statistical &amp; Geometric Perspective for Deep Learning</strong></h2><h3 id="Before-this-class"><a href="#Before-this-class" class="headerlink" title="Before this class"></a>Before this class</h3><ul>
 <li>Our Objective is<ul>
 <li>세상에 존재하는 어떤 미지의 함수를 모사하자</li>
 </ul>
@@ -392,309 +925,7 @@
 </ul>
 </li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-01T15:03:48.000Z" title="8/2/2023, 12:03:48 AM">2023-08-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-09-05T15:04:24.000Z" title="9/6/2024, 12:04:24 AM">2024-09-06</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/">딥러닝 개념</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/">딥러닝 기본 개념</a></span><span class="level-item">5 minutes read (About 792 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EA%B0%9C%EB%85%90/%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%80%E1%85%B5%E1%84%8E%E1%85%A9%20%E1%84%80%E1%85%A2%E1%84%82%E1%85%A7%E1%86%B7/%EC%A4%91%EA%B8%89%20%EA%B0%9C%EB%85%90/2%EC%9E%A5-Probabilistic-Perspective-MAP/">2장. Probabilistic Perspective - MAP</a></h1><div class="content"><h3 id="MAP-Maximum-A-Posterior-Estimation"><a href="#MAP-Maximum-A-Posterior-Estimation" class="headerlink" title="MAP(Maximum A Posterior) Estimation"></a>MAP(Maximum A Posterior) Estimation</h3><ul>
-<li><p>Data가 주어졌을 때 가설 h를 maximize 해야한다. 이를 위해 Posterior을 maximize할 수도 있고 likelihood로 maximize할 수도 있음</p>
-</li>
-<li><p>likelihood를 maximize 한다면 MLE</p>
-</li>
-<li><p>이 시간에는 poeteriror 를 maximize해서 h를 찾도록 하겠음 → MAP</p>
-<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/396e25bd-8a54-4aa6-baab-2ee597481af8" alt="BayesTheorem"></p>
-</li>
-<li><p>MAP를 이해하기 위한 예제</p>
-<ul>
-<li><p>절도 사건의 범인은 발자국을 남겼습니다.</p>
-</li>
-<li><p>신발 사이즈 240일 때, 범인은 남자일까? 여자일까?</p>
-<ul>
-<li>$P(\text{y}│\text{x} &#x3D;240)$</li>
-</ul>
-</li>
-<li><p>지인 중에 신발 사이즈가 240이었던 사람들을 떠올려보자</p>
-<ul>
-<li>여자 중에 많을까? 남자 중에 많을까?<ul>
-<li>여자 중에서 신발 사이즈가 240인 사람 이라고 생각하면 likelihood(가정이 들어간 것</li>
-<li>$P(\text{x}&#x3D;240|\text{y})$</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>그런데 범행 장소가 군부대라면?</p>
-<ul>
-<li><p>$P(\text{y}&#x3D;\text{male}) &gt; P(\text{y}&#x3D;\text{female})$</p>
-<p>&#x2F;&#x2F; 99% &gt; 1%</p>
-</li>
-</ul>
-</li>
-<li><p>Likelihood는 여자일 가능성이 높지만, Prior를 고려하였을 때 범인은 남자일 가능성이 높음</p>
-<ul>
-<li>$P(\text{y} | \text{x} &#x3D; 240) &#x3D; \frac{P(\text{x} &#x3D; 240 | \text{y})P(\text{y})}{P(\text{x} &#x3D; 240)}$</li>
-<li>$\frac{P(\text{x} &#x3D; 240 | \text{y&#x3D;male})P(\text{y&#x3D;male})}{P(\text{x} &#x3D; 240)} &gt; \frac{P(\text{x} &#x3D; 240 | \text{y&#x3D;female})P(\text{y&#x3D;female})}{P(\text{x} &#x3D; 240)}$</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>MAP Estimation</p>
-<ul>
-<li><p>Find $\hat{h}$, which maximizes posterior</p>
-<ul>
-<li><p>$\hat{h} &#x3D; \text{argmax}_{h \in H} P(h|D)$</p>
-<p>$&#x3D; \text{argmax}_{h \in H} \frac{P(D|h)P(h)}{P(D)}$  &#x2F;&#x2F; 밑변은 h와 상관 없어 날려버림</p>
-<p>$&#x3D; \text{argmax}_{h \in H}P(D|h)P(h)$  &#x2F;&#x2F; 𝑃(𝐷|ℎ) : likelihood, 𝑃(ℎ) : prior</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>MAP Estimation (딥러닝이니 h를 𝜽로 바꿈)</p>
-<ul>
-<li><p>Bayesian 관점</p>
-<p>$\hat{\theta} &#x3D; \text{argmax}<em>{\theta \in \Theta} P(\theta|D) &#x3D; \text{argmax}</em>{\theta \in \Theta} \frac{P(D|\theta)P(\theta)}{P(D)} &#x3D;  \text{argmax}_{\theta \in \Theta}P(D|\theta)P(\theta)$ &#x2F;&#x2F; Data가 주어졌을 때 𝜃가 궁금함</p>
-<ul>
-<li>파라미터 또한 Random Variable로 간주하며,</li>
-<li>사전 정보(prior)를 통해 파라미터의 사전 분포를 설정 (prior에 대한 가정이 필요)</li>
-<li>이후 관찰된 데이터를 통해 사후(posterior) 분포를 계산하며, 사후 분포가 최대가 되는 파라미터를 찾는 MAP 방법을 사용</li>
-<li>미래의 uncertainty 까지 고려</li>
-<li>likelihood를 maximize하는 동시에 prior까지 maximize 함</li>
-</ul>
-</li>
-<li><p>Frequentist 관점</p>
-<p>$\hat{\theta}  &#x3D;  \text{argmax}_{\theta \in \Theta}P(D;\theta)$ &#x2F;&#x2F;# 𝑃(𝜃,𝐷), likelihood를 maximize</p>
-<ul>
-<li>파라미터는 고정된 값이며 최적화의 대상으로  봄</li>
-<li>관찰된 데이터를 기반으로 MLE 방법을 사용하여 파라미터를 추정</li>
-<li>과적합(Overfitting)에 취약함</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
-<li>MAP를 통해 우리는 posterior를 최대화 하는 hypothesis를 찾을 수 있음<ul>
-<li>마찬가지로 주어진 데이터셋에 대한 posterior를 최대화 하는 파라미터(𝜃)를 찾을 수 있음</li>
-</ul>
-</li>
-<li>Bayesian 관점에서는 파라미터들을 랜덤 변수로 보고 prior에 대한 가정을 통해, 앞으로의 uncertainty 까지 고려<ul>
-<li>이를 통해 overfitting 등의 문제도 해결할 수 있음</li>
-</ul>
-</li>
-<li>Bayesian Deep Learning에 대한 다양한 시도들도 이어지고 있음<ul>
-<li>베이지안 방법론은 계산량이 많이 필요하고 복잡한 딥러닝 모델에 적용하는 데에는 여전히 여러 도전적인 문제들이 존재</li>
-</ul>
-</li>
-</ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-01T14:58:52.000Z" title="8/1/2023, 11:58:52 PM">2023-08-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-09-05T15:04:46.000Z" title="9/6/2024, 12:04:46 AM">2024-09-06</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/">딥러닝 개념</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/">딥러닝 기본 개념</a></span><span class="level-item">11 minutes read (About 1638 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EA%B0%9C%EB%85%90/%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%80%E1%85%B5%E1%84%8E%E1%85%A9%20%E1%84%80%E1%85%A2%E1%84%82%E1%85%A7%E1%86%B7/%EC%A4%91%EA%B8%89%20%EA%B0%9C%EB%85%90/2%EC%9E%A5-Probabilistic-Perspective-%EC%8B%A0%EA%B2%BD%EB%A7%9D%EA%B3%BC-MLE/">2장. Probabilistic Perspective - 신경망과 MLE</a></h1><div class="content"><h3 id="Again-our-object-is"><a href="#Again-our-object-is" class="headerlink" title="Again, our object is"></a>Again, our object is</h3><ul>
-<li>데이터를 넣었을 때 출력을 반환하는 가상의 함수를 모사하는 것</li>
-<li>확률 분포로부터 샘플링하여 데이터를 넣었을 때, 확률 분포를 반환하는 가상의 함수를 모사하는 것<ul>
-<li>출력 분포에서 샘플링하면 원하는 출력 값을 얻을 수 있다.</li>
-</ul>
-</li>
-<li>Example: 손 글씨가 주어졌을 때, 글씨의 클래스의 확률 분포<ul>
-<li>$P(c|x) \text{, where } x \sim P(x)$</li>
-</ul>
-</li>
-</ul>
-<h3 id="Before-we-start"><a href="#Before-we-start" class="headerlink" title="Before we start,"></a>Before we start,</h3><ul>
-<li>모두 같은 표현 (𝜃 를 𝑅𝑎𝑑𝑜𝑚 𝑉𝑎𝑟𝑖𝑎𝑏𝑙𝑒로 취급)<ul>
-<li>$P_{\theta}(x) &#x3D; P(x; \theta) &#x3D; P(x|\theta)$ 𝜃 라는 파라미터를 갖는 확률분포에서의 𝑥의 확률값</li>
-<li>$P_{\theta}(y|x) &#x3D; P(y|x; \theta) &#x3D; P(y|x, \theta)$ 𝜃 라는 파라미터를 갖는 확률분포에서의 𝑥가 주어졌을 때 𝑦의 확률값(</li>
-</ul>
-</li>
-</ul>
-<h3 id="Parameters-for-Probability-Distribution"><a href="#Parameters-for-Probability-Distribution" class="headerlink" title="Parameters for Probability Distribution"></a>Parameters for Probability Distribution</h3><ul>
-<li>Bernoulli Distribution<ul>
-<li>𝜃&#x3D;{𝑝} (동전던지기의 확률 같은)</li>
-</ul>
-</li>
-<li>Gaussian Distribution<ul>
-<li>𝜃&#x3D;{𝜇,𝜎} (대한민국 키(신장)의 분포를 알고 싶어요)</li>
-</ul>
-</li>
-<li>딥러닝에서는 파라미터가 W와 b 가 되는 것이다!! 이 W와 b를 통해 확률 분포 함수를 정의할 수 있음</li>
-</ul>
-<h3 id="Parameters-for-Deep-Neural-Networks"><a href="#Parameters-for-Deep-Neural-Networks" class="headerlink" title="Parameters for Deep Neural Networks"></a>Parameters for Deep Neural Networks</h3><p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/5f569c9f-d7f1-4df8-8745-be016e3fd5ff" alt="MLE-DNN"></p>
-<ul>
-<li>$\theta &#x3D; {W_1, b_1, W_2, b_2, \ldots, W_l, b_l}$</li>
-<li>마찬가지로 Gradient Ascent를 통해 Likelihood를 최대로 하는 파라미터(𝜽)를 찾을 수 있다.<ul>
-<li>$\sum_{i&#x3D;1}^{n} \log P(x_i | \theta)$ 를 Maximize 하는 𝜃를 찾을 수 있음</li>
-</ul>
-</li>
-</ul>
-<h3 id="Negative-Log-Likelihood-NLL"><a href="#Negative-Log-Likelihood-NLL" class="headerlink" title="Negative Log Likelihood(NLL)"></a>Negative Log Likelihood(NLL)</h3><ul>
-<li>하지만 대부분의 딥러닝 프레임워크들은 Gradient Descent만 지원<ul>
-<li>$\theta \leftarrow \theta - \alpha \cdot \frac{\partial \mathcal{L}(\theta)}{\partial \theta}$</li>
-</ul>
-</li>
-<li>따라서 maximization 문제에서 minimization 문제로 접근 (-1만 곱하면 됨)</li>
-</ul>
-<h3 id="Deep-Neural-Networks-with-MLE"><a href="#Deep-Neural-Networks-with-MLE" class="headerlink" title="Deep Neural Networks with MLE"></a>Deep Neural Networks with MLE</h3><ul>
-<li>MLE는 관측된 데이터를 가장 잘 설명하는 모델 파라미터를 찾는 방법으로, 모델의 손실 함수를 설계하는 데 사용되며, 일반척으로 cross-entropy loss function 및 NLL이 MLE를 기반으로 함. 이 손실 함수를 최소화 함으로써 모델은 데이터를 가장 잘 설명하는 파라미터 값을 찾아가는 과정을 수행</li>
-<li>MLE는 특정 데이터를 가장 잘 설명하는 확률 모델의 매개변수를 추정하는 방법</li>
-<li>관찰된 데이터에 대한 모델의 적합성을 측정</li>
-<li>분포 $P(\text{x})$로부터 샘플링한 데이터 𝒙가 주어졌을 때, 파라미터 𝜃를 갖는 DNN은 조건부 확률 분포를 나타냄<ul>
-<li>$P(\text{y}|x;\theta) \text{, where } x \sim P(\text{x})$</li>
-</ul>
-</li>
-<li>이때, 우리는 Gradient Descent를 통해 NLL을 최소화하는 𝜽를 찾을 수 있음<ul>
-<li>$\hat{\theta} &#x3D; \text{argmin}<em>{\theta \in \Theta} \sum</em>{i&#x3D;1}^{N} -\log P(y_i | x_i; \theta)$</li>
-</ul>
-</li>
-</ul>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul>
-<li>MLE를 통해 수집한 데이터셋을 잘 설명하는 확률 분포의 파라미터를 찾을 수 있음<ul>
-<li>하지만 비선형 함수에서는 베르누이나 가우시안 확률분포로는 설명할 수 없음</li>
-<li>분류 작업의 경우에는 네트워크의 출력을 softmax 함수에 통과시켜 각 클래스에 속할 확률을 나타내는 확률 분포를 얻을 수 있음</li>
-<li>이진 분류 모델에서는 시그모이드 함수를 사용할 수 있음(출력 범위는 0~1)</li>
-</ul>
-</li>
-<li>Neural Networks 또한 확률 분포 함수이므로, MLE를 통해 파라미터(𝝁, 𝝈)를 찾을 것<ul>
-<li>최대한 대신 최소화를 위해 Negative Log-Likelihood(NLL)을 Gradient Descent</li>
-</ul>
-</li>
-<li>Gradient Descent를 수행하기 위해선, 파라미터에 대한 미분이 필요함<ul>
-<li>이를 효율적으로 수행하기 위해 back-propagation을 활용</li>
-</ul>
-</li>
-</ul>
-<p>딥러닝이란 확률 분포 함수인 동시에 낮은 차원으로 차원을 축소하자</p>
-<h3 id="MLE-Equation"><a href="#MLE-Equation" class="headerlink" title="MLE Equation"></a>MLE Equation</h3><ul>
-<li>$D&#x3D;{(x_i, y_i)}_{i&#x3D;1}^{N} \text{, where } x_i: \sim P(\text{x}) \text{, } y_i&#x3D; \sim P(\text{y} ,|x_i)$</li>
-<li>$\hat{\theta} &#x3D; \text{argmax}<em>{\theta \in \Theta} \sum</em>{i&#x3D;1}^{N} \log P(y_i | x_i; \theta)$$&#x3D; \text{argmin}<em>{\theta \in \Theta} -\sum</em>{i&#x3D;1}^{N} \log P(y_i | x_i; \theta)$</li>
-<li>$\theta \leftarrow \theta - \eta \nabla_\theta L(\theta)$</li>
-</ul>
-<h3 id="Connection-to-Deep-Neural-Networks"><a href="#Connection-to-Deep-Neural-Networks" class="headerlink" title="Connection to Deep Neural Networks"></a>Connection to Deep Neural Networks</h3><p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/612b11ed-5423-442c-bb79-2fbd01c9b250" alt="MLE-Softmax"></p>
-<ul>
-<li>$D&#x3D;{(x_i, y_i)}_{i&#x3D;1}^{N}$</li>
-<li>$\hat{\theta} &#x3D; \text{argmin}<em>{\theta \in \Theta} -\sum</em>{i&#x3D;1}^{N} \log P(y_i | x_i; \theta)$</li>
-<li>→  $\hat{y_i}&#x3D; f_\theta(x_i)$</li>
-<li>$-\sum_{i&#x3D;1}^{N} \log P(y_i | x_i; \theta)&#x3D;-\sum_{i&#x3D;1}^{N} y_i^T \cdot \log\hat{y_i}$</li>
-</ul>
-<h3 id="MLE-NLL-amp-Cross-Entropy-Loss"><a href="#MLE-NLL-amp-Cross-Entropy-Loss" class="headerlink" title="MLE(NLL) &amp; Cross Entropy Loss"></a>MLE(NLL) &amp; Cross Entropy Loss</h3><ul>
-<li><p>Minimizing Negative Log-Likelihood is equal to Minimizing Cross Entropy</p>
-</li>
-<li><p>$CE(y_{1:N},\hat{y}<em>{1:N}) &#x3D; -\frac{1}{N} \sum</em>{i&#x3D;1}^{N} y_i^T \cdot \log \hat{y}_i$   &#x2F;&#x2F; (1&#x2F;𝑁은 나중에 𝜃로 미분되어서 사라지기에 결국 MLE와 같음)</p>
-<p>$&#x3D; -\frac{1}{N} \cdot \sum_{i&#x3D;1}^{N} \sum_{j&#x3D;1}^{d} y_{i,j} \times \log \hat{y}_{i,j}$</p>
-<p>$&#x3D; -\frac{1}{N} \cdot \sum_{i&#x3D;1}^{N} \log P_\theta (y_i|x_i)$</p>
-<p>$\text{where } y_{1:N} \in \mathbb{R}^{N \times d} \text{ and } \hat{y}_{1:N} \in \mathbb{R}^{N \times d}$</p>
-</li>
-<li><p>분류문제에서 Cross Entropy를 사용하고 CE Loss를 사용하여 최적화를 수행했는데, 이 모든 것은 결국 MLE를 수행하기 위한 것이다.(𝜽를 잘 찾는 과정(내가 수집한 데이터를 가장 잘 나타내기 위한 과정)을 하는 것)</p>
-</li>
-<li><p>Cross-Entropy 손실 함수는 두 확률 분포 사이의 차이를 측정</p>
-<ul>
-<li>딥러닝에서는 일반적으로 하나의 분포는 실제 레이블을 나타내고, 다른 하나는 모델의 예측을 나타냄</li>
-<li>이 경우 Cross-Entropy 손실 함수는 모델의 예측이 실제 레이블을 얼마나 잘 반영하는지를 측정하는 데 사용</li>
-</ul>
-<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/2120b1fd-8916-459e-915e-57af2b4fef52" alt="MLE-Softmax2"></p>
-</li>
-</ul>
-<blockquote>
-<p>Negative Log-Likelihood (NLL)와 Cross-Entropy 손실 함수는 비슷한 개념을 포함하고 있지만, 엄밀히 말해서 동일한 것은 아님</p>
-<p>이 둘의 차이점은 NLL이 단일 확률 분포에 대한 측정을 제공하는 반면, Cross-Entropy는 두 확률 분포 사이의 차이를 측정한다는 점입니다. 이 차이 때문에, 이 두 손실 함수는 다른 문맥에서 사용되며, 그 결과도 약간 다를 수 있음</p>
-<p>그러나 분류 문제에서는 두 손실 함수가 동일한 결과를 제공하는 경우가 많습니다. 이는 각 클래스에 대한 실제 레이블 분포가 원-핫 인코딩 형식이기 때문 따라서 NLL과 Cross-Entropy 손실 함수는 종종 상호 교환적으로 사용</p>
-</blockquote>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-08-01T14:54:41.000Z" title="8/1/2023, 11:54:41 PM">2023-08-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-09-05T15:04:33.000Z" title="9/6/2024, 12:04:33 AM">2024-09-06</time></span><span class="level-item"><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/">딥러닝</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/">딥러닝 개념</a><span> / </span><a class="link-muted" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/">딥러닝 기본 개념</a></span><span class="level-item">7 minutes read (About 1075 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D%20%EA%B0%9C%EB%85%90/%E1%84%83%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A5%E1%84%82%E1%85%B5%E1%86%BC%20%E1%84%80%E1%85%B5%E1%84%8E%E1%85%A9%20%E1%84%80%E1%85%A2%E1%84%82%E1%85%A7%E1%86%B7/%EC%A4%91%EA%B8%89%20%EA%B0%9C%EB%85%90/2%EC%9E%A5-Probabilistic-Perspective-Maximum-Likelihood-Estimation/">2장. Probabilistic Perspective - Maximum Likelihood Estimation</a></h1><div class="content"><h2 id="Maximum-Likelihood-Estimation-MLE"><a href="#Maximum-Likelihood-Estimation-MLE" class="headerlink" title="Maximum Likelihood Estimation(MLE)"></a>Maximum Likelihood Estimation(MLE)</h2><h3 id="Maximum-Likelihood-Estimation-란"><a href="#Maximum-Likelihood-Estimation-란" class="headerlink" title="Maximum Likelihood Estimation 란"></a>Maximum Likelihood Estimation 란</h3><ul>
-<li><p>다음의 예시를 통해 왜 MLE가 필요한지 알아보자</p>
-<ul>
-<li><p>다음과 같이 대한민국 키의 평균을 얻기 위해 아래와 같은 샘플을 얻었다고 가정해보자. 이의 평균과 표준편차를 가장 잘 얻게 하려면 어떻게 해야할까?</p>
-<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/abf815e8-2a1b-4ae7-a69a-ab6bb09ff5d3" alt="Gaussian01"></p>
-</li>
-<li><p>다음과 같이 3개의 가우시안 분포(Gaussian Distribution)를 살펴보자. 어떤 가우시안 분포가 가장 우리의 샘플을 잘 설명했다고 할 수 있을까? <img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/dbbdb037-d4a8-4c2e-9e51-09c66d36b2c2" alt="Gaussian02"></p>
-<ul>
-<li>점선의 길이(Line’s length &#x3D; probabilty density)가 가장 긴 것이 제일 잘 표현한 것 같은데!(Approxmation 3) <img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/aeca5859-2868-4efc-a179-ab3e83c008a8" alt="Gaussian03"></li>
-</ul>
-</li>
-<li><p>따라서 우리의 샘플을 가장 잘 표현하는 가우시안 분포를 그리기 위한 𝜇와 𝜎를 찾자</p>
-<ul>
-<li>Likelihood 를 최대화 하는 MLE(Maximum Likelihood Estimation)을 구하자</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Likelihood Function</p>
-<ul>
-<li>입력으로 <code>주어진 확률 분포(파라미터(𝜇,𝜎))가 데이터를 얼마나 잘 설명하는지 나타내는 점수(Likelihood)를 출력</code> 하는 함수<ul>
-<li>입력 : 확률 분포를 표현하는 파라미터(𝜇,𝜎)</li>
-<li>출력 : 데이터를 설명하는 정도 (Probability Density가 높아야)</li>
-</ul>
-</li>
-<li>데이터를 잘 설명하는지 알 수 있는 방법<ul>
-<li>데이터가 해당 확률 분포에서 <strong>높은 확률 값</strong>을 가질 것</li>
-</ul>
-</li>
-<li>수식<ul>
-<li>$L(\theta | x) &#x3D; P(x | \theta)$<ul>
-<li>$x$ : 관찰된 데이터</li>
-<li>$\theta$ : 모델의 파라미터</li>
-<li>$P(x|\theta) : \theta$로 주어진 $x$의 확률</li>
-<li>$L : \theta$ 에 대한 likjelihood function(우도 함수)</li>
-</ul>
-</li>
-<li>$L(\theta | x_1, x_2, …, x_n) &#x3D; \prod_{i&#x3D;1}^{n} P(x_i | \theta)$ (주어진 데이터셋이 독립적이고 동일하게 분포(i.i.d)한 경우, 전체 데이터의 likelhood function은 각각의 데이터 포인트에 대한 확률의 곱으로 표현될 수 있음)<ul>
-<li>하지만 실제 계산에서는 이렇게 곱셈 형태의 우도 함수는 계산이 어렵고, underflow 문제를 일으키기 때문에, 대부분의 경우 <code>로그 우도 함수(log-likelihood function)</code>을 사용 (중요)<ul>
-<li>로그를 취하면 곱셈이 덧셈으로 바뀌어 계산이 쉬워짐 $\log L(\theta | x_1, x_2, …, x_n) &#x3D; \sum_{i&#x3D;1}^{n} \log P(x_i | \theta)$</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>다음의 예제를 통해 MLE를 더 잘 이해해보자</p>
-<ul>
-<li>주사위의 확률 분포를 알고 싶다. <img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/a01e5190-5346-4d60-b6f1-7ac23528230f" alt="MLE-EX01"><ul>
-<li>점수(likelihood)가 가장 높은 것은 $\theta_3$이다. 따라서 위 3개 중에서는 데이터를 잘 설명하는 파라미터라고 할 수 있음</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="Log-Likelihood"><a href="#Log-Likelihood" class="headerlink" title="Log-Likelihood"></a>Log-Likelihood</h3><ul>
-<li>확률 분포의 가능성을 측정</li>
-<li>앞에서 소개했다 싶이, Likelihood는 확률 곱으로 표현이 됨<ul>
-<li>underflow의 가능성이 있음</li>
-</ul>
-</li>
-<li>따라서 Log를 취하여 곱셈을 덧셈으로 바꾸고, Log Likelihood로 문제를 해결<ul>
-<li>덧셈이 곱셈보다 연산도 빠름</li>
-</ul>
-</li>
-<li>$\prod_{i&#x3D;1}^{n} P_{\theta}(\text{x} &#x3D; x_{i})$   → $\sum_{i&#x3D;1}^{n} \log P_{\theta}(\text{x} &#x3D; x_{i})$</li>
-</ul>
-<h3 id="MLE-via-Gradient-Ascent"><a href="#MLE-via-Gradient-Ascent" class="headerlink" title="MLE via Gradient Ascent"></a>MLE via Gradient Ascent</h3><ul>
-<li><p>랜덤 생성 대신, Gradient Ascent를 통해 likelihood 값을 최대로 만드는 파라미터(𝜽)를 찾자</p>
-<ul>
-<li>$\theta \leftarrow \theta + \alpha \cdot \frac{\partial \mathcal{L}(\theta)}{\partial \theta}$</li>
-</ul>
-</li>
-<li><p>예제</p>
-<ul>
-<li>n &#x3D; 100번 던졌을 때, k&#x3D;27번 앞면(True)이 나오는 동전이 있다. 이 동전의 확률 분포(파라미터 𝜽)를 추정하자.<ul>
-<li>Binomial Distribution<ul>
-<li>$\mathcal{L}(\theta) &#x3D; \frac{n!}{k!(n-k)!} \theta^k (1-\theta)^{n-k}$</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://github.com/shchoice/shchoice.github.io/assets/100276387/03111cda-c739-44c4-bd54-e217e6367085" alt="MLE-GradientAscent"></p>
-</li>
-</ul>
-<h3 id="요약"><a href="#요약" class="headerlink" title="요약"></a>요약</h3><ul>
-<li>우리는 가상의 확률 분포를 모사하는 확률 분포의 파라미터(𝜽)를 찾고 싶다</li>
-<li>목표 확률 분포로부터 데이터를 수집한 후, 데이터를 잘 설명하는 파라미터를 찾자<ul>
-<li>Likelihood라는 값을 통해 얼마나 잘 설명하는지 알 수 있다</li>
-<li>Likelihood function은 𝜃 을 입력으로 받아, 데이터들의 𝜃 에 대한 확률 값의 곱을 출력</li>
-</ul>
-</li>
-<li>Likelihood를 최대화 하는 파라미터를 찾으면, 주어진 데이터를 가장 잘 설명한다.<ul>
-<li>Gradient Ascent를 통해서 찾자.<ul>
-<li>$\theta \leftarrow \theta + \alpha \cdot \frac{\partial \mathcal{L}(\theta)}{\partial \theta}$</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/5/">Previous</a></div><div class="pagination-next"><a href="/page/7/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/5/">5</a></li><li><a class="pagination-link is-current" href="/page/6/">6</a></li><li><a class="pagination-link" href="/page/7/">7</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/13/">13</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/matterhorn.jpg" alt="Shawn Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Shawn Choi</p><p class="is-size-6 is-block">노력 백줌 열정 천줌의 소프트웨어 개발자</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Seoul, Republic of Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">130</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">62</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">103</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/shchoice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/shchoice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/DevOps/"><span class="level-start"><span class="level-item">DevOps</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/DevOps/CI-CD-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8/"><span class="level-start"><span class="level-item">CI/CD 파이프라인</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/DevOps/%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/"><span class="level-start"><span class="level-item">버전 관리</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/DevOps/%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="/categories/MLOps/"><span class="level-start"><span class="level-item">MLOps</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/MLOps/Cuda/"><span class="level-start"><span class="level-item">Cuda</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/MLOps/MLflow/"><span class="level-start"><span class="level-item">MLflow</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Ops/"><span class="level-start"><span class="level-item">Ops</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/Ops/Windows-CMD/"><span class="level-start"><span class="level-item">Windows CMD</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Programming/"><span class="level-start"><span class="level-item">Programming</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/Programming/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/Programming/Java/%EB%82%B4-%EC%BD%94%EB%93%9C%EA%B0%80-%EA%B7%B8%EB%A0%87%EA%B2%8C-%EC%9D%B4%EC%83%81%ED%95%9C%EA%B0%80%EC%9A%94/"><span class="level-start"><span class="level-item">내 코드가 그렇게 이상한가요</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="/categories/Spring/"><span class="level-start"><span class="level-item">Spring</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/"><span class="level-start"><span class="level-item">핵심 원리 - 기본편</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EA%B8%B0%ED%83%80/"><span class="level-start"><span class="level-item">기타</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EA%B8%B0%ED%83%80/Github-Pages/"><span class="level-start"><span class="level-item">Github Pages</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%EA%B8%B0%ED%83%80/TIL/"><span class="level-start"><span class="level-item">TIL</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EA%B2%80%EC%83%89%EC%97%94%EC%A7%84/"><span class="level-start"><span class="level-item">데이터베이스 &amp; 검색엔진</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EA%B2%80%EC%83%89%EC%97%94%EC%A7%84/OpenSearch/"><span class="level-start"><span class="level-item">OpenSearch</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/"><span class="level-start"><span class="level-item">딥러닝</span></span><span class="level-end"><span class="level-item tag">47</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/NLP/"><span class="level-start"><span class="level-item">NLP</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/NLP/Text-Summarization/"><span class="level-start"><span class="level-item">Text Summarization</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/Transformers/"><span class="level-start"><span class="level-item">Transformers</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/Transformers/TainingArugments/"><span class="level-start"><span class="level-item">TainingArugments</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0/"><span class="level-start"><span class="level-item">논문 리뷰</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">딥러닝 개념</span></span><span class="level-end"><span class="level-item tag">38</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">딥러닝 기본 개념</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC-NLP-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">딥러닝을 활용한 자연어 처리(NLP) 개념</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84-%EC%9C%84%ED%95%9C-%ED%86%B5%EA%B3%84%ED%95%99-%EB%B0%8F-%EC%88%98%ED%95%99/"><span class="level-start"><span class="level-item">딥러닝을 위한 통계학 및 수학</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%84%B1%EB%8A%A5%EA%B3%BC-%ED%8A%9C%EB%8B%9D/"><span class="level-start"><span class="level-item">성능과 튜닝</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%84%B1%EB%8A%A5%EA%B3%BC-%ED%8A%9C%EB%8B%9D/%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%B0%8F-%EB%B2%A4%EC%B9%98%EB%A7%88%ED%82%B9/"><span class="level-start"><span class="level-item">테스트 및 벤치마킹</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99/"><span class="level-start"><span class="level-item">소프트웨어 공학</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99/UML/"><span class="level-start"><span class="level-item">UML</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/"><span class="level-start"><span class="level-item">소프트웨어 아키텍처</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/API-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/"><span class="level-start"><span class="level-item">API 설계 및 아키텍처</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">웹 프로그래밍</span></span><span class="level-end"><span class="level-item tag">17</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/FastAPI/"><span class="level-start"><span class="level-item">FastAPI</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/HTTP-%EB%B0%8F-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/"><span class="level-start"><span class="level-item">HTTP 및 네트워크</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Spring/"><span class="level-start"><span class="level-item">Spring</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Spring/Spring-Core/"><span class="level-start"><span class="level-item">Spring Core</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Spring/Spring-Data-JPA/"><span class="level-start"><span class="level-item">Spring Data JPA</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Spring/Spring-MVC/"><span class="level-start"><span class="level-item">Spring MVC</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95/"><span class="level-start"><span class="level-item">개발 환경 설정</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EB%B3%B4%EC%95%88/"><span class="level-start"><span class="level-item">보안</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EB%B3%B4%EC%95%88/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%95%94%ED%98%B8%ED%99%94/"><span class="level-start"><span class="level-item">데이터 암호화</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EC%84%9C%EB%B2%84-%EB%B0%8F-%EC%9D%B8%ED%94%84%EB%9D%BC/"><span class="level-start"><span class="level-item">서버 및 인프라</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/"><span class="level-start"><span class="level-item">인공지능</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/"><span class="level-start"><span class="level-item">개념 정리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%BB%B4%ED%93%A8%ED%8C%85/"><span class="level-start"><span class="level-item">클라우드 컴퓨팅</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%BB%B4%ED%93%A8%ED%8C%85/%EB%8F%84%EC%BB%A4-%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4/"><span class="level-start"><span class="level-item">도커 &amp; 쿠버네티스</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%BB%B4%ED%93%A8%ED%8C%85/%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/"><span class="level-start"><span class="level-item">서버리스 아키텍처</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">프로그래밍</span></span><span class="level-end"><span class="level-item tag">31</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Java/Effective-Java/"><span class="level-start"><span class="level-item">Effective Java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Java/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">함수형 프로그래밍</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Java/"><span class="level-start"><span class="level-item">Java&quot;</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Java/Java8/"><span class="level-start"><span class="level-item">Java8</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EB%8F%99%EC%8B%9C%EC%84%B1-%EB%B3%91%EB%A0%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">동시성 &amp; 병렬 프로그래밍</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99/"><span class="level-start"><span class="level-item">소프트웨어 공학</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99/Agile/"><span class="level-start"><span class="level-item">Agile</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%ED%81%B4%EB%A6%B0-%EC%BD%94%EB%93%9C/"><span class="level-start"><span class="level-item">클린 코드</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-07T16:11:09.000Z">2024-09-08</time></p><p class="title"><a href="/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/HTTP%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3/OSI-7%EA%B3%84%EC%B8%B5%EA%B3%BC-TCP-IP-4%EA%B3%84%EC%B8%B5%EC%9D%98-%EC%B0%A8%EC%9D%B4/">OSI 7계층과 TCP/IP 4계층의 차이</a></p><p class="categories"><a href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">웹 프로그래밍</a> / <a href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/HTTP-%EB%B0%8F-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/">HTTP 및 네트워크</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-07T15:45:01.000Z">2024-09-08</time></p><p class="title"><a href="/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%E1%84%89%E1%85%A5%E1%84%87%E1%85%A5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%91%E1%85%B3%E1%84%85%E1%85%A1/L4-%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9D%98-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%8B%B1-%EA%B3%BC-%EC%9B%B9-%EC%84%9C%EB%B2%84%EC%9D%98-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%8B%B1-%EC%B0%A8%EC%9D%B4/">L4 스위치의 로드 밸런싱 과 웹 서버의 로드 밸런싱 차이</a></p><p class="categories"><a href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">웹 프로그래밍</a> / <a href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EC%84%9C%EB%B2%84-%EB%B0%8F-%EC%9D%B8%ED%94%84%EB%9D%BC/">서버 및 인프라</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-04T14:49:11.000Z">2024-09-04</time></p><p class="title"><a href="/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/%E1%84%86%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8F%E1%85%B3%E1%84%85%E1%85%A9%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5/%E1%84%86%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8F%E1%85%B3%E1%84%85%E1%85%A9%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3-%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5/">마이크로서비스 아키텍처란</a></p><p class="categories"><a href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/">인공지능</a> / <a href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/">개념 정리</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-04T14:48:00.000Z">2024-09-04</time></p><p class="title"><a href="/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/HTTP%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3/Stateless%20vs%20Stateful/">Stateless vs Stateful</a></p><p class="categories"><a href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">웹 프로그래밍</a> / <a href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/HTTP-%EB%B0%8F-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/">HTTP 및 네트워크</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-04T14:47:50.000Z">2024-09-04</time></p><p class="title"><a href="/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%20%EC%BB%B4%ED%93%A8%ED%8C%85/%E1%84%89%E1%85%A5%E1%84%87%E1%85%A5%E1%84%85%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%8B%E1%85%A1%E1%84%8F%E1%85%B5%E1%84%90%E1%85%A6%E1%86%A8%E1%84%8E%E1%85%A5/%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/">서버리스 아키텍처</a></p><p class="categories"><a href="/categories/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%BB%B4%ED%93%A8%ED%8C%85/">클라우드 컴퓨팅</a> / <a href="/categories/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%BB%B4%ED%93%A8%ED%8C%85/%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/">서버리스 아키텍처</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">September 2024</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">August 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">March 2024</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">February 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">January 2024</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/10/"><span class="level-start"><span class="level-item">October 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">September 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">August 2023</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/07/"><span class="level-start"><span class="level-item">July 2023</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">June 2023</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">April 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">March 2023</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">February 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">January 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">December 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">November 2022</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">October 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/08/"><span class="level-start"><span class="level-item">August 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/1%EA%B8%89-%EC%8B%9C%EB%AF%BC/"><span class="tag">1급 시민</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/AES/"><span class="tag">AES</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ASGI/"><span class="tag">ASGI</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Anonymous-Class/"><span class="tag">Anonymous Class</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/AutoEncoder/"><span class="tag">AutoEncoder</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BERT/"><span class="tag">BERT</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Bind-Mounts/"><span class="tag">Bind Mounts</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CGI/"><span class="tag">CGI</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CORS/"><span class="tag">CORS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Classification/"><span class="tag">Classification</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Cross-Entropy-Loss/"><span class="tag">Cross Entropy Loss</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Curse-of-Dimensionality/"><span class="tag">Curse of Dimensionality</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Data-Volume/"><span class="tag">Data Volume</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker/"><span class="tag">Docker</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker-Orchestration-Tools/"><span class="tag">Docker Orchestration Tools</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Document-Embedding/"><span class="tag">Document Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-Vectors/"><span class="tag">Embedding Vectors</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-vector/"><span class="tag">Embedding vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Entropy/"><span class="tag">Entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FLAN/"><span class="tag">FLAN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FastAPI/"><span class="tag">FastAPI</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Feature-Vector/"><span class="tag">Feature Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Forward-Proxy/"><span class="tag">Forward Proxy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Function-Interface/"><span class="tag">Function Interface</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GPT/"><span class="tag">GPT</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Git/"><span class="tag">Git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Gradient-Descent/"><span class="tag">Gradient Descent</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Gunicorn/"><span class="tag">Gunicorn</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hidden-Representation/"><span class="tag">Hidden Representation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Instruction-Finetuning/"><span class="tag">Instruction Finetuning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KL-Divergence/"><span class="tag">KL Divergence</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KoNLPy/"><span class="tag">KoNLPy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/L4-%EC%8A%A4%EC%9C%84%EC%B9%98/"><span class="tag">L4 스위치</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Lambda-Expression/"><span class="tag">Lambda Expression</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Latent-Space/"><span class="tag">Latent Space</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Learning-Rate/"><span class="tag">Learning Rate</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linear-Layer/"><span class="tag">Linear Layer</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Load-Testing/"><span class="tag">Load Testing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Log-Likelihood/"><span class="tag">Log-Likelihood</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MAP/"><span class="tag">MAP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MLE/"><span class="tag">MLE</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Manifold-hypothesis/"><span class="tag">Manifold hypothesis</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Matrix/"><span class="tag">Matrix</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Mecab/"><span class="tag">Mecab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Multi-Stage-Build/"><span class="tag">Multi Stage Build&quot;</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NLL/"><span class="tag">NLL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/OSI-7%EA%B3%84%EC%B8%B5/"><span class="tag">OSI 7계층</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Persistence-Data/"><span class="tag">Persistence Data</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Probabilistic-Perspective/"><span class="tag">Probabilistic Perspective</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RPS/"><span class="tag">RPS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RSA/"><span class="tag">RSA</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Representation-Learning/"><span class="tag">Representation Learning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Response-Time/"><span class="tag">Response Time</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Reverse-Proxy/"><span class="tag">Reverse Proxy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SOLID/"><span class="tag">SOLID</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Scalar/"><span class="tag">Scalar</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Spring%EC%9D%B4%EB%9E%80/"><span class="tag">Spring이란</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Stress-Testing/"><span class="tag">Stress Testing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Subword-Embedding/"><span class="tag">Subword Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/TCP-IP-4%EA%B3%84%EC%B8%B5/"><span class="tag">TCP/IP 4계층</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/TPS/"><span class="tag">TPS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tensor/"><span class="tag">Tensor</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Testing-Types/"><span class="tag">Testing Types</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Throughput/"><span class="tag">Throughput</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tramsformers/"><span class="tag">Tramsformers</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Transformer/"><span class="tag">Transformer</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/UML/"><span class="tag">UML</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Uvicorn/"><span class="tag">Uvicorn</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vector/"><span class="tag">Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WAS/"><span class="tag">WAS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WSGI/"><span class="tag">WSGI</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/What-to-do/"><span class="tag">What to do</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Word-Embedding/"><span class="tag">Word Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cross-entropy/"><span class="tag">cross entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/default-method/"><span class="tag">default method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/max-length/"><span class="tag">max_length</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mlflow/"><span class="tag">mlflow</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/one-hot-Encoding/"><span class="tag">one-hot Encoding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/packing/"><span class="tag">packing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/padding/"><span class="tag">padding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/python-%EC%84%A4%EC%B9%98/"><span class="tag">python 설치</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/static-method/"><span class="tag">static method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/unpacking/"><span class="tag">unpacking</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/"><span class="tag">객체지향</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%8B%A4%ED%98%95%EC%84%B1/"><span class="tag">다형성</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%88%84%EC%88%98/"><span class="tag">데이터 누수</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%9E%8C%EB%8B%A4%EC%8B%9D/"><span class="tag">람다식</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%8B%B1/"><span class="tag">로드 밸런싱</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%A6%AC%EB%B2%84%EC%8A%A4-%ED%94%84%EB%A1%9D%EC%8B%9C/"><span class="tag">리버스 프록시</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%B2%A1%ED%84%B0%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">벡터의 곱셈</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%84%B1%EB%8A%A5-%EC%A7%80%ED%91%9C/"><span class="tag">성능 지표</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%84%B1%EB%8A%A5-%ED%85%8C%EC%8A%A4%ED%8A%B8/"><span class="tag">성능 테스트</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%97%94%ED%8A%B8%EB%A1%9C%ED%94%BC/"><span class="tag">엔트로피</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%9B%B9-%EC%84%9C%EB%B2%84/"><span class="tag">웹 서버</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EB%9F%89/"><span class="tag">정보량</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EC%9D%B4%EB%A1%A0/"><span class="tag">정보이론</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8/"><span class="tag">클래스 다이어그램</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%8F%AC%EC%9B%8C%EB%93%9C-%ED%94%84%EB%A1%9D%EC%8B%9C/"><span class="tag">포워드 프록시</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98%ED%98%95-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/"><span class="tag">함수형 인터페이스</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="tag">함수형 프로그래밍</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">행렬의 곱셈</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 Seohwan Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/5/">Previous</a></div><div class="pagination-next"><a href="/page/7/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/5/">5</a></li><li><a class="pagination-link is-current" href="/page/6/">6</a></li><li><a class="pagination-link" href="/page/7/">7</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/14/">14</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/matterhorn.jpg" alt="Shawn Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Shawn Choi</p><p class="is-size-6 is-block">노력 백줌 열정 천줌의 소프트웨어 개발자</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Seoul, Republic of Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">133</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">63</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">106</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/shchoice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/shchoice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/DevOps/"><span class="level-start"><span class="level-item">DevOps</span></span><span class="level-end"><span class="level-item tag">5</span></span></a><ul><li><a class="level is-mobile" href="/categories/DevOps/CI-CD-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8/"><span class="level-start"><span class="level-item">CI/CD 파이프라인</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/DevOps/%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/"><span class="level-start"><span class="level-item">버전 관리</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/DevOps/%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/Git/"><span class="level-start"><span class="level-item">Git</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/DevOps/%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-%EB%B0%8F-%EB%B0%B0%ED%8F%AC-%EC%A0%84%EB%9E%B5/"><span class="level-start"><span class="level-item">버전 관리 및 배포 전략</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/MLOps/"><span class="level-start"><span class="level-item">MLOps</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/MLOps/Cuda/"><span class="level-start"><span class="level-item">Cuda</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/MLOps/MLflow/"><span class="level-start"><span class="level-item">MLflow</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Ops/"><span class="level-start"><span class="level-item">Ops</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/Ops/Windows-CMD/"><span class="level-start"><span class="level-item">Windows CMD</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Programming/"><span class="level-start"><span class="level-item">Programming</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/Programming/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/Programming/Java/%EB%82%B4-%EC%BD%94%EB%93%9C%EA%B0%80-%EA%B7%B8%EB%A0%87%EA%B2%8C-%EC%9D%B4%EC%83%81%ED%95%9C%EA%B0%80%EC%9A%94/"><span class="level-start"><span class="level-item">내 코드가 그렇게 이상한가요</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="/categories/Spring/"><span class="level-start"><span class="level-item">Spring</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/Spring/%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/"><span class="level-start"><span class="level-item">핵심 원리 - 기본편</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EA%B8%B0%ED%83%80/"><span class="level-start"><span class="level-item">기타</span></span><span class="level-end"><span class="level-item tag">4</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EA%B8%B0%ED%83%80/Github-Pages/"><span class="level-start"><span class="level-item">Github Pages</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%EA%B8%B0%ED%83%80/TIL/"><span class="level-start"><span class="level-item">TIL</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EA%B2%80%EC%83%89%EC%97%94%EC%A7%84/"><span class="level-start"><span class="level-item">데이터베이스 &amp; 검색엔진</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EA%B2%80%EC%83%89%EC%97%94%EC%A7%84/OpenSearch/"><span class="level-start"><span class="level-item">OpenSearch</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/"><span class="level-start"><span class="level-item">딥러닝</span></span><span class="level-end"><span class="level-item tag">47</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/NLP/"><span class="level-start"><span class="level-item">NLP</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/NLP/Text-Summarization/"><span class="level-start"><span class="level-item">Text Summarization</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/Transformers/"><span class="level-start"><span class="level-item">Transformers</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/Transformers/TainingArugments/"><span class="level-start"><span class="level-item">TainingArugments</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0/"><span class="level-start"><span class="level-item">논문 리뷰</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">딥러닝 개념</span></span><span class="level-end"><span class="level-item tag">38</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">딥러닝 기본 개념</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D-%EA%B0%9C%EB%85%90/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9E%90%EC%97%B0%EC%96%B4-%EC%B2%98%EB%A6%AC-NLP-%EA%B0%9C%EB%85%90/"><span class="level-start"><span class="level-item">딥러닝을 활용한 자연어 처리(NLP) 개념</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EB%94%A5%EB%9F%AC%EB%8B%9D/%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%9D%84-%EC%9C%84%ED%95%9C-%ED%86%B5%EA%B3%84%ED%95%99-%EB%B0%8F-%EC%88%98%ED%95%99/"><span class="level-start"><span class="level-item">딥러닝을 위한 통계학 및 수학</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%84%B1%EB%8A%A5%EA%B3%BC-%ED%8A%9C%EB%8B%9D/"><span class="level-start"><span class="level-item">성능과 튜닝</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%84%B1%EB%8A%A5%EA%B3%BC-%ED%8A%9C%EB%8B%9D/%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%B0%8F-%EB%B2%A4%EC%B9%98%EB%A7%88%ED%82%B9/"><span class="level-start"><span class="level-item">테스트 및 벤치마킹</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99/"><span class="level-start"><span class="level-item">소프트웨어 공학</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99/UML/"><span class="level-start"><span class="level-item">UML</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/"><span class="level-start"><span class="level-item">소프트웨어 아키텍처</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/API-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/"><span class="level-start"><span class="level-item">API 설계 및 아키텍처</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">웹 프로그래밍</span></span><span class="level-end"><span class="level-item tag">17</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/FastAPI/"><span class="level-start"><span class="level-item">FastAPI</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/HTTP-%EB%B0%8F-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/"><span class="level-start"><span class="level-item">HTTP 및 네트워크</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Spring/"><span class="level-start"><span class="level-item">Spring</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Spring/Spring-Core/"><span class="level-start"><span class="level-item">Spring Core</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Spring/Spring-Data-JPA/"><span class="level-start"><span class="level-item">Spring Data JPA</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Spring/Spring-MVC/"><span class="level-start"><span class="level-item">Spring MVC</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95/"><span class="level-start"><span class="level-item">개발 환경 설정</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EB%B3%B4%EC%95%88/"><span class="level-start"><span class="level-item">보안</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EB%B3%B4%EC%95%88/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%95%94%ED%98%B8%ED%99%94/"><span class="level-start"><span class="level-item">데이터 암호화</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EC%84%9C%EB%B2%84-%EB%B0%8F-%EC%9D%B8%ED%94%84%EB%9D%BC/"><span class="level-start"><span class="level-item">서버 및 인프라</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/"><span class="level-start"><span class="level-item">인공지능</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5/%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC/"><span class="level-start"><span class="level-item">개념 정리</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%BB%B4%ED%93%A8%ED%8C%85/"><span class="level-start"><span class="level-item">클라우드 컴퓨팅</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%BB%B4%ED%93%A8%ED%8C%85/%EB%8F%84%EC%BB%A4-%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4/"><span class="level-start"><span class="level-item">도커 &amp; 쿠버네티스</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%BB%B4%ED%93%A8%ED%8C%85/%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/"><span class="level-start"><span class="level-item">서버리스 아키텍처</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">프로그래밍</span></span><span class="level-end"><span class="level-item tag">31</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Java/"><span class="level-start"><span class="level-item">Java</span></span><span class="level-end"><span class="level-item tag">10</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Java/Effective-Java/"><span class="level-start"><span class="level-item">Effective Java</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Java/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">함수형 프로그래밍</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Java/"><span class="level-start"><span class="level-item">Java&quot;</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Java/Java8/"><span class="level-start"><span class="level-item">Java8</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EB%8F%99%EC%8B%9C%EC%84%B1-%EB%B3%91%EB%A0%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="level-start"><span class="level-item">동시성 &amp; 병렬 프로그래밍</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99/"><span class="level-start"><span class="level-item">소프트웨어 공학</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%EA%B3%B5%ED%95%99/Agile/"><span class="level-start"><span class="level-item">Agile</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%ED%81%B4%EB%A6%B0-%EC%BD%94%EB%93%9C/"><span class="level-start"><span class="level-item">클린 코드</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-18T09:32:11.000Z">2024-09-18</time></p><p class="title"><a href="/Git-Merge%EC%99%80-Rebae%EC%9D%98-%EC%B0%A8%EC%9D%B4/">Git Merge와 Rebae의 차이</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-18T09:31:55.000Z">2024-09-18</time></p><p class="title"><a href="/Git-Commit-Rule/">Git Commit Rule</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-18T09:30:38.000Z">2024-09-18</time></p><p class="title"><a href="/Git-%E1%84%87%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8E%E1%85%B5-%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%85%E1%85%A3%E1%86%A8-git-flow-gitlab-flow-github-flow/">Git 브랜치 전략 - git/gitlab/github flow</a></p><p class="categories"><a href="/categories/DevOps/">DevOps</a> / <a href="/categories/DevOps/%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC-%EB%B0%8F-%EB%B0%B0%ED%8F%AC-%EC%A0%84%EB%9E%B5/">버전 관리 및 배포 전략</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-07T16:11:09.000Z">2024-09-08</time></p><p class="title"><a href="/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/HTTP%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3/OSI-7%EA%B3%84%EC%B8%B5%EA%B3%BC-TCP-IP-4%EA%B3%84%EC%B8%B5%EC%9D%98-%EC%B0%A8%EC%9D%B4/">OSI 7계층과 TCP/IP 4계층의 차이</a></p><p class="categories"><a href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">웹 프로그래밍</a> / <a href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/HTTP-%EB%B0%8F-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/">HTTP 및 네트워크</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-07T15:45:01.000Z">2024-09-08</time></p><p class="title"><a href="/%EC%9B%B9%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%E1%84%89%E1%85%A5%E1%84%87%E1%85%A5%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%91%E1%85%B3%E1%84%85%E1%85%A1/L4-%EC%8A%A4%EC%9C%84%EC%B9%98%EC%9D%98-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%8B%B1-%EA%B3%BC-%EC%9B%B9-%EC%84%9C%EB%B2%84%EC%9D%98-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%8B%B1-%EC%B0%A8%EC%9D%B4/">L4 스위치의 로드 밸런싱 과 웹 서버의 로드 밸런싱 차이</a></p><p class="categories"><a href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/">웹 프로그래밍</a> / <a href="/categories/%EC%9B%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/%EC%84%9C%EB%B2%84-%EB%B0%8F-%EC%9D%B8%ED%94%84%EB%9D%BC/">서버 및 인프라</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">September 2024</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">August 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">March 2024</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">February 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">January 2024</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">November 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/10/"><span class="level-start"><span class="level-item">October 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">September 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">August 2023</span></span><span class="level-end"><span class="level-item tag">20</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/07/"><span class="level-start"><span class="level-item">July 2023</span></span><span class="level-end"><span class="level-item tag">17</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">June 2023</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">April 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">March 2023</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">February 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">January 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">December 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">November 2022</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">October 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/08/"><span class="level-start"><span class="level-item">August 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/1%EA%B8%89-%EC%8B%9C%EB%AF%BC/"><span class="tag">1급 시민</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/AES/"><span class="tag">AES</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ASGI/"><span class="tag">ASGI</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Anonymous-Class/"><span class="tag">Anonymous Class</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/AutoEncoder/"><span class="tag">AutoEncoder</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/BERT/"><span class="tag">BERT</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Bind-Mounts/"><span class="tag">Bind Mounts</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CGI/"><span class="tag">CGI</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CORS/"><span class="tag">CORS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Classification/"><span class="tag">Classification</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Cross-Entropy-Loss/"><span class="tag">Cross Entropy Loss</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Curse-of-Dimensionality/"><span class="tag">Curse of Dimensionality</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Data-Volume/"><span class="tag">Data Volume</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker/"><span class="tag">Docker</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker-Orchestration-Tools/"><span class="tag">Docker Orchestration Tools</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Document-Embedding/"><span class="tag">Document Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-Vectors/"><span class="tag">Embedding Vectors</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Embedding-vector/"><span class="tag">Embedding vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Entropy/"><span class="tag">Entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FLAN/"><span class="tag">FLAN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FastAPI/"><span class="tag">FastAPI</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Feature-Vector/"><span class="tag">Feature Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Forward-Proxy/"><span class="tag">Forward Proxy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Function-Interface/"><span class="tag">Function Interface</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GPT/"><span class="tag">GPT</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Git/"><span class="tag">Git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Gradient-Descent/"><span class="tag">Gradient Descent</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Gunicorn/"><span class="tag">Gunicorn</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hidden-Representation/"><span class="tag">Hidden Representation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Instruction-Finetuning/"><span class="tag">Instruction Finetuning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KL-Divergence/"><span class="tag">KL Divergence</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/KoNLPy/"><span class="tag">KoNLPy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/L4-%EC%8A%A4%EC%9C%84%EC%B9%98/"><span class="tag">L4 스위치</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Lambda-Expression/"><span class="tag">Lambda Expression</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Latent-Space/"><span class="tag">Latent Space</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Learning-Rate/"><span class="tag">Learning Rate</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linear-Layer/"><span class="tag">Linear Layer</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Load-Testing/"><span class="tag">Load Testing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Log-Likelihood/"><span class="tag">Log-Likelihood</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MAP/"><span class="tag">MAP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MLE/"><span class="tag">MLE</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Manifold-hypothesis/"><span class="tag">Manifold hypothesis</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Matrix/"><span class="tag">Matrix</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Mecab/"><span class="tag">Mecab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Multi-Stage-Build/"><span class="tag">Multi Stage Build&quot;</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NLL/"><span class="tag">NLL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/OSI-7%EA%B3%84%EC%B8%B5/"><span class="tag">OSI 7계층</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Persistence-Data/"><span class="tag">Persistence Data</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Probabilistic-Perspective/"><span class="tag">Probabilistic Perspective</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RPS/"><span class="tag">RPS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RSA/"><span class="tag">RSA</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Representation-Learning/"><span class="tag">Representation Learning</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Response-Time/"><span class="tag">Response Time</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Reverse-Proxy/"><span class="tag">Reverse Proxy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SOLID/"><span class="tag">SOLID</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Scalar/"><span class="tag">Scalar</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Spring%EC%9D%B4%EB%9E%80/"><span class="tag">Spring이란</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Stress-Testing/"><span class="tag">Stress Testing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Subword-Embedding/"><span class="tag">Subword Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/TCP-IP-4%EA%B3%84%EC%B8%B5/"><span class="tag">TCP/IP 4계층</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/TPS/"><span class="tag">TPS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tensor/"><span class="tag">Tensor</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Testing-Types/"><span class="tag">Testing Types</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Throughput/"><span class="tag">Throughput</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tramsformers/"><span class="tag">Tramsformers</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Transformer/"><span class="tag">Transformer</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/UML/"><span class="tag">UML</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Uvicorn/"><span class="tag">Uvicorn</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Vector/"><span class="tag">Vector</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WAS/"><span class="tag">WAS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WSGI/"><span class="tag">WSGI</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/What-to-do/"><span class="tag">What to do</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Word-Embedding/"><span class="tag">Word Embedding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/cross-entropy/"><span class="tag">cross entropy</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/default-method/"><span class="tag">default method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git-flow/"><span class="tag">git flow</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/github-flow/"><span class="tag">github flow</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gitlab-flow/"><span class="tag">gitlab flow</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/max-length/"><span class="tag">max_length</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mlflow/"><span class="tag">mlflow</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/one-hot-Encoding/"><span class="tag">one-hot Encoding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/packing/"><span class="tag">packing</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/padding/"><span class="tag">padding</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/python-%EC%84%A4%EC%B9%98/"><span class="tag">python 설치</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/static-method/"><span class="tag">static method</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/unpacking/"><span class="tag">unpacking</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5/"><span class="tag">객체지향</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%8B%A4%ED%98%95%EC%84%B1/"><span class="tag">다형성</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%88%84%EC%88%98/"><span class="tag">데이터 누수</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%9E%8C%EB%8B%A4%EC%8B%9D/"><span class="tag">람다식</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%8B%B1/"><span class="tag">로드 밸런싱</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%A6%AC%EB%B2%84%EC%8A%A4-%ED%94%84%EB%A1%9D%EC%8B%9C/"><span class="tag">리버스 프록시</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EB%B2%A1%ED%84%B0%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">벡터의 곱셈</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%84%B1%EB%8A%A5-%EC%A7%80%ED%91%9C/"><span class="tag">성능 지표</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%84%B1%EB%8A%A5-%ED%85%8C%EC%8A%A4%ED%8A%B8/"><span class="tag">성능 테스트</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%97%94%ED%8A%B8%EB%A1%9C%ED%94%BC/"><span class="tag">엔트로피</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%9B%B9-%EC%84%9C%EB%B2%84/"><span class="tag">웹 서버</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EB%9F%89/"><span class="tag">정보량</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%EC%A0%95%EB%B3%B4%EC%9D%B4%EB%A1%A0/"><span class="tag">정보이론</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%8B%A4%EC%9D%B4%EC%96%B4%EA%B7%B8%EB%9E%A8/"><span class="tag">클래스 다이어그램</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%8F%AC%EC%9B%8C%EB%93%9C-%ED%94%84%EB%A1%9D%EC%8B%9C/"><span class="tag">포워드 프록시</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98%ED%98%95-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4/"><span class="tag">함수형 인터페이스</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"><span class="tag">함수형 프로그래밍</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%B1%EC%85%88/"><span class="tag">행렬의 곱셈</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Shawn&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 Seohwan Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
