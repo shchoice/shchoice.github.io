@@ -551,10 +551,20 @@ body.has-sidebar {
 
 /* ---- Hero ---- */
 .home-hero {
-  background: linear-gradient(160deg, rgb(20, 16, 34) 0%, rgb(13, 13, 20) 100%);
-  padding: 52px 24px 40px;
+  background: linear-gradient(160deg, rgb(28, 22, 48) 0%, rgb(20, 16, 38) 60%, rgb(15, 13, 26) 100%);
+  padding: 52px 24px 80px; /* 하단 패딩으로 wave 공간 확보 */
   text-align: center;
-  border-bottom: 1px solid rgb(30, 28, 46);
+  position: relative;
+}
+
+/* wave를 항상 hero 하단에 고정 */
+.home-hero .article-header-waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0;
 }
 
 .home-hero-inner {
@@ -590,10 +600,10 @@ body.has-sidebar {
   color: rgb(110, 110, 128);
 }
 
+
 /* ---- Stats ---- */
 .home-stats-section {
   padding: 24px;
-  border-bottom: 1px solid rgb(28, 26, 42);
 }
 
 .home-stats-grid {
@@ -645,6 +655,9 @@ body.has-sidebar {
 }
 
 .section-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 1.35rem;
   font-weight: 700;
   color: rgb(228, 228, 238);
@@ -727,29 +740,28 @@ body.has-sidebar {
    ============================================ */
 
 html:not(.dark) .home-hero {
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
+  background: linear-gradient(160deg, #060e30 0%, #0d2878 50%, #1a52d0 85%, #4b8cf7 100%);
 }
 
 html:not(.dark) .home-hero-avatar {
-  border-color: #0ea5e9;
+  border-color: rgba(186, 230, 253, 0.9);
 }
 
 html:not(.dark) .home-hero-title {
-  color: #0f172a;
+  color: #ffffff;
 }
 
 html:not(.dark) .home-hero-headline {
-  color: #475569;
+  color: rgba(186, 230, 253, 0.88);
 }
 
 html:not(.dark) .home-hero-bio {
-  color: #64748b;
+  color: rgba(147, 197, 253, 0.80);
 }
 
+
 html:not(.dark) .home-stats-section {
-  background: #e0f2fe;
-  border-bottom: 1px solid #bae6fd;
+  background: transparent;
 }
 
 html:not(.dark) .home-stat-card {
@@ -774,6 +786,14 @@ html:not(.dark) .home-section {
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
 }
+
+.section-heading-icon {
+  width: 20px;
+  height: 20px;
+  color: #fbbf24;
+  flex-shrink: 0;
+}
+html:not(.dark) .section-heading-icon { color: #0ea5e9; }
 
 html:not(.dark) .section-heading {
   color: #0f172a;
@@ -997,6 +1017,100 @@ html:not(.dark) .home-more-btn {
   color: rgb(245, 158, 11);
   border-color: rgba(245, 158, 11, 0.35);
   background: rgba(245, 158, 11, 0.06);
+}
+
+/* ============================================
+   ARTICLE STATS BAR (views · likes · comments)
+   ============================================ */
+
+.article-stats-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4px 48px 18px;
+  font-size: 12.5px;
+  color: rgb(100, 100, 125);
+}
+
+.astat-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: rgb(100, 100, 125);
+}
+
+.astat-icon {
+  color: rgb(90, 90, 115);
+  flex-shrink: 0;
+}
+
+.astat-sep {
+  color: rgb(55, 52, 75);
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 1px;
+}
+
+/* Like button */
+.astat-like-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  color: rgb(100, 100, 125);
+  background: none;
+  border: none;
+  padding: 3px 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+  margin: 0 -8px;  /* compensate padding so it aligns with text items */
+}
+
+.astat-like-btn:hover {
+  color: rgb(245, 158, 11);
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.astat-like-btn.is-liked {
+  color: rgb(245, 158, 11);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.astat-like-btn.is-liked .astat-icon {
+  fill: rgb(245, 158, 11);
+  stroke: rgb(245, 158, 11);
+}
+
+/* Light mode */
+html:not(.dark) .article-stats-bar,
+html:not(.dark) .astat-item {
+  color: rgba(186, 230, 253, 0.78); /* matches .article-meta-row light */
+}
+
+html:not(.dark) .astat-icon {
+  color: rgba(125, 211, 252, 0.60); /* matches .meta-icon light */
+}
+
+html:not(.dark) .astat-sep {
+  color: rgba(125, 211, 252, 0.40); /* matches .meta-dot light */
+}
+
+html:not(.dark) .astat-like-btn {
+  color: rgba(186, 230, 253, 0.78);
+}
+
+html:not(.dark) .astat-like-btn:hover,
+html:not(.dark) .astat-like-btn.is-liked {
+  color: rgb(180, 120, 10);
+  background: rgba(245, 158, 11, 0.08);
+}
+
+html:not(.dark) .astat-like-btn.is-liked .astat-icon {
+  fill: rgb(180, 120, 10);
+  stroke: rgb(180, 120, 10);
 }
 
 /* ---- Body layout ---- */
@@ -3426,6 +3540,225 @@ html:not(.dark) .related-posts-empty {
 }
 
 /* ============================================================
+   POST FOOTER WIDGETS — 최근 댓글 / 최근 글 / 인기글
+   ============================================================ */
+
+.pfwidgets-wrap {
+  margin-top: 24px;
+  padding: 0 0 40px;
+}
+
+/* ── 섹션 헤더 (구분선 + 제목) ── */
+.pfwidgets-section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.pfwidgets-section-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.pfwidgets-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* ── 3열 그리드 ── */
+.pfwidgets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* ── 각 위젯 컬럼 ── */
+.pfwidget-col {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+/* ── 위젯 헤더 ── */
+.pfwidget-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 16px 11px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+}
+.pfwidget-icon {
+  width: 13px;
+  height: 13px;
+  color: #fbbf24;
+  flex-shrink: 0;
+}
+
+/* ── 리스트 ── */
+.pfwidget-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0 8px;
+}
+.pfwidget-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 14px;
+  min-height: 36px;
+}
+.pfwidget-item + .pfwidget-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* ── 순위 번호 ── */
+.pfwidget-rank {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.5px;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1;
+}
+.pfwidget-rank-1 { background: rgba(251, 191, 36, 0.25); color: #fbbf24; }
+.pfwidget-rank-2 { background: rgba(148, 163, 184, 0.2); color: #94a3b8; }
+.pfwidget-rank-3 { background: rgba(180, 130, 80, 0.2);  color: #cd9b6e; }
+
+/* ── 링크 ── */
+.pfwidget-link {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  text-decoration: none;
+  min-width: 0;
+  padding: 8px 0;
+}
+.pfwidget-link:hover .pfwidget-title {
+  color: #fbbf24;
+}
+.pfwidget-title {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.15s;
+  flex: 1;
+  min-width: 0;
+}
+.pfwidget-date {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+}
+.pfwidget-comment-cnt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(251, 191, 36, 0.18);
+  color: #fbbf24;
+  border-radius: 10px;
+  padding: 1px 6px;
+  vertical-align: middle;
+}
+
+/* ── 로딩 / 빈 상태 ── */
+.pfwidget-loading,
+.pfwidget-empty {
+  padding: 14px 16px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.pfwidget-spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-top-color: #fbbf24;
+  border-radius: 50%;
+  animation: pfwSpin 0.7s linear infinite;
+}
+@keyframes pfwSpin { to { transform: rotate(360deg); } }
+
+/* ── Light mode ── */
+html:not(.dark) .pfwidgets-section-line {
+  background: #bae6fd;
+}
+html:not(.dark) .pfwidgets-section-title {
+  color: #94a3b8;
+}
+html:not(.dark) .pfwidget-col {
+  background: #f0f9ff;
+  border-color: #bae6fd;
+}
+html:not(.dark) .pfwidget-header {
+  border-bottom-color: #bae6fd;
+  color: #0f172a;
+}
+html:not(.dark) .pfwidget-icon { color: #0ea5e9; }
+html:not(.dark) .pfwidget-item + .pfwidget-item {
+  border-top-color: #e0f2fe;
+}
+html:not(.dark) .pfwidget-rank {
+  background: #e0f2fe;
+  color: #64748b;
+}
+html:not(.dark) .pfwidget-rank-1 { background: rgba(14,165,233,0.15); color: #0284c7; }
+html:not(.dark) .pfwidget-rank-2 { background: rgba(100,116,139,0.15); color: #475569; }
+html:not(.dark) .pfwidget-rank-3 { background: rgba(100,116,139,0.10); color: #64748b; }
+html:not(.dark) .pfwidget-title  { color: #334155; }
+html:not(.dark) .pfwidget-link:hover .pfwidget-title { color: #0284c7; }
+html:not(.dark) .pfwidget-date   { color: #94a3b8; }
+html:not(.dark) .pfwidget-comment-cnt {
+  background: rgba(14, 165, 233, 0.12);
+  color: #0284c7;
+}
+html:not(.dark) .pfwidget-loading,
+html:not(.dark) .pfwidget-empty  { color: #94a3b8; }
+html:not(.dark) .pfwidget-spinner {
+  border-color: #bae6fd;
+  border-top-color: #0ea5e9;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .pfwidgets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pfwidget-col:last-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 540px) {
+  .pfwidgets-grid { grid-template-columns: 1fr; }
+  .pfwidget-col:last-child { grid-column: auto; }
+}
+
+/* ============================================================
    CATEGORIES PAGE — category card grid
    (/categories/ 페이지 전용)
    ============================================================ */
@@ -3741,3 +4074,172 @@ html:not(.dark) .tag-box-count {
   .tag-box-lg { font-size: 0.9rem; padding: 8px 14px; }
 }
 
+
+/* ============================================================
+   SITE FOOTER
+   ============================================================ */
+
+#site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  margin-top: 0;
+}
+
+.site-footer-inner {
+  max-width: 768px;        /* article-page 와 동일 너비 */
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-footer-copy {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+}
+
+.site-footer-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+.site-footer-top-btn:hover {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+/* ── Light mode ── */
+html:not(.dark) #site-footer {
+  border-top-color: #bae6fd;
+}
+html:not(.dark) .site-footer-copy {
+  color: #94a3b8;
+}
+html:not(.dark) .site-footer-top-btn {
+  color: #94a3b8;
+  background: #f0f9ff;
+  border-color: #bae6fd;
+}
+html:not(.dark) .site-footer-top-btn:hover {
+  color: #0284c7;
+  background: #e0f2fe;
+  border-color: #7dd3fc;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .site-footer-inner {
+    padding: 16px 20px;
+  }
+}
+
+/* ============================================================
+   VISITOR COUNTER — sidebar + home
+   ============================================================ */
+
+/* ── Sidebar visitor section ── */
+.sidebar-visitor {
+  margin: 0 10px 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+.sidebar-visitor-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px 7px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  letter-spacing: 0.02em;
+}
+.sidebar-visitor-header svg { color: #fbbf24; flex-shrink: 0; }
+.sidebar-visitor-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 8px;
+  gap: 4px;
+}
+.sidebar-visitor-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+.sidebar-visitor-item + .sidebar-visitor-item {
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+}
+.sidebar-visitor-count {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fbbf24;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.sidebar-visitor-label {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ── Home visitor header label ── */
+.home-visitor-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.home-visitor-header svg { color: #fbbf24; }
+
+/* ── 블로그 통계 구분선 ── */
+.home-stats-divider {
+  max-width: 720px;
+  margin: 16px auto;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* ── Light mode ── */
+html:not(.dark) .sidebar-visitor {
+  background: #f0f9ff;
+  border-color: #bae6fd;
+}
+html:not(.dark) .sidebar-visitor-header {
+  color: #475569;
+  border-bottom-color: #bae6fd;
+}
+html:not(.dark) .sidebar-visitor-header svg { color: #0ea5e9; }
+html:not(.dark) .sidebar-visitor-item + .sidebar-visitor-item {
+  border-left-color: #bae6fd;
+}
+html:not(.dark) .sidebar-visitor-count { color: #0284c7; }
+html:not(.dark) .sidebar-visitor-label { color: #94a3b8; }
+
+html:not(.dark) .home-visitor-header { color: #64748b; }
+html:not(.dark) .home-visitor-header svg { color: #0ea5e9; }
+html:not(.dark) .home-stats-divider { background: #bae6fd; }

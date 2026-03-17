@@ -1,0 +1,136 @@
+{{/* ============================================================
+     Post Footer Widgets
+     최근 댓글 (GitHub Discussions API) · 최근 글 · 인기글
+     ============================================================ */}}
+
+<div class="pfwidgets-wrap">
+
+  {{/* ── 섹션 헤더 ── */}}
+  <div class="pfwidgets-section-header">
+    <span class="pfwidgets-section-line"></span>
+    <span class="pfwidgets-section-title">더 둘러보기</span>
+    <span class="pfwidgets-section-line"></span>
+  </div>
+
+  <div class="pfwidgets-grid">
+
+    {{/* ═══════════════════════════════
+         1. 최근 댓글 (GitHub Discussions)
+         ═══════════════════════════════ */}}
+    <div class="pfwidget-col">
+      <div class="pfwidget-header">
+        <svg class="pfwidget-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.4"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span>최근 댓글</span>
+      </div>
+      <ul class="pfwidget-list" id="pfw-recent-comments">
+        <li class="pfwidget-loading">
+          <span class="pfwidget-spinner"></span> 불러오는 중…
+        </li>
+      </ul>
+    </div>
+
+    {{/* ═══════════════════════════════
+         2. 최근 글
+         ═══════════════════════════════ */}}
+    <div class="pfwidget-col">
+      <div class="pfwidget-header">
+        <svg class="pfwidget-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.4"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+        </svg>
+        <span>최신 포스트</span>
+      </div>
+      <ul class="pfwidget-list">
+        {{ $recent := first 6 site.RegularPages.ByDate.Reverse }}
+        {{ range $i, $p := $recent }}
+          <li class="pfwidget-item">
+            <span class="pfwidget-rank pfwidget-rank-{{ add $i 1 }}">{{ add $i 1 }}</span>
+            <a href="{{ $p.RelPermalink }}" class="pfwidget-link">
+              <span class="pfwidget-title">{{ $p.Title | emojify }}</span>
+              <span class="pfwidget-date">{{ $p.Date.Format "01.02" }}</span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+
+    {{/* ═══════════════════════════════
+         3. 인기글 (weight 기준)
+         ═══════════════════════════════ */}}
+    <div class="pfwidget-col">
+      <div class="pfwidget-header">
+        <svg class="pfwidget-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.4"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+          <polyline points="17 6 23 6 23 12"></polyline>
+        </svg>
+        <span>인기 포스트</span>
+      </div>
+      <ul class="pfwidget-list">
+        {{/* weight > 0 인 글 우선, 없으면 최신순 */}}
+        {{ $weighted := where site.RegularPages ".Params.weight" ">" 0 }}
+        {{ $popular := cond (gt (len $weighted) 0) ($weighted.ByWeight.Reverse) (site.RegularPages.ByDate.Reverse) }}
+        {{ range $i, $p := first 6 $popular }}
+          <li class="pfwidget-item">
+            <span class="pfwidget-rank pfwidget-rank-{{ add $i 1 }}">{{ add $i 1 }}</span>
+            <a href="{{ $p.RelPermalink }}" class="pfwidget-link">
+              <span class="pfwidget-title">{{ $p.Title | emojify }}</span>
+              <span class="pfwidget-date">{{ $p.ReadingTime }}분</span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+
+  </div>{{/* /pfwidgets-grid */}}
+</div>{{/* /pfwidgets-wrap */}}
+
+{{/* ── 최근 댓글 JS (GitHub Discussions REST API) ── */}}
+<script>
+(function () {
+  var list = document.getElementById('pfw-recent-comments');
+  if (!list) return;
+
+  function fmt(iso) {
+    var d = new Date(iso);
+    return (d.getMonth() + 1) + '.' + String(d.getDate()).padStart(2, '0');
+  }
+  function esc(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  fetch('https://api.github.com/repos/shchoice/shchoice.github.io/discussions?sort=updated&direction=desc&per_page=6', {
+    headers: { Accept: 'application/vnd.github+json' }
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (!Array.isArray(data) || data.length === 0) {
+        list.innerHTML = '<li class="pfwidget-empty">아직 댓글이 없습니다.</li>';
+        return;
+      }
+      list.innerHTML = data.map(function (d, i) {
+        var rank = i + 1;
+        var cnt  = d.comments > 0 ? '<span class="pfwidget-comment-cnt">' + d.comments + '</span>' : '';
+        return '<li class="pfwidget-item">' +
+          '<span class="pfwidget-rank pfwidget-rank-' + rank + '">' + rank + '</span>' +
+          '<a href="' + d.html_url + '" class="pfwidget-link" target="_blank" rel="noopener noreferrer">' +
+            '<span class="pfwidget-title">' + esc(d.title) + cnt + '</span>' +
+            '<span class="pfwidget-date">' + fmt(d.updated_at) + '</span>' +
+          '</a>' +
+        '</li>';
+      }).join('');
+    })
+    .catch(function () {
+      list.innerHTML = '<li class="pfwidget-empty">댓글 데이터를 불러올 수 없습니다.</li>';
+    });
+})();
+</script>

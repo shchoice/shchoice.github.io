@@ -185,7 +185,13 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   repo       = "shchoice/shchoice.github.io"
   repoId     = "R_kgDORl3Jeg"
   category   = "General"
-  categoryId = "PLACEHOLDER_CATEGORY_ID"  # giscus.app에서 발급받은 값으로 교체
+  categoryId = "DIC_kwDORl3Jes4C4mvL"  # giscus.app에서 발급받은 값으로 교체
+
+# ── CounterAPI (방문자 수 / 포스트 조회수 / 좋아요) ──────────────
+# 토큰: https://counterapi.dev 대시보드에서 복사
+[counterapi]
+  workspace = "s-team-23-3333"
+  token     = "ut_mF1yiA75G7D6NYP7PoZ5s8VcvE3uPqUX4Ze0s7b3"   # ← 여기에 복사한 토큰 붙여넣기
 
 [advertisement]
   # adsense = ""

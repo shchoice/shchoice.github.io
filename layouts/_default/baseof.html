@@ -55,6 +55,53 @@
 
   </body>
 
+  {{/* ── Visitor Counter (CounterAPI.dev v2) ── */}}
+  <script>
+  (function () {
+    var WS    = '{{ site.Params.counterapi.workspace | default "shchoice-blog-2026" }}'.trim();
+    var TOKEN = '{{ site.Params.counterapi.token | default "" }}'.trim();
+    var BASE  = 'https://api.counterapi.dev/v2/' + encodeURIComponent(WS) + '/';
+    var HDRS  = TOKEN ? { 'Authorization': 'Bearer ' + TOKEN } : {};
+
+    function toDate(d) { return d.toISOString().slice(0, 10); }
+    var today     = toDate(new Date());
+    var yesterday = toDate(new Date(Date.now() - 864e5));
+
+    function fmt(n) {
+      if (n == null || isNaN(n)) return '–';
+      return Number(n).toLocaleString('ko-KR');
+    }
+
+    function setAll(total, tod, yest) {
+      ['sv-total',     'hv-total'    ].forEach(function(id){ var el=document.getElementById(id); if(el) el.textContent=fmt(total); });
+      ['sv-today',     'hv-today'    ].forEach(function(id){ var el=document.getElementById(id); if(el) el.textContent=fmt(tod);   });
+      ['sv-yesterday', 'hv-yesterday'].forEach(function(id){ var el=document.getElementById(id); if(el) el.textContent=fmt(yest);  });
+    }
+
+    // 세션 중복 방지
+    var counted = sessionStorage.getItem('vc_counted') === today;
+
+    var totalUrl     = BASE + 'total'     + (counted ? '' : '/up');
+    var todayUrl     = BASE + today       + (counted ? '' : '/up');
+    var yesterdayUrl = BASE + yesterday;
+
+    Promise.all([
+      fetch(totalUrl,     { method: counted ? 'GET' : 'GET', headers: HDRS }).then(function(r){ return r.json(); }),
+      fetch(todayUrl,     { method: counted ? 'GET' : 'GET', headers: HDRS }).then(function(r){ return r.json(); }),
+      fetch(yesterdayUrl, { method: 'GET',                   headers: HDRS }).then(function(r){ return r.json(); })
+    ]).then(function(results) {
+      if (!counted) sessionStorage.setItem('vc_counted', today);
+      setAll(
+        results[0] && results[0].count,
+        results[1] && results[1].count,
+        results[2] && results[2].count
+      );
+    }).catch(function() {
+      setAll('–', '–', '–');
+    });
+  })();
+  </script>
+
   {{ if site.Params.buymeacoffee.globalWidget | default false }}
     <script
       data-name="BMC-Widget"

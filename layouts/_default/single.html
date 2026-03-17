@@ -80,6 +80,31 @@
 
     </div>{{/* /article-header-inner */}}
 
+    {{/* Post Stats Bar (views · likes · comments) */}}
+    <div class="article-stats-bar" id="article-stats-bar">
+      <span class="astat-item">
+        <svg class="astat-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+        <span id="astat-views">–</span>
+      </span>
+      <span class="astat-sep">·</span>
+      <button class="astat-item astat-like-btn" id="astat-like-btn" type="button" aria-label="좋아요" aria-pressed="false">
+        <svg class="astat-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+        </svg>
+        <span id="astat-likes">–</span>
+      </button>
+      <span class="astat-sep">·</span>
+      <span class="astat-item">
+        <svg class="astat-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span id="astat-comments">–</span>
+      </span>
+    </div>
+
     {{/* Wave animation — spans full header width */}}
     <div class="article-header-waves" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
@@ -165,6 +190,9 @@
       {{ end }}
     </footer>
 
+    {{/* ── Post Footer Widgets (최근 댓글 / 최근 글 / 인기글) ── */}}
+    {{ partial "post-footer-widgets.html" . }}
+
   </article>
 
   {{/* Floating ToC button */}}
@@ -228,6 +256,91 @@
   });
   </script>
   {{ end }}
+
+{{/* ── Post Stats (views / likes / comments) — CounterAPI v2 ── */}}
+<script>
+(function () {
+  var WS    = '{{ site.Params.counterapi.workspace | default "shchoice-blog-2026" }}'.trim();
+  var TOKEN = '{{ site.Params.counterapi.token | default "" }}'.trim();
+  var BASE  = 'https://api.counterapi.dev/v2/' + encodeURIComponent(WS) + '/';
+  var HDRS  = TOKEN ? { 'Authorization': 'Bearer ' + TOKEN } : {};
+
+  // Derive a stable key from the current URL path
+  var slug = window.location.pathname
+               .replace(/^\/+|\/+$/g, '')
+               .replace(/\//g, '-') || 'home';
+  var viewKey = 'view-' + slug;
+  var likeKey = 'like-' + slug;
+  var lsKey   = 'liked_' + slug;     // localStorage: '1' if liked
+  var sessKey = 'vc_post_' + slug;   // sessionStorage: date of last view
+  var today   = new Date().toISOString().slice(0, 10);
+
+  var elViews    = document.getElementById('astat-views');
+  var elLikes    = document.getElementById('astat-likes');
+  var elComments = document.getElementById('astat-comments');
+  var btnLike    = document.getElementById('astat-like-btn');
+
+  function fmt(n) {
+    if (n == null || isNaN(n)) return '0';
+    return Number(n).toLocaleString('ko-KR');
+  }
+
+  /* ── Views: GET /up 한 번 (세션 중복 방지) ── */
+  var alreadyViewed = sessionStorage.getItem(sessKey) === today;
+  fetch(BASE + viewKey + (alreadyViewed ? '/' : '/up'), { headers: HDRS })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (!alreadyViewed) sessionStorage.setItem(sessKey, today);
+      if (elViews) elViews.textContent = fmt(d.count);
+    })
+    .catch(function () { if (elViews) elViews.textContent = '0'; });
+
+  /* ── Likes: toggle GET /up or GET /down ── */
+  var isLiked = localStorage.getItem(lsKey) === '1';
+
+  function applyLikeState(liked, count) {
+    if (!btnLike) return;
+    btnLike.setAttribute('aria-pressed', liked ? 'true' : 'false');
+    btnLike.classList.toggle('is-liked', liked);
+    if (elLikes) elLikes.textContent = fmt(count);
+  }
+
+  // 현재 좋아요 수 읽기
+  fetch(BASE + likeKey + '/', { headers: HDRS })
+    .then(function (r) { return r.json(); })
+    .then(function (d) { applyLikeState(isLiked, d.count); })
+    .catch(function () { applyLikeState(isLiked, 0); });
+
+  if (btnLike) {
+    btnLike.addEventListener('click', function () {
+      var liked  = localStorage.getItem(lsKey) === '1';
+      var action = liked ? 'down' : 'up';
+      fetch(BASE + likeKey + '/' + action, { headers: HDRS })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (liked) {
+            localStorage.removeItem(lsKey);
+            applyLikeState(false, d.count);
+          } else {
+            localStorage.setItem(lsKey, '1');
+            applyLikeState(true, d.count);
+          }
+        })
+        .catch(function () {});
+    });
+  }
+
+  /* ── Comments: Giscus postMessage로 댓글 수 수신 ── */
+  window.addEventListener('message', function (e) {
+    if (e.origin !== 'https://giscus.app') return;
+    var disc = e.data && e.data.giscus && e.data.giscus.discussion;
+    if (disc && elComments) {
+      var total = (disc.totalCommentCount || 0) + (disc.totalReplyCount || 0);
+      elComments.textContent = fmt(total);
+    }
+  });
+})();
+</script>
 
 {{ end }}
 

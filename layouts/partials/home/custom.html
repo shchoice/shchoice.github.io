@@ -3,23 +3,6 @@
 {{/* ============ Hero Section ============ */}}
 <section class="home-hero">
   <div class="home-hero-inner">
-    {{ with .Site.Params.Author.image }}
-      {{ $authorImage := "" }}
-      {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
-        {{ $authorImage = resources.GetRemote . }}
-      {{ else }}
-        {{ $authorImage = resources.Get . }}
-      {{ end }}
-      {{ if $authorImage }}
-        {{ if and (not $disableImageOptimization) (not (eq $authorImage.MediaType.SubType "svg")) }}
-          {{ $final := $authorImage.Fill "120x120 q96" }}
-          <img src="{{ $final.RelPermalink }}" alt="{{ $.Site.Params.Author.name }}" class="home-hero-avatar">
-        {{ else }}
-          <img src="{{ $authorImage.RelPermalink }}" alt="{{ $.Site.Params.Author.name }}" class="home-hero-avatar">
-        {{ end }}
-      {{ end }}
-    {{ end }}
-
     <h1 class="home-hero-title">{{ .Site.Title }}</h1>
 
     {{ with .Site.Params.Author.headline }}
@@ -30,10 +13,27 @@
       <p class="home-hero-bio">{{ . | markdownify }}</p>
     {{ end }}
   </div>
+
+  {{/* Wave — 포스트/카테고리 페이지와 동일한 wave */}}
+  <div class="article-header-waves" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+      <defs>
+        <path id="ah-wave2" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/>
+      </defs>
+      <g>
+        <use href="#ah-wave2" class="ahw-1" x="48" y="0"/>
+        <use href="#ah-wave2" class="ahw-2" x="48" y="3"/>
+        <use href="#ah-wave2" class="ahw-3" x="48" y="5"/>
+        <use href="#ah-wave2" class="ahw-4" x="48" y="7"/>
+      </g>
+    </svg>
+  </div>
 </section>
 
 {{/* ============ Stats Section ============ */}}
 <section class="home-stats-section">
+
+  {{/* ── 블로그 통계 ── */}}
   <div class="home-stats-grid">
     <div class="home-stat-card">
       <div class="home-stat-number">{{ len site.RegularPages }}</div>
@@ -48,13 +48,23 @@
       <div class="home-stat-label">태그</div>
     </div>
   </div>
+
 </section>
 
 {{/* ============ Popular Categories ============ */}}
 {{ if gt (len site.Taxonomies.categories) 0 }}
 <section class="home-section">
   <div class="home-section-inner">
-    <h2 class="section-heading">인기 카테고리 🔥</h2>
+    <h2 class="section-heading">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="2.4"
+           stroke-linecap="round" stroke-linejoin="round"
+           aria-hidden="true" class="section-heading-icon">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      인기 카테고리
+    </h2>
     <p class="section-subheading">자주 다루는 주제들을 살펴보세요</p>
     <div class="category-grid">
       {{ range $name, $pages := site.Taxonomies.categories }}
@@ -79,9 +89,20 @@
   {{ if gt (len $recentPages) 0 }}
   <section class="home-section">
     <div class="home-section-inner">
-      <h2 class="section-heading">최신 글 ✍️</h2>
+      <h2 class="section-heading">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.4"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true" class="section-heading-icon">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+        </svg>
+        최신 포스트
+      </h2>
       <p class="section-subheading">최근에 작성된 글들을 확인해보세요</p>
-      <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+      <section class="list-cards-grid">
         {{ range first $recentCount $recentPages }}
           {{ partial "article-link/card.html" . }}
         {{ end }}
@@ -97,6 +118,35 @@
     </div>
   </section>
   {{ end }}
+{{ end }}
+
+{{/* ============ Popular Posts ============ */}}
+{{ $mainSections := site.Params.mainSections | default (slice "posts") }}
+{{ $allPages := where site.RegularPages "Type" "in" $mainSections }}
+{{ if gt (len $allPages) 0 }}
+  {{ $weighted := where $allPages ".Params.weight" ">" 0 }}
+  {{ $popular := cond (gt (len $weighted) 0) ($weighted.ByWeight.Reverse) ($allPages.ByDate.Reverse) }}
+  {{ $popularCount := site.Params.homepage.showRecentItems | default 6 }}
+<section class="home-section">
+  <div class="home-section-inner">
+    <h2 class="section-heading">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="2.4"
+           stroke-linecap="round" stroke-linejoin="round"
+           aria-hidden="true" class="section-heading-icon">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+        <polyline points="17 6 23 6 23 12"></polyline>
+      </svg>
+      인기 포스트
+    </h2>
+    <p class="section-subheading">많이 읽힌 글들을 확인해보세요</p>
+    <section class="list-cards-grid">
+      {{ range first $popularCount $popular }}
+        {{ partial "article-link/card.html" . }}
+      {{ end }}
+    </section>
+  </div>
+</section>
 {{ end }}
 
 {{/* Page content (if any _index.md content) */}}
