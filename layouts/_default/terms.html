@@ -1,0 +1,89 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "list" }}
+
+  {{/* ── Wave header (list-header 공용 스타일 재사용) ── */}}
+  <header class="list-header">
+    <div class="list-header-inner">
+
+      <div class="list-header-accent"></div>
+
+      {{/* Breadcrumb */}}
+      {{ if and .Parent (ne .Parent.Kind "home") }}
+        <div class="list-header-breadcrumb">
+          <a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
+          <span class="list-bc-sep">›</span>
+          <span>{{ .Title }}</span>
+        </div>
+      {{ end }}
+
+      {{/* Title */}}
+      <h1 class="list-header-title">{{ .Title | emojify }}</h1>
+
+      {{/* Description */}}
+      {{ with .Description }}
+        <p class="list-header-desc">{{ . | markdownify }}</p>
+      {{ end }}
+
+      {{/* Tag count */}}
+      <div class="list-header-meta">
+        <span class="list-header-count">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+            <line x1="7" y1="7" x2="7.01" y2="7"></line>
+          </svg>
+          {{ len .Data.Terms }}개의 태그
+        </span>
+      </div>
+
+    </div>
+
+    {{/* Wave */}}
+    <div class="article-header-waves" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+        <defs>
+          <path id="tw-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/>
+        </defs>
+        <g>
+          <use href="#tw-wave" class="ahw-1" x="48" y="0"/>
+          <use href="#tw-wave" class="ahw-2" x="48" y="3"/>
+          <use href="#tw-wave" class="ahw-3" x="48" y="5"/>
+          <use href="#tw-wave" class="ahw-4" x="48" y="7"/>
+        </g>
+      </svg>
+    </div>
+  </header>
+
+  {{/* ── Tag box grid ── */}}
+  <div class="tags-page-body">
+    {{ if gt (len .Data.Terms) 0 }}
+      <div class="tags-cloud-wrap">
+        {{ range .Data.Terms }}
+          {{ $count := .Count }}
+          {{/* 포스팅 수에 따라 크기 클래스 분기 */}}
+          {{ $sizeClass := "tag-box-sm" }}
+          {{ if ge $count 3 }}{{ $sizeClass = "tag-box-md" }}{{ end }}
+          {{ if ge $count 7 }}{{ $sizeClass = "tag-box-lg" }}{{ end }}
+
+          <a href="{{ .Page.RelPermalink }}" class="tag-box {{ $sizeClass }}">
+            <svg class="tag-box-icon" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+              <line x1="7" y1="7" x2="7.01" y2="7"></line>
+            </svg>
+            <span class="tag-box-name">{{ .Page.Title }}</span>
+            <span class="tag-box-count">{{ $count }}</span>
+          </a>
+        {{ end }}
+      </div>
+    {{ else }}
+      <div class="list-empty">
+        <p><em>등록된 태그가 없습니다.</em></p>
+      </div>
+    {{ end }}
+  </div>
+
+{{ end }}

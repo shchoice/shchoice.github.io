@@ -1,0 +1,19 @@
+# Hugo build output (GitHub Actions가 배포 시 생성)
+public/
+resources/
+.hugo_build.lock
+
+# Hugo backup files
+hugo.toml_bak
+config/_default_bak/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (필요 시)
+node_modules/

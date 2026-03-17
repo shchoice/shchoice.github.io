@@ -1,0 +1,19 @@
+disabled = false
+languageCode = "ko"
+languageName = "한국어"
+weight = 1
+title = "Tech Magazine"
+
+[params]
+  displayName = "KO"
+  isoCode = "ko"
+  rtl = false
+  dateFormat = "2006년 1월 2일"
+  description = "개발 기술 블로그"
+
+[params.author]
+  name = "Tech Writer"
+  # image = "img/profile.png"  # 프로필 이미지 파일을 assets/img/profile.png 에 추가하면 활성화
+  imageQuality = 96
+  headline = "개발 블로그"
+  bio = "기술과 개발에 관한 이야기를 나눕니다."

@@ -1,0 +1,109 @@
+{{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
+
+{{/* ============ Hero Section ============ */}}
+<section class="home-hero">
+  <div class="home-hero-inner">
+    {{ with .Site.Params.Author.image }}
+      {{ $authorImage := "" }}
+      {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+        {{ $authorImage = resources.GetRemote . }}
+      {{ else }}
+        {{ $authorImage = resources.Get . }}
+      {{ end }}
+      {{ if $authorImage }}
+        {{ if and (not $disableImageOptimization) (not (eq $authorImage.MediaType.SubType "svg")) }}
+          {{ $final := $authorImage.Fill "120x120 q96" }}
+          <img src="{{ $final.RelPermalink }}" alt="{{ $.Site.Params.Author.name }}" class="home-hero-avatar">
+        {{ else }}
+          <img src="{{ $authorImage.RelPermalink }}" alt="{{ $.Site.Params.Author.name }}" class="home-hero-avatar">
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    <h1 class="home-hero-title">{{ .Site.Title }}</h1>
+
+    {{ with .Site.Params.Author.headline }}
+      <p class="home-hero-headline">{{ . | markdownify }}</p>
+    {{ end }}
+
+    {{ with .Site.Params.Author.bio }}
+      <p class="home-hero-bio">{{ . | markdownify }}</p>
+    {{ end }}
+  </div>
+</section>
+
+{{/* ============ Stats Section ============ */}}
+<section class="home-stats-section">
+  <div class="home-stats-grid">
+    <div class="home-stat-card">
+      <div class="home-stat-number">{{ len site.RegularPages }}</div>
+      <div class="home-stat-label">전체 글</div>
+    </div>
+    <div class="home-stat-card">
+      <div class="home-stat-number">{{ len site.Taxonomies.categories }}</div>
+      <div class="home-stat-label">카테고리</div>
+    </div>
+    <div class="home-stat-card">
+      <div class="home-stat-number">{{ len site.Taxonomies.tags }}</div>
+      <div class="home-stat-label">태그</div>
+    </div>
+  </div>
+</section>
+
+{{/* ============ Popular Categories ============ */}}
+{{ if gt (len site.Taxonomies.categories) 0 }}
+<section class="home-section">
+  <div class="home-section-inner">
+    <h2 class="section-heading">인기 카테고리 🔥</h2>
+    <p class="section-subheading">자주 다루는 주제들을 살펴보세요</p>
+    <div class="category-grid">
+      {{ range $name, $pages := site.Taxonomies.categories }}
+        <a href="{{ printf "/categories/%s/" (urlize $name) | relLangURL }}" class="category-card">
+          <div class="category-card-icon">📂</div>
+          <div class="category-card-name">{{ $name | humanize }}</div>
+          <div class="category-card-count">{{ len $pages }} 글</div>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{/* ============ Recent Posts ============ */}}
+{{ $showRecent := site.Params.homepage.showRecent | default true }}
+{{ if $showRecent }}
+  {{ $recentCount := site.Params.homepage.showRecentItems | default 6 }}
+  {{ $mainSections := site.Params.mainSections | default (slice "posts") }}
+  {{ $recentPages := where site.RegularPages "Type" "in" $mainSections }}
+
+  {{ if gt (len $recentPages) 0 }}
+  <section class="home-section">
+    <div class="home-section-inner">
+      <h2 class="section-heading">최신 글 ✍️</h2>
+      <p class="section-subheading">최근에 작성된 글들을 확인해보세요</p>
+      <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+        {{ range first $recentCount $recentPages }}
+          {{ partial "article-link/card.html" . }}
+        {{ end }}
+      </section>
+
+      {{ if site.Params.homepage.showMoreLink | default false }}
+        <div class="home-more-wrap">
+          <a href="{{ site.Params.homepage.showMoreLinkDest | default `/posts/` | relLangURL }}" class="home-more-btn">
+            더 보기
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+{{ end }}
+
+{{/* Page content (if any _index.md content) */}}
+{{ with .Content }}
+<section class="home-section">
+  <div class="home-section-inner prose dark:prose-invert">
+    {{ . }}
+  </div>
+</section>
+{{ end }}

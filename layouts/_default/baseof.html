@@ -1,0 +1,71 @@
+<!doctype html>
+<html
+  lang="{{ with site.Params.isoCode | default (site.LanguageCode | default `ko`) }}{{- . -}}{{ end }}"
+  dir="{{ cond (site.Params.rtl | default false) `rtl` `ltr` }}"
+  class="scroll-smooth"
+  data-default-appearance="{{ site.Params.defaultAppearance | default `dark` }}"
+  data-auto-appearance="{{ site.Params.autoSwitchAppearance | default `false` }}">
+  {{- partial "head.html" . -}}
+  {{- partialCached "init.html" . -}}
+
+  <body class="has-sidebar text-lg bg-neutral-800 text-neutral dark:bg-neutral-900 dark:text-neutral {{ if site.Params.enableStyledScrollbar | default true }}bf-scrollbar{{ end }}">
+
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content">
+        <span class="font-bold text-primary-600 pe-2 dark:text-primary-400">&darr;</span>
+        {{ i18n "nav.skip_to_main" }}
+      </a>
+    </div>
+
+    {{/* Left Sidebar */}}
+    <aside id="sidebar">
+      {{ partial "sidebar.html" . }}
+    </aside>
+
+    {{/* Mobile top bar (hidden on desktop) */}}
+    <div id="mobile-topbar">
+      <a href="{{ "" | relLangURL }}" class="mobile-topbar-title">
+        {{ site.Title }}
+      </a>
+      <div style="display:flex;gap:12px;align-items:center;">
+        {{ if site.Params.enableSearch | default false }}
+          <a href="#" onclick="displaySearch();return false;"
+             style="color:rgb(155,155,168);text-decoration:none;font-size:18px;">&#128269;</a>
+        {{ end }}
+      </div>
+    </div>
+
+    {{/* Main scrollable area */}}
+    <div id="main-wrapper" class="flex flex-col flex-1">
+      {{- partial "topbar.html" . -}}
+      <main id="main-content" class="grow">
+        {{ block "main" . }}{{ end }}
+        {{ if and (site.Params.footer.showScrollToTop | default true) }}
+          {{- partial "scroll-to-top.html" . -}}
+        {{ end }}
+      </main>
+      {{- partial "footer.html" . -}}
+    </div>
+
+    {{ if site.Params.enableSearch | default false }}
+      {{- partial "search.html" . -}}
+    {{ end }}
+
+  </body>
+
+  {{ if site.Params.buymeacoffee.globalWidget | default false }}
+    <script
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="{{ site.Params.buymeacoffee.identifier }}"
+      data-description="Support me on Buy me a coffee!"
+      {{ with site.Params.buymeacoffee.globalWidgetMessage }}data-message="{{ . }}"{{ end }}
+      {{ with site.Params.buymeacoffee.globalWidgetColor | default `#FFDD00` }}data-color="{{ . }}"{{ end }}
+      {{ with site.Params.buymeacoffee.globalWidgetPosition }}data-position="{{ . }}"{{ end }}
+      data-x_margin="18"
+      data-y_margin="18"></script>
+  {{ end }}
+</html>

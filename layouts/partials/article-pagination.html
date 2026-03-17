@@ -1,0 +1,196 @@
+{{ if .Params.showPagination | default (.Site.Params.article.showPagination | default true) }}
+  {{ if or .NextInSection .PrevInSection }}
+
+    {{ $next := .NextInSection }}
+    {{ $prev := .PrevInSection }}
+    {{ if .Params.invertPagination | default (.Site.Params.article.invertPagination | default false) }}
+      {{ $next = .PrevInSection }}
+      {{ $prev = .NextInSection }}
+    {{ end }}
+
+    {{ $disableImageOpt := site.Store.Get "disableImageOptimization" }}
+
+    {{/* ── Resolve feature image URL for $prev ── */}}
+    {{ $prevImgURL := "" }}
+    {{ if $prev }}
+      {{ with $prev.Params.featureimage }}
+        {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+          {{ $prevImgURL = . }}
+        {{ else }}
+          {{ with resources.Get . }}
+            {{ if not (or $disableImageOpt (eq .MediaType.SubType "svg")) }}
+              {{ $prevImgURL = (.Resize "800x").RelPermalink }}
+            {{ else }}
+              {{ $prevImgURL = .RelPermalink }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ if not $prevImgURL }}
+        {{ $imgs := $prev.Resources.ByType "image" }}
+        {{ range slice "*feature*" "*cover*" "*thumbnail*" }}
+          {{ if not $prevImgURL }}
+            {{ with $imgs.GetMatch . }}
+              {{ if not (or $disableImageOpt (eq .MediaType.SubType "svg")) }}
+                {{ $prevImgURL = (.Resize "800x").RelPermalink }}
+              {{ else }}
+                {{ $prevImgURL = .RelPermalink }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{/* ── Resolve feature image URL for $next ── */}}
+    {{ $nextImgURL := "" }}
+    {{ if $next }}
+      {{ with $next.Params.featureimage }}
+        {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+          {{ $nextImgURL = . }}
+        {{ else }}
+          {{ with resources.Get . }}
+            {{ if not (or $disableImageOpt (eq .MediaType.SubType "svg")) }}
+              {{ $nextImgURL = (.Resize "800x").RelPermalink }}
+            {{ else }}
+              {{ $nextImgURL = .RelPermalink }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ if not $nextImgURL }}
+        {{ $imgs := $next.Resources.ByType "image" }}
+        {{ range slice "*feature*" "*cover*" "*thumbnail*" }}
+          {{ if not $nextImgURL }}
+            {{ with $imgs.GetMatch . }}
+              {{ if not (or $disableImageOpt (eq .MediaType.SubType "svg")) }}
+                {{ $nextImgURL = (.Resize "800x").RelPermalink }}
+              {{ else }}
+                {{ $nextImgURL = .RelPermalink }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{/* ── Layout ── */}}
+    <div class="post-nav-wrap{{ if and $prev $next }} post-nav-both{{ else }} post-nav-single{{ end }}">
+
+      {{/* ── Previous post ── */}}
+      {{ if $prev }}
+        <a href="{{ $prev.RelPermalink }}"
+           class="post-nav-card post-nav-prev{{ if not $prevImgURL }} post-nav-no-img{{ end }}"
+           {{ if $prevImgURL }}style="background-image: url('{{ $prevImgURL }}')"{{ end }}>
+          <div class="post-nav-overlay"></div>
+          <div class="post-nav-content">
+            {{/* Arrow */}}
+            <div class="post-nav-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </div>
+            {{/* Info */}}
+            <div class="post-nav-info">
+              <span class="post-nav-label">이전 포스트</span>
+              <span class="post-nav-title">{{ $prev.Title | emojify }}</span>
+              {{ if .Params.showDate | default (.Site.Params.article.showDate | default true) }}
+                <span class="post-nav-date">{{ $prev.Date.Format "2006.01.02" }}</span>
+              {{ end }}
+            </div>
+          </div>
+        </a>
+      {{ end }}
+
+      {{/* ── Next post ── */}}
+      {{ if $next }}
+        <a href="{{ $next.RelPermalink }}"
+           class="post-nav-card post-nav-next{{ if not $nextImgURL }} post-nav-no-img{{ end }}"
+           {{ if $nextImgURL }}style="background-image: url('{{ $nextImgURL }}')"{{ end }}>
+          <div class="post-nav-overlay"></div>
+          <div class="post-nav-content">
+            {{/* Info (오른쪽 정렬) */}}
+            <div class="post-nav-info post-nav-info-right">
+              <span class="post-nav-label">다음 포스트</span>
+              <span class="post-nav-title">{{ $next.Title | emojify }}</span>
+              {{ if .Params.showDate | default (.Site.Params.article.showDate | default true) }}
+                <span class="post-nav-date">{{ $next.Date.Format "2006.01.02" }}</span>
+              {{ end }}
+            </div>
+            {{/* Arrow */}}
+            <div class="post-nav-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+        </a>
+      {{ end }}
+
+    </div>
+
+  {{ end }}
+
+{{ end }}
+
+{{/* ============================================================
+     Related Posts — 같은 카테고리의 다른 글만 표시
+     카테고리가 없으면 박스 미표시
+     같은 카테고리 글이 자신뿐이면 "다른 내용이 없습니다" 표시
+     ============================================================ */}}
+{{ $currentPage := . }}
+{{ $cats := $currentPage.GetTerms "categories" }}
+
+{{ if $cats }}
+  {{ $cat     := index $cats 0 }}
+  {{ $others  := where $cat.Pages "RelPermalink" "ne" $currentPage.RelPermalink }}
+
+  <div class="related-posts-box">
+
+    {{/* ── Header ── */}}
+    <div class="related-posts-header">
+      <span class="related-posts-title">
+        <svg class="related-posts-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        '{{ $cat.LinkTitle }}' 카테고리의 다른 글
+      </span>
+      <a href="{{ $cat.RelPermalink }}" class="related-posts-all">전체 보기 →</a>
+    </div>
+
+    {{/* ── Post list or empty message ── */}}
+    {{ if gt (len $others) 0 }}
+      <ul class="related-posts-list">
+        {{ range first 6 $others }}
+          <li class="related-post-item">
+            <a href="{{ .RelPermalink }}" class="related-post-link">
+              <div class="related-post-info">
+                <span class="related-post-text">{{ .Title | emojify }}</span>
+                <span class="related-post-date">{{ .Date.Format "2006.01.02" }}</span>
+              </div>
+              <svg class="related-post-arrow" xmlns="http://www.w3.org/2000/svg" width="13" height="13"
+                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    {{ else }}
+      <p class="related-posts-empty">다른 내용이 없습니다.</p>
+    {{ end }}
+
+  </div>
+{{ end }}

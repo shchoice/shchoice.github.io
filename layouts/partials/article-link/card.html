@@ -1,0 +1,148 @@
+{{/* ============================================================
+     Post Card — inpa.tistory.com "card-body22" style
+     ============================================================ */}}
+
+{{ $disableImageOptimization := site.Store.Get "disableImageOptimization" }}
+{{ $page := .Page }}
+{{ $featured := "" }}
+{{ $featuredURL := "" }}
+
+{{ if not .Params.hideFeatureImage }}
+  {{ with $page }}
+    {{ with .Params.featureimage }}
+      {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+        {{ if site.Params.hotlinkFeatureImage }}
+          {{ $featuredURL = . }}
+        {{ else }}
+          {{ $featured = resources.GetRemote . }}
+        {{ end }}
+      {{ else }}
+        {{ $featured = resources.Get . }}
+      {{ end }}
+    {{ end }}
+    {{ if not (or $featured $featuredURL) }}
+      {{ $images := .Resources.ByType "image" }}
+      {{ range slice "*feature*" "*cover*" "*thumbnail*" }}
+        {{ if not $featured }}{{ $featured = $images.GetMatch . }}{{ end }}
+      {{ end }}
+    {{ end }}
+    {{ if not (or $featured $featuredURL) }}
+      {{ $default := site.Store.Get "defaultFeaturedImage" }}
+      {{ if $default.url }}
+        {{ $featuredURL = $default.url }}
+      {{ else if $default.obj }}
+        {{ $featured = $default.obj }}
+      {{ end }}
+    {{ end }}
+    {{ if not $featuredURL }}
+      {{ with $featured }}
+        {{ $featuredURL = .RelPermalink }}
+        {{ if not (or $disableImageOptimization (eq .MediaType.SubType "svg")) }}
+          {{ $featuredURL = (.Resize "600x").RelPermalink }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* ── Card wrapper ── */}}
+<article class="post-card">
+
+  {{/* ── Thumbnail ── */}}
+  <a href="{{ $page.RelPermalink }}" class="post-card-thumb-link" tabindex="-1" aria-hidden="true">
+    <div class="post-card-thumb">
+      {{ if $featuredURL }}
+        <img
+          src="{{ $featuredURL }}"
+          alt="{{ $page.Title }}"
+          loading="lazy"
+          decoding="async"
+          class="post-card-thumb-img">
+      {{ else }}
+        <div class="post-card-thumb-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="1.2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </div>
+      {{ end }}
+    </div>
+  </a>
+
+  {{/* ── Body ── */}}
+  <div class="post-card-body">
+
+    {{/* Category tag */}}
+    {{ $cats := $page.GetTerms "categories" }}
+    {{ if $cats }}
+      <div class="post-card-tags">
+        {{ range first 1 $cats }}
+          <a href="{{ .RelPermalink }}" class="post-card-tag">{{ .LinkTitle }}</a>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    {{/* Title */}}
+    <h3 class="post-card-title">
+      <a href="{{ $page.RelPermalink }}" class="post-card-title-link">
+        {{ $page.Title | emojify }}
+        {{ if $page.Params.externalUrl }}
+          <span class="post-card-external">↗</span>
+        {{ end }}
+      </a>
+    </h3>
+
+    {{/* Summary */}}
+    {{ if $page.Params.showSummary | default ($page.Site.Params.list.showSummary | default true) }}
+      {{ with $page.Summary }}
+        <p class="post-card-summary">{{ . | plainify }}</p>
+      {{ end }}
+    {{ end }}
+
+    {{/* Footer: date · reading time */}}
+    <div class="post-card-footer">
+      <div class="post-card-meta">
+        <svg class="post-card-meta-icon" xmlns="http://www.w3.org/2000/svg" width="11" height="11"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span>{{ $page.Date.Format "2006.01.02" }}</span>
+        <span class="post-card-sep">·</span>
+        <svg class="post-card-meta-icon" xmlns="http://www.w3.org/2000/svg" width="11" height="11"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span>{{ $page.ReadingTime }}분</span>
+      </div>
+
+      {{ if .Draft }}
+        <span class="post-card-draft">Draft</span>
+      {{ end }}
+    </div>
+
+    {{/* Tags */}}
+    {{ $ptags := $page.GetTerms "tags" }}
+    {{ if $ptags }}
+      <div class="post-card-tag-list">
+        {{ range first 4 $ptags }}
+          <a href="{{ .RelPermalink }}" class="post-card-tag-chip">
+            <span class="post-card-tag-hash">#</span>{{ .LinkTitle }}
+          </a>
+        {{ end }}
+      </div>
+    {{ end }}
+
+  </div>{{/* /post-card-body */}}
+
+</article>

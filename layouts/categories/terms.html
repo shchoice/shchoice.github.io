@@ -1,0 +1,89 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "list" }}
+
+  {{/* ── Build icon lookup map from data/sidebar.yaml ── */}}
+  {{ $iconMap := dict }}
+  {{ with site.Data.sidebar }}
+    {{ range .groups }}
+      {{ range .categories }}
+        {{ $iconMap = merge $iconMap (dict .slug .icon) }}
+        {{ range .children }}
+          {{ $iconMap = merge $iconMap (dict .slug .icon) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* ── Wave Header ── */}}
+  <header class="list-header">
+    <div class="list-header-inner">
+
+      <div class="list-header-accent"></div>
+
+      {{/* Title */}}
+      <h1 class="list-header-title">{{ .Title | emojify }}</h1>
+
+      {{/* Description */}}
+      {{ with .Description }}
+        <p class="list-header-desc">{{ . | markdownify }}</p>
+      {{ end }}
+
+      {{/* Meta: category count */}}
+      <div class="list-header-meta">
+        <span class="list-header-count">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+            <line x1="7" y1="7" x2="7.01" y2="7"></line>
+          </svg>
+          {{ len .Data.Terms }}개의 카테고리
+        </span>
+      </div>
+
+    </div>
+
+    {{/* Wave */}}
+    <div class="article-header-waves" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+        <defs>
+          <path id="ch-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/>
+        </defs>
+        <g>
+          <use href="#ch-wave" class="ahw-1" x="48" y="0"/>
+          <use href="#ch-wave" class="ahw-2" x="48" y="3"/>
+          <use href="#ch-wave" class="ahw-3" x="48" y="5"/>
+          <use href="#ch-wave" class="ahw-4" x="48" y="7"/>
+        </g>
+      </svg>
+    </div>
+  </header>
+
+  {{/* ── Category Cards Grid ── */}}
+  <div class="list-body">
+    {{ if gt (len .Data.Terms) 0 }}
+      <section class="cat-cards-grid">
+        {{ range .Data.Terms.ByCount }}
+          {{ $slug := .Page.Slug | default (.Page.Title | urlize) }}
+          {{ $icon := index $iconMap $slug | default "📁" }}
+          {{ $count := .Count }}
+          <a href="{{ .Page.RelPermalink }}" class="cat-card">
+            <div class="cat-card-icon">{{ $icon }}</div>
+            <div class="cat-card-body">
+              <span class="cat-card-name">{{ .Page.Title }}</span>
+              {{ with .Page.Description }}
+                <p class="cat-card-desc">{{ . }}</p>
+              {{ end }}
+            </div>
+            <span class="cat-card-count">{{ $count }}</span>
+          </a>
+        {{ end }}
+      </section>
+    {{ else }}
+      <section class="list-empty">
+        <p><em>등록된 카테고리가 없습니다.</em></p>
+      </section>
+    {{ end }}
+  </div>
+
+{{ end }}

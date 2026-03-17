@@ -1,0 +1,96 @@
+<nav id="topbar" role="navigation" aria-label="상단 내비게이션">
+  <div class="topbar-inner">
+
+    {{/* Left: breadcrumb-style page context */}}
+    <div class="topbar-left">
+      {{ $section := .Section }}
+      {{ if $section }}
+        <span class="topbar-section">{{ $section | title }}</span>
+        <span class="topbar-sep">›</span>
+      {{ end }}
+      <span class="topbar-page-title">{{ .Title | truncate 40 }}</span>
+    </div>
+
+    {{/* Right: actions */}}
+    <div class="topbar-actions">
+
+      {{ if site.Params.enableSearch | default false }}
+      <button
+        class="topbar-btn"
+        onclick="displaySearch()"
+        title="검색"
+        aria-label="검색">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+      {{ end }}
+
+      <button
+        class="topbar-btn topbar-theme-btn"
+        id="topbarThemeBtn"
+        onclick="topbarToggleTheme()"
+        title="다크 / 라이트 모드 전환"
+        aria-label="테마 전환">
+        {{/* Sun: visible in dark mode → click to go light */}}
+        <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1"  x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22"   x2="5.64"  y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1"  y1="12" x2="3"  y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"></line>
+          <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"></line>
+        </svg>
+        {{/* Moon: visible in light mode → click to go dark */}}
+        <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    function syncThemeIcons() {
+      var dark = document.documentElement.classList.contains('dark');
+      document.querySelectorAll('.theme-icon-sun').forEach(function (el) {
+        el.style.display = dark ? 'block' : 'none';
+      });
+      document.querySelectorAll('.theme-icon-moon').forEach(function (el) {
+        el.style.display = dark ? 'none' : 'block';
+      });
+    }
+
+    window.topbarToggleTheme = function () {
+      var html = document.documentElement;
+      var goLight = html.classList.contains('dark');
+      if (goLight) {
+        html.classList.remove('dark');
+        localStorage.setItem('appearance', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('appearance', 'dark');
+      }
+      syncThemeIcons();
+    };
+
+    /* Run on DOMContentLoaded and immediately (icons may already exist) */
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', syncThemeIcons);
+    } else {
+      syncThemeIcons();
+    }
+  })();
+  </script>
+</nav>

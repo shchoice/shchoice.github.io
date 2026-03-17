@@ -1,0 +1,100 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "term" }}
+
+  {{/* ======================================================
+       Term Page Header (category / tag)
+       — list-header wave 스타일 재사용
+       ====================================================== */}}
+  <header class="list-header">
+    <div class="list-header-inner">
+
+      <div class="list-header-accent"></div>
+
+      {{/* Breadcrumb */}}
+      {{ if and .Parent (ne .Parent.Kind "home") }}
+        <div class="list-header-breadcrumb">
+          <a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
+          <span class="list-bc-sep">›</span>
+          <span>{{ .Title }}</span>
+        </div>
+      {{ end }}
+
+      {{/* Title */}}
+      <h1 class="list-header-title">{{ .Title | emojify }}</h1>
+
+      {{/* Description */}}
+      {{ with .Description }}
+        <p class="list-header-desc">{{ . | markdownify }}</p>
+      {{ end }}
+
+      {{/* Meta row: post count */}}
+      <div class="list-header-meta">
+        <span class="list-header-count">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          {{ len .Pages }}개의 글
+        </span>
+      </div>
+
+    </div>
+
+    {{/* Wave animation */}}
+    <div class="article-header-waves" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+        <defs>
+          <path id="term-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/>
+        </defs>
+        <g>
+          <use href="#term-wave" class="ahw-1" x="48" y="0"/>
+          <use href="#term-wave" class="ahw-2" x="48" y="3"/>
+          <use href="#term-wave" class="ahw-3" x="48" y="5"/>
+          <use href="#term-wave" class="ahw-4" x="48" y="7"/>
+        </g>
+      </svg>
+    </div>
+  </header>
+
+  {{/* ======================================================
+       Cards Grid
+       ====================================================== */}}
+  <div class="list-body">
+
+    {{ if gt (len .Pages) 0 }}
+
+      {{ $groupByYear := .Params.groupByYear | default (site.Params.term.groupByYear | default false) }}
+
+      {{ if $groupByYear }}
+        {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+          <div class="list-year-group">
+            <div class="list-year-label"><span>{{ .Key }}</span></div>
+            <section class="list-cards-grid">
+              {{ range .Pages }}
+                {{ partial "article-link/card.html" . }}
+              {{ end }}
+            </section>
+          </div>
+        {{ end }}
+      {{ else }}
+        <section class="list-cards-grid">
+          {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+            {{ range .Pages }}
+              {{ partial "article-link/card.html" . }}
+            {{ end }}
+          {{ end }}
+        </section>
+      {{ end }}
+
+    {{ else }}
+      <section class="list-empty">
+        <p><em>{{ i18n "term.no_articles" | emojify }}</em></p>
+      </section>
+    {{ end }}
+
+    {{ partial "pagination.html" . }}
+
+  </div>
+
+{{ end }}

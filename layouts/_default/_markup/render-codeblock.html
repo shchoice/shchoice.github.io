@@ -1,0 +1,20 @@
+{{- $title := or .Attributes.title "" -}}
+{{- $lang := or .Type "text" -}}
+{{- $displayLang := $lang | upper -}}
+
+<div class="highlight-wrapper mac-codeblock">
+  {{/* Mac-style header */}}
+  <div class="mac-header">
+    <div class="mac-dots">
+      <span class="mac-dot mac-dot-red" title="Close"></span>
+      <span class="mac-dot mac-dot-yellow" title="Minimize"></span>
+      <span class="mac-dot mac-dot-green" title="Maximize"></span>
+    </div>
+    {{- if $title -}}
+      <span class="mac-label mac-file-title">{{- $title -}}</span>
+    {{- else if ne $lang "text" -}}
+      <span class="mac-label mac-lang-label">{{- $displayLang -}}</span>
+    {{- end -}}
+  </div>
+  {{- transform.Highlight .Inner $lang .Options -}}
+</div>

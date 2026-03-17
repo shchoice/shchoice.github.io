@@ -1,0 +1,65 @@
+# Sidebar category hierarchy
+# slug: Hugo taxonomy slug (URL-safe)
+# children: sub-categories (optional)
+# icon: emoji or text icon
+
+groups:
+  - name: "Programming"
+    categories:
+      - name: "Mark Up"
+        slug: "mark-up"
+        icon: "📝"
+        children: []
+      - name: "Style Sheet"
+        slug: "style-sheet"
+        icon: "🎨"
+        children:
+          - name: "CSS"
+            slug: "css"
+            icon: "🟦"
+          - name: "Sass"
+            slug: "sass"
+            icon: "💅"
+          - name: "Bootstrap5"
+            slug: "bootstrap5"
+            icon: "🅱️"
+      - name: "JavaScript"
+        slug: "javascript"
+        icon: "🟨"
+        children:
+          - name: "ES6"
+            slug: "es6"
+            icon: "⚡"
+          - name: "Node.js"
+            slug: "node-js"
+            icon: "🟢"
+      - name: "Language"
+        slug: "language"
+        icon: "🌐"
+        children: []
+      - name: "Library"
+        slug: "library"
+        icon: "📚"
+        children: []
+
+  - name: "Framework"
+    categories:
+      - name: "React"
+        slug: "react"
+        icon: "⚛️"
+        children: []
+      - name: "Vue.js"
+        slug: "vue-js"
+        icon: "💚"
+        children: []
+
+  - name: "DevOps"
+    categories:
+      - name: "DevOps"
+        slug: "devops"
+        icon: "🐳"
+        children: []
+      - name: "Linux"
+        slug: "linux"
+        icon: "🐧"
+        children: []

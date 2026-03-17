@@ -1,0 +1,207 @@
+{{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
+{{ $currentURL := .RelPermalink }}
+
+<div class="sidebar-inner">
+
+  {{/* ---- Profile Section ---- */}}
+  <div class="sidebar-profile">
+    <a href="{{ "" | relLangURL }}" class="sidebar-profile-link">
+      {{ with .Site.Params.Author.image }}
+        {{ $authorImage := "" }}
+        {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+          {{ $authorImage = resources.GetRemote . }}
+        {{ else }}
+          {{ $authorImage = resources.Get . }}
+        {{ end }}
+        {{ if and $authorImage (not $disableImageOptimization) (not (eq $authorImage.MediaType.SubType "svg")) }}
+          {{ $final := $authorImage.Fill "128x128 q96" }}
+          <img class="sidebar-avatar" src="{{ $final.RelPermalink }}" alt="{{ $.Site.Params.Author.name | default `Author` }}">
+        {{ else if $authorImage }}
+          <img class="sidebar-avatar" src="{{ $authorImage.RelPermalink }}" alt="{{ $.Site.Params.Author.name | default `Author` }}">
+        {{ else }}
+          <div class="sidebar-avatar-placeholder">👤</div>
+        {{ end }}
+      {{ else }}
+        <div class="sidebar-avatar-placeholder">👤</div>
+      {{ end }}
+    </a>
+    <div class="sidebar-author-name">{{ .Site.Params.Author.name | default .Site.Title }}</div>
+    {{ with .Site.Params.Author.headline }}
+      <div class="sidebar-author-sub">{{ . }}</div>
+    {{ end }}
+
+    {{/* Icon row */}}
+    <div class="sidebar-icon-row">
+      <a href="{{ "" | relLangURL }}" class="sidebar-icon-btn" title="홈">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      </a>
+      {{ if site.Params.enableSearch | default false }}
+        <a href="#" class="sidebar-icon-btn" id="sidebar-search-btn" title="검색"
+           onclick="displaySearch();return false;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+      {{ end }}
+      <a href="{{ "/categories/" | relLangURL }}" class="sidebar-icon-btn" title="카테고리">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+      </a>
+    </div>
+  </div>
+
+  {{/* ---- ROOT Count ---- */}}
+  <div class="sidebar-root-count">
+    ROOT (<span class="sidebar-root-num">{{ len site.RegularPages }}</span>)
+  </div>
+
+  {{/* ---- Category Tree ---- */}}
+  <div class="sidebar-categories" id="sidebar-cat-tree">
+
+    {{ if site.Data.sidebar }}
+      {{/* Data-driven hierarchy from data/sidebar.yaml */}}
+      {{ range site.Data.sidebar.groups }}
+        <div class="sidebar-group-label">
+          <span class="sidebar-group-dots">···</span>
+          {{ .name }}
+        </div>
+
+        {{ range .categories }}
+          {{ $catSlug := .slug }}
+          {{ $catName := .name }}
+          {{ $catIcon := .icon }}
+          {{ $children := .children }}
+          {{ $hasChildren := and $children (gt (len $children) 0) }}
+
+          {{/* Get count from Hugo taxonomy */}}
+          {{ $taxKey := lower $catSlug }}
+          {{ $taxPages := index site.Taxonomies.categories $taxKey }}
+          {{ $count := 0 }}
+          {{ if $taxPages }}{{ $count = len $taxPages }}{{ end }}
+
+          {{/* Also count children posts for parent total */}}
+          {{ if $hasChildren }}
+            {{ range $children }}
+              {{ $childKey := lower .slug }}
+              {{ $childPages := index site.Taxonomies.categories $childKey }}
+              {{ if $childPages }}{{ $count = add $count (len $childPages) }}{{ end }}
+            {{ end }}
+          {{ end }}
+
+          {{ $catURL := printf "/categories/%s/" $catSlug | relLangURL }}
+          {{ $isActive := strings.HasPrefix $currentURL (printf "/categories/%s" $catSlug) }}
+
+          <div class="sidebar-cat-item{{ if $hasChildren }} has-children{{ end }}{{ if $isActive }} is-active{{ end }}"
+               data-slug="{{ $catSlug }}">
+
+            {{/* Parent row */}}
+            <div class="sidebar-cat-row{{ if $isActive }} active{{ end }}"
+                 {{ if $hasChildren }}
+                   onclick="sidebarToggle(this)"
+                   role="button"
+                   tabindex="0"
+                   onkeydown="if(event.key==='Enter'||event.key===' ')sidebarToggle(this)"
+                 {{ end }}>
+              <span class="sidebar-cat-icon">{{ $catIcon }}</span>
+              {{ if $hasChildren }}
+                <span class="sidebar-cat-name">{{ $catName }}</span>
+                {{ if gt $count 0 }}
+                  <span class="sidebar-cat-badge">{{ $count }}</span>
+                {{ end }}
+                <span class="sidebar-cat-arrow">›</span>
+              {{ else }}
+                <a href="{{ $catURL }}" class="sidebar-cat-name-link">{{ $catName }}</a>
+                {{ if gt $count 0 }}
+                  <span class="sidebar-cat-badge">{{ $count }}</span>
+                {{ end }}
+                <a href="{{ $catURL }}" class="sidebar-cat-arrow-link">›</a>
+              {{ end }}
+            </div>
+
+            {{/* Sub-categories */}}
+            {{ if $hasChildren }}
+              <div class="sidebar-cat-children">
+                {{/* Link to parent category too */}}
+                <a href="{{ $catURL }}" class="sidebar-child-row sidebar-child-all">
+                  <span class="sidebar-child-arrow">›</span>
+                  <span class="sidebar-child-name">전체 보기</span>
+                  {{ if gt (len $taxPages) 0 }}
+                    <span class="sidebar-child-badge">{{ len $taxPages }}</span>
+                  {{ end }}
+                </a>
+                {{ range $children }}
+                  {{ $childSlug := .slug }}
+                  {{ $childKey := lower $childSlug }}
+                  {{ $childPages := index site.Taxonomies.categories $childKey }}
+                  {{ $childCount := 0 }}
+                  {{ if $childPages }}{{ $childCount = len $childPages }}{{ end }}
+                  {{ $childURL := printf "/categories/%s/" $childSlug | relLangURL }}
+                  {{ $childActive := eq $currentURL $childURL }}
+
+                  <a href="{{ $childURL }}"
+                     class="sidebar-child-row{{ if $childActive }} active{{ end }}">
+                    <span class="sidebar-child-arrow">›</span>
+                    <span class="sidebar-child-icon">{{ .icon }}</span>
+                    <span class="sidebar-child-name">{{ .name }}</span>
+                    {{ if gt $childCount 0 }}
+                      <span class="sidebar-child-badge">{{ $childCount }}</span>
+                    {{ end }}
+                  </a>
+                {{ end }}
+              </div>
+            {{ end }}
+
+          </div>
+        {{ end }}
+
+      {{ end }}
+
+    {{ else }}
+      {{/* Fallback: flat taxonomy list */}}
+      <div class="sidebar-group-label">카테고리</div>
+      {{ range $name, $pages := site.Taxonomies.categories }}
+        {{ $catURL := printf "/categories/%s/" (urlize $name) | relLangURL }}
+        {{ $isActive := eq $currentURL $catURL }}
+        <div class="sidebar-cat-item">
+          <div class="sidebar-cat-row{{ if $isActive }} active{{ end }}">
+            <span class="sidebar-cat-icon">📂</span>
+            <a href="{{ $catURL }}" class="sidebar-cat-name-link">{{ $name | humanize }}</a>
+            <span class="sidebar-cat-badge">{{ len $pages }}</span>
+            <a href="{{ $catURL }}" class="sidebar-cat-arrow-link">›</a>
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+
+  </div>
+
+</div>
+
+{{/* ---- Accordion JavaScript ---- */}}
+<script>
+function sidebarToggle(row) {
+  var item = row.closest('.sidebar-cat-item');
+  var isOpen = item.classList.contains('is-open');
+
+  // Close all open items
+  document.querySelectorAll('.sidebar-cat-item.is-open').forEach(function(el) {
+    el.classList.remove('is-open');
+    var arrow = el.querySelector('.sidebar-cat-arrow');
+    if (arrow) arrow.style.transform = '';
+  });
+
+  // Toggle current
+  if (!isOpen) {
+    item.classList.add('is-open');
+    var arrow = item.querySelector('.sidebar-cat-arrow');
+    if (arrow) arrow.style.transform = 'rotate(90deg)';
+  }
+}
+
+// Auto-open active category on page load
+document.addEventListener('DOMContentLoaded', function() {
+  var activeItem = document.querySelector('.sidebar-cat-item.is-active.has-children');
+  if (activeItem) {
+    activeItem.classList.add('is-open');
+    var arrow = activeItem.querySelector('.sidebar-cat-arrow');
+    if (arrow) arrow.style.transform = 'rotate(90deg)';
+  }
+});
+</script>

@@ -1,0 +1,273 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "single" }}
+
+  {{ $enableToc := site.Params.article.showTableOfContents | default false }}
+  {{ $enableToc = .Params.showTableOfContents | default $enableToc }}
+  {{ $showToc := and $enableToc (in .TableOfContents "<ul") }}
+
+  {{/* ======================================================
+       Full-width Article Header (outside article-page)
+       Spans the entire #main-wrapper width
+       ====================================================== */}}
+  <header class="article-header">
+    <div class="article-header-inner">
+
+      {{/* Top accent bar */}}
+      <div class="article-header-accent"></div>
+
+      {{/* Category badges */}}
+      {{ $cats := .GetTerms "categories" }}
+      {{ if $cats }}
+        <div class="article-cats">
+          {{ range $cats }}
+            <a href="{{ .RelPermalink }}" class="article-cat-badge">{{ .LinkTitle }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+
+      {{/* Title */}}
+      <h1 class="article-title">{{ .Title | emojify }}</h1>
+
+      {{/* Description / subtitle */}}
+      {{ if .Description }}
+        <p class="article-description">{{ .Description }}</p>
+      {{ end }}
+
+      {{/* Meta divider */}}
+      <div class="article-meta-divider"></div>
+
+      {{/* Meta row with icons */}}
+      <div class="article-meta-row">
+        <span class="meta-item">
+          <svg class="meta-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>{{ .Date.Format "2006.01.02" }}</span>
+        </span>
+        {{ if .Params.showDateUpdated | default (site.Params.article.showDateUpdated | default false) }}
+          {{ if ne .Lastmod .Date }}
+            <span class="meta-dot">·</span>
+            <span class="meta-item meta-updated">
+              <span>수정 {{ .Lastmod.Format "2006.01.02" }}</span>
+            </span>
+          {{ end }}
+        {{ end }}
+        <span class="meta-dot">·</span>
+        <span class="meta-item">
+          <svg class="meta-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>{{ .ReadingTime }}분 읽기</span>
+        </span>
+        <span class="meta-dot">·</span>
+        <span class="meta-item">
+          <svg class="meta-icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>{{ .WordCount }}자</span>
+        </span>
+      </div>
+
+      {{/* Tags */}}
+      {{ $tags := .GetTerms "tags" }}
+      {{ if $tags }}
+        <div class="article-tags">
+          {{ range $tags }}
+            <a href="{{ .RelPermalink }}" class="article-tag">#{{ .LinkTitle }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+
+    </div>{{/* /article-header-inner */}}
+
+    {{/* Wave animation — spans full header width */}}
+    <div class="article-header-waves" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+        <defs>
+          <path id="ah-wave" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/>
+        </defs>
+        <g>
+          <use href="#ah-wave" class="ahw-1" x="48" y="0"/>
+          <use href="#ah-wave" class="ahw-2" x="48" y="3"/>
+          <use href="#ah-wave" class="ahw-3" x="48" y="5"/>
+          <use href="#ah-wave" class="ahw-4" x="48" y="7"/>
+        </g>
+      </svg>
+    </div>
+
+  </header>
+
+  {{/* ======================================================
+       Article body — constrained to 768px centered column
+       ====================================================== */}}
+  <article class="article-page">
+
+    {{/* Hero (optional featured image) */}}
+    {{ if .Params.showHero | default (site.Params.article.showHero | default false) }}
+      {{ $heroStyle := .Params.heroStyle }}
+      {{ if not $heroStyle }}{{ $heroStyle = site.Params.article.heroStyle }}{{ end }}
+      {{ $heroStyle := print "hero/" $heroStyle ".html" }}
+      {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
+        {{ partial $heroStyle . }}
+      {{ else }}
+        {{ partial "hero/basic.html" . }}
+      {{ end }}
+    {{ end }}
+
+    {{/* Body */}}
+    <div class="article-layout">
+      <div class="article-body prose dark:prose-invert">
+        {{ partial "series/series.html" . }}
+        <div class="content-divider" aria-hidden="true">
+          <span class="content-divider-diamond"></span>
+        </div>
+
+        <div class="article-content mb-20">
+          {{ .Content }}
+
+          {{ $defaultReplyByEmail := site.Params.replyByEmail }}
+          {{ $replyByEmail := default $defaultReplyByEmail .Params.replyByEmail }}
+          {{ if $replyByEmail }}
+            <strong class="block mt-8">
+              <a class="email-link m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+                 href="#"
+                 data-email="{{ site.Params.Author.email | base64Encode }}"
+                 data-subject="{{ replace (printf "Reply to %s" .Title) "\"" "'" }}">
+                {{ i18n "article.reply_by_email" | default "Reply by Email" }}
+              </a>
+            </strong>
+          {{ end }}
+        </div>
+
+        {{ if (.Params.showAuthorBottom | default (site.Params.article.showAuthorBottom | default false)) }}
+          {{ template "SingleAuthor" . }}
+        {{ end }}
+        {{ partial "series/series-closed.html" . }}
+        {{ partial "sharing-links.html" . }}
+        {{ partial "related.html" . }}
+      </div>
+    </div>
+
+    {{/* Footer */}}
+    <footer class="article-footer">
+      {{ partial "article-pagination.html" . }}
+      {{ if .Params.showComments | default (site.Params.article.showComments | default false) }}
+        {{ if templates.Exists "partials/comments.html" }}
+          <div class="pt-3">
+            <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+            <div class="pt-3">
+              {{ partial "comments.html" . }}
+            </div>
+          </div>
+        {{ else }}
+          {{ warnf "[BLOWFISH] Comments are enabled for %s but no comments partial exists." .File.Path }}
+        {{ end }}
+      {{ end }}
+    </footer>
+
+  </article>
+
+  {{/* Floating ToC button */}}
+  {{ if $showToc }}
+  <div class="toc-float-container" id="tocFloatContainer">
+    <button class="toc-float-btn" id="tocFloatBtn" onclick="toggleFloatToc()" title="목차" aria-label="목차 열기/닫기">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="15" y2="12"></line>
+        <line x1="3" y1="18" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="toc-float-panel" id="tocFloatPanel">
+      <div class="toc-float-header">
+        <span class="toc-float-title">목차</span>
+        <button class="toc-float-close" onclick="toggleFloatToc()" aria-label="닫기">✕</button>
+      </div>
+      <div class="toc-float-body">
+        {{ partial "toc.html" . }}
+      </div>
+    </div>
+  </div>
+  <script>
+  function toggleFloatToc() {
+    var panel = document.getElementById('tocFloatPanel');
+    var btn = document.getElementById('tocFloatBtn');
+    if (!panel || !btn) return;
+    var isOpen = panel.classList.contains('is-open');
+    if (isOpen) {
+      panel.classList.remove('is-open');
+      btn.classList.remove('is-active');
+    } else {
+      panel.classList.add('is-open');
+      btn.classList.add('is-active');
+    }
+  }
+  document.addEventListener('click', function(e) {
+    var container = document.getElementById('tocFloatContainer');
+    if (container && !container.contains(e.target)) {
+      var panel = document.getElementById('tocFloatPanel');
+      var btn = document.getElementById('tocFloatBtn');
+      if (panel && panel.classList.contains('is-open')) {
+        panel.classList.remove('is-open');
+        if (btn) btn.classList.remove('is-active');
+      }
+    }
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    var panel = document.getElementById('tocFloatPanel');
+    if (!panel) return;
+    panel.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        setTimeout(function() {
+          var p = document.getElementById('tocFloatPanel');
+          var b = document.getElementById('tocFloatBtn');
+          if (p) p.classList.remove('is-open');
+          if (b) b.classList.remove('is-active');
+        }, 150);
+      });
+    });
+  });
+  </script>
+  {{ end }}
+
+{{ end }}
+
+{{ define "SingleAuthor" }}
+  {{ $authorsData := site.Data.authors }}
+  {{ $taxonomies := site.Taxonomies.authors }}
+  {{ $baseURL := site.BaseURL }}
+  {{ $taxonomyLink := 0 }}
+  {{ $showAuthor := 0 }}
+  {{ $isAuthorBottom := (.Params.showAuthorBottom | default ( site.Params.article.showAuthorBottom | default false)) }}
+
+  {{ if not (strings.HasSuffix $baseURL "/") }}
+    {{ $baseURL = delimit (slice $baseURL "/") "" }}
+  {{ end }}
+
+  {{ if .Params.showAuthor | default (site.Params.article.showAuthor | default true) }}
+    {{ $showAuthor = 1 }}
+    {{ partial "author.html" . }}
+  {{ end }}
+
+  {{ range $author := .Page.Params.authors }}
+    {{ $authorData := index $authorsData $author }}
+    {{- if $authorData -}}
+      {{ range $taxonomyname, $taxonomy := $taxonomies }}
+        {{ if (eq $taxonomyname $author) }}
+          {{ $taxonomyLink = delimit (slice $baseURL "authors/" $author "/") "" }}
+        {{ end }}
+      {{ end }}
+      {{ $finalLink := $taxonomyLink }}
+      {{ $currentLang := site.Language.Lang }}
+      {{ if eq site.LanguagePrefix "" }}
+        {{ $finalLink = printf "%sauthors/%s/" $baseURL $author }}
+      {{ else }}
+        {{ $finalLink = printf "%s%s/authors/%s/" $baseURL $currentLang $author }}
+      {{ end }}
+      {{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $finalLink) }}
+    {{- end -}}
+  {{ end }}
+
+  {{ if or $taxonomyLink $showAuthor }}
+    <div class="{{ cond $isAuthorBottom "mb-10" "mb-5" }}"></div>
+  {{ end }}
+{{ end }}
